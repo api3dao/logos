@@ -442,5 +442,11 @@
     },
     {
         "name": "ZRX/USD"
+    },
+    {
+        "name": "BCH/USD"
+    },
+    {
+        "name": "CDT/USD"
     }
 ]
