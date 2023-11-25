@@ -1,8 +1,14 @@
-import { VStack } from '@chakra-ui/react';
 import SymbolsView from './SymbolsView';
 import ChainsView from './ChainsView';
+import Docs from './Docs';
+import { useState } from 'react';
+import { VStack, Text, Tab, Tabs, TabList, TabPanel, TabPanels } from '@chakra-ui/react';
+
+
 
 const Welcome = () => {
+    const [selectedTab, setSelectedTab] = useState(0);
+
     return (
         <VStack
             p={10}
@@ -11,12 +17,30 @@ const Welcome = () => {
             boxShadow="md"
             spacing={5}
             width={'95vw'}
-            maxWidth={'1000px'}
+            maxWidth={'1100px'}
             alignItems={'left'}
             justifyItems={'center'}
         >
-            <SymbolsView />
-            <ChainsView />
+            <Text fontSize="2xl" fontWeight="bold" ml={2}>@api3/react-icons</Text>
+            <Text fontSize="md" ml={2}>Welcome to @api3/react-icons package viewer. This package contains icons for chains and symbols that supported by API3</Text>
+            <Tabs selectedIndex={selectedTab} onSelect={index => setSelectedTab(index)}>
+                <TabList>
+                    <Tab>Symbols</Tab>
+                    <Tab>Chains</Tab>
+                    <Tab>Docs</Tab>
+                </TabList>
+                <TabPanels>
+                    <TabPanel>
+                        <SymbolsView />
+                    </TabPanel>
+                    <TabPanel>
+                        <ChainsView />
+                    </TabPanel>
+                    <TabPanel>
+                        <Docs />
+                    </TabPanel>
+                </TabPanels>
+            </Tabs>
         </VStack>
     );
 };

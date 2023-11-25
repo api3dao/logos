@@ -1,14 +1,24 @@
 import { Flex, Text } from '@chakra-ui/react';
 import { SymbolIcon } from 'react-icons';
 import Feeds from '../data/feeds.json';
+import SearchRow from '../Custom/SearchRow';
+import { useState } from 'react';
+
 
 const SymbolsView = () => {
+
+    const [symbol, setSymbol] = useState('');
+
     const getSymbols = () => {
-        return [...new Set(Feeds.map((feed) => feed.name.split('/')).flat())];
+        const filteredFeeds = [...new Set(Feeds.map((feed) => feed.name.split('/')).flat())];
+        return filteredFeeds.filter((feed) => feed.toLowerCase().includes(symbol.toLowerCase()));
     };
 
     return (
-        <Flex p={3} gap={3} bgColor={'white'} wrap={'wrap'} alignItems="center" justifyContent="center">
+        <Flex p={3} gap={3} bgColor={'white'} wrap={'wrap'} alignItems="center" justifyContent="left">
+            <Text fontSize="md" fontWeight="bold" ml={2}>There are total of {getSymbols().length} symbols</Text>
+            <SearchRow text={symbol} setText={setSymbol} placeholder={"Enter a symbol"} />
+
             {getSymbols().map((feed, index) => {
                 return (
                     <Flex
