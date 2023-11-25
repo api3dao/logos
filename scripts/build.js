@@ -8,7 +8,7 @@ const babel = require('@babel/core');
 
 const outputPath = './dist';
 
-async function transformSVGtoJSX(file, componentName, format, dir) {
+async function transformSVGtoJSX(file, componentName, format, dir, isTestnet = false) {
     const content = await fs.readFile(`${dir}/${file}`, 'utf-8');
     const svgReactContent = await svgr(
         content,
@@ -17,7 +17,8 @@ async function transformSVGtoJSX(file, componentName, format, dir) {
             replaceAttrValues: { '#00497A': "{props.color || '#00497A'}" },
             svgProps: {
                 width: 32,
-                height: 32
+                height: 32,
+                filter: isTestnet ? "grayscale(1)" : "none"
             }
         },
         { componentName }
@@ -56,7 +57,7 @@ async function buildChainIcons(files, iconsDir, format = 'esm', dir) {
             pascalCase: true
         })}Icon`;
 
-        const content = await transformSVGtoJSX(fileName, componentName, format, dir);
+        const content = await transformSVGtoJSX(fileName, componentName, format, dir, isTestnet = chain.testnet);
         const types = `import * as React from 'react';\ndeclare function ${componentName}(props: React.SVGProps<SVGSVGElement>): JSX.Element;\nexport default ${componentName};\n`;
 
         // console.log(`- Creating file: ${componentName}.js`);
