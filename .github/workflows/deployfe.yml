@@ -1,0 +1,63 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Deploy to Github Pages
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  pack-local-package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: 'yarn'
+      - name: Install Packages
+        run: yarn install
+      - name: Pack Package
+        run: yarn package
+      - name: Upload Package
+        uses: actions/upload-artifact@v2
+        with:
+          name: react-icons.tgz
+          path: ./react-icons.tgz
+
+  deploy-frontend:
+    needs: pack-local-package
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./viewer
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.x
+        cache: 'npm'
+    - name: Install Packages
+      run: npm install
+    - name: Download Package
+      id: download-package
+      uses: actions/download-artifact@v2
+      with:
+          name: react-icons.tgz
+          path: ./viewer
+    - name: Sleep
+      run: sleep 10
+    - name: Unpack Package
+      run: npm install ./react-icons.tgz
+    - name: Build Page
+      run: npm run build
+    - name: Deploy to Github Pages
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: gh-pages
+        folder: ./viewer/build
