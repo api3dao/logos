@@ -28,7 +28,7 @@ const Welcome = () => {
             <Flex p={3} boxShadow={"md"} bgColor={"white"} key={index} alignItems="center" justifyContent="left">
               <SymbolIcon id={feed} size={50} />
               <Text fontSize="xl" fontWeight="bold" ml={2}>
-                {"#" + feed + "#"}
+                {feed}
               </Text>
             </Flex>
           );
