@@ -24,7 +24,7 @@ jobs:
       - name: Pack Package
         run: yarn package
       - name: Upload Package
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: react-icons.tgz
           path: ./react-icons.tgz
@@ -46,7 +46,7 @@ jobs:
       run: npm install
     - name: Download Package
       id: download-package
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
           name: react-icons.tgz
           path: ./viewer
