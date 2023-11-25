@@ -45,12 +45,14 @@ jobs:
     - name: Install Packages
       run: npm install
     - name: Download Package
+      id: download-package
       uses: actions/download-artifact@v2
       with:
           name: react-icons.tgz
           path: ./viewer
     - name: Unpack Package
-      run: tar -xzf ./viewer/react-icons.tgz -C ./viewer/node_modules
+      if: steps.download-package.outputs.artifacts_size > 0
+      run: npm install ./react-icons.tgz
     - name: Build Page
       run: npm run build
     - name: Deploy to Github Pages
