@@ -1,56 +1,28 @@
-import { VStack, Flex, Text } from '@chakra-ui/react';
-import { ChainIcon, SymbolIcon } from 'react-icons';
-import * as Api3Chains from '@api3/chains';
-import Feeds from './data/feeds.json'
+import { VStack, Flex } from '@chakra-ui/react';
+import { HashRouter, Routes, Route } from 'react-router-dom';
+import Header from './Components/Header';
+import Welcome from './Components/Welcome';
 
-const Welcome = () => {
-
-  const getSymbols = () => {
-    return [...new Set(Feeds.map((feed) => feed.name.split('/')).flat())];
-  }
-
-  return (
-    <VStack
-      p={10}
-      bgColor={"white"}
-      borderRadius={'sm'}
-      boxShadow={"md"}
-      spacing={5}
-      width={'450px'}
-      maxWidth={'1000px'}
-      alignItems={'left'}
-      justifyItems={'left'}
-    >
-
-      {
-        getSymbols().map((feed, index) => {
-          return (
-            <Flex p={3} boxShadow={"md"} bgColor={"white"} key={index} alignItems="center" justifyContent="left">
-              <SymbolIcon id={feed} size={50} />
-              <Text fontSize="xl" fontWeight="bold" ml={2}>
-                {feed}
-              </Text>
+const App = () => {
+    return (
+        <HashRouter>
+            <Header />
+            <Flex
+                h="calc(100vh - 90px)"
+                backgroundImage={'./bg.svg'}
+                spacing={0}
+                p={5}
+                alignItems={'stretch'}
+                flexDirection={'row'}
+            >
+                <VStack width={'100%'} alignItems={'center'}>
+                    <Routes>
+                        <Route path="/" element={<Welcome />} />
+                    </Routes>
+                </VStack>
             </Flex>
-          );
-        })
-      }
-      {
-        Api3Chains.CHAINS.map((chain) => {
-          return (
-            <Flex p={3} boxShadow={"md"} bgColor={"white"} key={chain.name} alignItems="center" justifyContent="left">
-              <ChainIcon id={chain.id} size={50} />
-              <Text fontSize="xl" fontWeight="bold" ml={2}>
-                {chain.name}
-              </Text>
-              <Text fontSize="xl" ml={2}>
-                {chain.id}
-              </Text>
-            </Flex>
-          );
-        })
-      }
-    </VStack>
-  );
+        </HashRouter>
+    );
 };
 
-export default Welcome;
+export default App;
