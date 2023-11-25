@@ -39,6 +39,8 @@ jobs:
         cache: 'npm'
     - name: Install Packages
       run: npm install
+    - name: Install Local Package
+      run: npm install ../react-icons.tgz
     - name: Build Page
       run: npm run build
     - name: Deploy to Github Pages
