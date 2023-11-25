@@ -9,7 +9,6 @@ const Welcome = () => {
     return [...new Set(Feeds.map((feed) => feed.name.split('/')).flat())];
   }
 
-
   return (
     <VStack
       p={10}

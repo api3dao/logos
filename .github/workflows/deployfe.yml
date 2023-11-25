@@ -23,6 +23,11 @@ jobs:
         run: yarn install
       - name: Pack Package
         run: yarn package
+      - name: Upload Package
+        uses: actions/upload-artifact@v2
+        with:
+          name: react-icons.tgz
+          path: ./react-icons.tgz
 
   deploy-frontend:
     needs: pack-local-package
@@ -39,8 +44,13 @@ jobs:
         cache: 'npm'
     - name: Install Packages
       run: npm install
-    - name: Install Local Package
-      run: npm install ../react-icons.tgz
+    - name: Download Package
+      uses: actions/download-artifact@v2
+      with:
+          name: react-icons.tgz
+          path: ./viewer
+    - name: Unpack Package
+      run: tar -xzf ./viewer/react-icons.tgz -C ./viewer/node_modules
     - name: Build Page
       run: npm run build
     - name: Deploy to Github Pages
