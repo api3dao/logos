@@ -50,8 +50,9 @@ jobs:
       with:
           name: react-icons.tgz
           path: ./viewer
+    - name: Sleep
+      run: sleep 10
     - name: Unpack Package
-      if: steps.download-package.outputs.artifacts_size > 0
       run: npm install ./react-icons.tgz
     - name: Build Page
       run: npm run build
