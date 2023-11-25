@@ -1,4 +1,5 @@
 import { VStack, Flex, Text } from '@chakra-ui/react';
+import { ChainIcon, SymbolIcon } from 'react-icons';
 import * as Api3Chains from '@api3/chains';
 import Feeds from './data/feeds.json'
 
@@ -25,6 +26,7 @@ const Welcome = () => {
         getSymbols().map((feed, index) => {
           return (
             <Flex p={3} boxShadow={"md"} bgColor={"white"} key={index} alignItems="center" justifyContent="left">
+              <SymbolIcon id={feed} size={50} />
               <Text fontSize="xl" fontWeight="bold" ml={2}>
                 {feed}
               </Text>
@@ -36,6 +38,7 @@ const Welcome = () => {
         Api3Chains.CHAINS.map((chain) => {
           return (
             <Flex p={3} boxShadow={"md"} bgColor={"white"} key={chain.name} alignItems="center" justifyContent="left">
+              <ChainIcon id={chain.id} size={50} />
               <Text fontSize="xl" fontWeight="bold" ml={2}>
                 {chain.name}
               </Text>
