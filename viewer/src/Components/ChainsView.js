@@ -6,10 +6,12 @@ import { useState } from 'react';
 import Title from '../Custom/Title';
 
 const ChainList = ({ isTestnet, chain }) => {
-
     const getChains = (isTestnet) => {
-        return Api3Chains.CHAINS.filter((chainObject) => chainObject.name.toLowerCase().includes(chain.toLowerCase()) && chainObject.testnet === isTestnet);
-    }
+        return Api3Chains.CHAINS.filter(
+            (chainObject) =>
+                chainObject.name.toLowerCase().includes(chain.toLowerCase()) && chainObject.testnet === isTestnet
+        );
+    };
 
     return getChains(isTestnet).map((chain, index) => {
         return (
@@ -32,20 +34,21 @@ const ChainList = ({ isTestnet, chain }) => {
                 </Text>
             </Flex>
         );
-    })
-
-}
+    });
+};
 
 const ChainsView = () => {
     const [chain, setChain] = useState('');
 
     return (
         <Flex p={3} gap={3} bgColor={'white'} wrap={'wrap'} alignItems="center" justifyContent="left">
-            <Text fontSize="md" fontWeight="bold" ml={2}>There are total of {Api3Chains.CHAINS.length} chains</Text>
-            <SearchRow text={chain} setText={setChain} placeholder={"Enter a chain"} />
-            <Title header={"Mainnets"} />
+            <Text fontSize="md" fontWeight="bold" ml={2}>
+                There are total of {Api3Chains.CHAINS.length} chains
+            </Text>
+            <SearchRow text={chain} setText={setChain} placeholder={'Enter a chain'} />
+            <Title header={'Mainnets'} />
             <ChainList isTestnet={false} chain={chain} />
-            <Title header={"Testnets"} />
+            <Title header={'Testnets'} />
             <ChainList isTestnet={true} chain={chain} />
         </Flex>
     );

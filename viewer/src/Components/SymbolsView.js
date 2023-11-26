@@ -4,9 +4,7 @@ import Feeds from '../data/feeds.json';
 import SearchRow from '../Custom/SearchRow';
 import { useState } from 'react';
 
-
 const SymbolsView = () => {
-
     const [symbol, setSymbol] = useState('');
 
     const getSymbols = () => {
@@ -16,8 +14,10 @@ const SymbolsView = () => {
 
     return (
         <Flex p={3} gap={3} bgColor={'white'} wrap={'wrap'} alignItems="center" justifyContent="left">
-            <Text fontSize="md" fontWeight="bold" ml={2}>There are total of {getSymbols().length} symbols</Text>
-            <SearchRow text={symbol} setText={setSymbol} placeholder={"Enter a symbol"} />
+            <Text fontSize="md" fontWeight="bold" ml={2}>
+                There are total of {getSymbols().length} symbols
+            </Text>
+            <SearchRow text={symbol} setText={setSymbol} placeholder={'Enter a symbol'} />
 
             {getSymbols().map((feed, index) => {
                 return (

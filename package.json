@@ -25,7 +25,8 @@
         "camelcase": "^6.2.0",
         "rimraf": "^3.0.2",
         "svgo": "^2.5.0",
-        "terser": "^5.7.2"
+        "terser": "^5.7.2",
+        "prettier": "^3.1.0"
     },
     "main": "./dist/cjs/index.js",
     "module": "./dist/esm/index.js",
@@ -33,7 +34,6 @@
         "dist"
     ],
     "dependencies": {
-        "@api3/chains": "^4.1.0",
-        "prettier": "^3.1.0"
+        "@api3/chains": "^4.1.0"
     }
 }

@@ -4,8 +4,6 @@ import Docs from './Docs';
 import { useState } from 'react';
 import { VStack, Text, Tab, Tabs, TabList, TabPanel, TabPanels } from '@chakra-ui/react';
 
-
-
 const Welcome = () => {
     const [selectedTab, setSelectedTab] = useState(0);
 
@@ -21,9 +19,14 @@ const Welcome = () => {
             alignItems={'left'}
             justifyItems={'center'}
         >
-            <Text fontSize="2xl" fontWeight="bold" ml={2}>@api3/react-icons</Text>
-            <Text fontSize="md" ml={2}>Welcome to @api3/react-icons package viewer. This package contains icons for chains and symbols that supported by API3</Text>
-            <Tabs selectedIndex={selectedTab} onSelect={index => setSelectedTab(index)}>
+            <Text fontSize="2xl" fontWeight="bold" ml={2}>
+                @api3/react-icons
+            </Text>
+            <Text fontSize="md" ml={2}>
+                Welcome to @api3/react-icons package viewer. This package contains icons for chains and symbols that
+                supported by API3
+            </Text>
+            <Tabs selectedIndex={selectedTab} onSelect={(index) => setSelectedTab(index)}>
                 <TabList>
                     <Tab>Symbols</Tab>
                     <Tab>Chains</Tab>

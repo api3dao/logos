@@ -18,7 +18,7 @@ async function transformSVGtoJSX(file, componentName, format, dir, isTestnet = f
             svgProps: {
                 width: 32,
                 height: 32,
-                filter: isTestnet ? "grayscale(1)" : "none"
+                filter: isTestnet ? 'grayscale(1)' : 'none'
             }
         },
         { componentName }
@@ -57,7 +57,7 @@ async function buildChainIcons(files, iconsDir, format = 'esm', dir) {
             pascalCase: true
         })}Icon`;
 
-        const content = await transformSVGtoJSX(fileName, componentName, format, dir, isTestnet = chain.testnet);
+        const content = await transformSVGtoJSX(fileName, componentName, format, dir, (isTestnet = chain.testnet));
         const types = `import * as React from 'react';\ndeclare function ${componentName}(props: React.SVGProps<SVGSVGElement>): JSX.Element;\nexport default ${componentName};\n`;
 
         // console.log(`- Creating file: ${componentName}.js`);
