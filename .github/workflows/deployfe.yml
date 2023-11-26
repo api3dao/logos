@@ -6,6 +6,10 @@ name: Deploy to Github Pages
 on:
   push:
     branches: [ main ]
+    paths:
+      - 'data/**'
+      - 'raw/**'
+      - scripts/**
   pull_request:
     branches: [ main ]
 
