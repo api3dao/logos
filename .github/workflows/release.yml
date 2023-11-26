@@ -5,6 +5,10 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'data/**'
+      - 'raw/**'
+      - scripts/**
 
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
