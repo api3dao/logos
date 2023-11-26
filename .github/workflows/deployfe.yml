@@ -46,8 +46,6 @@ jobs:
       with:
         node-version: 18.x
         cache: 'npm'
-    - name: Install Packages
-      run: npm install
     - name: Download Package
       id: download-package
       uses: actions/download-artifact@v3
@@ -56,8 +54,8 @@ jobs:
           path: ./viewer
     - name: Sleep
       run: sleep 10
-    - name: Unpack Package
-      run: npm install ./react-icons.tgz
+    - name: Install Packages
+      run: npm install
     - name: Build Page
       run: npm run build
     - name: Deploy to Github Pages
