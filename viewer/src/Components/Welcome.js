@@ -20,10 +20,10 @@ const Welcome = () => {
             justifyItems={'center'}
         >
             <Text fontSize="2xl" fontWeight="bold" ml={2}>
-                @api3/react-icons
+                @api3/logos
             </Text>
             <Text fontSize="md" ml={2}>
-                Welcome to @api3/react-icons package viewer. This package contains icons for chains and symbols that
+                Welcome to @api3/logos package viewer. This package contains icons for chains and symbols that
                 supported by API3
             </Text>
             <Tabs selectedIndex={selectedTab} onSelect={(index) => setSelectedTab(index)}>
