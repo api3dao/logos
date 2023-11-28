@@ -205,11 +205,22 @@ async function generateIcons(format = 'esm') {
     await buildIcons(format, './optimized/symbols', 'symbols', 'SymbolIcon');
 }
 
+async function exportSVGs(group) {
+    await fs.mkdir(`${outputPath}/svg/${group}`, { recursive: true });
+
+    const files = await fs.readdir(`./optimized/${group}`, 'utf-8');
+    files.forEach(async (file) => {
+        const content = await fs.readFile(`./optimized/${group}/${file}`, 'utf-8');
+        await fs.writeFile(`${outputPath}/svg/${group}/${file}`, content, 'utf-8');
+    });
+}
+
 (function main() {
     console.log('🏗 Building icon package...');
     new Promise((resolve) => {
         rimraf(`${outputPath}/*`, resolve);
     })
         .then(() => Promise.all([generateIcons('cjs'), generateIcons('esm')]))
+        .then(() => Promise.all([exportSVGs("chains"), exportSVGs("symbols")]))
         .then(() => console.log('✅ Finished building package.'));
 })();
