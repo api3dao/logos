@@ -4,5 +4,5 @@ dist/
 optimized/
 
 package-lock.json
-react-icons.tgz
+logos.tgz
 yarn.lock

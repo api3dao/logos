@@ -7,7 +7,7 @@
         "optimize-chain-icons": "rimraf ./optimized/chains & svgo -q -p 8 -f ./raw/chains -o ./optimized/chains",
         "optimize-symbol-icons": "rimraf ./optimized/symbols & svgo -q -p 8 -f ./raw/symbols -o ./optimized/symbols",
         "build": "yarn optimize-chain-icons && yarn optimize-symbol-icons && node scripts/build.js",
-        "package": "yarn build && yarn pack --filename react-icons.tgz",
+        "package": "yarn build && yarn pack --filename logos.tgz",
         "prettier": "prettier --write \"**/*.{js,jsx,json,md}\"",
         "release": "yarn changeset publish"
     },

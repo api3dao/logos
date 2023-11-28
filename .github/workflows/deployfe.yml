@@ -30,8 +30,8 @@ jobs:
       - name: Upload Package
         uses: actions/upload-artifact@v3
         with:
-          name: react-icons.tgz
-          path: ./react-icons.tgz
+          name: logos.tgz
+          path: ./logos.tgz
 
   deploy-frontend:
     needs: pack-local-package
@@ -50,7 +50,7 @@ jobs:
       id: download-package
       uses: actions/download-artifact@v3
       with:
-          name: react-icons.tgz
+          name: logos.tgz
           path: ./viewer
     - name: Sleep
       run: sleep 10
