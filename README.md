@@ -2,15 +2,17 @@
 
 ## Installation
 
+[NOT DEPLOYED YET]
+
 ```bash
-yarn add @api3/react-icons
+yarn add @api3/logos
 ```
 
 ## Usage
 
 ```jsx
 import React from 'react';
-import { ChainIcon, SymbolIcon } from '@api3/react-icons';
+import { ChainIcon, SymbolIcon } from '@api3/logos';
 
 const App = () => (
     <div>
@@ -38,6 +40,6 @@ export default App;
 
 ## Supported chains and symbols
 
-Visit [this page](https://api3dao.github.io/react-icons/) for a list of supported chains and symbols.
+Visit [this page](https://api3dao.github.io/logos/) for a list of supported chains and symbols.
 
 <!-- prettier-ignore-end -->
