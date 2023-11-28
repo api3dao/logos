@@ -1,5 +1,5 @@
 ---
-'react-icons': patch
+'@api3/logos': patch
 ---
 
 initial release
