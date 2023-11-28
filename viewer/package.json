@@ -1,7 +1,7 @@
 {
     "name": "viewer",
     "version": "0.1.0",
-    "homepage": "https://api3dao.github.io/react-icons/",
+    "homepage": "https://api3dao.github.io/logos/",
     "private": true,
     "dependencies": {
         "@api3/chains": "^4.1.0",
