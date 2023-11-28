@@ -1,5 +1,5 @@
 import { Flex, Text } from '@chakra-ui/react';
-import { SymbolIcon } from 'react-icons';
+import { SymbolIcon } from 'logos';
 import Feeds from '../data/feeds.json';
 import SearchRow from '../Custom/SearchRow';
 import { useState } from 'react';

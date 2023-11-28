@@ -1,5 +1,5 @@
 import { Flex, Text, Spacer } from '@chakra-ui/react';
-import { ChainIcon } from 'react-icons';
+import { ChainIcon } from 'logos';
 import * as Api3Chains from '@api3/chains';
 import SearchRow from '../Custom/SearchRow';
 import { useState } from 'react';
