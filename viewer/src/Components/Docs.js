@@ -8,12 +8,12 @@ const ChainsView = () => {
                 Usage of ChainIcon and SymbolIcon components
             </Text>
             <Text fontSize="md" ml={2}>
-                You can use ChainIcon and SymbolIcon by importing them from @api3/react-icons package
+                You can use ChainIcon and SymbolIcon by importing them from @api3/logos package
             </Text>
 
             <CopyBlock
                 text={`import React from 'react';
-import { ChainIcon, SymbolIcon } from '@api3/react-icons';
+import { ChainIcon, SymbolIcon } from '@api3/logos';
 
 const App = () => (
     <div>
