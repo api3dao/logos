@@ -7,7 +7,7 @@ const Header = () => {
                 <Flex align="flex-start" cursor="pointer" gap={'12px'}>
                     <Image src={`./logo.svg`} width={'32px'} height={'32px'} />
                     <Text fontWeight={'light'} fontSize="xl">
-                        API3 Icons Viewer
+                        API3 Logos Viewer
                     </Text>
                 </Flex>
                 <Spacer />
