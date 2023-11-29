@@ -1,15 +1,12 @@
 module.exports = {
-    multipass: true,
+    multipass: false,
     js2svg: {
-        indent: 2,
+        indent: 4,
         pretty: true
     },
     plugins: [
-        { name: 'preset-default' },
-        'sortAttrs',
-        'removeScriptElement',
-        'removeDimensions',
-        'removeScriptElement',
-        'removeDimensions'
+        "removeXMLProcInst",
+        "removeEditorsNSData",
+        "removeUnusedNS"
     ]
 };
