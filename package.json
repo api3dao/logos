@@ -6,7 +6,8 @@
     "scripts": {
         "optimize-chain-logos": "rimraf ./optimized/chains & svgo -q -p 8 -f ./raw/chains -o ./optimized/chains",
         "optimize-symbol-logos": "rimraf ./optimized/symbols & svgo -q -p 8 -f ./raw/symbols -o ./optimized/symbols",
-        "build": "yarn optimize-chain-logos && yarn optimize-symbol-logos && node scripts/build.js",
+        "optimize-api-provider-logos": "rimraf ./optimized/api-providers & svgo -q -p 8 -f ./raw/api-providers -o ./optimized/api-providers",
+        "build": "yarn optimize-chain-logos && yarn optimize-symbol-logos && yarn optimize-api-provider-logos && node scripts/build.js",
         "package": "yarn build && yarn pack --filename logos.tgz",
         "prettier": "prettier --write \"**/*.{js,jsx,json,md}\"",
         "release": "yarn changeset publish"
@@ -30,6 +31,7 @@
         "@changesets/cli": "^2.26.2",
         "@svgr/cli": "^5.5.0",
         "@svgr/core": "^5.5.0",
+        "@types/react": "^18.2.39",
         "camelcase": "^6.2.0",
         "prettier": "^3.1.0",
         "rimraf": "^3.0.2",

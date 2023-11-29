@@ -60,7 +60,38 @@ async function buildChainIcons(files, iconsDir, format = 'esm', dir) {
         const content = await transformSVGtoJSX(fileName, componentName, format, dir, (isTestnet = chain.testnet));
         const types = `import * as React from 'react';\ndeclare function ${componentName}(props: React.SVGProps<SVGSVGElement>): JSX.Element;\nexport default ${componentName};\n`;
 
-        // console.log(`- Creating file: ${componentName}.js`);
+        await fs.writeFile(`${iconsDir}/${componentName}.js`, content, 'utf-8');
+        await fs.writeFile(`${iconsDir}/${componentName}.d.ts`, types, 'utf-8');
+    });
+}
+
+async function buildApiProviderLogos(files, iconsDir, format = 'esm', dir) {
+    const apiProviders = [
+        'coinpaprika',
+        'demo',
+        'dxfeed',
+        'finage',
+        'iexcloud',
+        'kaiko',
+        'ncfx',
+        'nodary',
+        'tradermade',
+        'twelvedata'
+    ];
+
+    apiProviders.forEach(async (provider) => {
+        const file = files.find((file) => file == `${provider.toLowerCase()}.svg`);
+        let fileName = file;
+
+        if (!fileName) {
+            throw new Error(`- Api provider ${provider} not found`);
+        }
+
+        const componentName = sanitizeName(fileName);
+
+        const content = await transformSVGtoJSX(fileName, componentName, format, dir);
+        const types = `import * as React from 'react';\ndeclare function ${componentName}(props: React.SVGProps<SVGSVGElement>): JSX.Element;\nexport default ${componentName};\n`;
+
         await fs.writeFile(`${iconsDir}/${componentName}.js`, content, 'utf-8');
         await fs.writeFile(`${iconsDir}/${componentName}.d.ts`, types, 'utf-8');
     });
@@ -103,6 +134,9 @@ async function buildIcons(format = 'esm', dir, mode, batchName) {
         case 'symbols':
             await buildSymbolIcons(files, iconsDir, format, dir);
             break;
+        case 'api-providers':
+            await buildApiProviderLogos(files, iconsDir, format, dir);
+            break;
         default:
             break;
     }
@@ -133,6 +167,28 @@ function generateSymbolSwitchCase() {
         .join('');
 }
 
+function generateApiProviderSwitchCase() {
+    const apiProviders = [
+        'coinpaprika',
+        'demo',
+        'dxfeed',
+        'finage',
+        'iexcloud',
+        'kaiko',
+        'ncfx',
+        'nodary',
+        'tradermade',
+        'twelvedata'
+    ];
+
+    return apiProviders
+        .map(
+            (provider) => `
+        case "${provider.toLowerCase()}":\n\treturn <ApiProvider${sanitizeName(provider)} {...props} />;\n`
+        )
+        .join('');
+}
+
 function generateSymbolImports() {
     const symbols = [...new Set(feeds.map((feed) => feed.name.split('/')).flat())];
     return symbols
@@ -140,14 +196,48 @@ function generateSymbolImports() {
         .join('');
 }
 
+function generateApiProviderImports() {
+    const apiProviders = [
+        'coinpaprika',
+        'demo',
+        'dxfeed',
+        'finage',
+        'iexcloud',
+        'kaiko',
+        'ncfx',
+        'nodary',
+        'tradermade',
+        'twelvedata'
+    ];
+
+    return apiProviders
+        .map(
+            (provider) =>
+                `import ApiProvider${sanitizeName(provider)} from './icons/api-providers/${sanitizeName(provider)}';\n`
+        )
+        .join('');
+}
+
+function generateChainImports() {
+    return chains.CHAINS.map(
+        (chain) => `import Chain${chain.id}Icon from './icons/chains/Chain${chain.id}Icon';\n`
+    ).join('');
+}
+
+function generateChainSwitchCase() {
+    return chains.CHAINS.map((chain) => `case "${chain.id}":\n\treturn <Chain${chain.id}Icon {...props} />;\n`).join(
+        ''
+    );
+}
+
 function buildSwitchCase(mode) {
     switch (mode) {
         case 'chains':
-            return chains.CHAINS.map(
-                (chain) => `case "${chain.id}":\n\treturn <Chain${chain.id}Icon {...props} />;\n`
-            ).join('');
+            return generateChainSwitchCase();
         case 'symbols':
             return generateSymbolSwitchCase();
+        case 'api-providers':
+            return generateApiProviderSwitchCase();
         default:
             break;
     }
@@ -156,11 +246,11 @@ function buildSwitchCase(mode) {
 function buildIconImports(mode) {
     switch (mode) {
         case 'chains':
-            return chains.CHAINS.map(
-                (chain) => `import Chain${chain.id}Icon from './icons/chains/Chain${chain.id}Icon';\n`
-            ).join('');
+            return generateChainImports();
         case 'symbols':
             return generateSymbolImports();
+        case 'api-providers':
+            return generateApiProviderImports();
         default:
             break;
     }
@@ -205,6 +295,10 @@ async function generateIcons(format = 'esm') {
     await buildIcons(format, './optimized/symbols', 'symbols', 'SymbolIcon');
 }
 
+async function generateApiProviderLogos(format = 'esm') {
+    await buildIcons(format, './optimized/api-providers', 'api-providers', 'ApiProviderLogo');
+}
+
 async function exportSVGs(group) {
     await fs.mkdir(`${outputPath}/svg/${group}`, { recursive: true });
 
@@ -221,6 +315,7 @@ async function exportSVGs(group) {
         rimraf(`${outputPath}/*`, resolve);
     })
         .then(() => Promise.all([generateIcons('cjs'), generateIcons('esm')]))
-        .then(() => Promise.all([exportSVGs("chains"), exportSVGs("symbols")]))
+        .then(() => Promise.all([exportSVGs('chains'), exportSVGs('symbols')]))
+        .then(() => Promise.all([generateApiProviderLogos('cjs'), generateApiProviderLogos('esm')]))
         .then(() => console.log('✅ Finished building package.'));
 })();
