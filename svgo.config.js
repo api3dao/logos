@@ -5,8 +5,28 @@ module.exports = {
         pretty: true
     },
     plugins: [
+        "removeDoctype",
         "removeXMLProcInst",
+        "removeComments",
+        "removeMetadata",
         "removeEditorsNSData",
-        "removeUnusedNS"
+        "inlineStyles",
+        "removeUnusedNS",
+        'sortAttrs',
+        'removeScriptElement',
+        'removeDimensions'
     ]
+
+
+
+
+
+
+
+
+
+
+
+
+
 };
