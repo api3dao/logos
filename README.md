@@ -2,17 +2,17 @@
 
 ## Installation
 
-[NOT DEPLOYED YET]
+[TEST DEPLOYMENT]
 
 ```bash
-yarn add @api3/logos
+yarn add beta-logos
 ```
 
 ## Usage
 
 ```jsx
 import React from 'react';
-import { ChainIcon, SymbolIcon } from '@api3/logos';
+import { ChainIcon, SymbolIcon } from 'beta-logos';
 
 const App = () => (
     <div>

@@ -247,6 +247,9 @@ async function buildBatch(outDir, format = 'esm', batchName, mode) {
         ${imports}
         
         function ${batchName}(props) {
+            if (!props.id) {
+                return null;
+            }
             switch (props.id.toLowerCase().replaceAll(" ", "_")) {
                 ${buildSwitchCase(mode)}
                 default:
