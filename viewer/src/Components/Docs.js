@@ -19,6 +19,7 @@ const App = () => (
     <div>
         <ChainIcon id={'1'} width={50} height={50} />
         <SymbolIcon id={'BTC'} width={50} height={50} />
+        <ApiProviderLogo id={'nodary'} width={50} height={50} />
     </div>
 );
 
