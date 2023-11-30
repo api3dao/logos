@@ -8,6 +8,21 @@ const babel = require('@babel/core');
 
 const outputPath = './dist';
 
+const apiProviders = [
+    'coinpaprika',
+    'demo',
+    'dxfeed',
+    'finage',
+    "finnhub",
+    'iexcloud',
+    'kaiko',
+    'ncfx',
+    'nodary',
+    'tradermade',
+    'twelvedata'
+];
+
+
 async function transformSVGtoJSX(file, componentName, format, dir, isTestnet = false) {
     const content = await fs.readFile(`${dir}/${file}`, 'utf-8');
     const svgReactContent = await svgr(
@@ -66,18 +81,6 @@ async function buildChainIcons(files, iconsDir, format = 'esm', dir) {
 }
 
 async function buildApiProviderLogos(files, iconsDir, format = 'esm', dir) {
-    const apiProviders = [
-        'coinpaprika',
-        'demo',
-        'dxfeed',
-        'finage',
-        'iexcloud',
-        'kaiko',
-        'ncfx',
-        'nodary',
-        'tradermade',
-        'twelvedata'
-    ];
 
     apiProviders.forEach(async (provider) => {
         const file = files.find((file) => file == `${provider.toLowerCase()}.svg`);
@@ -168,18 +171,6 @@ function generateSymbolSwitchCase() {
 }
 
 function generateApiProviderSwitchCase() {
-    const apiProviders = [
-        'coinpaprika',
-        'demo',
-        'dxfeed',
-        'finage',
-        'iexcloud',
-        'kaiko',
-        'ncfx',
-        'nodary',
-        'tradermade',
-        'twelvedata'
-    ];
 
     return apiProviders
         .map(
@@ -197,18 +188,6 @@ function generateSymbolImports() {
 }
 
 function generateApiProviderImports() {
-    const apiProviders = [
-        'coinpaprika',
-        'demo',
-        'dxfeed',
-        'finage',
-        'iexcloud',
-        'kaiko',
-        'ncfx',
-        'nodary',
-        'tradermade',
-        'twelvedata'
-    ];
 
     return apiProviders
         .map(
