@@ -11,6 +11,7 @@ module.exports = {
         "removeMetadata",
         "removeEditorsNSData",
         "inlineStyles",
+        "prefixIds",
         "removeUnusedNS",
         'sortAttrs',
         'removeScriptElement',
