@@ -15,7 +15,7 @@ const SymbolsView = () => {
     return (
         <Flex p={3} gap={3} bgColor={'white'} wrap={'wrap'} alignItems="center" justifyContent="left">
             <Text fontSize="md" fontWeight="bold" ml={2}>
-                There are total of {getSymbols().length} symbols
+                There is a total of {getSymbols().length} symbols
             </Text>
             <SearchRow text={symbol} setText={setSymbol} placeholder={'Enter a symbol'} />
 

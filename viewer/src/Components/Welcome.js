@@ -1,5 +1,6 @@
 import SymbolsView from './SymbolsView';
 import ChainsView from './ChainsView';
+import ApiProviderView from './ApiProviderView';
 import Docs from './Docs';
 import { useState } from 'react';
 import { VStack, Text, Tab, Tabs, TabList, TabPanel, TabPanels } from '@chakra-ui/react';
@@ -23,13 +24,14 @@ const Welcome = () => {
                 @api3/logos
             </Text>
             <Text fontSize="md" ml={2}>
-                Welcome to @api3/logos package viewer. This package contains logos for chains and symbols that
-                supported by API3
+                Welcome to @api3/logos package viewer. This package contains logos for chains and symbols that supported
+                by API3
             </Text>
             <Tabs selectedIndex={selectedTab} onSelect={(index) => setSelectedTab(index)}>
                 <TabList>
                     <Tab>Symbols</Tab>
                     <Tab>Chains</Tab>
+                    <Tab>ApiProviders</Tab>
                     <Tab>Docs</Tab>
                 </TabList>
                 <TabPanels>
@@ -38,6 +40,9 @@ const Welcome = () => {
                     </TabPanel>
                     <TabPanel>
                         <ChainsView />
+                    </TabPanel>
+                    <TabPanel>
+                        <ApiProviderView />
                     </TabPanel>
                     <TabPanel>
                         <Docs />
