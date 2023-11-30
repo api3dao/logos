@@ -5,29 +5,16 @@ module.exports = {
         pretty: true
     },
     plugins: [
-        "removeDoctype",
-        "removeXMLProcInst",
-        "removeComments",
-        "removeMetadata",
-        "removeEditorsNSData",
-        "inlineStyles",
-        "prefixIds",
-        "removeUnusedNS",
+        'removeDoctype',
+        'removeXMLProcInst',
+        'removeComments',
+        'removeMetadata',
+        'removeEditorsNSData',
+        'inlineStyles',
+        'prefixIds',
+        'removeUnusedNS',
         'sortAttrs',
         'removeScriptElement',
         'removeDimensions'
     ]
-
-
-
-
-
-
-
-
-
-
-
-
-
 };
