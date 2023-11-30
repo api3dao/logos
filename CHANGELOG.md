@@ -1,5 +1,11 @@
 # @api3/logos
 
+## 0.0.3
+
+### Patch Changes
+
+-   ede55ad: Null check added
+
 ## 0.0.2
 
 ### Patch Changes
