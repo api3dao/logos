@@ -10,6 +10,7 @@ on:
       - 'data/**'
       - 'raw/**'
       - scripts/**
+      - 'viewer/**'
   pull_request:
     branches: [ main ]
 
