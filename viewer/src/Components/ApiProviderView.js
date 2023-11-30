@@ -37,7 +37,7 @@ const ApiProvidersView = () => {
                         boxShadow={'md'}
                         width={'150px'}
                         height={'150px'}
-                        bgColor={'black'}
+                        bgColor={'white'}
                         key={index}
                         alignItems="center"
                         justifyContent="center"
