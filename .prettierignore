@@ -1,0 +1,39 @@
+# Package directories & files
+node_modules
+build
+dist
+*.tgz
+.tsbuildinfo
+.pnp
+.pnp.js
+
+# IDE specific files
+.vscode
+.idea
+
+# OS generated files
+.DS_Store
+
+# Environment files
+.env
+
+# Ignore Serverless directories
+.serverless
+.build
+
+# Vercel ncc build files
+ncc
+
+# Coverage
+coverage
+
+# Log files
+*.log
+
+# Hardhat files
+cache
+artifacts
+credentials.json
+
+# Custom
+/dev-scripts
