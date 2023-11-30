@@ -11,6 +11,7 @@ const ApiProvidersView = () => {
             'coinpaprika',
             'dxfeed',
             'finage',
+            "finnhub",
             'iexcloud',
             'kaiko',
             'ncfx',
@@ -25,7 +26,7 @@ const ApiProvidersView = () => {
     return (
         <Flex p={3} gap={3} bgColor={'white'} wrap={'wrap'} alignItems="center" justifyContent="left">
             <Text fontSize="md" fontWeight="bold" ml={2}>
-                There are total of {getSymbols().length} api providers
+                There is a total of {getSymbols().length} api providers
             </Text>
             <SearchRow text={apiProvider} setText={setApiProvider} placeholder={'Enter a symbol'} />
 
@@ -36,7 +37,7 @@ const ApiProvidersView = () => {
                         boxShadow={'md'}
                         width={'150px'}
                         height={'150px'}
-                        bgColor={'white'}
+                        bgColor={'black'}
                         key={index}
                         alignItems="center"
                         justifyContent="center"
