@@ -36,15 +36,10 @@ function sanitizeName(name, suffix = '') {
 
 function generateSwitchCase(array, prefix, isBase64 = false) {
     return array
-        .map(
-            (item) =>
-                isBase64 ?
-                    `case "${sanitizeName(item)}":\n\treturn ${prefix}${sanitizeName(
-                        item, 'IconBase64()'
-                    )};\n` :
-                    `case "${sanitizeName(item)}":\n\treturn <${prefix}${sanitizeName(
-                        item, 'Icon'
-                    )} {...props} />;\n`
+        .map((item) =>
+            isBase64
+                ? `case "${sanitizeName(item)}":\n\treturn ${prefix}${sanitizeName(item, 'IconBase64()')};\n`
+                : `case "${sanitizeName(item)}":\n\treturn <${prefix}${sanitizeName(item, 'Icon')} {...props} />;\n`
         )
         .join('');
 }
@@ -53,7 +48,10 @@ function generateImports(array, prefix, file_prefix, file_postfix, path) {
     return array
         .map(
             (item) =>
-                `import ${prefix}${sanitizeName(item, 'Icon')}${file_postfix} from './icons/${path}/${file_prefix}${sanitizeName(item, 'Icon')}${file_postfix}';\n`
+                `import ${prefix}${sanitizeName(
+                    item,
+                    'Icon'
+                )}${file_postfix} from './icons/${path}/${file_prefix}${sanitizeName(item, 'Icon')}${file_postfix}';\n`
         )
         .join('');
 }
@@ -160,7 +158,7 @@ function checkFile(files, item) {
 
     if (!fileName) {
         console.log(`- ${file}, ${sanitizeName(item)} not found`);
-        throw new Error(`- ${item, file} not found`);
+        throw new Error(`- ${(item, file)} not found`);
     }
 
     return fileName;

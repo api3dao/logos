@@ -73,8 +73,8 @@ async function buildIcons(format = 'esm', dir, mode, batchName) {
     await fs.appendFile(`${outDir}/index.js`, utils.indexFileContent(format, batchName), 'utf-8');
     await fs.appendFile(`${outDir}/index.d.ts`, utils.indexFileContent('esm', batchName), 'utf-8');
 
-    await fs.appendFile(`${outDir}/index.js`, utils.indexFileContent(format, batchName + "Base64"), 'utf-8');
-    await fs.appendFile(`${outDir}/index.d.ts`, utils.indexFileContent('esm', batchName + "Base64"), 'utf-8');
+    await fs.appendFile(`${outDir}/index.js`, utils.indexFileContent(format, batchName + 'Base64'), 'utf-8');
+    await fs.appendFile(`${outDir}/index.d.ts`, utils.indexFileContent('esm', batchName + 'Base64'), 'utf-8');
 }
 
 function buildSwitchCase(mode, isBase64) {
@@ -137,7 +137,8 @@ async function buildBatch(outDir, format = 'esm', batchName, mode) {
 
     let codeBase64 = await babelTransform(importsBase64, batchName + 'Base64', mode, true);
     if (format === 'cjs') {
-        codeBase64 = codeBase64.replace('export default', 'module.exports =')
+        codeBase64 = codeBase64
+            .replace('export default', 'module.exports =')
             .replace(`import camelcase from 'camelcase'`, `const camelcase = require('camelcase')`);
     }
 
@@ -155,17 +156,15 @@ async function babelTransform(imports, batchName, mode, isBase64) {
     );
 
     return code;
-
 }
 
 async function renameFiles(dir) {
     const files = await fs.readdir(dir, 'utf-8');
     files.forEach((file) => {
-        rename(dir + '/' + file, dir + '/' + utils.sanitizeName(file) + ".svg", function (err) {
+        rename(dir + '/' + file, dir + '/' + utils.sanitizeName(file) + '.svg', function (err) {
             if (err) console.log('Error: ' + err);
         });
     });
-
 }
 
 async function generateIcons(format = 'esm') {
