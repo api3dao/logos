@@ -4,6 +4,7 @@ const fs = require('fs/promises');
 const rimraf = require('rimraf');
 const babel = require('@babel/core');
 const utils = require('../helpers/utils');
+const { rename } = require('fs');
 
 const outputPath = './dist';
 
@@ -25,7 +26,7 @@ async function buildChainIcons(files, iconsDir, format = 'esm', dir) {
     chains.CHAINS.forEach(async (chain) => {
         utils.buildChainIcons(chain.id, chain.testnet, files, iconsDir, format, dir);
     });
-    utils.buildChainIcons('placeholder', false, files, iconsDir, format, dir);
+    utils.buildChainIcons('Placeholder', false, files, iconsDir, format, dir);
 }
 
 async function buildApiProviderLogos(files, iconsDir, format = 'esm', dir) {
@@ -71,37 +72,40 @@ async function buildIcons(format = 'esm', dir, mode, batchName) {
 
     await fs.appendFile(`${outDir}/index.js`, utils.indexFileContent(format, batchName), 'utf-8');
     await fs.appendFile(`${outDir}/index.d.ts`, utils.indexFileContent('esm', batchName), 'utf-8');
+
+    await fs.appendFile(`${outDir}/index.js`, utils.indexFileContent(format, batchName + "Base64"), 'utf-8');
+    await fs.appendFile(`${outDir}/index.d.ts`, utils.indexFileContent('esm', batchName + "Base64"), 'utf-8');
 }
 
-function buildSwitchCase(mode) {
+function buildSwitchCase(mode, isBase64) {
     switch (mode) {
         case 'chains':
             const chainsIds = chains.CHAINS.map((chain) => chain.id);
-            return utils.generateSwitchCase(chainsIds, 'Chain');
+            return utils.generateSwitchCase(chainsIds, 'Chain', isBase64);
         case 'symbols':
             const symbols = [...new Set(feeds.map((feed) => feed.name.split('/')).flat())];
-            return utils.generateSwitchCase(symbols, 'Symbol');
+            return utils.generateSwitchCase(symbols, 'Symbol', isBase64);
         case 'api-providers':
-            return utils.generateSwitchCase(apiProviders, 'ApiProvider');
+            return utils.generateSwitchCase(apiProviders, 'ApiProvider', isBase64);
         default:
             break;
     }
 }
 
-function buildIconImports(mode) {
+function buildIconImports(mode, postfix) {
     switch (mode) {
         case 'chains':
             let chainIds = chains.CHAINS.map((chain) => chain.id);
             chainIds.push('placeholder');
-            return utils.generateImports(chainIds, 'Chain', 'Chain', 'chains');
+            return utils.generateImports(chainIds, 'Chain', 'Chain', postfix, 'chains');
         case 'symbols':
             let symbols = [...new Set(feeds.map((feed) => feed.name.split('/')).flat())];
             symbols.push('placeholder');
-            return utils.generateImports(symbols, 'Symbol', '', 'symbols');
+            return utils.generateImports(symbols, 'Symbol', '', postfix, 'symbols');
         case 'api-providers':
             let providers = apiProviders.map((provider) => provider);
             providers.push('placeholder');
-            return utils.generateImports(providers, 'ApiProvider', '', 'api-providers');
+            return utils.generateImports(providers, 'ApiProvider', '', postfix, 'api-providers');
         default:
             break;
     }
@@ -111,41 +115,67 @@ async function buildBatch(outDir, format = 'esm', batchName, mode) {
     const types = `import * as React from 'react';\ndeclare function ${batchName}(props: React.SVGProps<SVGSVGElement>): JSX.Element;\nexport default ${batchName};\n`;
     await fs.writeFile(`${outDir}/${batchName}.d.ts`, types, 'utf-8');
 
-    const imports = `import * as React from "react";
-        ${buildIconImports(mode)}`;
+    const imports = `import * as React from "react";\nimport camelcase from 'camelcase';
+        ${buildIconImports(mode, '')}`;
 
+    let code = await babelTransform(imports, batchName, mode, false);
+
+    if (format === 'cjs') {
+        code = code
+            .replace('import * as React from "react";', 'const React = require("react");')
+            .replace(`import camelcase from 'camelcase'`, `const camelcase = require('camelcase')`)
+            .replace('export default', 'module.exports =');
+    }
+
+    await fs.writeFile(`${outDir}/${batchName}.js`, code, 'utf-8');
+
+    //BASE64
+    const typesBase64 = `declare function ${batchName}Base64(id: string): string;\nexport default ${batchName}Base64;\n`;
+    await fs.writeFile(`${outDir}/${batchName}Base64.d.ts`, typesBase64, 'utf-8');
+
+    const importsBase64 = `import camelcase from 'camelcase';${buildIconImports(mode, 'Base64')}`;
+
+    let codeBase64 = await babelTransform(importsBase64, batchName + 'Base64', mode, true);
+    if (format === 'cjs') {
+        codeBase64 = codeBase64.replace('export default', 'module.exports =')
+            .replace(`import camelcase from 'camelcase'`, `const camelcase = require('camelcase')`);
+    }
+
+    await fs.writeFile(`${outDir}/${batchName}Base64.js`, codeBase64, 'utf-8');
+}
+
+async function babelTransform(imports, batchName, mode, isBase64) {
     let { code } = await babel.transformAsync(
         `
         ${imports}
-        ${utils.generateFunction(batchName, buildSwitchCase(mode), mode)}`,
+        ${utils.generateFunction(batchName, buildSwitchCase(mode, isBase64), mode, isBase64)}`,
         {
             presets: [['@babel/preset-react', { useBuiltIns: true }]]
         }
     );
 
-    if (format === 'cjs') {
-        code = code
-            .replace('import * as React from "react";', 'const React = require("react");')
-            .replace('export default', 'module.exports =');
-    }
+    return code;
 
-    await fs.writeFile(`${outDir}/${batchName}.js`, code, 'utf-8');
+}
+
+async function renameFiles(dir) {
+    const files = await fs.readdir(dir, 'utf-8');
+    files.forEach((file) => {
+        rename(dir + '/' + file, dir + '/' + utils.sanitizeName(file) + ".svg", function (err) {
+            if (err) console.log('Error: ' + err);
+        });
+    });
+
 }
 
 async function generateIcons(format = 'esm') {
+    await renameFiles('./optimized/symbols');
+    await renameFiles('./optimized/chains');
+    await renameFiles('./optimized/api-providers');
+
     await buildIcons(format, './optimized/chains', 'chains', 'ChainIcon');
     await buildIcons(format, './optimized/symbols', 'symbols', 'SymbolIcon');
     await buildIcons(format, './optimized/api-providers', 'api-providers', 'ApiProviderLogo');
-}
-
-async function exportSVGs(group) {
-    await fs.mkdir(`${outputPath}/svg/${group}`, { recursive: true });
-
-    const files = await fs.readdir(`./optimized/${group}`, 'utf-8');
-    files.forEach(async (file) => {
-        const content = await fs.readFile(`./optimized/${group}/${file}`, 'utf-8');
-        await fs.writeFile(`${outputPath}/svg/${group}/${file}`, content, 'utf-8');
-    });
 }
 
 (function main() {
@@ -154,6 +184,5 @@ async function exportSVGs(group) {
         rimraf(`${outputPath}/*`, resolve);
     })
         .then(() => Promise.all([generateIcons('cjs'), generateIcons('esm')]))
-        .then(() => Promise.all([exportSVGs('chains'), exportSVGs('symbols')]))
         .then(() => console.log('✅ Finished building package.'));
 })();
