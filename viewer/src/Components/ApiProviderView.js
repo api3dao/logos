@@ -11,7 +11,7 @@ const ApiProvidersView = () => {
             'coinpaprika',
             'dxfeed',
             'finage',
-            "finnhub",
+            'finnhub',
             'iexcloud',
             'kaiko',
             'ncfx',
@@ -41,7 +41,7 @@ const ApiProvidersView = () => {
                         key={index}
                         alignItems="center"
                         justifyContent="center"
-                        wrap={"wrap"}
+                        wrap={'wrap'}
                     >
                         <ApiProviderLogo id={feed} width={100} height={100} />
                     </Flex>
