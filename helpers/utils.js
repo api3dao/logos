@@ -5,8 +5,8 @@ const babel = require('@babel/core');
 
 module.exports = {
     transformSVGtoJSX,
-    buildChainIcons,
-    buildSymbolIcons,
+    buildChainLogos,
+    buildSymbolLogos,
     sanitizeName,
     generateSwitchCase,
     generateImports,
@@ -17,43 +17,47 @@ module.exports = {
 function getPlaceholder(mode, isBase64 = false) {
     switch (mode) {
         case 'chains':
-            return isBase64 ? 'ChainPlaceholderIconBase64' : `<ChainPlaceholderIcon {...props} />;\n`;
+            return isBase64 ? 'ChainPlaceholderLogoBase64' : `<ChainPlaceholderLogo {...props} />;\n`;
         case 'symbols':
-            return isBase64 ? 'SymbolPlaceholderIconBase64' : `<SymbolPlaceholderIcon {...props} />;\n`;
+            return isBase64 ? 'SymbolPlaceholderLogoBase64' : `<SymbolPlaceholderLogo {...props} />;\n`;
         case 'api-providers':
-            return isBase64 ? 'ApiProviderPlaceholderIconBase64' : `<ApiProviderPlaceholderIcon {...props} />;\n`;
+            return isBase64 ? 'ApiProviderPlaceholderLogoBase64' : `<ApiProviderPlaceholderLogo {...props} />;\n`;
         default:
             break;
     }
 }
 
-function sanitizeName(name, suffix = '') {
+function sanitizeName(name, suffix = '', prefix = '') {
     const componentName = `${camelcase(name.replace(/.svg/, ''), {
         pascalCase: true
     })}`;
-    return componentName + suffix;
+    return prefix + componentName + suffix;
 }
 
 function generateSwitchCase(array, prefix, isBase64 = false) {
     return array
         .map((item) =>
             isBase64
-                ? `case "${sanitizeName(item)}":\n\treturn ${prefix}${sanitizeName(item, 'IconBase64()')};\n`
-                : `case "${sanitizeName(item)}":\n\treturn <${prefix}${sanitizeName(item, 'Icon')} {...props} />;\n`
+                ? `case "${sanitizeName(item)}":\n\treturn ${prefix}${sanitizeName(item, 'LogoBase64()')};\n`
+                : `case "${sanitizeName(item)}":\n\treturn <${prefix}${sanitizeName(item, 'Logo')} {...props} />;\n`
         )
         .join('');
 }
 
-function generateImports(array, prefix, file_prefix, file_postfix, path) {
-    return array
-        .map(
-            (item) =>
-                `import ${prefix}${sanitizeName(
-                    item,
-                    'Icon'
-                )}${file_postfix} from './icons/${path}/${file_prefix}${sanitizeName(item, 'Icon')}${file_postfix}';\n`
-        )
-        .join('');
+function formatImport(item, prefix, file_prefix, file_postfix, path, format) {
+
+    const importName = sanitizeName(item, 'Logo', prefix) + file_postfix;
+    const filePath = `./logos/${path}/${sanitizeName(item, 'Logo', file_prefix)}${file_postfix}`;
+
+    if (format === 'cjs') {
+        return `const ${importName} = require('${filePath}');\n`;
+    }
+
+    return `import ${importName} from '${filePath}';\n`;
+}
+
+function generateImports(array, prefix, file_prefix, file_postfix, path, format) {
+    return array.map((item) => formatImport(item, prefix, file_prefix, file_postfix, path, format)).join('');
 }
 
 function generateFunction(batchName, switchCase, mode, isBase64) {
@@ -101,7 +105,6 @@ async function transformSVGtoJSX(file, componentName, format, dir, isTestnet = f
         content,
         {
             icon: false,
-            replaceAttrValues: { '#00497A': "{props.color || '#00497A'}" },
             svgProps: {
                 width: 32,
                 height: 32,
@@ -125,7 +128,7 @@ async function transformSVGtoJSX(file, componentName, format, dir, isTestnet = f
     return replaceESM;
 }
 
-async function buildChainIcons(chainId, testnet, files, iconsDir, format = 'esm', dir) {
+async function buildChainLogos(chainId, testnet, files, logosDir, format = 'esm', dir) {
     const file = files.find((file) => file.includes(`Chain${chainId}.svg`));
     let fileName = file;
 
@@ -133,23 +136,23 @@ async function buildChainIcons(chainId, testnet, files, iconsDir, format = 'esm'
         throw new Error(`- Chain ${chainId} not found`);
     }
 
-    const componentName = sanitizeName(fileName, 'Icon');
+    const componentName = sanitizeName(fileName, 'Logo');
 
     const content = await transformSVGtoJSX(fileName, componentName, format, dir, testnet);
-    await write2Files(content, iconsDir, componentName);
+    await write2Files(content, logosDir, componentName);
 
     const svgContent = await transformSVGtoBase64(file, componentName, format, dir);
-    await write2Files(svgContent, iconsDir, componentName + 'Base64', true);
+    await write2Files(svgContent, logosDir, componentName + 'Base64', true);
 }
 
-async function buildSymbolIcons(symbol, files, iconsDir, format = 'esm', dir) {
+async function buildSymbolLogos(symbol, files, logosDir, format = 'esm', dir) {
     const file = checkFile(files, symbol);
-    const componentName = sanitizeName(file, 'Icon');
+    const componentName = sanitizeName(file, 'Logo');
     const content = await transformSVGtoJSX(file, componentName, format, dir);
-    await write2Files(content, iconsDir, componentName);
+    await write2Files(content, logosDir, componentName);
 
     const svgContent = await transformSVGtoBase64(file, componentName, format, dir);
-    await write2Files(svgContent, iconsDir, componentName + 'Base64', true);
+    await write2Files(svgContent, logosDir, componentName + 'Base64', true);
 }
 
 function checkFile(files, item) {
@@ -164,13 +167,13 @@ function checkFile(files, item) {
     return fileName;
 }
 
-async function write2Files(content, iconsDir, componentName, isBase64 = false) {
+async function write2Files(content, logosDir, componentName, isBase64 = false) {
     const types = isBase64
         ? `declare function ${componentName}(): string;\nexport default ${componentName};\n`
         : `import * as React from 'react';\ndeclare function ${componentName}(props: React.SVGProps<SVGSVGElement>): JSX.Element;\nexport default ${componentName};\n`;
 
-    await fs.writeFile(`${iconsDir}/${sanitizeName(componentName)}.js`, content, 'utf-8');
-    await fs.writeFile(`${iconsDir}/${sanitizeName(componentName)}.d.ts`, types, 'utf-8');
+    await fs.writeFile(`${logosDir}/${sanitizeName(componentName)}.js`, content, 'utf-8');
+    await fs.writeFile(`${logosDir}/${sanitizeName(componentName)}.d.ts`, types, 'utf-8');
 }
 
 function indexFileContent(format, batchName) {

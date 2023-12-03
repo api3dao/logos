@@ -12,12 +12,12 @@ yarn add beta-logos
 
 ```jsx
 import React from 'react';
-import { ChainIcon, SymbolIcon } from 'beta-logos';
+import { ChainLogo, SymbolLogo } from 'beta-logos';
 
 const App = () => (
     <div>
-        <ChainIcon id={'1'} width={50} height={50} />
-        <SymbolIcon id={'BTC'} width={50} height={50} />
+        <ChainLogo id={'1'} width={50} height={50} />
+        <SymbolLogo id={'BTC'} width={50} height={50} />
     </div>
 );
 
@@ -26,13 +26,13 @@ export default App;
 
 ## API
 
-### ChainIcon
+### ChainLogo
 
 | Prop | Type   | Description |
 | ---- | ------ | ----------- |
 | id   | string | Chain id    |
 
-### SymbolIcon
+### SymbolLogo
 
 | Prop | Type   | Description |
 | ---- | ------ | ----------- |

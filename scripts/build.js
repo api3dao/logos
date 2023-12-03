@@ -5,64 +5,51 @@ const rimraf = require('rimraf');
 const babel = require('@babel/core');
 const utils = require('../helpers/utils');
 const { rename } = require('fs');
+const apiIntegrations = require('@api3/api-integrations')
 
 const outputPath = './dist';
 
-const apiProviders = [
-    'coinpaprika',
-    'demo',
-    'dxfeed',
-    'finage',
-    'finnhub',
-    'iexcloud',
-    'kaiko',
-    'ncfx',
-    'nodary',
-    'tradermade',
-    'twelvedata'
-];
-
-async function buildChainIcons(files, iconsDir, format = 'esm', dir) {
+async function buildChainLogos(files, logosDir, format = 'esm', dir) {
     chains.CHAINS.forEach(async (chain) => {
-        utils.buildChainIcons(chain.id, chain.testnet, files, iconsDir, format, dir);
+        utils.buildChainLogos(chain.id, chain.testnet, files, logosDir, format, dir);
     });
-    utils.buildChainIcons('Placeholder', false, files, iconsDir, format, dir);
+    utils.buildChainLogos('Placeholder', false, files, logosDir, format, dir);
 }
 
-async function buildApiProviderLogos(files, iconsDir, format = 'esm', dir) {
-    apiProviders.forEach(async (provider) => {
-        utils.buildSymbolIcons(provider, files, iconsDir, format, dir);
+async function buildApiProviderLogos(files, logosDir, format = 'esm', dir) {
+    apiIntegrations.getApiProviderAliases().forEach(async (provider) => {
+        utils.buildSymbolLogos(provider, files, logosDir, format, dir);
     });
-    utils.buildSymbolIcons('placeholder', files, iconsDir, format, dir);
+    utils.buildSymbolLogos('placeholder', files, logosDir, format, dir);
 }
 
-async function buildSymbolIcons(files, iconsDir, format = 'esm', dir) {
+async function buildSymbolLogos(files, logosDir, format = 'esm', dir) {
     const symbols = [...new Set(feeds.map((feed) => feed.name.split('/')).flat())];
 
     symbols.forEach(async (symbol) => {
-        utils.buildSymbolIcons(symbol, files, iconsDir, format, dir);
+        utils.buildSymbolLogos(symbol, files, logosDir, format, dir);
     });
-    utils.buildSymbolIcons('placeholder', files, iconsDir, format, dir);
+    utils.buildSymbolLogos('placeholder', files, logosDir, format, dir);
 }
 
-async function buildIcons(format = 'esm', dir, mode, batchName) {
+async function buildLogos(format = 'esm', dir, mode, batchName) {
     let outDir = `${outputPath}/${format}`;
-    let iconsDir = `${outDir}/icons/${mode || ''}`;
+    let logosDir = `${outDir}/logos/${mode || ''}`;
 
     await fs.mkdir(outDir, { recursive: true });
-    await fs.mkdir(iconsDir, { recursive: true });
+    await fs.mkdir(logosDir, { recursive: true });
 
     const files = await fs.readdir(dir, 'utf-8');
 
     switch (mode) {
         case 'chains':
-            await buildChainIcons(files, iconsDir, format, dir);
+            await buildChainLogos(files, logosDir, format, dir);
             break;
         case 'symbols':
-            await buildSymbolIcons(files, iconsDir, format, dir);
+            await buildSymbolLogos(files, logosDir, format, dir);
             break;
         case 'api-providers':
-            await buildApiProviderLogos(files, iconsDir, format, dir);
+            await buildApiProviderLogos(files, logosDir, format, dir);
             break;
         default:
             break;
@@ -86,26 +73,27 @@ function buildSwitchCase(mode, isBase64) {
             const symbols = [...new Set(feeds.map((feed) => feed.name.split('/')).flat())];
             return utils.generateSwitchCase(symbols, 'Symbol', isBase64);
         case 'api-providers':
+            const apiProviders = apiIntegrations.getApiProviderAliases();
             return utils.generateSwitchCase(apiProviders, 'ApiProvider', isBase64);
         default:
             break;
     }
 }
 
-function buildIconImports(mode, postfix) {
+function buildLogoImports(mode, postfix, format) {
     switch (mode) {
         case 'chains':
             let chainIds = chains.CHAINS.map((chain) => chain.id);
             chainIds.push('placeholder');
-            return utils.generateImports(chainIds, 'Chain', 'Chain', postfix, 'chains');
+            return utils.generateImports(chainIds, 'Chain', 'Chain', postfix, 'chains', format);
         case 'symbols':
             let symbols = [...new Set(feeds.map((feed) => feed.name.split('/')).flat())];
             symbols.push('placeholder');
-            return utils.generateImports(symbols, 'Symbol', '', postfix, 'symbols');
+            return utils.generateImports(symbols, 'Symbol', '', postfix, 'symbols', format);
         case 'api-providers':
-            let providers = apiProviders.map((provider) => provider);
+            let providers = apiIntegrations.getApiProviderAliases().map((provider) => provider);
             providers.push('placeholder');
-            return utils.generateImports(providers, 'ApiProvider', '', postfix, 'api-providers');
+            return utils.generateImports(providers, 'ApiProvider', '', postfix, 'api-providers', format);
         default:
             break;
     }
@@ -116,7 +104,7 @@ async function buildBatch(outDir, format = 'esm', batchName, mode) {
     await fs.writeFile(`${outDir}/${batchName}.d.ts`, types, 'utf-8');
 
     const imports = `import * as React from "react";\nimport camelcase from 'camelcase';
-        ${buildIconImports(mode, '')}`;
+        ${buildLogoImports(mode, '', format)}`;
 
     let code = await babelTransform(imports, batchName, mode, false);
 
@@ -133,7 +121,7 @@ async function buildBatch(outDir, format = 'esm', batchName, mode) {
     const typesBase64 = `declare function ${batchName}Base64(id: string): string;\nexport default ${batchName}Base64;\n`;
     await fs.writeFile(`${outDir}/${batchName}Base64.d.ts`, typesBase64, 'utf-8');
 
-    const importsBase64 = `import camelcase from 'camelcase';${buildIconImports(mode, 'Base64')}`;
+    const importsBase64 = `import camelcase from 'camelcase';${buildLogoImports(mode, 'Base64', format)}`;
 
     let codeBase64 = await babelTransform(importsBase64, batchName + 'Base64', mode, true);
     if (format === 'cjs') {
@@ -167,21 +155,21 @@ async function renameFiles(dir) {
     });
 }
 
-async function generateIcons(format = 'esm') {
+async function generateLogos(format = 'esm') {
     await renameFiles('./optimized/symbols');
     await renameFiles('./optimized/chains');
     await renameFiles('./optimized/api-providers');
 
-    await buildIcons(format, './optimized/chains', 'chains', 'ChainIcon');
-    await buildIcons(format, './optimized/symbols', 'symbols', 'SymbolIcon');
-    await buildIcons(format, './optimized/api-providers', 'api-providers', 'ApiProviderLogo');
+    await buildLogos(format, './optimized/chains', 'chains', 'ChainLogo');
+    await buildLogos(format, './optimized/symbols', 'symbols', 'SymbolLogo');
+    await buildLogos(format, './optimized/api-providers', 'api-providers', 'ApiProviderLogo');
 }
 
 (function main() {
-    console.log('🏗 Building icon package...');
+    console.log('🏗 Building logo package...');
     new Promise((resolve) => {
         rimraf(`${outputPath}/*`, resolve);
     })
-        .then(() => Promise.all([generateIcons('cjs'), generateIcons('esm')]))
+        .then(() => Promise.all([generateLogos('cjs'), generateLogos('esm')]))
         .then(() => console.log('✅ Finished building package.'));
 })();
