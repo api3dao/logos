@@ -16,14 +16,6 @@
         "react": "^18.2.0",
         "react-dom": "^18.2.0"
     },
-    "exports": {
-        ".": {
-            "import": "./dist/esm/index.js",
-            "require": "./dist/cjs/index.js"
-        },
-        "./dist/svg/chains/*.svg": "./dist/svg/chains/*.svg",
-        "./dist/svg/symbols/*.svg": "./dist/svg/symbols/*.svg"
-    },
     "devDependencies": {
         "@babel/core": "^7.15.5",
         "@babel/preset-react": "^7.14.5",
@@ -44,6 +36,7 @@
         "dist"
     ],
     "dependencies": {
+        "@api3/api-integrations": "^0.0.1",
         "@api3/chains": "^4.1.0"
     }
 }
