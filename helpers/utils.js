@@ -17,11 +17,11 @@ module.exports = {
 function getPlaceholder(mode, isBase64 = false) {
     switch (mode) {
         case 'chains':
-            return isBase64 ? 'ChainPlaceholderLogoBase64' : `<ChainPlaceholderLogo {...props} />;\n`;
+            return isBase64 ? 'ChainPlaceholderLogoBase64()' : `<ChainPlaceholderLogo {...props} />;\n`;
         case 'symbols':
-            return isBase64 ? 'SymbolPlaceholderLogoBase64' : `<SymbolPlaceholderLogo {...props} />;\n`;
+            return isBase64 ? 'SymbolPlaceholderLogoBase64()' : `<SymbolPlaceholderLogo {...props} />;\n`;
         case 'api-providers':
-            return isBase64 ? 'ApiProviderPlaceholderLogoBase64' : `<ApiProviderPlaceholderLogo {...props} />;\n`;
+            return isBase64 ? 'ApiProviderPlaceholderLogoBase64()' : `<ApiProviderPlaceholderLogo {...props} />;\n`;
         default:
             break;
     }
