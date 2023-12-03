@@ -1,5 +1,5 @@
 import { Flex, Text, Spacer } from '@chakra-ui/react';
-import { ChainIcon } from 'beta-logos';
+import { ChainLogo } from 'beta-logos';
 import * as Api3Chains from '@api3/chains';
 import SearchRow from '../Custom/SearchRow';
 import { useState } from 'react';
@@ -19,12 +19,12 @@ const ChainList = ({ isTestnet, chain }) => {
                 p={3}
                 boxShadow={'md'}
                 width={'310px'}
-                bgColor={'white'}
+                bgColor={'gray.100'}
                 key={index}
                 alignItems="center"
                 justifyContent="left"
             >
-                <ChainIcon id={chain.id} width={50} height={50} />
+                <ChainLogo id={chain.id} width={50} height={50} />
                 <Text fontSize="md" fontWeight="bold" ml={2}>
                     {chain.name}
                 </Text>

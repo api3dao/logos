@@ -1,5 +1,5 @@
 import { Flex, Text } from '@chakra-ui/react';
-import { SymbolIcon } from 'beta-logos';
+import { SymbolLogo } from 'beta-logos';
 import Feeds from '../data/feeds.json';
 import SearchRow from '../Custom/SearchRow';
 import { useState } from 'react';
@@ -26,12 +26,12 @@ const SymbolsView = () => {
                         boxShadow={'md'}
                         width={'150px'}
                         height={'100px'}
-                        bgColor={'white'}
+                        bgColor={'gray.100'}
                         key={index}
                         alignItems="center"
                         justifyContent="left"
                     >
-                        <SymbolIcon id={feed} width={50} height={50} />
+                        <SymbolLogo id={feed} width={50} height={50} />
                         <Text fontSize="sm" fontWeight="bold" ml={2}>
                             {feed}
                         </Text>
