@@ -1,5 +1,7 @@
-import { Text, VStack } from '@chakra-ui/react';
+import { VStack } from '@chakra-ui/react';
 import Markdown from 'react-markdown'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import '../md.css'
 
 const DocsView = () => {
@@ -14,6 +16,36 @@ const DocsView = () => {
     -   \`beta - logos\` package now exports \`Logo\` as React component.
     -   Package size reduced.
 
+    -   Method names changed.
+
+        -   SVG component
+
+        \`\`\`javascript
+        ChainLogoSvg(id: string)
+        SymbolLogoSvg(id: string)
+        ApiProviderLogoSvg(id: string)
+        \`\`\`
+
+        \`\`\`html
+        <img src = { ChainLogoSvg('43114') } width = { 50} height = { 50} alt = '' />
+        <img src = { SymbolLogoSvg('BTC') } width={50} height={50} alt='' />
+        <img src={ ApiProviderLogoSvg('nodary') } width={50} height={50} alt='' />
+        \`\`\`
+
+        -  React component
+
+        \`\`\`javascript
+        ChainLogo(id: string)
+        SymbolLogo(id: string)
+        ApiProviderLogo(id: string)
+        \`\`\`
+
+        \`\`\`html
+        <ChainLogo id = '43114' width = { 50} height = { 50} />
+        <SymbolLogo id='BTC' width={50} height={50} />
+        <ApiProviderLogo id='nodary' width={50} height={50} />
+        \`\`\`
+
 ## 0.0.4
 
 ### Patch Changes
@@ -26,11 +58,11 @@ const DocsView = () => {
     ApiProviderLogoBase64(id: string)
     \`\`\`
 
-     \`\`\`html
+    \`\`\`html
     <img src = { ChainIconBase64('43114') } width = { 50} height = { 50} alt = '' />
-    <img src={SymbolIconBase64('BTC')} width={50} height={50} alt='' />
-    <img src={ApiProviderLogoBase64('nodary')} width={50} height={50} alt='' />
-     \`\`\`
+    <img src = { SymbolIconBase64('BTC') } width={50} height={50} alt='' />
+    <img src = { ApiProviderLogoBase64('nodary') } width={50} height={50} alt='' />
+    \`\`\`
 
     You can now call these functions to get svg file as base64 string.
 
@@ -44,7 +76,7 @@ const DocsView = () => {
 
 ### Patch Changes
 
--   6a0ab5d: Change name
+-   6a0ab5d: Package name changed to @api3/logos
 
 ## 0.0.1
 
@@ -53,6 +85,7 @@ const DocsView = () => {
 -   0ed4fd3: Test release
 -   b1ab864: initial release
 -   6f06f87: Test Release
+
 
 `
 
@@ -68,8 +101,29 @@ const DocsView = () => {
             overflow={'scroll'}
             justifyContent="left"
         >
-            <Text fontSize="xl" fontWeight="bold" ml={2}>Change Log</Text>
-            <Markdown className={"markdown-body"} >{markdown}</Markdown>
+            <Markdown
+                children={markdown}
+                className={'markdown-body'}
+                components={{
+                    code(props) {
+                        const { children, className, node, ...rest } = props
+                        const match = /language-(\w+)/.exec(className || '')
+                        return match ? (
+                            <SyntaxHighlighter
+                                {...rest}
+                                PreTag="div"
+                                children={String(children).replace(/\n$/, '')}
+                                language={match[1]}
+                                style={dracula}
+                            />
+                        ) : (
+                            <code {...rest} className={className}>
+                                {children}
+                            </code>
+                        )
+                    }
+                }}
+            />
         </VStack>
     );
 };

@@ -9,6 +9,35 @@
     -   `beta-logos` package now exports `Logo` as React component.
     -   Package size reduced.
 
+    -   Method names changed.
+
+        -   SVG component
+
+            ```javascript
+            ChainLogoSvg(id: string)
+            SymbolLogoSvg(id: string)
+            ApiProviderLogoSvg(id: string)
+            ```
+
+            ```html
+            <img src={ChainLogoSvg('43114')} width={50} height={50} alt='' />
+            <img src={SymbolLogoSvg('BTC')} width={50} height={50} alt='' />
+            <img src={ApiProviderLogoSvg('nodary')} width={50} height={50} alt='' />
+            ```
+        -  React component
+
+            ```javascript
+            ChainLogo(id: string)
+            SymbolLogo(id: string)
+            ApiProviderLogo(id: string)
+            ```
+
+            ```html
+            <ChainLogo id='43114' width={50} height={50} />
+            <SymbolLogo id='BTC' width={50} height={50} />
+            <ApiProviderLogo id='nodary' width={50} height={50} />
+            ```
+
 ## 0.0.4
 
 ### Patch Changes
@@ -39,7 +68,7 @@
 
 ### Patch Changes
 
--   6a0ab5d: Change name
+-   6a0ab5d: Package name changed to @api3/logos
 
 ## 0.0.1
 

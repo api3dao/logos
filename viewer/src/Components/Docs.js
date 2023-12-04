@@ -25,7 +25,7 @@ const ChainsView = () => {
             </Text>
             <CopyBlock
                 text={`npm install beta-logos`}
-                language={'javascript'}
+                language={'bash'}
                 showLineNumbers={true}
                 theme={dracula}
                 codeBlock={false}
