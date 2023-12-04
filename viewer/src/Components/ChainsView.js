@@ -4,8 +4,11 @@ import * as Api3Chains from '@api3/chains';
 import SearchRow from '../Custom/SearchRow';
 import { useState } from 'react';
 import Title from '../Custom/Title';
+import InfoView from '../Custom/InfoView';
 
 const ChainList = ({ isTestnet, chain }) => {
+    const [selectedChain, setSelectedChain] = useState('');
+
     const getChains = (isTestnet) => {
         return Api3Chains.CHAINS.filter(
             (chainObject) =>
@@ -19,19 +22,29 @@ const ChainList = ({ isTestnet, chain }) => {
                 p={3}
                 boxShadow={'md'}
                 width={'310px'}
+                height={'80px'}
                 bgColor={'gray.100'}
                 key={index}
                 alignItems="center"
                 justifyContent="left"
+                onMouseOver={() => setSelectedChain(chain)}
+                onMouseOut={() => setSelectedChain(null)}
             >
-                <ChainLogo id={chain.id} width={50} height={50} />
-                <Text fontSize="md" fontWeight="bold" ml={2}>
-                    {chain.name}
-                </Text>
-                <Spacer />
-                <Text fontSize="sm" ml={2}>
-                    {chain.id}
-                </Text>
+                {selectedChain !== chain ? (
+                    <>
+                        <ChainLogo id={chain.id} width={50} height={50} />
+
+                        <Text fontSize="md" fontWeight="bold" ml={2}>
+                            {chain.name}
+                        </Text>
+                        <Spacer />
+                        <Text fontSize="sm" ml={2}>
+                            {chain.id}
+                        </Text>
+                    </>
+                ) : (
+                    <InfoView method={'Chain'} feed={chain.id} />
+                )}
             </Flex>
         );
     });

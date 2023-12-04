@@ -3,9 +3,11 @@ import { SymbolLogo } from 'beta-logos';
 import Feeds from '../data/feeds.json';
 import SearchRow from '../Custom/SearchRow';
 import { useState } from 'react';
+import InfoView from '../Custom/InfoView';
 
 const SymbolsView = () => {
     const [symbol, setSymbol] = useState('');
+    const [selectedSymbol, setSelectedSymbol] = useState('');
 
     const getSymbols = () => {
         const filteredFeeds = [...new Set(Feeds.map((feed) => feed.name.split('/')).flat())];
@@ -30,11 +32,19 @@ const SymbolsView = () => {
                         key={index}
                         alignItems="center"
                         justifyContent="left"
+                        onMouseOver={() => setSelectedSymbol(feed)}
+                        onMouseOut={() => setSelectedSymbol(null)}
                     >
-                        <SymbolLogo id={feed} width={50} height={50} />
-                        <Text fontSize="sm" fontWeight="bold" ml={2}>
-                            {feed}
-                        </Text>
+                        {selectedSymbol !== feed ? (
+                            <>
+                                <SymbolLogo id={feed} width={50} height={50} />
+                                <Text fontSize="sm" fontWeight="bold" ml={2}>
+                                    {feed}
+                                </Text>
+                            </>
+                        ) : (
+                            <InfoView method={'Symbol'} feed={feed} />
+                        )}
                     </Flex>
                 );
             })}

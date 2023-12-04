@@ -1,8 +1,8 @@
 import { VStack } from '@chakra-ui/react';
-import Markdown from 'react-markdown'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import '../md.css'
+import Markdown from 'react-markdown';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import '../md.css';
 
 const DocsView = () => {
     const markdown = `# @api3/logos
@@ -106,8 +106,7 @@ const DocsView = () => {
 -   6f06f87: Test Release
 
 
-`
-
+`;
 
     return (
         <VStack
@@ -125,8 +124,8 @@ const DocsView = () => {
                 className={'markdown-body'}
                 components={{
                     code(props) {
-                        const { children, className, node, ...rest } = props
-                        const match = /language-(\w+)/.exec(className || '')
+                        const { children, className, node, ...rest } = props;
+                        const match = /language-(\w+)/.exec(className || '');
                         return match ? (
                             <SyntaxHighlighter
                                 {...rest}
@@ -139,7 +138,7 @@ const DocsView = () => {
                             <code {...rest} className={className}>
                                 {children}
                             </code>
-                        )
+                        );
                     }
                 }}
             />

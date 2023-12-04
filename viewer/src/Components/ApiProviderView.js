@@ -2,13 +2,27 @@ import { Flex, Text } from '@chakra-ui/react';
 import { ApiProviderLogo } from 'beta-logos';
 import SearchRow from '../Custom/SearchRow';
 import { useState } from 'react';
-const apiIntegrations = require('@api3/api-integrations');
+import InfoView from '../Custom/InfoView';
 
 const ApiProvidersView = () => {
     const [apiProvider, setApiProvider] = useState('');
+    const [selectedApiProvider, setSelectedApiProvider] = useState('');
 
     const getApiProviders = () => {
-        return apiIntegrations.getApiProviderAliases();
+        const apiProviders = [
+            'coinpaprika',
+            'dxfeed',
+            'finage',
+            'finnhub',
+            'iexcloud',
+            'kaiko',
+            'ncfx',
+            'nodary',
+            'tradermade',
+            'twelvedata'
+        ];
+
+        return apiProviders.filter((provider) => provider.toLowerCase().includes(apiProvider.toLowerCase()));
     };
 
     return (
@@ -23,15 +37,21 @@ const ApiProvidersView = () => {
                     <Flex
                         p={3}
                         boxShadow={'md'}
-                        width={'150px'}
-                        height={'150px'}
-                        bgColor={'gray.100'}
+                        width={'120px'}
+                        height={'120px'}
+                        bgColor={selectedApiProvider === feed ? 'gray.300' : 'gray.100'}
                         key={index}
                         alignItems="center"
-                        justifyContent="center"
+                        justifyContent="left"
                         wrap={'wrap'}
+                        onMouseOver={() => setSelectedApiProvider(feed)}
+                        onMouseOut={() => setSelectedApiProvider(null)}
                     >
-                        <ApiProviderLogo id={feed} width={100} height={100} />
+                        {selectedApiProvider !== feed ? (
+                            <ApiProviderLogo id={feed} width={100} height={100} />
+                        ) : (
+                            <InfoView method={'ApiProvider'} feed={feed} />
+                        )}
                     </Flex>
                 );
             })}

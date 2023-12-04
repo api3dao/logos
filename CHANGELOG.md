@@ -5,6 +5,7 @@
 ### Patch Changes
 
 -   a835657: - JSDoc annotations added to `beta-logos` package.
+
     -   `beta-logos` package now exports `Logo` as svg string.
     -   `beta-logos` package now exports `Logo` as React component.
     -   Package size reduced.
@@ -24,7 +25,8 @@
             <img src={SymbolLogoSvg('BTC')} width={50} height={50} alt='' />
             <img src={ApiProviderLogoSvg('nodary')} width={50} height={50} alt='' />
             ```
-        -  React component
+
+        -   React component
 
             ```javascript
             ChainLogo(id: string)
@@ -33,9 +35,9 @@
             ```
 
             ```html
-            <ChainLogo id='43114' width={50} height={50} />
-            <SymbolLogo id='BTC' width={50} height={50} />
-            <ApiProviderLogo id='nodary' width={50} height={50} />
+            <ChainLogo id="43114" width="{50}" height="{50}" />
+            <SymbolLogo id="BTC" width="{50}" height="{50}" />
+            <ApiProviderLogo id="nodary" width="{50}" height="{50}" />
             ```
 
 ## 0.0.4
