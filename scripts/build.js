@@ -5,31 +5,31 @@ const rimraf = require('rimraf');
 const babel = require('@babel/core');
 const utils = require('../helpers/utils');
 const { rename } = require('fs');
-const apiIntegrations = require('@api3/api-integrations')
+const apiIntegrations = require('@api3/api-integrations');
 
 const outputPath = './dist';
 
 async function buildChainLogos(files, logosDir, format = 'esm', dir) {
     chains.CHAINS.forEach(async (chain) => {
-        utils.buildChainLogos(chain.id, chain.testnet, files, logosDir, format, dir);
+        utils.buildLogos(chain.id, chain.testnet, files, logosDir, format, dir, 'Chain');
     });
-    utils.buildChainLogos('Placeholder', false, files, logosDir, format, dir);
+    utils.buildLogos('Placeholder', false, files, logosDir, format, dir, 'Chain');
 }
 
 async function buildApiProviderLogos(files, logosDir, format = 'esm', dir) {
     apiIntegrations.getApiProviderAliases().forEach(async (provider) => {
-        utils.buildSymbolLogos(provider, files, logosDir, format, dir);
+        utils.buildLogos(provider, false, files, logosDir, format, dir);
     });
-    utils.buildSymbolLogos('placeholder', files, logosDir, format, dir);
+    utils.buildLogos('placeholder', false, files, logosDir, format, dir);
 }
 
 async function buildSymbolLogos(files, logosDir, format = 'esm', dir) {
     const symbols = [...new Set(feeds.map((feed) => feed.name.split('/')).flat())];
 
     symbols.forEach(async (symbol) => {
-        utils.buildSymbolLogos(symbol, files, logosDir, format, dir);
+        utils.buildLogos(symbol, false, files, logosDir, format, dir);
     });
-    utils.buildSymbolLogos('placeholder', files, logosDir, format, dir);
+    utils.buildLogos('placeholder', false, files, logosDir, format, dir);
 }
 
 async function buildLogos(format = 'esm', dir, mode, batchName) {
@@ -59,22 +59,19 @@ async function buildLogos(format = 'esm', dir, mode, batchName) {
 
     await fs.appendFile(`${outDir}/index.js`, utils.indexFileContent(format, batchName), 'utf-8');
     await fs.appendFile(`${outDir}/index.d.ts`, utils.indexFileContent('esm', batchName), 'utf-8');
-
-    await fs.appendFile(`${outDir}/index.js`, utils.indexFileContent(format, batchName + 'Base64'), 'utf-8');
-    await fs.appendFile(`${outDir}/index.d.ts`, utils.indexFileContent('esm', batchName + 'Base64'), 'utf-8');
 }
 
-function buildSwitchCase(mode, isBase64) {
+function buildSwitchCase(mode) {
     switch (mode) {
         case 'chains':
             const chainsIds = chains.CHAINS.map((chain) => chain.id);
-            return utils.generateSwitchCase(chainsIds, 'Chain', isBase64);
+            return utils.generateSwitchCase(chainsIds, 'Chain');
         case 'symbols':
             const symbols = [...new Set(feeds.map((feed) => feed.name.split('/')).flat())];
-            return utils.generateSwitchCase(symbols, 'Symbol', isBase64);
+            return utils.generateSwitchCase(symbols, 'Symbol');
         case 'api-providers':
             const apiProviders = apiIntegrations.getApiProviderAliases();
-            return utils.generateSwitchCase(apiProviders, 'ApiProvider', isBase64);
+            return utils.generateSwitchCase(apiProviders, 'ApiProvider');
         default:
             break;
     }
@@ -100,10 +97,10 @@ function buildLogoImports(mode, postfix, format) {
 }
 
 async function buildBatch(outDir, format = 'esm', batchName, mode) {
-    const types = `import * as React from 'react';\ndeclare function ${batchName}(props: React.SVGProps<SVGSVGElement>): JSX.Element;\nexport default ${batchName};\n`;
+    const types = utils.generateTypes(batchName, mode);
     await fs.writeFile(`${outDir}/${batchName}.d.ts`, types, 'utf-8');
 
-    const imports = `import * as React from "react";\nimport camelcase from 'camelcase';
+    const imports = `import * as React from "react";\nimport camelcase from 'camelcase'\nimport { renderToString } from 'react-dom/server';
         ${buildLogoImports(mode, '', format)}`;
 
     let code = await babelTransform(imports, batchName, mode, false);
@@ -112,32 +109,21 @@ async function buildBatch(outDir, format = 'esm', batchName, mode) {
         code = code
             .replace('import * as React from "react";', 'const React = require("react");')
             .replace(`import camelcase from 'camelcase'`, `const camelcase = require('camelcase')`)
+            .replace(
+                `import { renderToString } from 'react-dom/server';`,
+                `const { renderToString } = require('react-dom/server');`
+            )
             .replace('export default', 'module.exports =');
     }
 
     await fs.writeFile(`${outDir}/${batchName}.js`, code, 'utf-8');
-
-    //BASE64
-    const typesBase64 = `declare function ${batchName}Base64(id: string): string;\nexport default ${batchName}Base64;\n`;
-    await fs.writeFile(`${outDir}/${batchName}Base64.d.ts`, typesBase64, 'utf-8');
-
-    const importsBase64 = `import camelcase from 'camelcase';${buildLogoImports(mode, 'Base64', format)}`;
-
-    let codeBase64 = await babelTransform(importsBase64, batchName + 'Base64', mode, true);
-    if (format === 'cjs') {
-        codeBase64 = codeBase64
-            .replace('export default', 'module.exports =')
-            .replace(`import camelcase from 'camelcase'`, `const camelcase = require('camelcase')`);
-    }
-
-    await fs.writeFile(`${outDir}/${batchName}Base64.js`, codeBase64, 'utf-8');
 }
 
-async function babelTransform(imports, batchName, mode, isBase64) {
+async function babelTransform(imports, batchName, mode) {
     let { code } = await babel.transformAsync(
         `
         ${imports}
-        ${utils.generateFunction(batchName, buildSwitchCase(mode, isBase64), mode, isBase64)}`,
+        ${utils.generateFunction(batchName, buildSwitchCase(mode), mode)}`,
         {
             presets: [['@babel/preset-react', { useBuiltIns: true }]]
         }

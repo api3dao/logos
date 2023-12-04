@@ -6,22 +6,23 @@ const babel = require('@babel/core');
 module.exports = {
     transformSVGtoJSX,
     buildChainLogos,
-    buildSymbolLogos,
+    buildLogos,
     sanitizeName,
     generateSwitchCase,
     generateImports,
     indexFileContent,
-    generateFunction
+    generateFunction,
+    generateTypes
 };
 
-function getPlaceholder(mode, isBase64 = false) {
+function getPlaceholder(mode) {
     switch (mode) {
         case 'chains':
-            return isBase64 ? 'ChainPlaceholderLogoBase64()' : `<ChainPlaceholderLogo {...props} />;\n`;
+            return `<ChainPlaceholderLogo {...props} />;\n`;
         case 'symbols':
-            return isBase64 ? 'SymbolPlaceholderLogoBase64()' : `<SymbolPlaceholderLogo {...props} />;\n`;
+            return `<SymbolPlaceholderLogo {...props} />;\n`;
         case 'api-providers':
-            return isBase64 ? 'ApiProviderPlaceholderLogoBase64()' : `<ApiProviderPlaceholderLogo {...props} />;\n`;
+            return `<ApiProviderPlaceholderLogo {...props} />;\n`;
         default:
             break;
     }
@@ -34,18 +35,15 @@ function sanitizeName(name, suffix = '', prefix = '') {
     return prefix + componentName + suffix;
 }
 
-function generateSwitchCase(array, prefix, isBase64 = false) {
+function generateSwitchCase(array, prefix) {
     return array
-        .map((item) =>
-            isBase64
-                ? `case "${sanitizeName(item)}":\n\treturn ${prefix}${sanitizeName(item, 'LogoBase64()')};\n`
-                : `case "${sanitizeName(item)}":\n\treturn <${prefix}${sanitizeName(item, 'Logo')} {...props} />;\n`
+        .map(
+            (item) => `case "${sanitizeName(item)}":\n\treturn <${prefix}${sanitizeName(item, 'Logo')} {...props} />;\n`
         )
         .join('');
 }
 
 function formatImport(item, prefix, file_prefix, file_postfix, path, format) {
-
     const importName = sanitizeName(item, 'Logo', prefix) + file_postfix;
     const filePath = `./logos/${path}/${sanitizeName(item, 'Logo', file_prefix)}${file_postfix}`;
 
@@ -60,43 +58,105 @@ function generateImports(array, prefix, file_prefix, file_postfix, path, format)
     return array.map((item) => formatImport(item, prefix, file_prefix, file_postfix, path, format)).join('');
 }
 
-function generateFunction(batchName, switchCase, mode, isBase64) {
+function generateFunction(batchName, switchCase, mode) {
     return `
-            function ${batchName}(${isBase64 ? 'id' : 'props'}) {
-            if (${isBase64 ? '!id' : '!props.id'}) {
-                return ${getPlaceholder(mode, isBase64)}
+        function sanitizeName(id) {
+            return camelcase(id, {
+            pascalCase: true
+            });
+        }
+
+        function ${batchName}(props) {
+            if (!props.id) {
+                return ${getPlaceholder(mode)}
             }
 
-            function sanitizeName(id) {
-                return camelcase(id, {
-                    pascalCase: true
-                });
-            }
-
-            switch (${isBase64 ? 'sanitizeName(id)' : 'sanitizeName(props.id)'}) {
+            switch (sanitizeName(props.id)) {
                 ${switchCase}
                 default:
-                    return ${getPlaceholder(mode, isBase64)}
+                    return ${getPlaceholder(mode)}
             }
         }
-        export default ${batchName};
+
+        function ${batchName}Svg(id) {
+            return "data:image/svg+xml; base64," + btoa(renderToString(${batchName}({ id: id })));
+        }
+
+        export {${batchName}, ${batchName}Svg}
         `;
 }
-async function transformSVGtoBase64(file, fileName, format, dir) {
-    const content = await fs.readFile(`${dir}/${file}`, 'base64');
-    const fx = `function ${fileName}Base64() {return "data:image/svg+xml;base64,${content}"}export default ${fileName}Base64;`;
-    let { code } = await babel.transformAsync(fx, {
-        presets: [['@babel/preset-react', { useBuiltIns: true }]]
-    });
 
-    if (format === 'esm') {
-        return code;
-    }
+function generateDocAnnotation(description, batchName, example) {
+    return `
+/**
+ *
+ * @param {React.SVGProps<SVGSVGElement>} props
+ * @param {string} [props.id] - Unique ID for the logo element.
+ * @param {string} [props.width] - Width of the logo.
+ * @param {string} [props.height] - Height of the logo.
+ * @returns
+ * ${description}
+ *
+ * @example
+ * \`\`\`
+ * import { ${batchName} } from 'beta-logos';
+ * 
+ * const App = () => {
+ *  return <${batchName}  id="${example}" />;
+ * }
+ * \`\`\`
+ * 
+ * @example
+ * \`\`\`
+* import { ${batchName} } from 'beta-logos';
+ * 
+ * const App = () => {
+ * return <${batchName}  id="${example}" width="64" height="64" />;
+ * }
+ * \`\`\`
+ * 
+ */`;
+}
 
-    const replaceESM = code
-        .replace('import * as React from "react";', 'const React = require("react");')
-        .replace('export default', 'module.exports =');
-    return replaceESM;
+function generateDocAnnotationSvg(description, batchName, example) {
+    return `
+/**
+ *
+ * @param {string} id - Unique ID for the logo element.
+ * @returns
+ * ${description}
+ * 
+ * @example
+ * \`\`\`
+ * import { ${batchName}Svg } from 'beta-logos';
+ * 
+ * const App = () => {
+ * return <img src={${batchName}Svg("${example}")} alt="Logo" />;
+ * }
+ * \`\`\`
+ * 
+ * @example
+ * \`\`\`
+ * import { ${batchName}Svg } from 'beta-logos';
+ * 
+ * const App = () => {
+ * return <img src={${batchName}Svg("${example}")} alt="Logo" width="64" height="64" />;
+ * }
+ * \`\`\`
+ * 
+ */`;
+}
+
+function generateTypes(batchName, mode) {
+    const example = mode === 'chains' ? '1' : mode === 'api-providers' ? 'nodary' : 'eth';
+
+    return `import * as React from 'react';
+${generateDocAnnotation(`${batchName} component`, batchName, example)}
+declare function ${batchName}(props: React.SVGProps<SVGSVGElement>): JSX.Element;
+${generateDocAnnotationSvg(`${batchName} component as SVG string`, batchName, example)}
+declare function ${batchName}Svg(id: string): string;
+export {${batchName}, ${batchName}Svg};
+`;
 }
 
 async function transformSVGtoJSX(file, componentName, format, dir, isTestnet = false) {
@@ -137,26 +197,19 @@ async function buildChainLogos(chainId, testnet, files, logosDir, format = 'esm'
     }
 
     const componentName = sanitizeName(fileName, 'Logo');
-
     const content = await transformSVGtoJSX(fileName, componentName, format, dir, testnet);
     await write2Files(content, logosDir, componentName);
-
-    const svgContent = await transformSVGtoBase64(file, componentName, format, dir);
-    await write2Files(svgContent, logosDir, componentName + 'Base64', true);
 }
 
-async function buildSymbolLogos(symbol, files, logosDir, format = 'esm', dir) {
-    const file = checkFile(files, symbol);
+async function buildLogos(symbol, testnet, files, logosDir, format = 'esm', dir, prefix = '') {
+    const file = checkFile(files, symbol, prefix);
     const componentName = sanitizeName(file, 'Logo');
-    const content = await transformSVGtoJSX(file, componentName, format, dir);
+    const content = await transformSVGtoJSX(file, componentName, format, dir, testnet);
     await write2Files(content, logosDir, componentName);
-
-    const svgContent = await transformSVGtoBase64(file, componentName, format, dir);
-    await write2Files(svgContent, logosDir, componentName + 'Base64', true);
 }
 
-function checkFile(files, item) {
-    const file = files.find((file) => file == `${sanitizeName(item)}.svg`);
+function checkFile(files, item, prefix = '') {
+    const file = files.find((file) => file == `${sanitizeName(item, '', prefix)}.svg`);
     let fileName = file;
 
     if (!fileName) {
@@ -167,10 +220,8 @@ function checkFile(files, item) {
     return fileName;
 }
 
-async function write2Files(content, logosDir, componentName, isBase64 = false) {
-    const types = isBase64
-        ? `declare function ${componentName}(): string;\nexport default ${componentName};\n`
-        : `import * as React from 'react';\ndeclare function ${componentName}(props: React.SVGProps<SVGSVGElement>): JSX.Element;\nexport default ${componentName};\n`;
+async function write2Files(content, logosDir, componentName) {
+    const types = `import * as React from 'react';\ndeclare function ${componentName}(props: React.SVGProps<SVGSVGElement>): JSX.Element;\nexport default ${componentName};\n`;
 
     await fs.writeFile(`${logosDir}/${sanitizeName(componentName)}.js`, content, 'utf-8');
     await fs.writeFile(`${logosDir}/${sanitizeName(componentName)}.d.ts`, types, 'utf-8');
@@ -178,6 +229,6 @@ async function write2Files(content, logosDir, componentName, isBase64 = false) {
 
 function indexFileContent(format, batchName) {
     return format === 'esm'
-        ? `export { default as ${batchName} } from './${batchName}';\n`
+        ? `export * from './${batchName}';\n`
         : `module.exports.${batchName} = require('./${batchName}.js');\n`;
 }
