@@ -1,5 +1,11 @@
 # @api3/logos
 
+## 0.0.6
+
+### Patch Changes
+
+-   f3149d9: Add example view.
+
 ## 0.0.5
 
 ### Patch Changes
