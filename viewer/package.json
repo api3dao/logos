@@ -4,6 +4,7 @@
     "homepage": "https://api3dao.github.io/logos/",
     "private": true,
     "dependencies": {
+        "@api3/api-integrations": "^0.0.1",
         "@api3/chains": "^4.1.0",
         "@chakra-ui/icons": "^2.1.1",
         "@chakra-ui/react": "^2.6.0",

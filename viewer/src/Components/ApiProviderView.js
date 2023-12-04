@@ -2,35 +2,23 @@ import { Flex, Text } from '@chakra-ui/react';
 import { ApiProviderLogo } from 'beta-logos';
 import SearchRow from '../Custom/SearchRow';
 import { useState } from 'react';
+const apiIntegrations = require('@api3/api-integrations');
 
 const ApiProvidersView = () => {
     const [apiProvider, setApiProvider] = useState('');
 
-    const getSymbols = () => {
-        const apiProviders = [
-            'coinpaprika',
-            'dxfeed',
-            'finage',
-            'finnhub',
-            'iexcloud',
-            'kaiko',
-            'ncfx',
-            'nodary',
-            'tradermade',
-            'twelvedata'
-        ];
-
-        return apiProviders.filter((provider) => provider.toLowerCase().includes(apiProvider.toLowerCase()));
+    const getApiProviders = () => {
+        return apiIntegrations.getApiProviderAliases();
     };
 
     return (
         <Flex p={3} gap={3} bgColor={'white'} wrap={'wrap'} alignItems="center" justifyContent="left">
             <Text fontSize="md" fontWeight="bold" ml={2}>
-                There is a total of {getSymbols().length} api providers
+                There is a total of {getApiProviders().length} api providers
             </Text>
             <SearchRow text={apiProvider} setText={setApiProvider} placeholder={'Enter a symbol'} />
 
-            {getSymbols().map((feed, index) => {
+            {getApiProviders().map((feed, index) => {
                 return (
                     <Flex
                         p={3}
