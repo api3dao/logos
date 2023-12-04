@@ -12,6 +12,25 @@ const DocsView = () => {
 ### Patch Changes
 
 -   a835657: - JSDoc annotations added to \`beta-logos\` package.
+    -   JS Docs are annotations are now available for \`beta-logos\` package.
+
+        \`\`\`ts
+        @param props
+
+        @param props.id — Unique ID for the logo element.
+        @param props.width — Width of the logo.
+        @param props.height — Height of the logo.
+        @returns — ApiProviderLogo component
+
+        @example
+        import { ApiProviderLogo } from 'beta-logos';
+
+        const App = () => {
+            return <ApiProviderLogo  id="nodary" />;
+        }
+
+        \`\`\`
+
     -   \`beta - logos\` package now exports \`Logo\` as svg string.
     -   \`beta - logos\` package now exports \`Logo\` as React component.
     -   Package size reduced.
@@ -29,7 +48,7 @@ const DocsView = () => {
         \`\`\`html
         <img src = { ChainLogoSvg('43114') } width = { 50} height = { 50} alt = '' />
         <img src = { SymbolLogoSvg('BTC') } width={50} height={50} alt='' />
-        <img src={ ApiProviderLogoSvg('nodary') } width={50} height={50} alt='' />
+        <img src = { ApiProviderLogoSvg('nodary') } width={50} height={50} alt='' />
         \`\`\`
 
         -  React component
