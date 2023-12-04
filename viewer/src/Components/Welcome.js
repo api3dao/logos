@@ -25,7 +25,7 @@ const Welcome = () => {
                 @api3/logos
             </Text>
             <Text fontSize="md" ml={2}>
-                Welcome to @api3/logos package viewer. This package contains logos for chains and symbols that supported
+                Welcome to @api3/logos package viewer. This package contains logos for chains and symbols that are supported
                 by API3
             </Text>
             <Tabs selectedIndex={selectedTab} onSelect={(index) => setSelectedTab(index)}>
