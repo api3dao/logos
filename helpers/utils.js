@@ -102,7 +102,7 @@ function generateDocAnnotation(description, batchName, example) {
  * import { ${batchName} } from 'beta-logos';
  * 
  * const App = () => {
- *  return <${batchName}  id="${example}" />;
+ *  return <${batchName} id="${example}" />;
  * }
  * \`\`\`
  * 
@@ -111,7 +111,7 @@ function generateDocAnnotation(description, batchName, example) {
 * import { ${batchName} } from 'beta-logos';
  * 
  * const App = () => {
- * return <${batchName}  id="${example}" width="64" height="64" />;
+ * return <${batchName} id="${example}" width="64" height="64" />;
  * }
  * \`\`\`
  * 
