@@ -6,6 +6,11 @@ import '../md.css';
 
 const DocsView = () => {
     const markdown = `# @api3/logos
+## 0.0.6
+
+### Patch Changes
+
+-   f3149d9: Add example view to repo FE.
 
 ## 0.0.5
 
