@@ -1,5 +1,14 @@
 # @api3/logos
 
+## 0.0.5
+
+### Patch Changes
+
+-   a835657: - JSDoc annotations added to `beta-logos` package.
+    -   `beta-logos` package now exports `Logo` as svg string.
+    -   `beta-logos` package now exports `Logo` as React component.
+    -   Package size reduced.
+
 ## 0.0.4
 
 ### Patch Changes
