@@ -37,18 +37,22 @@ const ApiProvidersView = () => {
                     <Flex
                         p={3}
                         boxShadow={'md'}
-                        width={'120px'}
-                        height={'120px'}
-                        bgColor={selectedApiProvider === feed ? 'gray.300' : 'gray.100'}
+                        width={'310px'}
+                        height={'80px'}
+                        bgColor={'gray.100'}
                         key={index}
                         alignItems="center"
                         justifyContent="left"
-                        wrap={'wrap'}
                         onMouseOver={() => setSelectedApiProvider(feed)}
                         onMouseOut={() => setSelectedApiProvider(null)}
                     >
                         {selectedApiProvider !== feed ? (
-                            <ApiProviderLogo id={feed} width={100} height={100} />
+                            <>
+                                <ApiProviderLogo id={feed} width={50} height={50} />
+                                <Text fontSize="md" fontWeight="bold" ml={2}>
+                                    {feed}
+                                </Text>
+                            </>
                         ) : (
                             <InfoView method={'ApiProvider'} feed={feed} />
                         )}
