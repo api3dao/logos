@@ -1,5 +1,6 @@
 import { Text, VStack } from '@chakra-ui/react';
-import { CopyBlock, dracula } from 'react-code-blocks';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const ChainsView = () => {
     return (
@@ -23,19 +24,18 @@ const ChainsView = () => {
             <Text fontSize="xl" fontWeight="bold" ml={2}>
                 Installation
             </Text>
-            <CopyBlock
-                text={`npm install beta-logos`}
+            <SyntaxHighlighter
+                PreTag="div"
+                children={String('npm install beta-logos')}
                 language={'bash'}
-                showLineNumbers={true}
-                theme={dracula}
-                codeBlock={false}
+                style={dracula}
             />
-
             <Text fontSize="xl" fontWeight="bold" ml={2}>
                 Usage
             </Text>
-            <CopyBlock
-                text={`import React from 'react';
+            <SyntaxHighlighter
+                PreTag="div"
+                children={String(`import React from 'react';
 import { ChainLogo, SymbolLogo, ApiProviderLogo, 
     ChainLogoBase64, SymbolLogoBase64, ApiProviderLogoBase64 } from 'beta-logos';
 
@@ -52,12 +52,11 @@ const App = () => (
     </div>
 );
 
-export default App;`}
+export default App;`)}
                 language={'javascript'}
-                showLineNumbers={true}
-                theme={dracula}
-                codeBlock={false}
+                style={dracula}
             />
+
         </VStack>
     );
 };
