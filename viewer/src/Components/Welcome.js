@@ -3,11 +3,9 @@ import ChainsView from './ChainsView';
 import ApiProviderView from './ApiProviderView';
 import Docs from './Docs';
 import Changelog from './ChangeLog';
-import { useState } from 'react';
 import { VStack, Text, Tab, Tabs, TabList, TabPanel, TabPanels } from '@chakra-ui/react';
 
 const Welcome = () => {
-    const [selectedTab, setSelectedTab] = useState(0);
 
     return (
         <VStack
@@ -20,6 +18,7 @@ const Welcome = () => {
             maxWidth={'1100px'}
             alignItems={'left'}
             justifyItems={'center'}
+            overflow={'scroll'}
         >
             <Text fontSize="2xl" fontWeight="bold" ml={2}>
                 @api3/logos
@@ -28,7 +27,7 @@ const Welcome = () => {
                 Welcome to @api3/logos package viewer. This package contains logos for chains and symbols that are supported
                 by API3
             </Text>
-            <Tabs selectedIndex={selectedTab} onSelect={(index) => setSelectedTab(index)}>
+            <Tabs>
                 <TabList>
                     <Tab>Symbols</Tab>
                     <Tab>Chains</Tab>
