@@ -6,11 +6,11 @@ import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const LogoView = (method, feed) => {
     if (method === 'Chain') {
-        return <ChainLogo id={feed} width={50} height={50} />;
+        return <ChainLogo id={feed} width={100} height={100} />;
     } else if (method === 'Symbol') {
-        return <SymbolLogo id={feed} width={50} height={50} />;
+        return <SymbolLogo id={feed} width={100} height={100} />;
     } else if (method === 'ApiProvider') {
-        return <ApiProviderLogo id={feed} width={50} height={50} />;
+        return <ApiProviderLogo id={feed} width={100} height={100} />;
     }
 };
 
@@ -20,10 +20,10 @@ const InfoView = ({ method, feed }) => {
             p={5}
             bgColor={'white'}
             boxShadow={'md'}
-            style={{ clear: 'both' }}
             gap={5}
             zIndex={1}
             alignItems={'center'}
+            className='message'
         >
             {LogoView(method, feed)}
             <Flex flexDirection={'column'} justifyContent={'left'} alignItems={'left'}>

@@ -32,7 +32,7 @@ const ApiProvidersView = () => {
             </Text>
             <SearchRow text={apiProvider} setText={setApiProvider} placeholder={'Enter a symbol'} />
 
-            {getApiProviders().map((feed, index) => {
+            {getApiProviders().map((provider, index) => {
                 return (
                     <Flex
                         p={3}
@@ -43,19 +43,15 @@ const ApiProvidersView = () => {
                         key={index}
                         alignItems="center"
                         justifyContent="left"
-                        onMouseOver={() => setSelectedApiProvider(feed)}
+                        onMouseOver={() => setSelectedApiProvider(provider)}
                         onMouseOut={() => setSelectedApiProvider(null)}
+                        cursor={'pointer'}
                     >
-                        {selectedApiProvider !== feed ? (
-                            <>
-                                <ApiProviderLogo id={feed} width={50} height={50} />
-                                <Text fontSize="md" fontWeight="bold" ml={2}>
-                                    {feed}
-                                </Text>
-                            </>
-                        ) : (
-                            <InfoView method={'ApiProvider'} feed={feed} />
-                        )}
+                        <ApiProviderLogo id={provider} width={50} height={50} />
+                        <Text fontSize="md" fontWeight="bold" ml={2}>
+                            {provider}
+                        </Text>
+                        {selectedApiProvider !== provider ? null : <InfoView method={'ApiProvider'} feed={provider} />}
                     </Flex>
                 );
             })}
