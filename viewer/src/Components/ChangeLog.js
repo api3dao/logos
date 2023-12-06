@@ -6,6 +6,13 @@ import '../md.css';
 
 const DocsView = () => {
     const markdown = `# @api3/logos
+
+## 0.0.7
+
+### Patch Changes
+
+-   de4bec0: Export functions fixed.
+
 ## 0.0.6
 
 ### Patch Changes
