@@ -12,6 +12,7 @@ module.exports = {
     generateImports,
     indexFileContent,
     generateFunction,
+    generateSvgFunction,
     generateTypes
 };
 
@@ -78,12 +79,21 @@ function generateFunction(batchName, switchCase, mode) {
             }
         }
 
+        export default ${batchName}
+        `;
+}
+
+function generateSvgFunction(batchName) {
+    return `
+        import ${batchName} from './${batchName}.js';
+
         function ${batchName}Svg(id) {
             return "data:image/svg+xml; base64," + btoa(renderToString(${batchName}({ id: id })));
         }
 
-        export {${batchName}, ${batchName}Svg}
+        export default ${batchName}Svg
         `;
+
 }
 
 function generateDocAnnotation(description, batchName, example) {
@@ -147,15 +157,20 @@ function generateDocAnnotationSvg(description, batchName, example) {
  */`;
 }
 
-function generateTypes(batchName, mode) {
+function generateTypes(batchName, mode, isSvg) {
     const example = mode === 'chains' ? '1' : mode === 'api-providers' ? 'nodary' : 'eth';
 
-    return `import * as React from 'react';
-${generateDocAnnotation(`${batchName} component`, batchName, example)}
-declare function ${batchName}(props: React.SVGProps<SVGSVGElement>): JSX.Element;
+    if (isSvg) {
+        return `import * as React from 'react';
 ${generateDocAnnotationSvg(`${batchName} component as SVG string`, batchName, example)}
 declare function ${batchName}Svg(id: string): string;
-export {${batchName}, ${batchName}Svg};
+export default ${batchName}Svg;
+`;
+    }
+
+    return `${generateDocAnnotation(`${batchName} component`, batchName, example)}
+declare function ${batchName}(props: React.SVGProps<SVGSVGElement>): JSX.Element;
+export default ${batchName};
 `;
 }
 
@@ -229,6 +244,6 @@ async function write2Files(content, logosDir, componentName) {
 
 function indexFileContent(format, batchName) {
     return format === 'esm'
-        ? `export * from './${batchName}';\n`
-        : `module.exports.${batchName} = require('./${batchName}.js');\n`;
+        ? `export { default as ${batchName} } from './${batchName}.js';\nexport { default as ${batchName}Svg } from './${batchName}Svg.js';\n`
+        : `module.exports.${batchName} = require('./${batchName}.js');\nmodule.exports.${batchName}Svg = require('./${batchName}Svg.js');\n`;
 }
