@@ -23,7 +23,6 @@ const InfoView = ({ method, feed }) => {
             gap={5}
             zIndex={1}
             alignItems={'center'}
-            className='message'
         >
             {LogoView(method, feed)}
             <Flex flexDirection={'column'} justifyContent={'left'} alignItems={'left'}>
