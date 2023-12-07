@@ -1,13 +1,15 @@
 const chains = require('@api3/chains');
-const feeds = require('../data/feeds.json');
 const fs = require('fs/promises');
 const rimraf = require('rimraf');
 const babel = require('@babel/core');
 const utils = require('../helpers/utils');
 const { rename } = require('fs');
 const apiIntegrations = require('@api3/api-integrations');
+const { nodaryFeeds } = require('@nodary/utilities');
 
 const outputPath = './dist';
+
+console.log('🏗 Building logo package...');
 
 async function buildChainLogos(files, logosDir, format = 'esm', dir) {
     chains.CHAINS.forEach(async (chain) => {
@@ -24,7 +26,7 @@ async function buildApiProviderLogos(files, logosDir, format = 'esm', dir) {
 }
 
 async function buildSymbolLogos(files, logosDir, format = 'esm', dir) {
-    const symbols = [...new Set(feeds.map((feed) => feed.name.split('/')).flat())];
+    const symbols = [...new Set(nodaryFeeds.map((feed) => feed.name.split('/')).flat())];
 
     symbols.forEach(async (symbol) => {
         utils.buildLogos(symbol, false, files, logosDir, format, dir);
@@ -68,7 +70,7 @@ function buildSwitchCase(mode) {
             const chainsIds = chains.CHAINS.map((chain) => chain.id);
             return utils.generateSwitchCase(chainsIds, 'Chain');
         case 'symbols':
-            const symbols = [...new Set(feeds.map((feed) => feed.name.split('/')).flat())];
+            const symbols = [...new Set(nodaryFeeds.map((feed) => feed.name.split('/')).flat())];
             return utils.generateSwitchCase(symbols, 'Symbol');
         case 'api-providers':
             const apiProviders = apiIntegrations.getApiProviderAliases();
@@ -85,7 +87,7 @@ function buildLogoImports(mode, postfix, format) {
             chainIds.push('placeholder');
             return utils.generateImports(chainIds, 'Chain', 'Chain', postfix, 'chains', format);
         case 'symbols':
-            let symbols = [...new Set(feeds.map((feed) => feed.name.split('/')).flat())];
+            let symbols = [...new Set(nodaryFeeds.map((feed) => feed.name.split('/')).flat())];
             symbols.push('placeholder');
             return utils.generateImports(symbols, 'Symbol', '', postfix, 'symbols', format);
         case 'api-providers':
