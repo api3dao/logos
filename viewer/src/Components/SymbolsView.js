@@ -32,15 +32,19 @@ const SymbolsView = () => {
                         key={index}
                         alignItems="center"
                         justifyContent="left"
-                        onMouseOver={() => setSelectedSymbol(feed)}
-                        onMouseOut={() => setSelectedSymbol(null)}
+                        onMouseDown={() => setSelectedSymbol(feed)}
                         cursor={'pointer'}
                     >
-                        <SymbolLogo id={feed} width={50} height={50} />
-                        <Text fontSize="sm" fontWeight="bold" ml={2}>
-                            {feed}
-                        </Text>
-                        {selectedSymbol !== feed ? null : <InfoView method={'Symbol'} feed={feed} />}
+                        {selectedSymbol !== feed ? (
+                            <>
+                                <SymbolLogo id={feed} width={50} height={50} />
+                                <Text fontSize="sm" fontWeight="bold" ml={2}>
+                                    {feed}
+                                </Text>
+                            </>
+                        ) : (
+                            <InfoView method={'Symbol'} feed={feed} onExit={() => setSelectedSymbol(null)} />
+                        )}
                     </Flex>
                 );
             })}

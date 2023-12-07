@@ -27,20 +27,24 @@ const ChainList = ({ isTestnet, chain }) => {
                 key={index}
                 alignItems="center"
                 justifyContent="left"
-                onMouseOver={() => setSelectedChain(chain)}
-                onMouseOut={() => setSelectedChain(null)}
+                onMouseDown={() => setSelectedChain(chain)}
                 cursor={'pointer'}
             >
-                <ChainLogo id={chain.id} width={50} height={50} />
+                {selectedChain !== chain ? (
+                    <>
+                        <ChainLogo id={chain.id} width={50} height={50} />
 
-                <Text fontSize="md" fontWeight="bold" ml={2}>
-                    {chain.name}
-                </Text>
-                <Spacer />
-                <Text fontSize="sm" ml={2}>
-                    {chain.id}
-                </Text>
-                {selectedChain !== chain ? null : <InfoView method={'Chain'} feed={chain.id} />}
+                        <Text fontSize="md" fontWeight="bold" ml={2}>
+                            {chain.name}
+                        </Text>
+                        <Spacer />
+                        <Text fontSize="sm" ml={2}>
+                            {chain.id}
+                        </Text>
+                    </>
+                ) : (
+                    <InfoView method={'Chain'} feed={chain.id} onExit={() => setSelectedChain(null)} />
+                )}
             </Flex>
         );
     });

@@ -43,15 +43,19 @@ const ApiProvidersView = () => {
                         key={index}
                         alignItems="center"
                         justifyContent="left"
-                        onMouseOver={() => setSelectedApiProvider(provider)}
-                        onMouseOut={() => setSelectedApiProvider(null)}
+                        onMouseDown={() => setSelectedApiProvider(provider)}
                         cursor={'pointer'}
                     >
-                        <ApiProviderLogo id={provider} width={50} height={50} />
-                        <Text fontSize="md" fontWeight="bold" ml={2}>
-                            {provider}
-                        </Text>
-                        {selectedApiProvider !== provider ? null : <InfoView method={'ApiProvider'} feed={provider} />}
+                        {selectedApiProvider !== provider ? (
+                            <>
+                                <ApiProviderLogo id={provider} width={50} height={50} />
+                                <Text fontSize="md" fontWeight="bold" ml={2}>
+                                    {provider}
+                                </Text>
+                            </>
+                        ) : (
+                            <InfoView method={'ApiProvider'} feed={provider} onExit={() => setSelectedApiProvider(null)} />
+                        )}
                     </Flex>
                 );
             })}
