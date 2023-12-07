@@ -1,16 +1,16 @@
 import { Flex, Text } from '@chakra-ui/react';
 import { SymbolLogo } from 'beta-logos';
-import Feeds from '../data/feeds.json';
 import SearchRow from '../Custom/SearchRow';
 import { useState } from 'react';
 import InfoView from '../Custom/InfoView';
+import { nodaryFeeds } from '@nodary/utilities';
 
 const SymbolsView = () => {
     const [symbol, setSymbol] = useState('');
     const [selectedSymbol, setSelectedSymbol] = useState('');
 
     const getSymbols = () => {
-        const filteredFeeds = [...new Set(Feeds.map((feed) => feed.name.split('/')).flat())];
+        const filteredFeeds = [...new Set(nodaryFeeds.map((feed) => feed.name.split('/')).flat())];
         return filteredFeeds.filter((feed) => feed.toLowerCase().includes(symbol.toLowerCase()));
     };
 
