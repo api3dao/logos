@@ -1,5 +1,11 @@
 # @api3/logos
 
+## 0.0.9
+
+### Patch Changes
+
+-   a19b40e: Fix invalid import statement for cjs
+
 ## 0.0.8
 
 ### Patch Changes
