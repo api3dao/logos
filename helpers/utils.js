@@ -83,9 +83,12 @@ function generateFunction(batchName, switchCase, mode) {
         `;
 }
 
-function generateSvgFunction(batchName) {
-    return `
-        import ${batchName} from './${batchName}.js';
+function generateSvgFunction(batchName, format) {
+    return `${
+        format === 'esm'
+            ? `import ${batchName} from './${batchName}.js';\n`
+            : `const ${batchName} = require('./${batchName}.js');\n`
+    }
 
         function ${batchName}Svg(id) {
             return "data:image/svg+xml; base64," + btoa(renderToString(${batchName}({ id: id })));
@@ -93,7 +96,6 @@ function generateSvgFunction(batchName) {
 
         export default ${batchName}Svg
         `;
-
 }
 
 function generateDocAnnotation(description, batchName, example) {

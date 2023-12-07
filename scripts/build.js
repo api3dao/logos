@@ -103,8 +103,9 @@ async function buildBatch(outDir, format = 'esm', batchName, mode, isSvg) {
     const types = utils.generateTypes(batchName, mode, isSvg);
     await fs.writeFile(`${outDir}/${batchName}${isSvg ? 'Svg' : ''}.d.ts`, types, 'utf-8');
 
-    const imports = isSvg ? `import * as React from "react";\nimport { renderToString } from 'react-dom/server'` :
-        `import * as React from "react"; \nimport camelcase from 'camelcase';
+    const imports = isSvg
+        ? `import * as React from "react";\nimport { renderToString } from 'react-dom/server'`
+        : `import * as React from "react"; \nimport camelcase from 'camelcase';
         ${buildLogoImports(mode, '', format)}`;
 
     let code = await babelTransform(format, imports, batchName, mode, isSvg);
@@ -127,15 +128,18 @@ async function babelTransform(format, imports, batchName, mode, isSvg) {
     let { code } = await babel.transformAsync(
         `
         ${imports}
-        ${isSvg ? utils.generateSvgFunction(batchName) : utils.generateFunction(batchName, buildSwitchCase(mode), mode)}`,
+        ${
+            isSvg
+                ? utils.generateSvgFunction(batchName, format)
+                : utils.generateFunction(batchName, buildSwitchCase(mode), mode)
+        }`,
         {
             presets: [['@babel/preset-react', { useBuiltIns: true }]]
         }
     );
 
     if (format === 'cjs') {
-        code = code
-            .replace('export default', 'module.exports =');
+        code = code.replace('export default', 'module.exports =');
     }
 
     return code;
