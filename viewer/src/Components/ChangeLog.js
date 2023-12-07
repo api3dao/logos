@@ -7,6 +7,12 @@ import '../md.css';
 const DocsView = () => {
     const markdown = `# @api3/logos
 
+## 0.0.8
+
+### Patch Changes
+
+-   c797370: Added new symbols; mETH, EURE, GHO, RDNT
+
 ## 0.0.7
 
 ### Patch Changes
@@ -132,6 +138,7 @@ const DocsView = () => {
             justifyContent="left"
         >
             <Markdown
+                remarkPlugins={[]}
                 children={markdown}
                 className={'markdown-body'}
                 components={{
