@@ -7,6 +7,18 @@ import '../md.css';
 const DocsView = () => {
     const markdown = `# @api3/logos
 
+## 0.0.10
+
+### Patch Changes
+
+-   Added new symbols; 'BABA', 'ETHx', 'MATICx', 'PYTH', 'WOO', 'MATIC Exchange Rate', 'NG', 'QQQ', 'PYPL'
+
+## 0.0.9
+
+### Patch Changes
+
+-   a19b40e: Fix invalid import statement for cjs
+
 ## 0.0.8
 
 ### Patch Changes
