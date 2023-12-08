@@ -11,6 +11,32 @@ const outputPath = './dist';
 
 console.log('🏗 Building logo package...');
 
+function getManualLogos(mode) {
+    switch (mode) {
+        case 'chains':
+            return [];
+        case 'symbols':
+            return ['BABA', 'ETHx', 'MATICx', 'PYTH', 'WOO', 'PYPL'];
+        case 'api-providers':
+            return [];
+        default:
+            break;
+    }
+}
+
+function getLogoList(mode) {
+    switch (mode) {
+        case 'chains':
+            return chains.CHAINS.map((chain) => chain.id);
+        case 'symbols':
+            return [...getManualLogos(mode), ...new Set(nodaryFeeds.map((feed) => feed.name.split('/')).flat())];
+        case 'api-providers':
+            return apiIntegrations.getApiProviderAliases();
+        default:
+            break;
+    }
+}
+
 async function buildChainLogos(files, logosDir, format = 'esm', dir) {
     chains.CHAINS.forEach(async (chain) => {
         utils.buildLogos(chain.id, chain.testnet, files, logosDir, format, dir, 'Chain');
@@ -18,17 +44,8 @@ async function buildChainLogos(files, logosDir, format = 'esm', dir) {
     utils.buildLogos('Placeholder', false, files, logosDir, format, dir, 'Chain');
 }
 
-async function buildApiProviderLogos(files, logosDir, format = 'esm', dir) {
-    apiIntegrations.getApiProviderAliases().forEach(async (provider) => {
-        utils.buildLogos(provider, false, files, logosDir, format, dir);
-    });
-    utils.buildLogos('placeholder', false, files, logosDir, format, dir);
-}
-
-async function buildSymbolLogos(files, logosDir, format = 'esm', dir) {
-    const symbols = [...new Set(nodaryFeeds.map((feed) => feed.name.split('/')).flat())];
-
-    symbols.forEach(async (symbol) => {
+async function buildSymbolLogos(files, logosDir, format = 'esm', dir, mode) {
+    getLogoList(mode).forEach(async (symbol) => {
         utils.buildLogos(symbol, false, files, logosDir, format, dir);
     });
     utils.buildLogos('placeholder', false, files, logosDir, format, dir);
@@ -48,10 +65,10 @@ async function buildLogos(format = 'esm', dir, mode, batchName) {
             await buildChainLogos(files, logosDir, format, dir);
             break;
         case 'symbols':
-            await buildSymbolLogos(files, logosDir, format, dir);
+            await buildSymbolLogos(files, logosDir, format, dir, mode);
             break;
         case 'api-providers':
-            await buildApiProviderLogos(files, logosDir, format, dir);
+            await buildSymbolLogos(files, logosDir, format, dir, mode);
             break;
         default:
             break;
@@ -67,33 +84,26 @@ async function buildLogos(format = 'esm', dir, mode, batchName) {
 function buildSwitchCase(mode) {
     switch (mode) {
         case 'chains':
-            const chainsIds = chains.CHAINS.map((chain) => chain.id);
-            return utils.generateSwitchCase(chainsIds, 'Chain');
+            return utils.generateSwitchCase(getLogoList(mode), 'Chain');
         case 'symbols':
-            const symbols = [...new Set(nodaryFeeds.map((feed) => feed.name.split('/')).flat())];
-            return utils.generateSwitchCase(symbols, 'Symbol');
+            return utils.generateSwitchCase(getLogoList(mode), 'Symbol');
         case 'api-providers':
-            const apiProviders = apiIntegrations.getApiProviderAliases();
-            return utils.generateSwitchCase(apiProviders, 'ApiProvider');
+            return utils.generateSwitchCase(getLogoList(mode), 'ApiProvider');
         default:
             break;
     }
 }
 
 function buildLogoImports(mode, postfix, format) {
+    let options = getLogoList(mode);
+    options.push('placeholder');
     switch (mode) {
         case 'chains':
-            let chainIds = chains.CHAINS.map((chain) => chain.id);
-            chainIds.push('placeholder');
-            return utils.generateImports(chainIds, 'Chain', 'Chain', postfix, 'chains', format);
+            return utils.generateImports(options, 'Chain', 'Chain', postfix, 'chains', format);
         case 'symbols':
-            let symbols = [...new Set(nodaryFeeds.map((feed) => feed.name.split('/')).flat())];
-            symbols.push('placeholder');
-            return utils.generateImports(symbols, 'Symbol', '', postfix, 'symbols', format);
+            return utils.generateImports(options, 'Symbol', '', postfix, 'symbols', format);
         case 'api-providers':
-            let providers = apiIntegrations.getApiProviderAliases().map((provider) => provider);
-            providers.push('placeholder');
-            return utils.generateImports(providers, 'ApiProvider', '', postfix, 'api-providers', format);
+            return utils.generateImports(options, 'ApiProvider', '', postfix, 'api-providers', format);
         default:
             break;
     }
@@ -128,10 +138,9 @@ async function babelTransform(format, imports, batchName, mode, isSvg) {
     let { code } = await babel.transformAsync(
         `
         ${imports}
-        ${
-            isSvg
-                ? utils.generateSvgFunction(batchName, format)
-                : utils.generateFunction(batchName, buildSwitchCase(mode), mode)
+        ${isSvg
+            ? utils.generateSvgFunction(batchName, format)
+            : utils.generateFunction(batchName, buildSwitchCase(mode), mode)
         }`,
         {
             presets: [['@babel/preset-react', { useBuiltIns: true }]]
