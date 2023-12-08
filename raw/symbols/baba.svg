@@ -1,24 +1,5 @@
 <svg width="250" height="250" xmlns="http://www.w3.org/2000/svg" fill="none">
- <defs>
-  <linearGradient id="svg_33" x1="-1.93378" y1="-1.15019" x2="-5.93421" y2="4.72398">
-   <stop stop-color="#082929"/>
-   <stop offset="1" stop-color="#0A3333"/>
-  </linearGradient>
-  <linearGradient id="svg_32" x1="2.68546" y1="-0.46085" x2="-0.74088" y2="4.97646">
-   <stop stop-color="#ADA976"/>
-   <stop offset="1" stop-color="#807C58"/>
-  </linearGradient>
-  <linearGradient id="svg_31" x1="-5.41518" y1="-1.89143" x2="-1.81906" y2="4.10523">
-   <stop stop-color="#0A3333"/>
-   <stop offset="1" stop-color="#0C4745"/>
-  </linearGradient>
-  <linearGradient id="svg_30" x1="0.45301" y1="8.39584" x2="-3.49627" y2="2.00515">
-   <stop stop-color="#908C65"/>
-   <stop offset="1" stop-color="#ADA976"/>
-  </linearGradient>
- </defs>
  <g>
-  <title>Layer 1</title>
   <path id="svg_1" d="m125,250c-69.06077,0 -125,-55.93922 -125,-125c0,-69.06077 55.93923,-125 125,-125c69.06078,0 125,55.93923 125,125c0,69.06078 -55.93922,125 -125,125z" opacity="undefined" fill="#f3652c"/>
   <g id="svg_2">
    <g id="svg_3" clip-path="url(#svg_29)">
