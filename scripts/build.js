@@ -16,7 +16,7 @@ function getManualLogos(mode) {
         case 'chains':
             return [];
         case 'symbols':
-            return ['BABA', 'ETHx', 'MATICx', 'PYTH', 'WOO', 'MATIC Exchange Rate', 'PYPL'];
+            return ['BABA', 'ETHx', 'MATICx', 'PYTH', 'WOO', 'MATIC Exchange Rate', 'NG', 'PYPL'];
         case 'api-providers':
             return [];
         default:

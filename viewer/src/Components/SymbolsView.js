@@ -10,7 +10,7 @@ const SymbolsView = () => {
     const [selectedSymbol, setSelectedSymbol] = useState('');
 
     const getSymbols = () => {
-        const filteredFeeds = [...['BABA', 'ETHx', 'MATICx', 'PYTH', 'stETH', 'stMATIC', 'WOO', 'MATIC Exchange Rate', 'PYPL'], ...new Set(nodaryFeeds.map((feed) => feed.name.split('/')).flat())];
+        const filteredFeeds = [...['BABA', 'ETHx', 'MATICx', 'PYTH', 'stETH', 'stMATIC', 'WOO', 'MATIC Exchange Rate', 'NG', 'PYPL'], ...new Set(nodaryFeeds.map((feed) => feed.name.split('/')).flat())];
         return filteredFeeds.filter((feed) => feed.toLowerCase().includes(symbol.toLowerCase()));
     };
 
