@@ -11,7 +11,7 @@ const DocsView = () => {
 
 ### Patch Changes
 
--   Added new symbols; 'BABA', 'ETHx', 'MATICx', 'PYTH', 'WOO', 'MATIC Exchange Rate', 'NG', 'QQQ', 'PYPL'
+-   8fd2486: Added new symbols; 'BABA', 'ETHx', 'MATICx', 'PYTH', 'WOO', 'MATIC Exchange Rate', 'NG', 'QQQ', 'PYPL'
 
 ## 0.0.9
 
