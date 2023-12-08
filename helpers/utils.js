@@ -39,7 +39,7 @@ function sanitizeName(name, suffix = '', prefix = '') {
 function generateSwitchCase(array, prefix) {
     return array
         .map(
-            (item) => `case "${sanitizeName(item)}":\n\treturn <${prefix}${sanitizeName(item, 'Logo')} {...props} />;\n`
+            (item) => `case "${sanitizeName(item).toLowerCase()}":\n\treturn <${prefix}${sanitizeName(item, 'Logo')} {...props} />;\n`
         )
         .join('');
 }
@@ -72,7 +72,7 @@ function generateFunction(batchName, switchCase, mode) {
                 return ${getPlaceholder(mode)}
             }
 
-            switch (sanitizeName(props.id)) {
+            switch (sanitizeName(props.id).toLowerCase()) {
                 ${switchCase}
                 default:
                     return ${getPlaceholder(mode)}
@@ -84,11 +84,10 @@ function generateFunction(batchName, switchCase, mode) {
 }
 
 function generateSvgFunction(batchName, format) {
-    return `${
-        format === 'esm'
-            ? `import ${batchName} from './${batchName}.js';\n`
-            : `const ${batchName} = require('./${batchName}.js');\n`
-    }
+    return `${format === 'esm'
+        ? `import ${batchName} from './${batchName}.js';\n`
+        : `const ${batchName} = require('./${batchName}.js');\n`
+        }
 
         function ${batchName}Svg(id) {
             return "data:image/svg+xml; base64," + btoa(renderToString(${batchName}({ id: id })));
