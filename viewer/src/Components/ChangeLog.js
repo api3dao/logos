@@ -7,13 +7,14 @@ import '../md.css';
 const DocsView = () => {
     const markdown = `# @api3/logos
 
-## 0.0.10
+## 0.0.11
 
 ### Patch Changes
 
--   React support removed.
--   \`ChainLogo\`, \`SymbolLogo\` and \`ApiProviderLogo\` now return a string instead of a React component.
--   Returned string is a base64 encoded SVG image.
+-   a47a5a0: - React support removed.
+
+    -   \`ChainLogo\`, \`SymbolLogo\` and \`ApiProviderLogo\` now return a string instead of a React component.
+    -   Returned string is a base64 encoded SVG image.
 
 \`\`\`js
     import { ChainLogo, SymbolLogo, ApiProviderLogo } from 'beta-logos';
