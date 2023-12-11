@@ -31,21 +31,56 @@ const ChainsView = () => {
                 style={dracula}
             />
             <Text fontSize="xl" fontWeight="bold" ml={2}>
-                Usage
+                Usage React
             </Text>
             <SyntaxHighlighter
                 PreTag="div"
                 children={String(`import { ChainLogo, SymbolLogo, ApiProviderLogo } from 'beta-logos';
 
 <div>
-    <img src={ChainLogo('43114')} width={50} height={50} alt='43114' />
-    <img src={SymbolLogo('BTC')} width={50} height={50} alt='BTC' />
-    <img src={ApiProviderLogo('nodary')} width={50} height={50} alt='nodary' />
+    <img src={ ChainLogo('43114') } width={50} height={50} alt='43114' />
+    <img src={ SymbolLogo('BTC') } width={50} height={50} alt='BTC' />
+    <img src={ ApiProviderLogo('nodary') } width={50} height={50} alt='nodary' />
 </div>`)}
-                language={'javascript'}
+                language={'jsx'}
                 style={dracula}
             />
 
+            <Text fontSize="xl" fontWeight="bold" ml={2}>
+                Usage Vue.js
+            </Text>
+            <SyntaxHighlighter
+                PreTag="div"
+                children={String(`<template>
+    <div>
+        <img v-bind:src="getSymbolLogo('eth')" alt="eth" />
+        <img v-bind:src="getChainLogo('1')" alt="1" />
+        <img v-bind:src="getApiProviderLogo('nodary')" alt="nodary" />
+    </div>
+</template>
+
+<script>
+
+import { ChainLogo, SymbolLogo, ApiProviderLogo } from 'beta-logos';
+export default {
+...
+methods: {
+    getSymbolLogo(symbol) {
+      return SymbolLogo(symbol);
+    },
+    getChainLogo(chainId) {
+      return ChainLogo(chainId);
+    },
+    getApiProviderLogo(apiProvider) {
+      return ApiProviderLogo(apiProvider);
+    },
+}
+...
+}
+</script>`)}
+                language={'html'}
+                style={dracula}
+            />
         </VStack>
     );
 };

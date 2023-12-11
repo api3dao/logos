@@ -6,6 +6,11 @@ import '../md.css';
 
 const DocsView = () => {
     const markdown = `# @api3/logos
+## 0.0.12
+
+### Patch Changes
+
+-   a4195dc: Release bug fixed
 
 ## 0.0.11
 
