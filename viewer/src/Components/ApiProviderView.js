@@ -1,4 +1,4 @@
-import { Flex, Text } from '@chakra-ui/react';
+import { Flex, Text, Image } from '@chakra-ui/react';
 import { ApiProviderLogo } from 'beta-logos';
 import SearchRow from '../Custom/SearchRow';
 import { useState } from 'react';
@@ -48,7 +48,7 @@ const ApiProvidersView = () => {
                     >
                         {selectedApiProvider !== provider ? (
                             <>
-                                <ApiProviderLogo id={provider} width={50} height={50} />
+                                <Image src={ApiProviderLogo(provider)} width={50} height={50} />
                                 <Text fontSize="md" fontWeight="bold" ml={2}>
                                     {provider}
                                 </Text>

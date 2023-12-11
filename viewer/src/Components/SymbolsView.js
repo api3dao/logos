@@ -1,4 +1,4 @@
-import { Flex, Text } from '@chakra-ui/react';
+import { Flex, Text, Image } from '@chakra-ui/react';
 import { SymbolLogo } from 'beta-logos';
 import SearchRow from '../Custom/SearchRow';
 import { useState } from 'react';
@@ -37,7 +37,7 @@ const SymbolsView = () => {
                     >
                         {selectedSymbol !== feed ? (
                             <>
-                                <SymbolLogo id={feed} width={50} height={50} />
+                                <Image src={SymbolLogo(feed)} width={50} height={50} />
                                 <Text fontSize="sm" fontWeight="bold" ml={2}>
                                     {feed}
                                 </Text>

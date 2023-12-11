@@ -1,4 +1,4 @@
-import { Flex, Text, Spacer } from '@chakra-ui/react';
+import { Flex, Text, Spacer, Image } from '@chakra-ui/react';
 import { ChainLogo } from 'beta-logos';
 import * as Api3Chains from '@api3/chains';
 import SearchRow from '../Custom/SearchRow';
@@ -32,7 +32,7 @@ const ChainList = ({ isTestnet, chain }) => {
             >
                 {selectedChain !== chain ? (
                     <>
-                        <ChainLogo id={chain.id} width={50} height={50} />
+                        <Image src={ChainLogo(chain.id)} width={50} height={50} />
 
                         <Text fontSize="md" fontWeight="bold" ml={2}>
                             {chain.name}
