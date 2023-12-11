@@ -8,13 +8,10 @@
         "optimize-symbol-logos": "rimraf ./optimized/symbols & svgo -q -p 8 -f ./raw/symbols -o ./optimized/symbols",
         "optimize-api-provider-logos": "rimraf ./optimized/api-providers & svgo -q -p 8 -f ./raw/api-providers -o ./optimized/api-providers",
         "build": "yarn optimize-chain-logos && yarn optimize-symbol-logos && yarn optimize-api-provider-logos && node scripts/build.js",
-        "package": "yarn build && yarn pack --filename logos.tgz",
+        "build-svg": "yarn optimize-chain-logos && yarn optimize-symbol-logos && yarn optimize-api-provider-logos && node scripts/build-svg.js",
+        "package": "yarn build-svg && yarn pack --filename logos.tgz",
         "prettier": "prettier --write \"**/*.{js,jsx,json,md}\"",
         "release": "yarn changeset publish"
-    },
-    "peerDependencies": {
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0"
     },
     "devDependencies": {
         "@babel/core": "^7.15.5",
