@@ -13,17 +13,18 @@ module.exports = {
     indexFileContent,
     generateFunction,
     generateSvgFunction,
-    generateTypes
+    generateTypes,
+    copySvgFiles
 };
 
 function getPlaceholder(mode) {
     switch (mode) {
         case 'chains':
-            return `<ChainPlaceholderLogo {...props} />;\n`;
+            return `ChainPlaceholder\n`;
         case 'symbols':
-            return `<SymbolPlaceholderLogo {...props} />;\n`;
+            return `SymbolPlaceholder\n`;
         case 'api-providers':
-            return `<ApiProviderPlaceholderLogo {...props} />;\n`;
+            return `ApiProviderPlaceholder\n`;
         default:
             break;
     }
@@ -39,14 +40,14 @@ function sanitizeName(name, suffix = '', prefix = '') {
 function generateSwitchCase(array, prefix) {
     return array
         .map(
-            (item) => `case "${sanitizeName(item).toLowerCase()}":\n\treturn <${prefix}${sanitizeName(item, 'Logo')} {...props} />;\n`
+            (item) => `case "${sanitizeName(item).toLowerCase()}":\n\treturn ${prefix}${sanitizeName(item, '')};\n`
         )
         .join('');
 }
 
 function formatImport(item, prefix, file_prefix, file_postfix, path, format) {
-    const importName = sanitizeName(item, 'Logo', prefix) + file_postfix;
-    const filePath = `./logos/${path}/${sanitizeName(item, 'Logo', file_prefix)}${file_postfix}`;
+    const importName = sanitizeName(item, '', prefix) + file_postfix;
+    const filePath = `../logos/${path}/${sanitizeName(item, '', file_prefix)}${file_postfix}.svg`;
 
     if (format === 'cjs') {
         return `const ${importName} = require('${filePath}');\n`;
@@ -67,12 +68,12 @@ function generateFunction(batchName, switchCase, mode) {
             });
         }
 
-        function ${batchName}(props) {
-            if (!props.id) {
+        function ${batchName}(id) {
+            if (!id) {
                 return ${getPlaceholder(mode)}
             }
 
-            switch (sanitizeName(props.id).toLowerCase()) {
+            switch (sanitizeName(id).toLowerCase()) {
                 ${switchCase}
                 default:
                     return ${getPlaceholder(mode)}
@@ -101,10 +102,7 @@ function generateDocAnnotation(description, batchName, example) {
     return `
 /**
  *
- * @param {React.SVGProps<SVGSVGElement>} props
- * @param {string} [props.id] - Unique ID for the logo element.
- * @param {string} [props.width] - Width of the logo.
- * @param {string} [props.height] - Height of the logo.
+ * @param {string} id - Unique ID for the logo element.
  * @returns
  * ${description}
  *
@@ -162,15 +160,14 @@ function generateTypes(batchName, mode, isSvg) {
     const example = mode === 'chains' ? '1' : mode === 'api-providers' ? 'nodary' : 'eth';
 
     if (isSvg) {
-        return `import * as React from 'react';
-${generateDocAnnotationSvg(`${batchName} component as SVG string`, batchName, example)}
+        return `${generateDocAnnotationSvg(`${batchName} component as SVG string`, batchName, example)}
 declare function ${batchName}Svg(id: string): string;
 export default ${batchName}Svg;
 `;
     }
 
     return `${generateDocAnnotation(`${batchName} component`, batchName, example)}
-declare function ${batchName}(props: React.SVGProps<SVGSVGElement>): JSX.Element;
+declare function ${batchName}(id: string): string;
 export default ${batchName};
 `;
 }
@@ -224,6 +221,12 @@ async function buildLogos(symbol, testnet, files, logosDir, format = 'esm', dir,
     await write2Files(content, logosDir, componentName);
 }
 
+async function copySvgFiles(files, logosDir, prefix = '') {
+    files.forEach(async (file) => {
+        await fs.copyFile(`./optimized/${prefix}/${file}`, `${logosDir}/${file}`);
+    });
+}
+
 function checkFile(files, item, prefix = '') {
     const file = files.find((file) => file == `${sanitizeName(item, '', prefix)}.svg`);
     let fileName = file;
@@ -237,7 +240,7 @@ function checkFile(files, item, prefix = '') {
 }
 
 async function write2Files(content, logosDir, componentName) {
-    const types = `import * as React from 'react';\ndeclare function ${componentName}(props: React.SVGProps<SVGSVGElement>): JSX.Element;\nexport default ${componentName};\n`;
+    const types = `declare function ${componentName}(id: string): string;\nexport default ${componentName};\n`;
 
     await fs.writeFile(`${logosDir}/${sanitizeName(componentName)}.js`, content, 'utf-8');
     await fs.writeFile(`${logosDir}/${sanitizeName(componentName)}.d.ts`, types, 'utf-8');
@@ -245,6 +248,6 @@ async function write2Files(content, logosDir, componentName) {
 
 function indexFileContent(format, batchName) {
     return format === 'esm'
-        ? `export { default as ${batchName} } from './${batchName}.js';\nexport { default as ${batchName}Svg } from './${batchName}Svg.js';\n`
-        : `module.exports.${batchName} = require('./${batchName}.js');\nmodule.exports.${batchName}Svg = require('./${batchName}Svg.js');\n`;
+        ? `export { default as ${batchName} } from './${batchName}.js';\n`
+        : `module.exports.${batchName} = require('./${batchName}.js');\n`;
 }
