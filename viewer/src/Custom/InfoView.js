@@ -7,11 +7,11 @@ import { CloseIcon } from '@chakra-ui/icons';
 
 const LogoView = (method, feed) => {
     if (method === 'Chain') {
-        return <ChainLogo id={feed} width={50} height={50} />;
+        return <img src={ChainLogo(feed)} width={50} height={50} alt={feed} />;
     } else if (method === 'Symbol') {
-        return <SymbolLogo id={feed} width={50} height={50} />;
+        return <img src={SymbolLogo(feed)} width={50} height={50} alt={feed} />;
     } else if (method === 'ApiProvider') {
-        return <ApiProviderLogo id={feed} width={50} height={50} />;
+        return <img src={ApiProviderLogo(feed)} width={50} height={50} alt={feed} />;
     }
 };
 
@@ -29,7 +29,7 @@ const InfoView = ({ method, feed, onExit }) => {
                 <SyntaxHighlighter
                     PreTag="div"
                     children={String(
-                        `// React component\n<${method}Logo \n\tid={'${feed}'}\n\twidth={50}\n\theight={50} \n/>\n\n// SVG image\n<img \n\tsrc={${method}LogoSvg('${feed}')}\n\twidth={50}\n\theight={50}\n/>`
+                        `<img \n\tsrc={${method}Logo('${feed}')}\n\twidth={50}\n\theight={50}\n/>`
                     ).replace(/\n$/, '')}
                     language={'javascript'}
                     style={xonokai}
