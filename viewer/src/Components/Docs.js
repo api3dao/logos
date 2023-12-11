@@ -35,24 +35,13 @@ const ChainsView = () => {
             </Text>
             <SyntaxHighlighter
                 PreTag="div"
-                children={String(`import React from 'react';
-import { ChainLogo, SymbolLogo, ApiProviderLogo, 
-    ChainLogoBase64, SymbolLogoBase64, ApiProviderLogoBase64 } from 'beta-logos';
+                children={String(`import { ChainLogo, SymbolLogo, ApiProviderLogo } from 'beta-logos';
 
-const App = () => (
-    <div>
-        <ChainLogo id={'1'} width={50} height={50} />
-        <SymbolLogo id={'ETH'} width={50} height={50} />
-        <ApiProviderLogo id={'dxfeed'} width={50} height={50} />
-
-        <img src={ChainLogoBase64('43114')} width={50} height={50} alt='' />
-        <img src={SymbolLogoBase64('BTC')} width={50} height={50} alt='' />
-        <img src={ApiProviderLogoBase64('nodary')} width={50} height={50} alt='' />
-        
-    </div>
-);
-
-export default App;`)}
+<div>
+    <img src={ChainLogo('43114')} width={50} height={50} alt='43114' />
+    <img src={SymbolLogo('BTC')} width={50} height={50} alt='BTC' />
+    <img src={ApiProviderLogo('nodary')} width={50} height={50} alt='nodary' />
+</div>`)}
                 language={'javascript'}
                 style={dracula}
             />
