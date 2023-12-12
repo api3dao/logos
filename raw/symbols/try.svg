@@ -1,18 +1,88 @@
-<svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_7674_311012)">
-<mask id="mask0_7674_311012" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="42" height="42">
-<circle cx="21" cy="21" r="21" fill="#D9D9D9"/>
-</mask>
-<g mask="url(#mask0_7674_311012)">
-<path d="M-7 -2H64V45H-7V-2Z" fill="#E30A17"/>
-<path d="M14.5 30.5C19.7467 30.5 24 26.2467 24 21C24 15.7533 19.7467 11.5 14.5 11.5C9.25329 11.5 5 15.7533 5 21C5 26.2467 9.25329 30.5 14.5 30.5Z" fill="white"/>
-<path d="M17.5 28.5C21.6421 28.5 25 25.1421 25 21C25 16.8579 21.6421 13.5 17.5 13.5C13.3579 13.5 10 16.8579 10 21C10 25.1421 13.3579 28.5 17.5 28.5Z" fill="#E30A17"/>
-<path d="M23 21L31 23.7812L26.0557 16.5V25.5L31 18.2188L23 21Z" fill="white"/>
-</g>
-</g>
-<defs>
-<clipPath id="clip0_7674_311012">
-<rect width="42" height="42" rx="21" fill="white"/>
-</clipPath>
-</defs>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   fill="none"
+   viewBox="0 0 42 42"
+   version="1.1"
+   id="svg4344"
+   sodipodi:docname="Try 2.svg"
+   inkscape:version="1.1-alpha (17bc9184, 2021-03-28)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview4346"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     objecttolerance="10.0"
+     gridtolerance="10.0"
+     guidetolerance="10.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="17.928571"
+     inkscape:cx="21.000001"
+     inkscape:cy="21.557769"
+     inkscape:window-width="1296"
+     inkscape:window-height="1003"
+     inkscape:window-x="44"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g4335" />
+  <g
+     clip-path="url(#try_svg__clip0_7674_311012)"
+     id="g4337">
+    <mask
+       id="try_svg__mask0_7674_311012"
+       width="42"
+       height="42"
+       x="0"
+       y="0"
+       maskUnits="userSpaceOnUse"
+       style="mask-type:alpha">
+      <circle
+         cx="21"
+         cy="21"
+         r="21"
+         fill="#D9D9D9"
+         id="circle4324" />
+    </mask>
+    <g
+       mask="url(#try_svg__mask0_7674_311012)"
+       id="g4335">
+      <path
+         fill="#E30A17"
+         d="M-7 -2H64V45H-7V-2Z"
+         id="path4327" />
+      <path
+         fill="#E30A17"
+         d="M17.5 28.5C21.6421 28.5 25 25.1421 25 21C25 16.8579 21.6421 13.5 17.5 13.5C13.3579 13.5 10 16.8579 10 21C10 25.1421 13.3579 28.5 17.5 28.5Z"
+         id="path4331" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:37.2604px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.931509"
+         x="10.834908"
+         y="33.919037"
+         id="text4664"><tspan
+           sodipodi:role="line"
+           id="tspan4662"
+           x="10.834908"
+           y="33.919037"
+           style="stroke-width:0.931509">₺</tspan></text>
+    </g>
+  </g>
+  <defs
+     id="defs4342">
+    <clipPath
+       id="try_svg__clip0_7674_311012">
+      <rect
+         width="42"
+         height="42"
+         fill="white"
+         rx="21"
+         id="rect4339" />
+    </clipPath>
+  </defs>
 </svg>
