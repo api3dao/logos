@@ -6,6 +6,13 @@ import '../md.css';
 
 const DocsView = () => {
     const markdown = `# @api3/logos
+
+## 0.0.13
+
+### Patch Changes
+
+-   10139eb: Added missing dependency (camelcase)
+
 ## 0.0.12
 
 ### Patch Changes
