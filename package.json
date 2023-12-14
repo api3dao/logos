@@ -14,14 +14,17 @@
         "release": "yarn changeset publish"
     },
     "devDependencies": {
+        "@api3/api-integrations": "^0.0.1",
+        "@api3/chains": "^4.1.0",
         "@babel/core": "^7.15.5",
         "@babel/preset-react": "^7.14.5",
         "@changesets/changelog-github": "^0.4.8",
         "@changesets/cli": "^2.26.2",
+        "@nodary/utilities": "^0.11.0",
         "@svgr/cli": "^5.5.0",
         "@svgr/core": "^5.5.0",
         "@types/react": "^18.2.39",
-        "camelcase": "^6.2.0",
+        "camelcase": "^5.3.1",
         "prettier": "^3.1.0",
         "rimraf": "^3.0.2",
         "svgo": "^2.5.0",
@@ -31,10 +34,5 @@
     "module": "./dist/esm/index.js",
     "files": [
         "dist"
-    ],
-    "dependencies": {
-        "@api3/api-integrations": "^0.0.1",
-        "@api3/chains": "^4.1.0",
-        "@nodary/utilities": "^0.11.0"
-    }
+    ]
 }
