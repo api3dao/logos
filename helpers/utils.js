@@ -8,7 +8,6 @@ module.exports = {
     generateImports,
     indexFileContent,
     generateFunction,
-    generateSvgFunction,
     generateTypes,
     copySvgFiles,
     renameFiles
@@ -81,20 +80,6 @@ function generateFunction(batchName, switchCase, mode) {
         }
 
         export default ${batchName}
-        `;
-}
-
-function generateSvgFunction(batchName, format) {
-    return `${format === 'esm'
-        ? `import ${batchName} from './${batchName}.js';\n`
-        : `const ${batchName} = require('./${batchName}.js');\n`
-        }
-
-        function ${batchName}Svg(id) {
-            return "data:image/svg+xml; base64," + btoa(renderToString(${batchName}({ id: id })));
-        }
-
-        export default ${batchName}Svg
         `;
 }
 
