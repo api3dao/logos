@@ -7,7 +7,6 @@ import Changelog from './ChangeLog';
 import { VStack, Text, Tab, Tabs, TabList, TabPanel, TabPanels } from '@chakra-ui/react';
 
 const Welcome = () => {
-
     return (
         <VStack
             p={10}
@@ -25,8 +24,8 @@ const Welcome = () => {
                 @api3/logos
             </Text>
             <Text fontSize="md" ml={2}>
-                Welcome to @api3/logos package viewer. This package contains logos for chains and symbols that are supported
-                by API3
+                Welcome to @api3/logos package viewer. This package contains logos for chains and symbols that are
+                supported by API3
             </Text>
             <Tabs>
                 <TabList>

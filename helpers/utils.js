@@ -26,9 +26,7 @@ function sanitizeName(name, suffix = '', prefix = '') {
 
 function generateSwitchCase(array, prefix) {
     return array
-        .map(
-            (item) => `case "${sanitizeName(item).toLowerCase()}":\n\treturn ${prefix}${sanitizeName(item, '')};\n`
-        )
+        .map((item) => `case "${sanitizeName(item).toLowerCase()}":\n\treturn ${prefix}${sanitizeName(item, '')};\n`)
         .join('');
 }
 
@@ -44,10 +42,12 @@ function formatImport(item, filename, prefix, path, format) {
 }
 
 function generateImports(files, array, prefix, file_prefix, path, format) {
-    return array.map((item) => {
-        let filename = checkFile(files, item, file_prefix);
-        return formatImport(item, filename, prefix, path, format)
-    }).join('');
+    return array
+        .map((item) => {
+            let filename = checkFile(files, item, file_prefix);
+            return formatImport(item, filename, prefix, path, format);
+        })
+        .join('');
 }
 
 async function renameFiles(dir) {
@@ -128,7 +128,10 @@ async function copySvgFiles(files, logosDir, prefix = '') {
 }
 
 function checkFile(files, item, prefix = '') {
-    return files.find(file => file.toLowerCase() === `${sanitizeName(item, '', prefix).toLowerCase()}.svg`) || 'Placeholder.svg';
+    return (
+        files.find((file) => file.toLowerCase() === `${sanitizeName(item, '', prefix).toLowerCase()}.svg`) ||
+        'Placeholder.svg'
+    );
 }
 
 function indexFileContent(format, batchName) {
