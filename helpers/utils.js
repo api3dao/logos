@@ -141,7 +141,19 @@ async function copySvgFiles(files, logosDir, prefix = '') {
 }
 
 function checkFile(files, item, prefix = '') {
-    return files.find(file => file === `${sanitizeName(item, '', prefix)}.svg`) || 'Placeholder.svg';
+    const fileName = files.find(file => file === `${sanitizeName(item, '', prefix)}.svg`);
+
+    if (!fileName) {
+        const fileNameFallback = files.find(file => file.toLowerCase() === `${sanitizeName(item, '', prefix).toLowerCase()}.svg`);
+
+        if (!fileNameFallback) {
+            return 'Placeholder.svg';
+        }
+
+        return fileNameFallback;
+    }
+
+    return fileName
 }
 
 function indexFileContent(format, batchName) {
