@@ -4,9 +4,6 @@ const camelcase = require('camelcase');
 const babel = require('@babel/core');
 
 module.exports = {
-    transformSVGtoJSX,
-    buildChainLogos,
-    buildLogos,
     sanitizeName,
     generateSwitchCase,
     generateImports,
@@ -17,14 +14,14 @@ module.exports = {
     copySvgFiles
 };
 
-function getPlaceholder(mode) {
+function getErrorImage(mode) {
     switch (mode) {
         case 'chains':
-            return `ChainPlaceholder\n`;
+            return `ChainError\n`;
         case 'symbols':
-            return `SymbolPlaceholder\n`;
+            return `SymbolError\n`;
         case 'api-providers':
-            return `ApiProviderPlaceholder\n`;
+            return `ApiProviderError\n`;
         default:
             break;
     }
@@ -45,9 +42,9 @@ function generateSwitchCase(array, prefix) {
         .join('');
 }
 
-function formatImport(item, prefix, file_prefix, file_postfix, path, format) {
+function formatImport(item, filename, prefix, file_prefix, file_postfix, path, format) {
     const importName = sanitizeName(item, '', prefix) + file_postfix;
-    const filePath = `../logos/${path}/${sanitizeName(item, '', file_prefix)}${file_postfix}.svg`;
+    const filePath = `../logos/${path}/${sanitizeName(filename, '', file_prefix)}${file_postfix}.svg`;
 
     if (format === 'cjs') {
         return `const ${importName} = require('${filePath}');\n`;
@@ -56,8 +53,11 @@ function formatImport(item, prefix, file_prefix, file_postfix, path, format) {
     return `import ${importName} from '${filePath}';\n`;
 }
 
-function generateImports(array, prefix, file_prefix, file_postfix, path, format) {
-    return array.map((item) => formatImport(item, prefix, file_prefix, file_postfix, path, format)).join('');
+function generateImports(files, array, prefix, file_prefix, file_postfix, path, format) {
+    return array.map((item) => {
+        let filename = checkFile(files, item, file_prefix);
+        return formatImport(item, filename, prefix, file_prefix, file_postfix, path, format)
+    }).join('');
 }
 
 function generateFunction(batchName, switchCase, mode) {
@@ -70,13 +70,13 @@ function generateFunction(batchName, switchCase, mode) {
 
         function ${batchName}(id) {
             if (!id) {
-                return ${getPlaceholder(mode)}
+                return ${getErrorImage(mode)}
             }
 
             switch (sanitizeName(id).toLowerCase()) {
                 ${switchCase}
                 default:
-                    return ${getPlaceholder(mode)}
+                    return ${getErrorImage(mode)}
             }
         }
 
@@ -172,55 +172,6 @@ export default ${batchName};
 `;
 }
 
-async function transformSVGtoJSX(file, componentName, format, dir, isTestnet = false) {
-    const content = await fs.readFile(`${dir}/${file}`, 'utf-8');
-    const svgReactContent = await svgr(
-        content,
-        {
-            icon: false,
-            svgProps: {
-                width: 32,
-                height: 32,
-                filter: isTestnet ? 'grayscale(1)' : 'none'
-            }
-        },
-        { componentName }
-    );
-
-    let { code } = await babel.transformAsync(svgReactContent, {
-        presets: [['@babel/preset-react', { useBuiltIns: true }]]
-    });
-
-    if (format === 'esm') {
-        return code;
-    }
-
-    const replaceESM = code
-        .replace('import * as React from "react";', 'const React = require("react");')
-        .replace('export default', 'module.exports =');
-    return replaceESM;
-}
-
-async function buildChainLogos(chainId, testnet, files, logosDir, format = 'esm', dir) {
-    const file = files.find((file) => file.includes(`Chain${chainId}.svg`));
-    let fileName = file;
-
-    if (!fileName) {
-        throw new Error(`- Chain ${chainId} not found`);
-    }
-
-    const componentName = sanitizeName(fileName, 'Logo');
-    const content = await transformSVGtoJSX(fileName, componentName, format, dir, testnet);
-    await write2Files(content, logosDir, componentName);
-}
-
-async function buildLogos(symbol, testnet, files, logosDir, format = 'esm', dir, prefix = '') {
-    const file = checkFile(files, symbol, prefix);
-    const componentName = sanitizeName(file, 'Logo');
-    const content = await transformSVGtoJSX(file, componentName, format, dir, testnet);
-    await write2Files(content, logosDir, componentName);
-}
-
 async function copySvgFiles(files, logosDir, prefix = '') {
     files.forEach(async (file) => {
         await fs.copyFile(`./optimized/${prefix}/${file}`, `${logosDir}/${file}`);
@@ -232,8 +183,7 @@ function checkFile(files, item, prefix = '') {
     let fileName = file;
 
     if (!fileName) {
-        console.log(`- ${file}, ${sanitizeName(item)} not found`);
-        throw new Error(`- ${(item, file)} not found`);
+        return 'Placeholder.svg'
     }
 
     return fileName;
