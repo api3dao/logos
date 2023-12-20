@@ -1,5 +1,6 @@
 const fs = require('fs/promises');
 const camelcase = require('camelcase');
+const { rename } = require('fs');
 
 module.exports = {
     sanitizeName,
@@ -9,20 +10,12 @@ module.exports = {
     generateFunction,
     generateSvgFunction,
     generateTypes,
-    copySvgFiles
+    copySvgFiles,
+    renameFiles
 };
 
 function getErrorImage(mode) {
-    switch (mode) {
-        case 'chains':
-            return `ChainError\n`;
-        case 'symbols':
-            return `SymbolError\n`;
-        case 'api-providers':
-            return `ApiProviderError\n`;
-        default:
-            break;
-    }
+    return camelcase(mode, { pascalCase: true }) + 'Error';
 }
 
 function sanitizeName(name, suffix = '', prefix = '') {
@@ -56,6 +49,15 @@ function generateImports(files, array, prefix, file_prefix, path, format) {
         let filename = checkFile(files, item, file_prefix);
         return formatImport(item, filename, prefix, path, format)
     }).join('');
+}
+
+async function renameFiles(dir) {
+    const files = await fs.readdir(dir, 'utf-8');
+    files.forEach((file) => {
+        rename(dir + '/' + file, dir + '/' + sanitizeName(file) + '.svg', function (err) {
+            if (err) console.log('Error: ' + err);
+        });
+    });
 }
 
 function generateFunction(batchName, switchCase, mode) {
@@ -126,7 +128,7 @@ function generateDocAnnotationSvg(description, batchName, example) {
 }
 
 function generateTypes(batchName, mode) {
-    const example = mode === 'chains' ? '1' : mode === 'api-providers' ? 'nodary' : 'eth';
+    const example = mode === 'chain' ? '1' : mode === 'api-provider' ? 'nodary' : 'eth';
 
     return `${generateDocAnnotationSvg(`${batchName} component`, batchName, example)}
 declare function ${batchName}(id: string): string;
