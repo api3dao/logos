@@ -27,11 +27,11 @@ function getManualLogos(mode) {
 function getLogoList(mode) {
     switch (mode) {
         case 'chains':
-            return chains.CHAINS.map((chain) => chain.id);
+            return [...getManualLogos(mode), ...chains.CHAINS.map((chain) => chain.id)];
         case 'symbols':
             return [...getManualLogos(mode), ...new Set(nodaryFeeds.map((feed) => feed.name.split('/')).flat())];
         case 'api-providers':
-            return apiIntegrations.getApiProviderAliases();
+            return [...getManualLogos(mode), ...apiIntegrations.getApiProviderAliases()];
         default:
             break;
     }
@@ -47,7 +47,7 @@ async function buildLogos(format = 'esm', dir, mode, batchName) {
     const files = await fs.readdir(dir, 'utf-8');
     utils.copySvgFiles(files, logosDir, mode);
 
-    await buildBatch(outDir, format, batchName, mode, false);
+    await buildBatch(files, outDir, format, batchName, mode, false);
 
     await fs.appendFile(`${outDir}/index.js`, utils.indexFileContent(format, batchName), 'utf-8');
     await fs.appendFile(`${outDir}/index.d.ts`, utils.indexFileContent('esm', batchName), 'utf-8');
@@ -66,29 +66,29 @@ function buildSwitchCase(mode) {
     }
 }
 
-function buildLogoImports(mode, postfix, format) {
+function buildLogoImports(files, mode, postfix, format) {
     let options = getLogoList(mode);
-    options.push('placeholder');
+    options.push('error');
     switch (mode) {
         case 'chains':
-            return utils.generateImports(options, 'Chain', 'Chain', postfix, 'chains', format);
+            return utils.generateImports(files, options, 'Chain', 'Chain', postfix, 'chains', format);
         case 'symbols':
-            return utils.generateImports(options, 'Symbol', '', postfix, 'symbols', format);
+            return utils.generateImports(files, options, 'Symbol', '', postfix, 'symbols', format);
         case 'api-providers':
-            return utils.generateImports(options, 'ApiProvider', '', postfix, 'api-providers', format);
+            return utils.generateImports(files, options, 'ApiProvider', '', postfix, 'api-providers', format);
         default:
             break;
     }
 }
 
-async function buildBatch(outDir, format = 'esm', batchName, mode, isSvg) {
+async function buildBatch(files, outDir, format = 'esm', batchName, mode, isSvg) {
     const types = utils.generateTypes(batchName, mode, isSvg);
     await fs.writeFile(`${outDir}/${batchName}${isSvg ? 'Svg' : ''}.d.ts`, types, 'utf-8');
 
     const imports = isSvg
         ? `import * as React from "react";\nimport { renderToString } from 'react-dom/server'`
         : `import camelcase from 'camelcase';
-        ${buildLogoImports(mode, '', format)}`;
+        ${buildLogoImports(files, mode, '', format)}`;
 
     let code = await babelTransform(format, imports, batchName, mode, isSvg);
 
