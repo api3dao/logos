@@ -47,7 +47,7 @@ async function buildLogos(format = 'esm', dir, mode, batchName) {
     const files = await fs.readdir(dir, 'utf-8');
     utils.copySvgFiles(files, logosDir, mode);
 
-    await buildBatch(files, outDir, format, batchName, mode, false);
+    await buildBatch(files, outDir, format, batchName, mode);
 
     await fs.appendFile(`${outDir}/index.js`, utils.indexFileContent(format, batchName), 'utf-8');
     await fs.appendFile(`${outDir}/index.d.ts`, utils.indexFileContent('esm', batchName), 'utf-8');
@@ -81,16 +81,14 @@ function buildLogoImports(files, mode, format) {
     }
 }
 
-async function buildBatch(files, outDir, format = 'esm', batchName, mode, isSvg) {
-    const types = utils.generateTypes(batchName, mode, isSvg);
-    await fs.writeFile(`${outDir}/${batchName}${isSvg ? 'Svg' : ''}.d.ts`, types, 'utf-8');
+async function buildBatch(files, outDir, format = 'esm', batchName, mode) {
+    const types = utils.generateTypes(batchName, mode);
+    await fs.writeFile(`${outDir}/${batchName}.d.ts`, types, 'utf-8');
 
-    const imports = isSvg
-        ? `import * as React from "react";\nimport { renderToString } from 'react-dom/server'`
-        : `import camelcase from 'camelcase';
+    const imports = `import camelcase from 'camelcase';
         ${buildLogoImports(files, mode, format)}`;
 
-    let code = await babelTransform(format, imports, batchName, mode, isSvg);
+    let code = await babelTransform(format, imports, batchName, mode);
 
     if (format === 'cjs') {
         code = code
@@ -102,17 +100,14 @@ async function buildBatch(files, outDir, format = 'esm', batchName, mode, isSvg)
             .replace('export default', 'module.exports =');
     }
 
-    await fs.writeFile(`${outDir}/${batchName}${isSvg ? 'Svg' : ''}.js`, code, 'utf-8');
+    await fs.writeFile(`${outDir}/${batchName}.js`, code, 'utf-8');
 }
 
-async function babelTransform(format, imports, batchName, mode, isSvg) {
+async function babelTransform(format, imports, batchName, mode) {
     let { code } = await babel.transformAsync(
         `
         ${imports}
-        ${isSvg
-            ? utils.generateSvgFunction(batchName, format)
-            : utils.generateFunction(batchName, buildSwitchCase(mode), mode)
-        }`,
+        ${utils.generateFunction(batchName, buildSwitchCase(mode), mode)}`,
         {
             presets: [['@babel/preset-react', { useBuiltIns: true }]]
         }

@@ -96,35 +96,6 @@ function generateSvgFunction(batchName, format) {
         `;
 }
 
-function generateDocAnnotation(description, batchName, example) {
-    return `
-/**
- *
- * @param {string} id - Unique ID for the logo element.
- * @returns
- * ${description}
- *
- * @example
- * \`\`\`
- * import { ${batchName} } from 'beta-logos';
- * 
- * const App = () => {
- *  return <${batchName} id="${example}" />;
- * }
- * \`\`\`
- * 
- * @example
- * \`\`\`
-* import { ${batchName} } from 'beta-logos';
- * 
- * const App = () => {
- * return <${batchName} id="${example}" width="64" height="64" />;
- * }
- * \`\`\`
- * 
- */`;
-}
-
 function generateDocAnnotationSvg(description, batchName, example) {
     return `
 /**
@@ -154,17 +125,10 @@ function generateDocAnnotationSvg(description, batchName, example) {
  */`;
 }
 
-function generateTypes(batchName, mode, isSvg) {
+function generateTypes(batchName, mode) {
     const example = mode === 'chains' ? '1' : mode === 'api-providers' ? 'nodary' : 'eth';
 
-    if (isSvg) {
-        return `${generateDocAnnotationSvg(`${batchName} component as SVG string`, batchName, example)}
-declare function ${batchName}Svg(id: string): string;
-export default ${batchName}Svg;
-`;
-    }
-
-    return `${generateDocAnnotation(`${batchName} component`, batchName, example)}
+    return `${generateDocAnnotationSvg(`${batchName} component`, batchName, example)}
 declare function ${batchName}(id: string): string;
 export default ${batchName};
 `;
