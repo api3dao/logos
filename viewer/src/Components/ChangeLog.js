@@ -7,23 +7,35 @@ import '../md.css';
 const DocsView = () => {
     const markdown = `# @api3/logos
 
+## 0.0.14
+
+### Patch Changes
+
+-   bc0d03f:
+    -   Missing supported chains, symbols and logos will return a placeholder image instead of throwing an error.
+    -   Unsuppored chains, symbols and logos will return an error image.
+    -   A new tab added to frontend to display missing and chains, symbols and logos.
+
 ## 0.0.13
 
 ### Patch Changes
 
--   10139eb: Added missing dependency (camelcase)
+-   10139eb:
+    -   Added missing dependency (camelcase)
 
 ## 0.0.12
 
 ### Patch Changes
 
--   a4195dc: Release bug fixed
+-   a4195dc:
+    -   Release bug fixed
 
 ## 0.0.11
 
 ### Patch Changes
 
--   a47a5a0: - React support removed.
+-   a47a5a0:
+    - React support removed.
 
     -   \`ChainLogo\`, \`SymbolLogo\` and \`ApiProviderLogo\` now return a string instead of a React component.
     -   Returned string is a base64 encoded SVG image.
