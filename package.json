@@ -4,9 +4,9 @@
     "license": "MIT",
     "sideEffects": false,
     "scripts": {
-        "optimize-chain-logos": "rimraf ./optimized/chains & svgo -q -p 8 -f ./raw/chains -o ./optimized/chain",
-        "optimize-symbol-logos": "rimraf ./optimized/symbols & svgo -q -p 8 -f ./raw/symbols -o ./optimized/symbol",
-        "optimize-api-provider-logos": "rimraf ./optimized/api-providers & svgo -q -p 8 -f ./raw/api-providers -o ./optimized/api-provider",
+        "optimize-chain-logos": "rimraf ./optimized/chain & svgo -q -p 8 -f ./raw/chains -o ./optimized/chain",
+        "optimize-symbol-logos": "rimraf ./optimized/symbol & svgo -q -p 8 -f ./raw/symbols -o ./optimized/symbol",
+        "optimize-api-provider-logos": "rimraf ./optimized/api-provider & svgo -q -p 8 -f ./raw/api-providers -o ./optimized/api-provider",
         "build": "yarn optimize-chain-logos && yarn optimize-symbol-logos && yarn optimize-api-provider-logos && node scripts/build.js",
         "build-svg": "yarn optimize-chain-logos && yarn optimize-symbol-logos && yarn optimize-api-provider-logos && node scripts/build-svg.js",
         "package": "yarn build-svg && yarn pack --filename logos.tgz",
