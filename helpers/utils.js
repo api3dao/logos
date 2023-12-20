@@ -1,7 +1,5 @@
 const fs = require('fs/promises');
-const svgr = require('@svgr/core').default;
 const camelcase = require('camelcase');
-const babel = require('@babel/core');
 
 module.exports = {
     sanitizeName,
@@ -179,21 +177,7 @@ async function copySvgFiles(files, logosDir, prefix = '') {
 }
 
 function checkFile(files, item, prefix = '') {
-    const file = files.find((file) => file == `${sanitizeName(item, '', prefix)}.svg`);
-    let fileName = file;
-
-    if (!fileName) {
-        return 'Placeholder.svg'
-    }
-
-    return fileName;
-}
-
-async function write2Files(content, logosDir, componentName) {
-    const types = `declare function ${componentName}(id: string): string;\nexport default ${componentName};\n`;
-
-    await fs.writeFile(`${logosDir}/${sanitizeName(componentName)}.js`, content, 'utf-8');
-    await fs.writeFile(`${logosDir}/${sanitizeName(componentName)}.d.ts`, types, 'utf-8');
+    return files.find(file => file === `${sanitizeName(item, '', prefix)}.svg`) || 'Placeholder.svg';
 }
 
 function indexFileContent(format, batchName) {
