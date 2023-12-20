@@ -42,9 +42,9 @@ function generateSwitchCase(array, prefix) {
         .join('');
 }
 
-function formatImport(item, filename, prefix, file_prefix, file_postfix, path, format) {
+function formatImport(item, filename, prefix, file_postfix, path, format) {
     const importName = sanitizeName(item, '', prefix) + file_postfix;
-    const filePath = `../logos/${path}/${sanitizeName(filename, '', file_prefix)}${file_postfix}.svg`;
+    const filePath = `../logos/${path}/${sanitizeName(filename, '', '')}${file_postfix}.svg`;
 
     if (format === 'cjs') {
         return `const ${importName} = require('${filePath}');\n`;
@@ -56,7 +56,7 @@ function formatImport(item, filename, prefix, file_prefix, file_postfix, path, f
 function generateImports(files, array, prefix, file_prefix, file_postfix, path, format) {
     return array.map((item) => {
         let filename = checkFile(files, item, file_prefix);
-        return formatImport(item, filename, prefix, file_prefix, file_postfix, path, format)
+        return formatImport(item, filename, prefix, file_postfix, path, format)
     }).join('');
 }
 
