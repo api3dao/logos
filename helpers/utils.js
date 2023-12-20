@@ -136,6 +136,6 @@ function checkFile(files, item, prefix = '') {
 
 function indexFileContent(format, batchName) {
     return format === 'esm'
-        ? `export { default as ${batchName} } from './${batchName}.js';\n`
-        : `module.exports.${batchName} = require('./${batchName}.js');\n`;
+        ? `export { default as ${batchName} } from './${batchName}.js';\nexport { default as ${batchName}Missing } from './${batchName}Missing.json';\n`
+        : `module.exports.${batchName} = require('./${batchName}.js');\nmodule.exports.${batchName}Missing = require('./${batchName}Missing.json');\n`;
 }

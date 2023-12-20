@@ -53,6 +53,7 @@ async function buildLogos(format = 'esm', dir, mode, batchName) {
 
     await fs.appendFile(`${outDir}/index.js`, utils.indexFileContent(format, batchName), 'utf-8');
     await fs.appendFile(`${outDir}/index.d.ts`, utils.indexFileContent('esm', batchName), 'utf-8');
+    await fs.appendFile(`${outDir}/${batchName}Missing.json`, JSON.stringify(getMissingLogos(files, mode)), 'utf-8');
 }
 
 function buildSwitchCase(mode) {
@@ -64,6 +65,15 @@ function buildLogoImports(files, mode, format) {
     options.push('error');
     const prefix = mode === 'chain' ? 'Chain' : '';
     return utils.generateImports(files, options, camelcase(mode, { pascalCase: true }), prefix, mode, format);
+}
+
+function getMissingLogos(files, mode) {
+    const logos = getLogoList(mode);
+    const prefix = mode === 'chain' ? 'Chain' : '';
+    return logos.filter(
+        (logo) =>
+            !files.find((file) => file.toLowerCase() === `${utils.sanitizeName(logo, '', prefix).toLowerCase()}.svg`)
+    );
 }
 
 async function buildBatch(files, outDir, format = 'esm', batchName, mode) {
