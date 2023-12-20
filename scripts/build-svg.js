@@ -66,16 +66,16 @@ function buildSwitchCase(mode) {
     }
 }
 
-function buildLogoImports(files, mode, postfix, format) {
+function buildLogoImports(files, mode, format) {
     let options = getLogoList(mode);
     options.push('error');
     switch (mode) {
         case 'chains':
-            return utils.generateImports(files, options, 'Chain', 'Chain', postfix, 'chains', format);
+            return utils.generateImports(files, options, 'Chain', 'Chain', 'chains', format);
         case 'symbols':
-            return utils.generateImports(files, options, 'Symbol', '', postfix, 'symbols', format);
+            return utils.generateImports(files, options, 'Symbol', '', 'symbols', format);
         case 'api-providers':
-            return utils.generateImports(files, options, 'ApiProvider', '', postfix, 'api-providers', format);
+            return utils.generateImports(files, options, 'ApiProvider', '', 'api-providers', format);
         default:
             break;
     }
@@ -88,7 +88,7 @@ async function buildBatch(files, outDir, format = 'esm', batchName, mode, isSvg)
     const imports = isSvg
         ? `import * as React from "react";\nimport { renderToString } from 'react-dom/server'`
         : `import camelcase from 'camelcase';
-        ${buildLogoImports(files, mode, '', format)}`;
+        ${buildLogoImports(files, mode, format)}`;
 
     let code = await babelTransform(format, imports, batchName, mode, isSvg);
 
