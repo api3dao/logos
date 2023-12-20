@@ -1,33 +1,20 @@
 const fs = require('fs/promises');
-const svgr = require('@svgr/core').default;
 const camelcase = require('camelcase');
-const babel = require('@babel/core');
+const { rename } = require('fs');
 
 module.exports = {
-    transformSVGtoJSX,
-    buildChainLogos,
-    buildLogos,
     sanitizeName,
     generateSwitchCase,
     generateImports,
     indexFileContent,
     generateFunction,
-    generateSvgFunction,
     generateTypes,
-    copySvgFiles
+    copySvgFiles,
+    renameFiles
 };
 
-function getPlaceholder(mode) {
-    switch (mode) {
-        case 'chains':
-            return `ChainPlaceholder\n`;
-        case 'symbols':
-            return `SymbolPlaceholder\n`;
-        case 'api-providers':
-            return `ApiProviderPlaceholder\n`;
-        default:
-            break;
-    }
+function getErrorImage(mode) {
+    return camelcase(mode, { pascalCase: true }) + 'Error';
 }
 
 function sanitizeName(name, suffix = '', prefix = '') {
@@ -39,15 +26,13 @@ function sanitizeName(name, suffix = '', prefix = '') {
 
 function generateSwitchCase(array, prefix) {
     return array
-        .map(
-            (item) => `case "${sanitizeName(item).toLowerCase()}":\n\treturn ${prefix}${sanitizeName(item, '')};\n`
-        )
+        .map((item) => `case "${sanitizeName(item).toLowerCase()}":\n\treturn ${prefix}${sanitizeName(item, '')};\n`)
         .join('');
 }
 
-function formatImport(item, prefix, file_prefix, file_postfix, path, format) {
-    const importName = sanitizeName(item, '', prefix) + file_postfix;
-    const filePath = `../logos/${path}/${sanitizeName(item, '', file_prefix)}${file_postfix}.svg`;
+function formatImport(item, filename, prefix, path, format) {
+    const importName = sanitizeName(item, '', prefix);
+    const filePath = `../logos/${path}/${filename}`;
 
     if (format === 'cjs') {
         return `const ${importName} = require('${filePath}');\n`;
@@ -56,8 +41,22 @@ function formatImport(item, prefix, file_prefix, file_postfix, path, format) {
     return `import ${importName} from '${filePath}';\n`;
 }
 
-function generateImports(array, prefix, file_prefix, file_postfix, path, format) {
-    return array.map((item) => formatImport(item, prefix, file_prefix, file_postfix, path, format)).join('');
+function generateImports(files, array, prefix, file_prefix, path, format) {
+    return array
+        .map((item) => {
+            let filename = checkFile(files, item, file_prefix);
+            return formatImport(item, filename, prefix, path, format);
+        })
+        .join('');
+}
+
+async function renameFiles(dir) {
+    const files = await fs.readdir(dir, 'utf-8');
+    files.forEach((file) => {
+        rename(dir + '/' + file, dir + '/' + sanitizeName(file) + '.svg', function (err) {
+            if (err) console.log('Error: ' + err);
+        });
+    });
 }
 
 function generateFunction(batchName, switchCase, mode) {
@@ -70,61 +69,18 @@ function generateFunction(batchName, switchCase, mode) {
 
         function ${batchName}(id) {
             if (!id) {
-                return ${getPlaceholder(mode)}
+                return ${getErrorImage(mode)}
             }
 
             switch (sanitizeName(id).toLowerCase()) {
                 ${switchCase}
                 default:
-                    return ${getPlaceholder(mode)}
+                    return ${getErrorImage(mode)}
             }
         }
 
         export default ${batchName}
         `;
-}
-
-function generateSvgFunction(batchName, format) {
-    return `${format === 'esm'
-        ? `import ${batchName} from './${batchName}.js';\n`
-        : `const ${batchName} = require('./${batchName}.js');\n`
-        }
-
-        function ${batchName}Svg(id) {
-            return "data:image/svg+xml; base64," + btoa(renderToString(${batchName}({ id: id })));
-        }
-
-        export default ${batchName}Svg
-        `;
-}
-
-function generateDocAnnotation(description, batchName, example) {
-    return `
-/**
- *
- * @param {string} id - Unique ID for the logo element.
- * @returns
- * ${description}
- *
- * @example
- * \`\`\`
- * import { ${batchName} } from 'beta-logos';
- * 
- * const App = () => {
- *  return <${batchName} id="${example}" />;
- * }
- * \`\`\`
- * 
- * @example
- * \`\`\`
-* import { ${batchName} } from 'beta-logos';
- * 
- * const App = () => {
- * return <${batchName} id="${example}" width="64" height="64" />;
- * }
- * \`\`\`
- * 
- */`;
 }
 
 function generateDocAnnotationSvg(description, batchName, example) {
@@ -156,69 +112,13 @@ function generateDocAnnotationSvg(description, batchName, example) {
  */`;
 }
 
-function generateTypes(batchName, mode, isSvg) {
-    const example = mode === 'chains' ? '1' : mode === 'api-providers' ? 'nodary' : 'eth';
+function generateTypes(batchName, mode) {
+    const example = mode === 'chain' ? '1' : mode === 'api-provider' ? 'nodary' : 'eth';
 
-    if (isSvg) {
-        return `${generateDocAnnotationSvg(`${batchName} component as SVG string`, batchName, example)}
-declare function ${batchName}Svg(id: string): string;
-export default ${batchName}Svg;
-`;
-    }
-
-    return `${generateDocAnnotation(`${batchName} component`, batchName, example)}
+    return `${generateDocAnnotationSvg(`${batchName} component`, batchName, example)}
 declare function ${batchName}(id: string): string;
 export default ${batchName};
 `;
-}
-
-async function transformSVGtoJSX(file, componentName, format, dir, isTestnet = false) {
-    const content = await fs.readFile(`${dir}/${file}`, 'utf-8');
-    const svgReactContent = await svgr(
-        content,
-        {
-            icon: false,
-            svgProps: {
-                width: 32,
-                height: 32,
-                filter: isTestnet ? 'grayscale(1)' : 'none'
-            }
-        },
-        { componentName }
-    );
-
-    let { code } = await babel.transformAsync(svgReactContent, {
-        presets: [['@babel/preset-react', { useBuiltIns: true }]]
-    });
-
-    if (format === 'esm') {
-        return code;
-    }
-
-    const replaceESM = code
-        .replace('import * as React from "react";', 'const React = require("react");')
-        .replace('export default', 'module.exports =');
-    return replaceESM;
-}
-
-async function buildChainLogos(chainId, testnet, files, logosDir, format = 'esm', dir) {
-    const file = files.find((file) => file.includes(`Chain${chainId}.svg`));
-    let fileName = file;
-
-    if (!fileName) {
-        throw new Error(`- Chain ${chainId} not found`);
-    }
-
-    const componentName = sanitizeName(fileName, 'Logo');
-    const content = await transformSVGtoJSX(fileName, componentName, format, dir, testnet);
-    await write2Files(content, logosDir, componentName);
-}
-
-async function buildLogos(symbol, testnet, files, logosDir, format = 'esm', dir, prefix = '') {
-    const file = checkFile(files, symbol, prefix);
-    const componentName = sanitizeName(file, 'Logo');
-    const content = await transformSVGtoJSX(file, componentName, format, dir, testnet);
-    await write2Files(content, logosDir, componentName);
 }
 
 async function copySvgFiles(files, logosDir, prefix = '') {
@@ -228,26 +128,14 @@ async function copySvgFiles(files, logosDir, prefix = '') {
 }
 
 function checkFile(files, item, prefix = '') {
-    const file = files.find((file) => file == `${sanitizeName(item, '', prefix)}.svg`);
-    let fileName = file;
-
-    if (!fileName) {
-        console.log(`- ${file}, ${sanitizeName(item)} not found`);
-        throw new Error(`- ${(item, file)} not found`);
-    }
-
-    return fileName;
-}
-
-async function write2Files(content, logosDir, componentName) {
-    const types = `declare function ${componentName}(id: string): string;\nexport default ${componentName};\n`;
-
-    await fs.writeFile(`${logosDir}/${sanitizeName(componentName)}.js`, content, 'utf-8');
-    await fs.writeFile(`${logosDir}/${sanitizeName(componentName)}.d.ts`, types, 'utf-8');
+    return (
+        files.find((file) => file.toLowerCase() === `${sanitizeName(item, '', prefix).toLowerCase()}.svg`) ||
+        'Placeholder.svg'
+    );
 }
 
 function indexFileContent(format, batchName) {
     return format === 'esm'
-        ? `export { default as ${batchName} } from './${batchName}.js';\n`
-        : `module.exports.${batchName} = require('./${batchName}.js');\n`;
+        ? `export { default as ${batchName} } from './${batchName}.js';\nexport { default as ${batchName}Missing } from './${batchName}Missing.json';\n`
+        : `module.exports.${batchName} = require('./${batchName}.js');\nmodule.exports.${batchName}Missing = require('./${batchName}Missing.json');\n`;
 }

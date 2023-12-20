@@ -3,21 +3,23 @@ const fs = require('fs/promises');
 const rimraf = require('rimraf');
 const babel = require('@babel/core');
 const utils = require('../helpers/utils');
-const { rename } = require('fs');
 const apiIntegrations = require('@api3/api-integrations');
 const { nodaryFeeds } = require('@nodary/utilities');
+const camelcase = require('camelcase');
 
 const outputPath = './dist';
 
 console.log('🏗 Building logo package...');
 
+const categories = ['chain', 'symbol', 'api-provider'];
+
 function getManualLogos(mode) {
     switch (mode) {
-        case 'chains':
+        case 'chain':
             return [];
-        case 'symbols':
-            return ['BABA', 'ETHx', 'MATICx', 'PYTH', 'WOO', 'MATIC Exchange Rate', 'NG', 'QQQ', 'PYPL'];
-        case 'api-providers':
+        case 'symbol':
+            return [];
+        case 'api-provider':
             return [];
         default:
             break;
@@ -26,12 +28,12 @@ function getManualLogos(mode) {
 
 function getLogoList(mode) {
     switch (mode) {
-        case 'chains':
-            return chains.CHAINS.map((chain) => chain.id);
-        case 'symbols':
+        case 'chain':
+            return [...getManualLogos(mode), ...chains.CHAINS.map((chain) => chain.id)];
+        case 'symbol':
             return [...getManualLogos(mode), ...new Set(nodaryFeeds.map((feed) => feed.name.split('/')).flat())];
-        case 'api-providers':
-            return apiIntegrations.getApiProviderAliases();
+        case 'api-provider':
+            return [...getManualLogos(mode), ...apiIntegrations.getApiProviderAliases()];
         default:
             break;
     }
@@ -47,50 +49,41 @@ async function buildLogos(format = 'esm', dir, mode, batchName) {
     const files = await fs.readdir(dir, 'utf-8');
     utils.copySvgFiles(files, logosDir, mode);
 
-    await buildBatch(outDir, format, batchName, mode, false);
+    await buildBatch(files, outDir, format, batchName, mode);
 
     await fs.appendFile(`${outDir}/index.js`, utils.indexFileContent(format, batchName), 'utf-8');
     await fs.appendFile(`${outDir}/index.d.ts`, utils.indexFileContent('esm', batchName), 'utf-8');
+    await fs.appendFile(`${outDir}/${batchName}Missing.json`, JSON.stringify(getMissingLogos(files, mode)), 'utf-8');
 }
 
 function buildSwitchCase(mode) {
-    switch (mode) {
-        case 'chains':
-            return utils.generateSwitchCase(getLogoList(mode), 'Chain');
-        case 'symbols':
-            return utils.generateSwitchCase(getLogoList(mode), 'Symbol');
-        case 'api-providers':
-            return utils.generateSwitchCase(getLogoList(mode), 'ApiProvider');
-        default:
-            break;
-    }
+    return utils.generateSwitchCase(getLogoList(mode), camelcase(mode, { pascalCase: true }));
 }
 
-function buildLogoImports(mode, postfix, format) {
+function buildLogoImports(files, mode, format) {
     let options = getLogoList(mode);
-    options.push('placeholder');
-    switch (mode) {
-        case 'chains':
-            return utils.generateImports(options, 'Chain', 'Chain', postfix, 'chains', format);
-        case 'symbols':
-            return utils.generateImports(options, 'Symbol', '', postfix, 'symbols', format);
-        case 'api-providers':
-            return utils.generateImports(options, 'ApiProvider', '', postfix, 'api-providers', format);
-        default:
-            break;
-    }
+    options.push('error');
+    const prefix = mode === 'chain' ? 'Chain' : '';
+    return utils.generateImports(files, options, camelcase(mode, { pascalCase: true }), prefix, mode, format);
 }
 
-async function buildBatch(outDir, format = 'esm', batchName, mode, isSvg) {
-    const types = utils.generateTypes(batchName, mode, isSvg);
-    await fs.writeFile(`${outDir}/${batchName}${isSvg ? 'Svg' : ''}.d.ts`, types, 'utf-8');
+function getMissingLogos(files, mode) {
+    const logos = getLogoList(mode);
+    const prefix = mode === 'chain' ? 'Chain' : '';
+    return logos.filter(
+        (logo) =>
+            !files.find((file) => file.toLowerCase() === `${utils.sanitizeName(logo, '', prefix).toLowerCase()}.svg`)
+    );
+}
 
-    const imports = isSvg
-        ? `import * as React from "react";\nimport { renderToString } from 'react-dom/server'`
-        : `import camelcase from 'camelcase';
-        ${buildLogoImports(mode, '', format)}`;
+async function buildBatch(files, outDir, format = 'esm', batchName, mode) {
+    const types = utils.generateTypes(batchName, mode);
+    await fs.writeFile(`${outDir}/${batchName}.d.ts`, types, 'utf-8');
 
-    let code = await babelTransform(format, imports, batchName, mode, isSvg);
+    const imports = `import camelcase from 'camelcase';
+        ${buildLogoImports(files, mode, format)}`;
+
+    let code = await babelTransform(format, imports, batchName, mode);
 
     if (format === 'cjs') {
         code = code
@@ -102,17 +95,14 @@ async function buildBatch(outDir, format = 'esm', batchName, mode, isSvg) {
             .replace('export default', 'module.exports =');
     }
 
-    await fs.writeFile(`${outDir}/${batchName}${isSvg ? 'Svg' : ''}.js`, code, 'utf-8');
+    await fs.writeFile(`${outDir}/${batchName}.js`, code, 'utf-8');
 }
 
-async function babelTransform(format, imports, batchName, mode, isSvg) {
+async function babelTransform(format, imports, batchName, mode) {
     let { code } = await babel.transformAsync(
         `
         ${imports}
-        ${isSvg
-            ? utils.generateSvgFunction(batchName, format)
-            : utils.generateFunction(batchName, buildSwitchCase(mode), mode)
-        }`,
+        ${utils.generateFunction(batchName, buildSwitchCase(mode), mode)}`,
         {
             presets: [['@babel/preset-react', { useBuiltIns: true }]]
         }
@@ -125,23 +115,11 @@ async function babelTransform(format, imports, batchName, mode, isSvg) {
     return code;
 }
 
-async function renameFiles(dir) {
-    const files = await fs.readdir(dir, 'utf-8');
-    files.forEach((file) => {
-        rename(dir + '/' + file, dir + '/' + utils.sanitizeName(file) + '.svg', function (err) {
-            if (err) console.log('Error: ' + err);
-        });
-    });
-}
-
 async function generateLogos(format = 'esm') {
-    await renameFiles('./optimized/symbols');
-    await renameFiles('./optimized/chains');
-    await renameFiles('./optimized/api-providers');
-
-    await buildLogos(format, './optimized/chains', 'chains', 'ChainLogo');
-    await buildLogos(format, './optimized/symbols', 'symbols', 'SymbolLogo');
-    await buildLogos(format, './optimized/api-providers', 'api-providers', 'ApiProviderLogo');
+    categories.forEach(async (category) => {
+        await utils.renameFiles(`./optimized/${category}`);
+        await buildLogos(format, `./optimized/${category}`, category, utils.sanitizeName(category, 'Logo'));
+    });
 }
 
 (function main() {

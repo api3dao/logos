@@ -54,7 +54,11 @@ const ApiProvidersView = () => {
                                 </Text>
                             </>
                         ) : (
-                            <InfoView method={'ApiProvider'} feed={provider} onExit={() => setSelectedApiProvider(null)} />
+                            <InfoView
+                                method={'ApiProvider'}
+                                feed={provider}
+                                onExit={() => setSelectedApiProvider(null)}
+                            />
                         )}
                     </Flex>
                 );

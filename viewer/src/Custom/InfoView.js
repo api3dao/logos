@@ -17,13 +17,15 @@ const LogoView = (method, feed) => {
 
 const InfoView = ({ method, feed, onExit }) => {
     return (
-        <Flex p={5} bgColor={'white'} boxShadow={'md'} gap={5} zIndex={0} alignItems={'center'} wrap={"wrap"}>
-            <Flex flexDirection={'row'} width={"100%"} justifyContent={'left'} alignItems={'center'}>
+        <Flex p={5} bgColor={'white'} boxShadow={'md'} gap={5} zIndex={0} alignItems={'center'} wrap={'wrap'}>
+            <Flex flexDirection={'row'} width={'100%'} justifyContent={'left'} alignItems={'center'}>
                 {LogoView(method, feed)}
-                <Text fontSize="md" fontWeight="bold" ml={2}> {feed} </Text>
+                <Text fontSize="md" fontWeight="bold" ml={2}>
+                    {' '}
+                    {feed}{' '}
+                </Text>
                 <Spacer />
                 <CloseIcon onClick={() => onExit(null)} cursor={'pointer'} />
-
             </Flex>
             <Flex flexDirection={'column'} justifyContent={'left'} alignItems={'left'}>
                 <SyntaxHighlighter
