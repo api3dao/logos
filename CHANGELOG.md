@@ -1,5 +1,13 @@
 # @api3/logos
 
+## 0.0.14
+
+### Patch Changes
+
+-   bc0d03f: Missing supported chains, symbols and logos will return a placeholder image instead of throwing an error.
+    Unsuppored chains, symbols and logos will return an error image.
+    A new tab added to frontend to display missing and chains, symbols and logos.
+
 ## 0.0.13
 
 ### Patch Changes
