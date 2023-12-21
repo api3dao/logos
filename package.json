@@ -13,6 +13,7 @@
         "prettier": "prettier --write \"**/*.{js,jsx,json,md}\"",
         "release": "yarn changeset publish"
     },
+    "myDependencies": {},
     "devDependencies": {
         "@api3/api-integrations": "^0.0.1",
         "@api3/chains": "^4.1.0",
