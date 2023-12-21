@@ -11,8 +11,6 @@ on:
       - 'raw/**'
       - scripts/**
       - 'viewer/**'
-  pull_request:
-    branches: [ main ]
 
 jobs:
   pack-local-package:
