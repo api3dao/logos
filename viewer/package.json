@@ -22,7 +22,7 @@
         "react-router-dom": "^6.15.0",
         "react-scripts": "5.0.1",
         "react-syntax-highlighter": "^15.5.0",
-        "web-vitals": "^2.1.4",
+        "web-vitals": "^3.5.0",
         "@api3/api-integrations": "^0.0.1"
     },
     "scripts": {
