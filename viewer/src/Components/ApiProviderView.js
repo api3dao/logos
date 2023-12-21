@@ -3,25 +3,14 @@ import { ApiProviderLogo } from 'beta-logos';
 import SearchRow from '../Custom/SearchRow';
 import { useState } from 'react';
 import InfoView from '../Custom/InfoView';
+import { getApiProviderAliases } from '@api3/api-integrations'
 
 const ApiProvidersView = () => {
     const [apiProvider, setApiProvider] = useState('');
     const [selectedApiProvider, setSelectedApiProvider] = useState('');
 
     const getApiProviders = () => {
-        const apiProviders = [
-            'coinpaprika',
-            'dxfeed',
-            'finage',
-            'finnhub',
-            'iexcloud',
-            'kaiko',
-            'ncfx',
-            'nodary',
-            'tradermade',
-            'twelvedata'
-        ];
-
+        const apiProviders = getApiProviderAliases();
         return apiProviders.filter((provider) => provider.toLowerCase().includes(apiProvider.toLowerCase()));
     };
 
