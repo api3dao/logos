@@ -25,7 +25,7 @@
         "@svgr/cli": "^5.5.0",
         "@svgr/core": "^5.5.0",
         "@types/react": "^18.2.39",
-        "camelcase": "^5.3.1",
+        "camelcase": "^8.0.0",
         "prettier": "^3.1.0",
         "rimraf": "^3.0.2",
         "svgo": "^2.5.0",
