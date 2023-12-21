@@ -9,15 +9,15 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
-      time: "07:20"
-    target-branch: "550-investigate-automatically-republishing-api3logos-package"
+      time: "07:30"
+    target-branch: "main"
     labels:
       - "Package"
   - package-ecosystem: "npm"
     directory: "/viewer"
     schedule:
       interval: "daily"
-      time: "07:20"
-    target-branch: "550-investigate-automatically-republishing-api3logos-package"
+      time: "07:30"
+    target-branch: "main"
     labels:
       - "Frontend"
