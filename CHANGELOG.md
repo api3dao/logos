@@ -1,5 +1,11 @@
 # @api3/logos
 
+## 0.0.15
+
+### Patch Changes
+
+-   2cb7881: Move camelcase from devDependencies to dependencies
+
 ## 0.0.14
 
 ### Patch Changes
@@ -28,7 +34,8 @@
 ### Patch Changes
 
 -   a47a5a0:
-    - React support removed.
+
+    -   React support removed.
 
     -   `ChainLogo`, `SymbolLogo` and `ApiProviderLogo` now return a string instead of a React component.
     -   Returned string is a base64 encoded SVG image.
