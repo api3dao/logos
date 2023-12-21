@@ -41,12 +41,12 @@
     ethers "^5.4.2"
     zod "^3.22.4"
 
-"@api3/chains@^4.1.0":
-  version "4.1.0"
-  resolved "https://registry.npmjs.org/@api3/chains/-/chains-4.1.0.tgz"
-  integrity sha512-n4e+wHgjVbYsDvHe+cuD+wfa83x5SRyCLaEa/y1s1KEh7Wn+iz1Kj6uTmkndZpPneqxbLA/AY+7bJ4bkPzd48Q==
+"@api3/chains@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@api3/chains/-/chains-4.2.0.tgz#7f869794c8d29507bb83188cacddb91cd132996c"
+  integrity sha512-Jw+U0JwrjAG+4h2u9jBdikYre/ip6S2ENvuQup2dUtnkiVS6f+CEMlT89QwD0KfcD1EwD6Li+hF7xVOYdHNo0g==
   dependencies:
-    viem "^1.18.2"
+    viem "^1.19.11"
     zod "^3.22.4"
 
 "@api3/ois@^2.2.1":
@@ -3411,10 +3411,10 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-viem@^1.18.2:
-  version "1.19.6"
-  resolved "https://registry.npmjs.org/viem/-/viem-1.19.6.tgz"
-  integrity sha512-WSBHBMurWIWQk2yisOD8hqSA5S56cZu6onty3hzauVjiHMildtVWujF7YT0xjoU40GpFODvJASRR2RFdzgvUUg==
+viem@^1.19.11:
+  version "1.20.3"
+  resolved "https://registry.yarnpkg.com/viem/-/viem-1.20.3.tgz#8b8360daee622295f5385949c02c86d943d14e0f"
+  integrity sha512-7CrmeCb2KYkeCgUmUyb1hsf+IX/PLwi+Np+Vm4YUTPeG82y3HRSgGHSaCOp3d0YtR2kXD3nv9y5kE7LBFE+wWw==
   dependencies:
     "@adraffy/ens-normalize" "1.10.0"
     "@noble/curves" "1.2.0"
