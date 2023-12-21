@@ -7,17 +7,34 @@ version: 2
 updates:
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/" # Location of package manifests
+    groups:
+      devDependencies: 
+        @api3/*:
+          - major
+          - minor
+          - patch
+        @nodary/*:
+          - major
+          - minor
+          - patch
     schedule:
       interval: "daily"
-      time: "07:30"
+      time: "07:55"
+
     target-branch: "main"
-    labels:
-      - "Package"
   - package-ecosystem: "npm"
     directory: "/viewer"
+        groups:
+      devDependencies: 
+        @api3/*:
+          - major
+          - minor
+          - patch
+        @nodary/*:
+          - major
+          - minor
+          - patch
     schedule:
       interval: "daily"
-      time: "07:30"
+      time: "07:55"
     target-branch: "main"
-    labels:
-      - "Frontend"
