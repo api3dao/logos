@@ -27,7 +27,7 @@
         "@types/react": "^18.2.39",
         "camelcase": "^5.3.1",
         "prettier": "^3.1.0",
-        "rimraf": "^3.0.2",
+        "rimraf": "^5.0.5",
         "svgo": "^2.5.0",
         "terser": "^5.7.2"
     },
