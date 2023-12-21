@@ -7,10 +7,10 @@ updates:
       time: "09:00"
     target-branch: "main"
     allow:
-        dependency-name: "@api3/*"
-        dependency-name: "@nodary/*"
+      - dependency-name: "@api3/*"
+      - dependency-name: "@nodary/*"
     ignore:
-      - dependency-name: '*'
+      - dependency-name: "*"
     groups:
       development-dependencies:
         patterns:
