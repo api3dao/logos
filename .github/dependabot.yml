@@ -8,12 +8,12 @@ updates:
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/" # Location of package manifests
     groups:
-      devDependencies: 
-        @api3/*:
+      devDependencies:
+        api3/*:
           - major
           - minor
           - patch
-        @nodary/*:
+        nodary/*:
           - major
           - minor
           - patch
@@ -24,13 +24,13 @@ updates:
     target-branch: "main"
   - package-ecosystem: "npm"
     directory: "/viewer"
-        groups:
-      devDependencies: 
-        @api3/*:
+    groups:
+      devDependencies:
+        api3/*:
           - major
           - minor
           - patch
-        @nodary/*:
+        nodary/*:
           - major
           - minor
           - patch
