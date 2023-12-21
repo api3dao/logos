@@ -4,11 +4,10 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-      time: "07:55"
+      time: "08:05"
     target-branch: "main"
-    packages:
-      - name: "@api3/chains" # Replace with the actual package name
-        allowed_updates:
-          - "major"
-          - "minor"
-          - "patch"
+    groups:
+      development-dependencies:
+        patterns:
+          - "@api3/*"
+          - "@nodary/*"
