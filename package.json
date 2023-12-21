@@ -13,6 +13,9 @@
         "prettier": "prettier --write \"**/*.{js,jsx,json,md}\"",
         "release": "yarn changeset publish"
     },
+    "dependencies": {
+        "camelcase": "^5.3.1"
+    },
     "devDependencies": {
         "@api3/api-integrations": "^0.0.1",
         "@api3/chains": "^4.1.0",
@@ -24,7 +27,6 @@
         "@svgr/cli": "^5.5.0",
         "@svgr/core": "^5.5.0",
         "@types/react": "^18.2.39",
-        "camelcase": "^5.3.1",
         "prettier": "^3.1.0",
         "rimraf": "^3.0.2",
         "svgo": "^2.5.0",
