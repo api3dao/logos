@@ -1,5 +1,11 @@
 # @api3/logos
 
+## 0.0.16
+
+### Patch Changes
+
+-   5b80f72: Update Polygon network logos
+
 ## 0.0.15
 
 ### Patch Changes
