@@ -11,6 +11,8 @@ on:
       - 'raw/**'
       - scripts/**
       - 'viewer/**'
+  pull_request:
+    branches: [ main ]
 
 jobs:
   pack-local-package:
@@ -33,6 +35,7 @@ jobs:
           path: ./logos.tgz
 
   deploy-frontend:
+    if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
     needs: pack-local-package
     runs-on: ubuntu-latest
     defaults:
