@@ -127,11 +127,10 @@ async function renameFiles() {
 
 async function main() {
     console.log('🏗 Building logo package...');
-    rimraf(`${outputPath}/*`)
+    rimraf(`${outputPath}/`)
         .then(() => Promise.all([renameFiles()]))
         .then(() => Promise.all([generateLogos('cjs'), generateLogos('esm')]))
         .then(() => console.log('✅ Finished building package.'));
 };
-
 
 main();
