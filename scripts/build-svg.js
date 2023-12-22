@@ -9,8 +9,6 @@ const camelcase = require('camelcase');
 
 const outputPath = './dist';
 
-console.log('🏗 Building logo package...');
-
 const categories = ['chain', 'symbol', 'api-provider'];
 
 function getManualLogos(mode) {
@@ -122,10 +120,14 @@ async function generateLogos(format = 'esm') {
     });
 }
 
-(function main() {
+async function main() {
     console.log('🏗 Building logo package...');
-    Promise.resolve(rimraf(`${outputPath}/*`))
+    rimraf(`${outputPath}/*`)
         .then(() => Promise.all([generateLogos('cjs'), generateLogos('esm')]))
         .then(() => console.log('✅ Finished building package.'));
 
-})();
+
+};
+
+
+main();
