@@ -115,18 +115,22 @@ async function babelTransform(format, imports, batchName, mode) {
 
 async function generateLogos(format = 'esm') {
     categories.forEach(async (category) => {
-        await utils.renameFiles(`./optimized/${category}`);
         await buildLogos(format, `./optimized/${category}`, category, utils.sanitizeName(category, 'Logo'));
+    });
+}
+
+async function renameFiles() {
+    categories.forEach(async (category) => {
+        await utils.renameFiles(`./optimized/${category}`);
     });
 }
 
 async function main() {
     console.log('🏗 Building logo package...');
     rimraf(`${outputPath}/*`)
+        .then(() => Promise.all([renameFiles()]))
         .then(() => Promise.all([generateLogos('cjs'), generateLogos('esm')]))
         .then(() => console.log('✅ Finished building package.'));
-
-
 };
 
 
