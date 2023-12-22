@@ -18,9 +18,9 @@ jobs:
   pack-local-package:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18.x
           cache: 'yarn'
@@ -29,7 +29,7 @@ jobs:
       - name: Pack Package
         run: yarn package
       - name: Upload Package
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: logos.tgz
           path: ./logos.tgz
@@ -42,15 +42,15 @@ jobs:
       run:
         working-directory: ./viewer
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Setup Node
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: 18.x
         cache: 'npm'
     - name: Download Package
       id: download-package
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
           name: logos.tgz
           path: ./viewer
