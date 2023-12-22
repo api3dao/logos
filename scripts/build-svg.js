@@ -1,6 +1,6 @@
 const chains = require('@api3/chains');
 const fs = require('fs/promises');
-const rimraf = require('rimraf');
+const { rimraf } = require('rimraf')
 const babel = require('@babel/core');
 const utils = require('../helpers/utils');
 const apiIntegrations = require('@api3/api-integrations');
@@ -124,9 +124,8 @@ async function generateLogos(format = 'esm') {
 
 (function main() {
     console.log('🏗 Building logo package...');
-    new Promise((resolve) => {
-        rimraf(`${outputPath}/*`, resolve);
-    })
+    Promise.resolve(rimraf(`${outputPath}/*`))
         .then(() => Promise.all([generateLogos('cjs'), generateLogos('esm')]))
         .then(() => console.log('✅ Finished building package.'));
+
 })();
