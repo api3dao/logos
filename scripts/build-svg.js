@@ -1,6 +1,6 @@
 const chains = require('@api3/chains');
 const fs = require('fs/promises');
-const rimraf = require('rimraf');
+const { rimraf } = require('rimraf')
 const babel = require('@babel/core');
 const utils = require('../helpers/utils');
 const apiIntegrations = require('@api3/api-integrations');
@@ -8,8 +8,6 @@ const { nodaryFeeds } = require('@nodary/utilities');
 const camelcase = require('camelcase');
 
 const outputPath = './dist';
-
-console.log('🏗 Building logo package...');
 
 const categories = ['chain', 'symbol', 'api-provider'];
 
@@ -117,16 +115,22 @@ async function babelTransform(format, imports, batchName, mode) {
 
 async function generateLogos(format = 'esm') {
     categories.forEach(async (category) => {
-        await utils.renameFiles(`./optimized/${category}`);
         await buildLogos(format, `./optimized/${category}`, category, utils.sanitizeName(category, 'Logo'));
     });
 }
 
-(function main() {
+async function renameFiles() {
+    categories.forEach(async (category) => {
+        await utils.renameFiles(`./optimized/${category}`);
+    });
+}
+
+async function main() {
     console.log('🏗 Building logo package...');
-    new Promise((resolve) => {
-        rimraf(`${outputPath}/*`, resolve);
-    })
+    rimraf(`${outputPath}/`)
+        .then(() => Promise.all([renameFiles()]))
         .then(() => Promise.all([generateLogos('cjs'), generateLogos('esm')]))
         .then(() => console.log('✅ Finished building package.'));
-})();
+};
+
+main();
