@@ -7,6 +7,18 @@ import '../md.css';
 const DocsView = () => {
     const markdown = `# @api3/logos
 
+## 0.0.16
+
+### Patch Changes
+
+-   Update Polygon network logos
+
+## 0.0.15
+
+### Patch Changes
+
+-   2cb7881: Move camelcase from devDependencies to dependencies
+
 ## 0.0.14
 
 ### Patch Changes
