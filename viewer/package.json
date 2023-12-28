@@ -7,9 +7,9 @@
         "@api3/chains": "^4.2.0",
         "@chakra-ui/icons": "^2.1.1",
         "@chakra-ui/react": "^2.8.2",
-        "@emotion/react": "^11.11.1",
+        "@emotion/react": "^11.11.3",
         "@emotion/styled": "^11.11.0",
-        "@testing-library/jest-dom": "^6.1.5",
+        "@testing-library/jest-dom": "^6.1.6",
         "@testing-library/react": "^14.1.2",
         "@testing-library/user-event": "^14.5.1",
         "beta-logos": "file:./logos.tgz",
@@ -22,7 +22,7 @@
         "react-router-dom": "^6.21.1",
         "react-scripts": "5.0.1",
         "react-syntax-highlighter": "^15.5.0",
-        "web-vitals": "^3.5.0",
+        "web-vitals": "^3.5.1",
         "@api3/api-integrations": "^0.0.1"
     },
     "scripts": {
