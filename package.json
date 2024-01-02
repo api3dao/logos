@@ -1,6 +1,6 @@
 {
     "name": "beta-logos",
-    "version": "0.0.16",
+    "version": "0.0.17",
     "license": "MIT",
     "sideEffects": false,
     "scripts": {
