@@ -47,7 +47,7 @@
             ],
             "groupName": "other minor updates",
             "schedule": [
-                "every monday at 7am"
+                "before 7am on the first day of the week"
             ]
         },
         {
