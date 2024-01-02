@@ -136,6 +136,8 @@ git merge main
 git push
 ```
 
+Changeset will raise a PR to the `production` branch. After the PR is merged, the package will be published to npm.
+
 ## Supported chains and symbols
 
 Visit [this page](https://api3dao.github.io/logos/) for a list of supported chains and symbols.
