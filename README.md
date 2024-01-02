@@ -112,6 +112,30 @@ If you confirm, the changeset will be created and you will be asked to publish i
 ✨  Done.
 ```
 
+Commit the changeset and push it to the repository:
+
+```bash
+git add .
+git commit -m "chore: update logos"
+git push
+```
+
+Merge the changeset to the main branch:
+
+```bash
+git checkout main
+git merge [BRANCH_NAME]
+git push
+```
+
+To publish the package, merge main to the `production` branch:
+  
+```bash
+git checkout production
+git merge main
+git push
+```
+
 ## Supported chains and symbols
 
 Visit [this page](https://api3dao.github.io/logos/) for a list of supported chains and symbols.
