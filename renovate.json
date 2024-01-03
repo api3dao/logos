@@ -21,9 +21,6 @@
             "matchUpdateTypes": [
                 "major"
             ],
-            "schedule": [
-                "before 7am on the first day of the month"
-            ],
             "groupName": "api3 major updates"
         },
         {
@@ -37,9 +34,6 @@
             "matchUpdateTypes": [
                 "patch",
                 "minor"
-            ],
-            "schedule": [
-                "before 7am on the first day of the month"
             ],
             "groupName": "api3"
         },
