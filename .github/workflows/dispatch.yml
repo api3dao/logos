@@ -2,13 +2,21 @@ name: dispatch receiver
 
 on:
     repository_dispatch:
-
+        types: [release]
 jobs:
   build:
+    name: Run renovate
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - name: dispatch trigger
-      if : github.event.action == 'release'
-      run: |
-        echo "repository_dispatch triggered"
+      - name: Checkout
+        uses: actions/checkout@v3.6.0
+      - name: Self-hosted Renovate
+        uses: renovatebot/github-action@v39.2.4
+        env:
+          RENOVATE_REPOSITORIES: api3dao/logos
+          RENOVATE_ONBOARDING: "false"
+          RENOVATE_PLATFORM_COMMIT: "true"
+          RENOVATE_BASE_BRANCH: main
+        with:
+          configurationFile: renovate-config.json
+          token: ${{ secrets.GITHUB_TOKEN }}
