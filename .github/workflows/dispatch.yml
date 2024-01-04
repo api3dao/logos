@@ -18,5 +18,5 @@ jobs:
           RENOVATE_PLATFORM_COMMIT: "true"
           RENOVATE_BASE_BRANCH: main
         with:
-          configurationFile: renovate-config.json
+          configurationFile: renovate.json
           token: ${{ secrets.GITHUB_TOKEN }}
