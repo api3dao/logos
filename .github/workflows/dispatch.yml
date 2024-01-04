@@ -3,6 +3,8 @@ name: dispatch receiver
 on:
     repository_dispatch:
         types: [release]
+    pull_request:
+      
 jobs:
   build:
     name: Run renovate
