@@ -7,17 +7,34 @@ import '../md.css';
 const DocsView = () => {
     const markdown = `# @api3/logos
 
+
+## 0.0.18
+
+### Patch Changes
+
+- New logos added: ASTR, USDe, HG, INTC, DIS
+- Renovate config updated
+
+## 0.0.17
+
+### Patch Changes
+
+-   b6935b0:
+    - Dependency packages updated
+
 ## 0.0.16
 
 ### Patch Changes
 
--   Update Polygon network logos
+-   5b80f72:
+    - Update Polygon network logos
 
 ## 0.0.15
 
 ### Patch Changes
 
--   2cb7881: Move camelcase from devDependencies to dependencies
+-   2cb7881:
+    - Move camelcase from devDependencies to dependencies
 
 ## 0.0.14
 
