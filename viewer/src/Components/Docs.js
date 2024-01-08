@@ -35,7 +35,7 @@ const ChainsView = () => {
             </Text>
             <SyntaxHighlighter
                 PreTag="div"
-                children={String(`import { ChainLogo, SymbolLogo, ApiProviderLogo } from 'logos';
+                children={String(`import { ChainLogo, SymbolLogo, ApiProviderLogo } from 'api3-logos';
 
 <div>
     <img src={ ChainLogo('43114') } width={50} height={50} alt='43114' />
@@ -61,7 +61,7 @@ const ChainsView = () => {
 
 <script>
 
-import { ChainLogo, SymbolLogo, ApiProviderLogo } from 'logos';
+import { ChainLogo, SymbolLogo, ApiProviderLogo } from 'api3-logos';
 export default {
 ...
 methods: {

@@ -1,5 +1,5 @@
 import { Flex, Text, Image } from '@chakra-ui/react';
-import { SymbolLogo } from 'logos';
+import { SymbolLogo } from 'api3-logos';
 import SearchRow from '../Custom/SearchRow';
 import { useState } from 'react';
 import InfoView from '../Custom/InfoView';
