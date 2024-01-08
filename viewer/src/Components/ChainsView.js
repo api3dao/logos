@@ -1,5 +1,5 @@
 import { Flex, Text, Spacer, Image } from '@chakra-ui/react';
-import { ChainLogo } from 'beta-logos';
+import { ChainLogo } from 'logos';
 import * as Api3Chains from '@api3/chains';
 import SearchRow from '../Custom/SearchRow';
 import { useState } from 'react';
