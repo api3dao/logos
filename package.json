@@ -17,7 +17,7 @@
         "camelcase": "^6.3.0"
     },
     "devDependencies": {
-        "@api3/api-integrations": "^0.0.1",
+        "api-integrations": "^0.1.0",
         "@api3/chains": "^4.2.0",
         "@babel/core": "^7.23.7",
         "@babel/preset-react": "^7.23.3",
