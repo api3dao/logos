@@ -26,7 +26,7 @@ const ChainsView = () => {
             </Text>
             <SyntaxHighlighter
                 PreTag="div"
-                children={String('npm install logos')}
+                children={String('npm install api3-logos')}
                 language={'bash'}
                 style={dracula}
             />
