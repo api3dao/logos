@@ -31,16 +31,6 @@
     ethers "^5.7.2"
     lodash "^4.17.21"
 
-"@api3/api-integrations@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@api3/api-integrations/-/api-integrations-0.0.1.tgz#026ae7eb30c84dcda058a5e6ee4126fc26262856"
-  integrity sha512-Q/BvP3W38ItmlH5xSdwXYd64bUhSlbOEnnLjPkhXc2w/33Ync099Hba38x5r8bjrVooRDL1J7BYUAbp4h/hDBg==
-  dependencies:
-    "@api3/airnode-abi" "^0.12.0"
-    "@api3/ois" "^2.2.1"
-    ethers "^5.4.2"
-    zod "^3.22.4"
-
 "@api3/chains@^4.2.0":
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/@api3/chains/-/chains-4.2.0.tgz#7f869794c8d29507bb83188cacddb91cd132996c"
@@ -49,7 +39,7 @@
     viem "^1.19.11"
     zod "^3.22.4"
 
-"@api3/ois@^2.2.1":
+"@api3/ois@^2.3.1":
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/@api3/ois/-/ois-2.3.1.tgz#de80dc1b404f094be9049d2a8fdc0362cdfd7dce"
   integrity sha512-7TmgEiJn3TrqV2BZGh4fKTF4qX7Q/dyGdQh9L6gj4dHBmoKzfK0eDbwjWR+RokYrd9k4E4whGNxEnzdZr3ubSA==
@@ -1110,6 +1100,16 @@ ansi-styles@^6.1.0:
   version "6.2.1"
   resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-6.2.1.tgz#0e62320cf99c21afff3b3012192546aacbfb05c5"
   integrity sha512-bN798gFfQX+viw3R7yrGWRqnrN2oRkEkUjjl4JNn4E8GxxbjtG3FbrEIIY3l8/hrwUwIeCZvi4QuOTP4MErVug==
+
+api-integrations@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/api-integrations/-/api-integrations-0.1.0.tgz#65bc3c332e84d4c1902c3aa05bfdd8680699efda"
+  integrity sha512-TwzW4eQcvKJtR37ZRISEsrWI6hZrowXkdsiXTVMVIzphXBr+vb9mvXiP+WEu99hhr9/FUjX7vg+L9ahzSSUHwQ==
+  dependencies:
+    "@api3/airnode-abi" "^0.12.0"
+    "@api3/ois" "^2.3.1"
+    ethers "^5.4.2"
+    zod "^3.22.4"
 
 argparse@^1.0.7:
   version "1.0.10"
