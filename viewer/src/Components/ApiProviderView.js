@@ -1,5 +1,5 @@
 import { Flex, Text, Image } from '@chakra-ui/react';
-import { ApiProviderLogo } from 'beta-logos';
+import { ApiProviderLogo } from 'logos';
 import SearchRow from '../Custom/SearchRow';
 import { useState } from 'react';
 import InfoView from '../Custom/InfoView';

@@ -70,7 +70,7 @@ const DocsView = () => {
     -   Returned string is a base64 encoded SVG image.
 
 \`\`\`js
-    import { ChainLogo, SymbolLogo, ApiProviderLogo } from 'beta-logos';
+    import { ChainLogo, SymbolLogo, ApiProviderLogo } from 'logos';
 
     <div>
         <img src={ChainLogo('43114')} width={50} height={50} alt='43114' />
@@ -113,8 +113,8 @@ const DocsView = () => {
 
 ### Patch Changes
 
--   a835657: - JSDoc annotations added to \`beta-logos\` package.
-    -   JS Docs are annotations are now available for \`beta-logos\` package.
+-   a835657: - JSDoc annotations added to \`logos\` package.
+    -   JS Docs are annotations are now available for \`logos\` package.
 
         \`\`\`ts
         @param props
@@ -125,7 +125,7 @@ const DocsView = () => {
         @returns — ApiProviderLogo component
 
         @example
-        import { ApiProviderLogo } from 'beta-logos';
+        import { ApiProviderLogo } from 'logos';
 
         const App = () => {
             return <ApiProviderLogo  id="nodary" />;
