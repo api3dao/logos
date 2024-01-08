@@ -1,5 +1,5 @@
 import { Flex, Text, Spacer, Image } from '@chakra-ui/react';
-import { SymbolLogo } from 'beta-logos';
+import { SymbolLogo } from 'logos';
 
 const Header = () => {
     return (

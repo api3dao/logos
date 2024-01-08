@@ -3,7 +3,7 @@
 ## Installation
 
 ```bash
-yarn add beta-logos
+yarn add logos
 ```
 
 ## Usage
@@ -11,7 +11,7 @@ yarn add beta-logos
 ### React
 
 ```js
-import { ChainLogo, SymbolLogo, ApiProviderLogo } from 'beta-logos';
+import { ChainLogo, SymbolLogo, ApiProviderLogo } from 'logos';
 
 <div>
     <img src={ChainLogo('43114')} width={50} height={50} alt="43114" />
@@ -33,7 +33,7 @@ import { ChainLogo, SymbolLogo, ApiProviderLogo } from 'beta-logos';
 </template>
 
 <script>
-import { ChainLogo, SymbolLogo, ApiProviderLogo } from 'beta-logos';
+import { ChainLogo, SymbolLogo, ApiProviderLogo } from 'logos';
 
 export default {
 ...

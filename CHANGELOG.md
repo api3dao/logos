@@ -60,7 +60,7 @@
   - Returned string is a base64 encoded SVG image.
 
   ```js
-  import { ChainLogo, SymbolLogo, ApiProviderLogo } from "beta-logos";
+  import { ChainLogo, SymbolLogo, ApiProviderLogo } from "logos";
 
   <div>
     <img src={ChainLogo("43114")} width={50} height={50} alt="43114" />
@@ -122,10 +122,10 @@
 
 ### Patch Changes
 
-- a835657: - JSDoc annotations added to `beta-logos` package.
+- a835657: - JSDoc annotations added to `logos` package.
 
-  - `beta-logos` package now exports `Logo` as svg string.
-  - `beta-logos` package now exports `Logo` as React component.
+  - `logos` package now exports `Logo` as svg string.
+  - `logos` package now exports `Logo` as React component.
   - Package size reduced.
 
   - Method names changed.
