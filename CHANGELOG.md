@@ -1,5 +1,12 @@
 # @api3/logos
 
+## 0.0.18
+
+### Patch Changes
+
+- c5d9628: - New logos added: ASTR, USDe, HG, INTC, DIS
+  - Renovate config updated
+
 ## 0.0.17
 
 ### Patch Changes
