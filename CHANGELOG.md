@@ -4,6 +4,12 @@
 
 ### Major Changes
 
+- b675c1a: Update package version
+
+## 1.0.0
+
+### Major Changes
+
 - 40fb6cc: Update package name
 
 ## 1.0.0
