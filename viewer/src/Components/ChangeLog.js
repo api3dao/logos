@@ -7,6 +7,12 @@ import '../md.css';
 const DocsView = () => {
     const markdown = `# @api3/logos
 
+## 1.0.0
+
+### Major Changes
+
+- Package name has been changed to \`logos\`
+- \`api - integrations\` package is updated
 
 ## 0.0.18
 
