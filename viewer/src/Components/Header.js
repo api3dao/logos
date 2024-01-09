@@ -1,5 +1,5 @@
 import { Flex, Text, Spacer, Image } from '@chakra-ui/react';
-import { SymbolLogo } from 'api3-logos';
+import { SymbolLogo } from '@phase21/logos';
 
 const Header = () => {
     return (
