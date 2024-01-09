@@ -3,7 +3,7 @@ const fs = require('fs/promises');
 const { rimraf } = require('rimraf')
 const babel = require('@babel/core');
 const utils = require('../helpers/utils');
-const apiIntegrations = require('api-integrations');
+const apiIntegrations = require('@phase21/api-integrations');
 const { nodaryFeeds } = require('@nodary/utilities');
 const camelcase = require('camelcase');
 
