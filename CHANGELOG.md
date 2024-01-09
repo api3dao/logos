@@ -1,5 +1,11 @@
 # @api3/logos
 
+## 2.1.0
+
+### Minor Changes
+
+- 6ccfa82: Update api-integrations to `@phase21/api-integrations`
+
 ## 2.0.0
 
 ### Major Changes
