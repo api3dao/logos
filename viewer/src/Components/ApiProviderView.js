@@ -3,7 +3,7 @@ import { ApiProviderLogo } from '@phase21/logos';
 import SearchRow from '../Custom/SearchRow';
 import { useState } from 'react';
 import InfoView from '../Custom/InfoView';
-import { getApiProviderAliases } from 'api-integrations'
+import { getApiProviderAliases } from '@phase21/api-integrations'
 
 const ApiProvidersView = () => {
     const [apiProvider, setApiProvider] = useState('');
