@@ -3,7 +3,7 @@
 ## Installation
 
 ```bash
-yarn add api3-logos
+yarn add @phase21/logos
 ```
 
 ## Usage
@@ -11,7 +11,7 @@ yarn add api3-logos
 ### React
 
 ```js
-import { ChainLogo, SymbolLogo, ApiProviderLogo } from 'api3-logos';
+import { ChainLogo, SymbolLogo, ApiProviderLogo } from '@phase21/logos';
 
 <div>
     <img src={ChainLogo('43114')} width={50} height={50} alt="43114" />
@@ -33,7 +33,7 @@ import { ChainLogo, SymbolLogo, ApiProviderLogo } from 'api3-logos';
 </template>
 
 <script>
-import { ChainLogo, SymbolLogo, ApiProviderLogo } from 'api3-logos';
+import { ChainLogo, SymbolLogo, ApiProviderLogo } from '@phase21/logos';
 
 export default {
 ...
