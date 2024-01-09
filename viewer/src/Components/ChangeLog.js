@@ -53,7 +53,7 @@ const DocsView = () => {
     -   Returned string is a base64 encoded SVG image.
 
 \`\`\`js
-    import { ChainLogo, SymbolLogo, ApiProviderLogo } from 'beta-logos';
+    import { ChainLogo, SymbolLogo, ApiProviderLogo } from '@phase21/logos';
 
     <div>
         <img src={ChainLogo('43114')} width={50} height={50} alt='43114' />

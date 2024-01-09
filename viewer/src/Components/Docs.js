@@ -26,7 +26,7 @@ const ChainsView = () => {
             </Text>
             <SyntaxHighlighter
                 PreTag="div"
-                children={String('npm install beta-logos')}
+                children={String('npm install @phase21/logos')}
                 language={'bash'}
                 style={dracula}
             />
@@ -35,7 +35,7 @@ const ChainsView = () => {
             </Text>
             <SyntaxHighlighter
                 PreTag="div"
-                children={String(`import { ChainLogo, SymbolLogo, ApiProviderLogo } from 'beta-logos';
+                children={String(`import { ChainLogo, SymbolLogo, ApiProviderLogo } from '@phase21/logos';
 
 <div>
     <img src={ ChainLogo('43114') } width={50} height={50} alt='43114' />
@@ -61,7 +61,7 @@ const ChainsView = () => {
 
 <script>
 
-import { ChainLogo, SymbolLogo, ApiProviderLogo } from 'beta-logos';
+import { ChainLogo, SymbolLogo, ApiProviderLogo } from '@phase21/logos';
 export default {
 ...
 methods: {

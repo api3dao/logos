@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Flex, Spacer, Text } from '@chakra-ui/react';
-import { ApiProviderLogo, SymbolLogo, ChainLogo } from 'beta-logos';
+import { ApiProviderLogo, SymbolLogo, ChainLogo } from '@phase21/logos';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { xonokai } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { CloseIcon } from '@chakra-ui/icons';
