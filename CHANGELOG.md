@@ -1,5 +1,11 @@
 # @api3/logos
 
+## 2.0.0
+
+### Major Changes
+
+- f8cb93a: Package moved to phase21 organization
+
 ## 1.0.0
 
 ### Major Changes
