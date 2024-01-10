@@ -16,7 +16,8 @@
             ],
             "matchPackagePatterns": [
                 "@api3\/.*",
-                "@nodary\/.*"
+                "@nodary\/.*",
+                "@phase21\/.*"
             ],
             "matchUpdateTypes": [
                 "major"
@@ -29,7 +30,8 @@
             ],
             "matchPackagePatterns": [
                 "@api3\/.*",
-                "@nodary\/.*"
+                "@nodary\/.*",
+                "@phase21\/.*"
             ],
             "matchUpdateTypes": [
                 "patch",
