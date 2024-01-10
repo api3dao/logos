@@ -1,5 +1,5 @@
 import { Flex, Text, Image, VStack } from '@chakra-ui/react';
-import * as Api3Chains from '@api3/chains';
+import * as Api3Chains from '@phase21/chains';
 import { SymbolLogoMissing, SymbolLogo, ApiProviderLogoMissing, ApiProviderLogo, ChainLogoMissing, ChainLogo } from '@phase21/logos';
 import Title from '../Custom/Title';
 

@@ -1005,6 +1005,14 @@
     ethers "^5.4.2"
     zod "^3.22.4"
 
+"@phase21/chains@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@phase21/chains/-/chains-0.1.1.tgz#5988734b053f14e8207b9389f5b67ab4a638f042"
+  integrity sha512-TS6d1aq5E5jR7YKstZOq0MmS5vNm5v9xXvSiU5QgdgwLY04M47Faf/IdU6zGQYoctR7/TUN4tf1J6BkMSFhu4w==
+  dependencies:
+    viem "^1.21.3"
+    zod "^3.22.4"
+
 "@pkgjs/parseargs@^0.11.0":
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/@pkgjs/parseargs/-/parseargs-0.11.0.tgz#a77ea742fab25775145434eb1d2328cf5013ac33"
@@ -3139,6 +3147,20 @@ viem@^1.19.11:
   version "1.20.3"
   resolved "https://registry.yarnpkg.com/viem/-/viem-1.20.3.tgz#8b8360daee622295f5385949c02c86d943d14e0f"
   integrity sha512-7CrmeCb2KYkeCgUmUyb1hsf+IX/PLwi+Np+Vm4YUTPeG82y3HRSgGHSaCOp3d0YtR2kXD3nv9y5kE7LBFE+wWw==
+  dependencies:
+    "@adraffy/ens-normalize" "1.10.0"
+    "@noble/curves" "1.2.0"
+    "@noble/hashes" "1.3.2"
+    "@scure/bip32" "1.3.2"
+    "@scure/bip39" "1.2.1"
+    abitype "0.9.8"
+    isows "1.0.3"
+    ws "8.13.0"
+
+viem@^1.21.3:
+  version "1.21.4"
+  resolved "https://registry.yarnpkg.com/viem/-/viem-1.21.4.tgz#883760e9222540a5a7e0339809202b45fe6a842d"
+  integrity sha512-BNVYdSaUjeS2zKQgPs+49e5JKocfo60Ib2yiXOWBT6LuVxY1I/6fFX3waEtpXvL1Xn4qu+BVitVtMh9lyThyhQ==
   dependencies:
     "@adraffy/ens-normalize" "1.10.0"
     "@noble/curves" "1.2.0"

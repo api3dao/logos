@@ -1,6 +1,6 @@
 import { Flex, Text, Spacer, Image } from '@chakra-ui/react';
 import { ChainLogo } from '@phase21/logos';
-import * as Api3Chains from '@api3/chains';
+import * as Api3Chains from '@phase21/chains';
 import SearchRow from '../Custom/SearchRow';
 import { useState } from 'react';
 import Title from '../Custom/Title';
