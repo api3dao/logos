@@ -1,5 +1,11 @@
 # @api3/logos
 
+## 2.2.0
+
+### Minor Changes
+
+- a539166: Dependency update: `@phase21/chains`
+
 ## 2.1.0
 
 ### Minor Changes
