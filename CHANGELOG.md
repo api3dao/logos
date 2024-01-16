@@ -1,5 +1,17 @@
 # @api3/logos
 
+## 2.3.0
+
+### Minor Changes
+
+- e7ef4c3: New symbols are added.
+
+  - `uniETH`
+  - `osETH`
+  - `weETH`
+  - `PYUSD`
+  - `WLD`
+
 ## 2.2.0
 
 ### Minor Changes
