@@ -3,8 +3,7 @@ const fs = require('fs/promises');
 const { rimraf } = require('rimraf')
 const babel = require('@babel/core');
 const utils = require('../helpers/utils');
-const apiIntegrations = require('@phase21/api-integrations');
-const { nodaryFeeds } = require('@nodary/utilities');
+const { api3Integrations, dapis } = require('@phase21/dapi-management');
 const camelcase = require('camelcase');
 
 const outputPath = './dist';
@@ -29,9 +28,9 @@ function getLogoList(mode) {
         case 'chain':
             return [...getManualLogos(mode), ...chains.CHAINS.map((chain) => chain.id)];
         case 'symbol':
-            return [...getManualLogos(mode), ...new Set(nodaryFeeds.map((feed) => feed.name.split('/')).flat())];
+            return [...getManualLogos(mode), ...new Set(dapis.map((feed) => feed.name.split('/')).flat())];
         case 'api-provider':
-            return [...getManualLogos(mode), ...apiIntegrations.getApiProviderAliases()];
+            return [...getManualLogos(mode), ...api3Integrations.getApiProviderAliases()];
         default:
             break;
     }
