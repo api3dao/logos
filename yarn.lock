@@ -1013,6 +1013,14 @@
     viem "^1.21.3"
     zod "^3.22.4"
 
+"@phase21/dapi-management@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@phase21/dapi-management/-/dapi-management-0.2.0.tgz#0ae90b5fa0696aa5ff025bc34f2122362eff8b69"
+  integrity sha512-82SQbxYYOzzaTGvQ9vfKRZurq5DIi7mnTHnhIF9qzM8d6AJdLYo0k+vOPuS7BpzJd8hLULG+qrBFDyYp8DvsIg==
+  dependencies:
+    "@phase21/api-integrations" "^1.0.0"
+    "@phase21/chains" "^0.1.1"
+
 "@pkgjs/parseargs@^0.11.0":
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/@pkgjs/parseargs/-/parseargs-0.11.0.tgz#a77ea742fab25775145434eb1d2328cf5013ac33"
