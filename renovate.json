@@ -13,7 +13,7 @@
             "groupName": "api3 major updates"
         },
         {
-            "matchPackagePatterns": ["@api3/.*", "@phase21/.*"],
+            "matchPackagePatterns": ["@phase21/.*"],
             "matchUpdateTypes": ["patch", "minor"],
             "schedule": ["before 3pm"],
             "groupName": "api3"
