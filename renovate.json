@@ -45,6 +45,9 @@
                 "patch",
                 "minor"
             ],
+            "schedule": [
+                "after 5pm on Friday"
+            ],
             "groupName": "other minor updates"
         },
         {
@@ -53,6 +56,9 @@
             ],
             "matchUpdateTypes": [
                 "major"
+            ],
+            "schedule": [
+                "after 5pm on Friday"
             ],
             "groupName": "other major updates"
         }
