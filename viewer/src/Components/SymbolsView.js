@@ -3,14 +3,15 @@ import { SymbolLogo } from '@phase21/logos';
 import SearchRow from '../Custom/SearchRow';
 import { useState } from 'react';
 import InfoView from '../Custom/InfoView';
-import { nodaryFeeds } from '@nodary/utilities';
+import { apisData, getApiProviderAliases } from '@phase21/api-integrations';
 
 const SymbolsView = () => {
     const [symbol, setSymbol] = useState('');
     const [selectedSymbol, setSelectedSymbol] = useState('');
 
     const getSymbols = () => {
-        const filteredFeeds = [...new Set(nodaryFeeds.map((feed) => feed.name.split('/')).flat())];
+        const supportedFeed = [...new Set(getApiProviderAliases().map((apiProvider) => Object.values(apisData[apiProvider].supportedFeedsInBatches).flat(2)).flat())];
+        const filteredFeeds = [...new Set(supportedFeed.map((feed) => feed.split('/')).flat())];
         return filteredFeeds.filter((feed) => feed.toLowerCase().includes(symbol.toLowerCase()));
     };
 
