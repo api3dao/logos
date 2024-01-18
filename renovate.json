@@ -7,29 +7,26 @@
             "enabled": false
         },
         {
-            "matchDepTypes": ["devDependencies"],
             "matchPackagePatterns": ["@api3/.*", "@phase21/.*"],
             "matchUpdateTypes": ["major"],
-            "schedule": ["before 2:00pm"],
+            "schedule": ["before 4pm"],
             "groupName": "api3 major updates"
         },
         {
-            "matchDepTypes": ["devDependencies"],
             "matchPackagePatterns": ["@api3/.*", "@phase21/.*"],
             "matchUpdateTypes": ["patch", "minor"],
-            "schedule": ["before 2:00pm"],
+            "schedule": ["before 3pm"],
             "groupName": "api3"
         },
         {
-            "matchDepTypes": ["devDependencies"],
             "matchUpdateTypes": ["patch", "minor"],
-            "schedule": ["after 5pm on Friday"],
+            "schedule": ["after 3pm on Friday"],
             "groupName": "other minor updates"
         },
         {
             "matchDepTypes": ["devDependencies"],
             "matchUpdateTypes": ["major"],
-            "schedule": ["after 5pm on Friday"],
+            "schedule": ["after 1pm on Friday"],
             "groupName": "other major updates"
         }
     ],
