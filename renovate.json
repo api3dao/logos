@@ -12,7 +12,6 @@
             "groupName": "other minor updates"
         },
         {
-            "matchDepTypes": ["devDependencies"],
             "matchUpdateTypes": ["major"],
             "schedule": ["after 1pm on Friday"],
             "groupName": "other major updates"
