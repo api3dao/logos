@@ -980,12 +980,12 @@
     ethers "^5.4.2"
     zod "^3.22.4"
 
-"@phase21/chains@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@phase21/chains/-/chains-0.1.1.tgz#5988734b053f14e8207b9389f5b67ab4a638f042"
-  integrity sha512-TS6d1aq5E5jR7YKstZOq0MmS5vNm5v9xXvSiU5QgdgwLY04M47Faf/IdU6zGQYoctR7/TUN4tf1J6BkMSFhu4w==
+"@phase21/chains@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@phase21/chains/-/chains-0.2.0.tgz#fc9cc7fc064036377fd41959802945aa8c1476db"
+  integrity sha512-ZR4UCSLVBh9z0ILXx8APAdU0SLdgtL4u99m7Zo2YHC5CH+PPiSphbAdXNW9g4DsclH1KXHVKmO2Srctcv8EjGw==
   dependencies:
-    viem "^1.21.3"
+    viem "^2.0.6"
     zod "^3.22.4"
 
 "@pkgjs/parseargs@^0.11.0":
@@ -1040,10 +1040,10 @@
   resolved "https://registry.npmjs.org/@types/semver/-/semver-7.5.6.tgz"
   integrity sha512-dn1l8LaMea/IjDoHNd9J52uBbInB796CDffS6VdIxvqYCPSG0V0DzHp76GpaWnlhg88uYyPbXCDIowa86ybd5A==
 
-abitype@0.9.8:
-  version "0.9.8"
-  resolved "https://registry.yarnpkg.com/abitype/-/abitype-0.9.8.tgz#1f120b6b717459deafd213dfbf3a3dd1bf10ae8c"
-  integrity sha512-puLifILdm+8sjyss4S+fsUN09obiT1g2YW6CtcQF+QDzxR0euzgEB29MZujC6zMk2a6SVmtttq1fc6+YFA7WYQ==
+abitype@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/abitype/-/abitype-1.0.0.tgz#237176dace81d90d018bebf3a45cb42f2a2d9e97"
+  integrity sha512-NMeMah//6bJ56H5XRj8QCV4AwuW6hB6zqz2LnhhLdcWVQOsXki6/Pn3APeqxCma62nXIcmZWdu1DlHWS74umVQ==
 
 aes-js@3.0.0:
   version "3.0.0"
@@ -3090,17 +3090,17 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-viem@^1.21.3:
-  version "1.21.4"
-  resolved "https://registry.yarnpkg.com/viem/-/viem-1.21.4.tgz#883760e9222540a5a7e0339809202b45fe6a842d"
-  integrity sha512-BNVYdSaUjeS2zKQgPs+49e5JKocfo60Ib2yiXOWBT6LuVxY1I/6fFX3waEtpXvL1Xn4qu+BVitVtMh9lyThyhQ==
+viem@^2.0.6:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/viem/-/viem-2.2.0.tgz#8093beefeadfc93f03598670e05d4987d6ad4cf2"
+  integrity sha512-3wfpJTDwtO1f+OWdRQ+2Gr51AQ0rR1FPmBT19LZW8+QLFzXnYASR52tfapF1MfmitSIxZSwVoBEihekC8aAJqA==
   dependencies:
     "@adraffy/ens-normalize" "1.10.0"
     "@noble/curves" "1.2.0"
     "@noble/hashes" "1.3.2"
     "@scure/bip32" "1.3.2"
     "@scure/bip39" "1.2.1"
-    abitype "0.9.8"
+    abitype "1.0.0"
     isows "1.0.3"
     ws "8.13.0"
 

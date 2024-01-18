@@ -10,7 +10,13 @@ const SymbolsView = () => {
     const [selectedSymbol, setSelectedSymbol] = useState('');
 
     const getSymbols = () => {
-        const supportedFeed = [...new Set(getApiProviderAliases().map((apiProvider) => Object.values(apisData[apiProvider].supportedFeedsInBatches).flat(2)).flat())];
+        const supportedFeed = [
+            ...new Set(
+                getApiProviderAliases()
+                    .map((apiProvider) => Object.values(apisData[apiProvider].supportedFeedsInBatches).flat(2))
+                    .flat()
+            )
+        ];
         const filteredFeeds = [...new Set(supportedFeed.map((feed) => feed.split('/')).flat())];
         return filteredFeeds.filter((feed) => feed.toLowerCase().includes(symbol.toLowerCase()));
     };

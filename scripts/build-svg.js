@@ -1,6 +1,6 @@
 const chains = require('@phase21/chains');
 const fs = require('fs/promises');
-const { rimraf } = require('rimraf')
+const { rimraf } = require('rimraf');
 const babel = require('@babel/core');
 const utils = require('../helpers/utils');
 const { apisData, getApiProviderAliases } = require('@phase21/api-integrations');
@@ -28,7 +28,13 @@ function getLogoList(mode) {
         case 'chain':
             return [...getManualLogos(mode), ...chains.CHAINS.map((chain) => chain.id)];
         case 'symbol':
-            const supportedFeed = [... new Set(getApiProviderAliases().map((apiProvider) => Object.values(apisData[apiProvider].supportedFeedsInBatches).flat(2)).flat())];
+            const supportedFeed = [
+                ...new Set(
+                    getApiProviderAliases()
+                        .map((apiProvider) => Object.values(apisData[apiProvider].supportedFeedsInBatches).flat(2))
+                        .flat()
+                )
+            ];
             return [...getManualLogos(mode), ...new Set(supportedFeed.map((feed) => feed.split('/')).flat())];
         case 'api-provider':
             return [...getManualLogos(mode), ...getApiProviderAliases()];
@@ -133,6 +139,6 @@ async function main() {
         .then(() => Promise.all([renameFiles()]))
         .then(() => Promise.all([generateLogos('cjs'), generateLogos('esm')]))
         .then(() => console.log('✅ Finished building package.'));
-};
+}
 
 main();
