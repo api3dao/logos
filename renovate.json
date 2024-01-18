@@ -1,71 +1,35 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": [
-        "config:recommended"
-    ],
+    "extends": ["config:recommended"],
     "packageRules": [
         {
-            "matchPackageNames": [
-                "camelcase"
-            ],
+            "matchPackageNames": ["camelcase"],
             "enabled": false
         },
         {
-            "matchDepTypes": [
-                "devDependencies"
-            ],
-            "matchPackagePatterns": [
-                "@api3\/.*",
-                "@phase21\/.*"
-            ],
-            "matchUpdateTypes": [
-                "major"
-            ],
-            "schedule": [
-                "before 2:00pm"
-            ],
+            "matchDepTypes": ["devDependencies"],
+            "matchPackagePatterns": ["@api3/.*", "@phase21/.*"],
+            "matchUpdateTypes": ["major"],
+            "schedule": ["before 2:00pm"],
             "groupName": "api3 major updates"
         },
         {
-            "matchDepTypes": [
-                "devDependencies"
-            ],
-            "matchPackagePatterns": [
-                "@api3\/.*",
-                "@phase21\/.*"
-            ],
-            "matchUpdateTypes": [
-                "patch",
-                "minor"
-            ],
-            "schedule": [
-                "before 2:00pm"
-            ],
+            "matchDepTypes": ["devDependencies"],
+            "matchPackagePatterns": ["@api3/.*", "@phase21/.*"],
+            "matchUpdateTypes": ["patch", "minor"],
+            "schedule": ["before 2:00pm"],
             "groupName": "api3"
         },
         {
-            "matchDepTypes": [
-                "devDependencies"
-            ],
-            "matchUpdateTypes": [
-                "patch",
-                "minor"
-            ],
-            "schedule": [
-                "after 5pm on Friday"
-            ],
+            "matchDepTypes": ["devDependencies"],
+            "matchUpdateTypes": ["patch", "minor"],
+            "schedule": ["after 5pm on Friday"],
             "groupName": "other minor updates"
         },
         {
-            "matchDepTypes": [
-                "devDependencies"
-            ],
-            "matchUpdateTypes": [
-                "major"
-            ],
-            "schedule": [
-                "after 5pm on Friday"
-            ],
+            "matchDepTypes": ["devDependencies"],
+            "matchUpdateTypes": ["major"],
+            "schedule": ["after 5pm on Friday"],
             "groupName": "other major updates"
         }
     ],
@@ -73,8 +37,6 @@
     "lockFileMaintenance": {
         "enabled": false
     },
-    "reviewers": [
-        "hiletmis"
-    ],
+    "reviewers": ["hiletmis"],
     "dependencyDashboard": false
 }
