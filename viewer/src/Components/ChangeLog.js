@@ -7,6 +7,42 @@ import '../md.css';
 const DocsView = () => {
     const markdown = `# @api3/logos
 
+## 2.4.0
+
+### Minor Changes
+
+- \`@nodary/utilities\` replaced with \`@phase21/api-integrations\`.
+
+## 2.3.0
+
+### Minor Changes
+
+- e7ef4c3: New symbols are added.
+
+  - \`uniETH\`
+  - \`osETH\`
+  - \`weETH\`
+  - \`PYUSD\`
+  - \`WLD\`
+
+## 2.2.0
+
+### Minor Changes
+
+- a539166: Dependency update: \`@phase21/chains\`
+
+## 2.1.0
+
+### Minor Changes
+
+        - 6ccfa82: Update api - integrations to\`@phase21/api-integrations\`
+
+## 2.0.0
+
+### Major Changes
+
+        - f8cb93a: Package moved to phase21 organization
+
 ## 1.0.0
 
 ### Major Changes
