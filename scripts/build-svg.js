@@ -68,10 +68,12 @@ function buildLogoImports(files, mode, format) {
 function getMissingLogos(files, mode) {
     const logos = getLogoList(mode);
     const prefix = mode === 'chain' ? 'Chain' : '';
-    return logos.filter(
+    const missingLogos = logos.filter(
         (logo) =>
             !files.find((file) => file.toLowerCase() === `${utils.sanitizeName(logo, '', prefix).toLowerCase()}.svg`)
     );
+    console.log(`Missing ${mode} logos: ${missingLogos}`);
+    return missingLogos;
 }
 
 async function buildBatch(files, outDir, format = 'esm', batchName, mode) {
