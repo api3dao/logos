@@ -1,5 +1,14 @@
 # @api3/logos
 
+## 2.5.0
+
+### Minor Changes
+
+- 1af67c6: New chain logos added;
+
+  1. Lightlink (chain ID: 1890)
+  2. LightLink Goerli Testnet (chain ID: 1891)
+
 ## 2.4.0
 
 ### Minor Changes
