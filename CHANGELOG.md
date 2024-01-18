@@ -1,5 +1,11 @@
 # @api3/logos
 
+## 2.4.0
+
+### Minor Changes
+
+- b26653b: \`@nodary/utilities\` replaced with \`@phase21/api-integrations\`.
+
 ## 2.3.0
 
 ### Minor Changes
