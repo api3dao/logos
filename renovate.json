@@ -20,13 +20,16 @@
             "matchPackagePatterns": ["@api3/.*", "@phase21/.*"],
             "matchUpdateTypes": ["major"],
             "schedule": ["before 4pm"],
-            "groupName": "api3 major updates"
+            "groupName": "api3 major updates",
+            "labels": ["deploy"]
         },
         {
             "matchPackagePatterns": ["@api3/.*", "@phase21/.*"],
             "matchUpdateTypes": ["patch", "minor"],
             "schedule": ["before 3pm"],
-            "groupName": "api3"
+            "groupName": "api3",
+            "labels": ["deploy"],
+            "automerge": true
         }
     ],
     "rangeStrategy": "bump",
