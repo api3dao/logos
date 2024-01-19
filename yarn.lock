@@ -980,10 +980,10 @@
     ethers "^5.4.2"
     zod "^3.22.4"
 
-"@phase21/chains@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@phase21/chains/-/chains-0.2.0.tgz#fc9cc7fc064036377fd41959802945aa8c1476db"
-  integrity sha512-ZR4UCSLVBh9z0ILXx8APAdU0SLdgtL4u99m7Zo2YHC5CH+PPiSphbAdXNW9g4DsclH1KXHVKmO2Srctcv8EjGw==
+"@phase21/chains@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@phase21/chains/-/chains-0.4.0.tgz#f3f3ca4f69172d2f6145091f1d9ba2a11e5bdd03"
+  integrity sha512-Vrv6nkX7gLEmIWbI+wK/m3hTcL3QgHK0wT0SD1wv03NN8zmG6nwAalMZnFu9W4ovwxy54HcF2k0JJ93FqyHf5Q==
   dependencies:
     viem "^2.0.6"
     zod "^3.22.4"
