@@ -67,7 +67,6 @@ methods: {
 | ---- | ------ | ----------- |
 | id   | string | Symbol id   |
 
-
 ## Package update
 
 Run the following command to update the package:
@@ -79,7 +78,7 @@ yarn changeset
 Then follow the instructions in the terminal:
 
 ```bash
-🦋  What kind of change is this for logos? (current version is x.x.x) 
+🦋  What kind of change is this for logos? (current version is x.x.x)
 ❯ patch
   minor
   major
@@ -95,10 +94,10 @@ After that, you will be asked to confirm the changeset:
 
 ```bash
 🦋  Summary › [CHANGES]
-🦋  
+🦋
 🦋  === Summary of changesets ===
 🦋  patch:  logos
-🦋  
+🦋
 🦋  Is this your desired changeset? (Y/n) › true
 ```
 
@@ -106,7 +105,7 @@ If you confirm, the changeset will be created and you will be asked to publish i
 
 ```bash
 🦋  Changeset added! - you can now commit it
-🦋  
+🦋
 🦋  If you want to modify or expand on the changeset summary, you can find it here
 🦋  info .changeset/[MD_FILE]
 ✨  Done.
@@ -129,7 +128,7 @@ git push
 ```
 
 To publish the package, merge main to the `production` branch:
-  
+
 ```bash
 git checkout production
 git merge main
