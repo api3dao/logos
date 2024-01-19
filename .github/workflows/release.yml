@@ -42,11 +42,20 @@ jobs:
       - name: Build package
         run: yarn build-svg
 
-      - name: Create Release Pull Request or Publish to npm
+      - name: Create Release
+        id: changesets
         uses: changesets/action@v1
         with:
           publish: yarn release
           commit: "ci: release packages"
           title: "ci: release packages"
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+      - name: Apply changes
+        if: steps.changesets.outputs.published == 'true'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          branch: main
+          base: production
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
