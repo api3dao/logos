@@ -54,11 +54,10 @@ async function searchLogos() {
     missingLogos.map((missingLogoCategory) => {
         missingLogoCategory.logos.map((missingLogo) => {
             foundLogos.map((foundLogo) => {
-                if (foundLogo.name.toLowerCase() === `${missingLogo}.svg`) {
+                if (foundLogo.name.toLowerCase() === `${missingLogo.toLowerCase()}.svg`) {
                     downloadLogos(missingLogoCategory.category, foundLogo.name);
                 }
-            }
-            )
+            })
         })
     })
 
@@ -70,6 +69,7 @@ async function fetchLogos() {
         const response = await dbx.filesListFolder({ path: '' })
         return response.result.entries;
     } catch (error) {
+        console.error(error);
         return []
     }
 }
