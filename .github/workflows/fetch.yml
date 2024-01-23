@@ -24,9 +24,6 @@ jobs:
         run: yarn install
       - name: Build Package
         run: yarn build-svg
-      - uses: actions/checkout@v4
-      # Other steps that change files in the repository
       - name: Fetch Logos
         run: yarn fetch --DROPBOX ${{ secrets.DROPBOX }}
-      # Commit all changed files back to the repository
       - uses: stefanzweifel/git-auto-commit-action@v5
