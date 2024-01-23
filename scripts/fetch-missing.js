@@ -78,8 +78,6 @@ async function saveToDisk(file, category, blob) {
     fs.writeFile(`./raw/${category}s/${file}`, blob, function (err) {
         if (err) {
             console.error(err);
-        } else {
-            console.log('Blob saved successfully.');
         }
     });
 }
@@ -88,7 +86,8 @@ async function downloadLogos(category, file) {
     try {
         const response = await dbx.filesDownload({ path: `/${file}` })
         var blob = response.result.fileBinary;
-        saveToDisk(file, category, blob);
+        await saveToDisk(file, category, blob);
+        console.log(`Downloaded ${file}`);
     }
     catch (error) {
         console.error(error);
