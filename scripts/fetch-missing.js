@@ -76,7 +76,8 @@ async function fetchLogos() {
 }
 
 async function saveToDisk(file, category, blob) {
-    fs.writeFile(`./raw/${category}s/${file}`, blob, function (err) {
+    const prefix = category === 'chain' ? 'Chain' : '';
+    fs.writeFile(`./raw/${category}s/${prefix}${file}`, blob, function (err) {
         if (err) {
             console.error(err);
         }
