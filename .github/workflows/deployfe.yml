@@ -24,9 +24,19 @@ jobs:
         with:
           node-version: 18.x
           cache: 'yarn'
+      - name: Set Env
+        run: |
+          touch .env
+          echo DROPBOX=${{ secrets.DROPBOX }} >> .env
       - name: Install Packages
         run: yarn install
-      - name: Pack Package
+      - name: Fetch Logos
+        run: yarn fetch
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Fetch Logos from Dropbox
+          commit_options: '--no-verify --signoff'
+      - name: Build Package
         run: yarn package
       - name: Upload Package
         uses: actions/upload-artifact@v4

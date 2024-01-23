@@ -6,3 +6,4 @@ optimized/
 package-lock.json
 logos.tgz
 yarn.lock
+.env
