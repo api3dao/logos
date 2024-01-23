@@ -1639,12 +1639,12 @@
     ethers "^5.4.2"
     zod "^3.22.4"
 
-"@phase21/chains@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@phase21/chains/-/chains-0.4.0.tgz#f3f3ca4f69172d2f6145091f1d9ba2a11e5bdd03"
-  integrity sha512-Vrv6nkX7gLEmIWbI+wK/m3hTcL3QgHK0wT0SD1wv03NN8zmG6nwAalMZnFu9W4ovwxy54HcF2k0JJ93FqyHf5Q==
+"@phase21/chains@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@phase21/chains/-/chains-0.5.0.tgz#d13442fbb8241960e937429000d7b08441bd56f3"
+  integrity sha512-JOgYJfVYDK0w87gdDHClmKekDdDDoxjHcZHhWHjMzeKX9GX1keWhpheT8crjJI4E7TSNPaq9uZo7qF8D1ePxHA==
   dependencies:
-    viem "^2.0.6"
+    viem "^2.5.0"
     zod "^3.22.4"
 
 "@pkgjs/parseargs@^0.11.0":
@@ -5827,10 +5827,10 @@ vary@~1.1.2:
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==
 
-viem@^2.0.6:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/viem/-/viem-2.2.0.tgz#8093beefeadfc93f03598670e05d4987d6ad4cf2"
-  integrity sha512-3wfpJTDwtO1f+OWdRQ+2Gr51AQ0rR1FPmBT19LZW8+QLFzXnYASR52tfapF1MfmitSIxZSwVoBEihekC8aAJqA==
+viem@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/viem/-/viem-2.5.0.tgz#1d7bd5333a6b9387d42c1c2d368d0b88c2961ee1"
+  integrity sha512-ytHXIWtlgPs4mcsGxXjJrQ25v+N4dE2hBzgCU8CVv4iXNh3PRFRgyYa7igZlmxiMVzkfSHHADOtivS980JhilA==
   dependencies:
     "@adraffy/ens-normalize" "1.10.0"
     "@noble/curves" "1.2.0"
