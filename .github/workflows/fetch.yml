@@ -22,7 +22,8 @@ jobs:
           cache: 'yarn'
       - name: Set Env
         run: |
-          echo "DROPBOX= ${{ secrets.DROPBOX }}" >> $GITHUB_ENV
+          touch .env
+          echo DROPBOX=${{ secrets.DROPBOX }} >> .env
       - name: Install Packages
         run: yarn install
       - name: Build Package
