@@ -20,12 +20,15 @@ jobs:
         with:
           node-version: 18.x
           cache: 'yarn'
+      - name: Set Env
+        run: |
+          echo "DROPBOX= ${{ secrets.DROPBOX }}" >> $GITHUB_ENV
       - name: Install Packages
         run: yarn install
       - name: Build Package
         run: yarn build-svg
       - name: Fetch Logos
-        run: DROPBOX ${{ secrets.DROPBOX }} yarn run fetch
+        run: yarn fetch
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Fetch Logos from Dropbox
