@@ -1,17 +1,15 @@
 require('dotenv').config();
 const chains = require('@phase21/chains');
 const fs = require('fs/promises');
-const { rimraf } = require('rimraf');
 const utils = require('../helpers/utils');
 const { apisData, getApiProviderAliases } = require('@phase21/api-integrations');
 const dropbox = require('dropbox');
 
 let missingLogos = [];
 
-const outputPath = './dist';
 const categories = ['chain', 'symbol', 'api-provider'];
 
-const dbx = new dropbox.Dropbox({ accessToken: process.env.DROPBOX })
+const dbx = new dropbox.Dropbox({ accessToken: process.env.DROPBOX });
 
 function getManualLogos(mode) {
     switch (mode) {
@@ -49,7 +47,10 @@ function getLogoList(mode) {
 async function searchLogos() {
     console.log('🏗 Fetching logo files...');
     const foundLogos = await fetchLogos();
-    console.log(foundLogos.map((logo) => logo.name), missingLogos);
+    console.log(
+        foundLogos.map((logo) => logo.name),
+        missingLogos
+    );
 
     missingLogos.map((missingLogoCategory) => {
         missingLogoCategory.logos.map((missingLogo) => {
@@ -57,20 +58,20 @@ async function searchLogos() {
                 if (foundLogo.name.toLowerCase() === `${missingLogo.toLowerCase()}.svg`) {
                     downloadLogos(missingLogoCategory.category, foundLogo.name);
                 }
-            })
-        })
-    })
+            });
+        });
+    });
 
     console.log('✅ Finished fetching logo files.');
 }
 
 async function fetchLogos() {
     try {
-        const response = await dbx.filesListFolder({ path: '' })
+        const response = await dbx.filesListFolder({ path: '' });
         return response.result.entries;
     } catch (error) {
         console.error(error);
-        return []
+        return [];
     }
 }
 
@@ -84,30 +85,26 @@ async function saveToDisk(file, category, blob) {
 
 async function downloadLogos(category, file) {
     try {
-        const response = await dbx.filesDownload({ path: `/${file}` })
+        const response = await dbx.filesDownload({ path: `/${file}` });
         var blob = response.result.fileBinary;
         await saveToDisk(file, category, blob);
         console.log(`Downloaded ${file}`);
-    }
-    catch (error) {
+    } catch (error) {
         console.error(error);
     }
 }
 
 async function getMissingLogos(dir, mode) {
-    let outDir = `${outputPath}/esm`;
-    let logosDir = `${outputPath}/logos/${mode || ''}`;
-
-    await fs.mkdir(outDir, { recursive: true });
-    await fs.mkdir(logosDir, { recursive: true });
-
     const files = await fs.readdir(dir, 'utf-8');
 
     const logos = getLogoList(mode);
     const prefix = mode === 'chain' ? 'Chain' : '';
     const missingLogos = logos.filter(
         (logo) =>
-            !files.find((file) => file.toLowerCase() === `${utils.sanitizeName(logo, '', prefix).toLowerCase()}.svg`)
+            !files.find(
+                (file) =>
+                    utils.sanitizeName(file).toLowerCase() === `${utils.sanitizeName(logo, '', prefix).toLowerCase()}`
+            )
     );
     console.log(`Missing ${mode} logos: ${missingLogos}`);
     return missingLogos;
@@ -115,7 +112,7 @@ async function getMissingLogos(dir, mode) {
 
 async function checkLogos() {
     categories.forEach(async (category) => {
-        const logos = await getMissingLogos(`./optimized/${category}`, category)
+        const logos = await getMissingLogos(`./raw/${category}s`, category);
         missingLogos.push({
             category: category,
             logos: logos.map((logo) => utils.sanitizeName(logo).toLowerCase())
@@ -123,12 +120,9 @@ async function checkLogos() {
     });
 }
 
-
 async function main() {
     console.log('🏗 Checking logo files...');
-    rimraf(`${outputPath}/`)
-        .then(() => Promise.all([checkLogos(), searchLogos()]))
-        .then(() => console.log('✅ Finished checking logo files.'));
+    Promise.all([checkLogos(), searchLogos()]).then(() => console.log('✅ Finished checking logo files.'));
 }
 
 main();
