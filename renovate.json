@@ -32,6 +32,7 @@
             "automerge": true
         }
     ],
+    "rebaseWhen": "behind-base-branch",
     "rangeStrategy": "bump",
     "lockFileMaintenance": {
         "enabled": false
