@@ -4,12 +4,36 @@ const fs = require('fs/promises');
 const utils = require('../helpers/utils');
 const { apisData, getApiProviderAliases } = require('@phase21/api-integrations');
 const dropbox = require('dropbox');
+const fetch = require('node-fetch');
 
 let missingLogos = [];
 
 const categories = ['chain', 'symbol', 'api-provider'];
 
-const dbx = new dropbox.Dropbox({ accessToken: process.env.DROPBOX });
+let dbx = null;
+
+async function initDropbox() {
+    console.log('🏗 Initializing Dropbox...');
+    const response = await fetch(
+        `https://api.dropbox.com/oauth2/token?refresh_token=${process.env.DROPBOX}&grant_type=refresh_token&client_id=${process.env.APP_KEY}&client_secret=${process.env.APP_SECRET}`,
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        }
+    );
+
+    const data = await response.json();
+    dbx = new dropbox.Dropbox({ accessToken: data.access_token });
+
+    console.log('✅ Finished initializing Dropbox.');
+    return dbx;
+}
+
+async function getDropbox() {
+    return dbx || (await initDropbox());
+}
 
 function getManualLogos(mode) {
     switch (mode) {
@@ -66,6 +90,7 @@ async function searchLogos() {
 }
 
 async function fetchLogos() {
+    const dbx = await getDropbox();
     try {
         const response = await dbx.filesListFolder({ path: '' });
         return response.result.entries;
@@ -85,6 +110,7 @@ async function saveToDisk(file, category, blob) {
 }
 
 async function downloadLogos(category, file) {
+    const dbx = await getDropbox();
     try {
         const response = await dbx.filesDownload({ path: `/${file}` });
         var blob = response.result.fileBinary;
