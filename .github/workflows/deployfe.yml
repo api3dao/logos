@@ -25,14 +25,19 @@ jobs:
           node-version: 18.x
           cache: 'yarn'
       - name: Set Env
+        if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'fetch')
         run: |
           touch .env
+          echo DROPBOX=${{ secrets.APP_KEY }} >> .env
+          echo DROPBOX=${{ secrets.APP_SECRET }} >> .env
           echo DROPBOX=${{ secrets.DROPBOX }} >> .env
       - name: Install Packages
         run: yarn install
       - name: Fetch Logos
+        if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'fetch')
         run: yarn fetch
       - uses: stefanzweifel/git-auto-commit-action@v5
+        if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'fetch')
         with:
           commit_message: Fetch Logos from Dropbox
           commit_options: '--no-verify --signoff'
