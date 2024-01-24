@@ -1,8 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 159.8 159.8" style="enable-background:new 0 0 159.8 159.8;" xml:space="preserve" class="light">
-<style type="text/css">
-	.st0{fill:#5546FF;}
-	.st1{fill:#FFFFFF;}
-</style>
-<circle class="st0" cx="79.9" cy="79.9" r="79.9"/>
-<path class="st1" d="M112.5,122L95.3,95H120V84.8H39v10.2h24.7L46.5,122h12.8l20.2-31.7L99.7,122H112.5z M120,74.9V64.7H95.8  l17-26.7H99.9L79.5,70.2L59.1,38H46.2l17,26.7H39V75L120,74.9L120,74.9z"/>
+<svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_26_35674)">
+<circle cx="21" cy="21" r="21" fill="#5546FF"/>
+<path d="M29.6399 32L25.1351 24.9286H31.6042V22.2571H10.3899V24.9286H16.8589L12.3542 32H15.7066L20.997 23.6976L26.2875 32H29.6399ZM31.6042 19.6643V16.9929H25.2661L29.7185 10H26.3399L20.997 18.4333L15.6542 10H12.2756L16.728 16.9929H10.3899V19.6905L31.6042 19.6643Z" fill="#F3F3F3"/>
+</g>
+<defs>
+<clipPath id="clip0_26_35674">
+<rect width="42" height="42" fill="white"/>
+</clipPath>
+</defs>
 </svg>

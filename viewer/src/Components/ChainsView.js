@@ -36,7 +36,6 @@ const ChainList = ({ isTestnet, chain }) => {
                             src={ChainLogo(chain.id)}
                             width={50}
                             height={50}
-                            filter={chain.testnet ? 'grayscale(1)' : ''}
                         />
                         <Text fontSize="md" fontWeight="bold" ml={2}>
                             {chain.name}
