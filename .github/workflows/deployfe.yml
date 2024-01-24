@@ -11,6 +11,7 @@ on:
       - 'raw/**'
       - scripts/**
       - 'viewer/**'
+      - 'package.json'
   pull_request:
     branches: [ main ]
 
