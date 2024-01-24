@@ -1628,7 +1628,7 @@
   resolved "https://registry.yarnpkg.com/@openzeppelin/contracts/-/contracts-4.8.2.tgz#d815ade0027b50beb9bcca67143c6bcc3e3923d6"
   integrity sha512-kEUOgPQszC0fSYWpbh2kT94ltOJwj1qfT2DWo+zVttmGmf97JZ99LspePNaeeaLhCImaHVeBbjaQFZQn7+Zc5g==
 
-"@phase21/api-integrations@^1.0.0":
+"@phase21/api-integrations@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@phase21/api-integrations/-/api-integrations-1.1.0.tgz#4f40ea3cdef597daf93a9c2785a03ea7e185a4f8"
   integrity sha512-u60FQOKfiHPcdnoTknJkEvs4GRhJURBeZBc0Zj4uiMH4pJzpS8RvCevo/fwBAvcI1qQaPsVuXdVyb80kSrlqJQ==
