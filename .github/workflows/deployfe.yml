@@ -29,8 +29,8 @@ jobs:
         if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'fetch')
         run: |
           touch .env
-          echo DROPBOX=${{ secrets.APP_KEY }} >> .env
-          echo DROPBOX=${{ secrets.APP_SECRET }} >> .env
+          echo APP_KEY=${{ secrets.APP_KEY }} >> .env
+          echo APP_SECRET=${{ secrets.APP_SECRET }} >> .env
           echo DROPBOX=${{ secrets.DROPBOX }} >> .env
       - name: Install Packages
         run: yarn install
