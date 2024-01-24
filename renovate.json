@@ -26,12 +26,13 @@
         {
             "matchPackagePatterns": ["@api3/.*", "@phase21/.*"],
             "matchUpdateTypes": ["patch", "minor"],
-            "schedule": ["before 3pm"],
+            "schedule": ["before 6pm"],
             "groupName": "api3",
             "labels": ["deploy"],
             "automerge": true
         }
     ],
+    "rebaseWhen": "behind-base-branch",
     "rangeStrategy": "bump",
     "lockFileMaintenance": {
         "enabled": false
