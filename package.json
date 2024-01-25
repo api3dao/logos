@@ -7,10 +7,9 @@
         "optimize-chain-logos": "rimraf ./optimized/chain & svgo -q -p 8 -f ./raw/chains -o ./optimized/chain",
         "optimize-symbol-logos": "rimraf ./optimized/symbol & svgo -q -p 8 -f ./raw/symbols -o ./optimized/symbol",
         "optimize-api-provider-logos": "rimraf ./optimized/api-provider & svgo -q -p 8 -f ./raw/api-providers -o ./optimized/api-provider",
-        "build": "pnpm run optimize-chain-logos && pnpm run optimize-symbol-logos && pnpm run optimize-api-provider-logos && node scripts/build.js",
-        "build-svg": "pnpm run optimize-chain-logos && pnpm run optimize-symbol-logos && pnpm run optimize-api-provider-logos && node scripts/build-svg.js",
+        "build": "pnpm run optimize-chain-logos && pnpm run optimize-symbol-logos && pnpm run optimize-api-provider-logos && node scripts/build-svg.js",
         "fetch": "node scripts/fetch-missing.js",
-        "package": "pnpm run build-svg && yarn pack --filename logos.tgz",
+        "package": "pnpm run build && yarn pack --filename logos.tgz",
         "prettier": "prettier --write \"**/*.{js,jsx,json,md}\"",
         "release": "pnpm changeset publish"
     },

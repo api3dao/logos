@@ -36,7 +36,7 @@ jobs:
           echo APP_SECRET=${{ secrets.APP_SECRET }} >> .env
           echo DROPBOX=${{ secrets.DROPBOX }} >> .env
       - name: Install Packages
-        run: pnpm install
+        run: pnpm install 
       - name: Fetch Logos
         if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'fetch')
         run: pnpm run fetch
@@ -47,40 +47,15 @@ jobs:
           commit_options: '--no-verify --signoff'
       - name: Build Package
         run: pnpm run package
-      - name: Upload Package
-        uses: actions/upload-artifact@v4
+      - name: Sleep
+        run: sleep 10
+        if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
+      - name: Install Frontend Packages
+        run: pnpm install
+      - name: Build Frontend
+        run: pnpm --filter "viewer" build
+      - name: Deploy to Github Pages
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          name: logos.tgz
-          path: ./logos.tgz
-
-  deploy-frontend:
-    if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
-    needs: pack-local-package
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./viewer
-    steps:
-    - uses: actions/checkout@v4
-    - name: Setup Node
-      uses: actions/setup-node@v4
-      with:
-        node-version: 18.x
-        cache: 'npm'
-    - name: Download Package
-      id: download-package
-      uses: actions/download-artifact@v4
-      with:
-          name: logos.tgz
-          path: ./viewer
-    - name: Sleep
-      run: sleep 10
-    - name: Install Packages
-      run: npm install
-    - name: Build Page
-      run: npm run build
-    - name: Deploy to Github Pages
-      uses: JamesIves/github-pages-deploy-action@v4
-      with:
-        branch: gh-pages
-        folder: ./viewer/build
+          branch: gh-pages
+          folder: ./viewer/build
