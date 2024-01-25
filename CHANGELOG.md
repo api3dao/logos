@@ -1,5 +1,11 @@
 # @api3/logos
 
+## 2.8.0
+
+### Minor Changes
+
+- 0ff4256: Light mode is implemented
+
 ## 2.7.0
 
 ### Minor Changes
