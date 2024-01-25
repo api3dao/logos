@@ -16,7 +16,7 @@ on:
     branches: [ main ]
 
 jobs:
-  pack-and-deploy-to-gh-pages:
+  pack-logos:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -47,6 +47,11 @@ jobs:
           commit_options: '--no-verify --signoff'
       - name: Build Package
         run: pnpm run package
+
+  deploy:
+    needs: pack-logos
+    runs-on: ubuntu-latest
+    steps:
       - name: Install Frontend Packages
         if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
         run: pnpm install
