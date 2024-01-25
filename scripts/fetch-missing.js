@@ -71,10 +71,6 @@ function getLogoList(mode) {
 async function searchLogos() {
     console.log('🏗 Fetching logo files...');
     const foundLogos = await fetchLogos();
-    console.log(
-        foundLogos.map((logo) => logo.name),
-        missingLogos
-    );
 
     missingLogos.map((missingLogoCategory) => {
         missingLogoCategory.logos.map((missingLogo) => {
