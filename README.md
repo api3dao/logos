@@ -3,7 +3,7 @@
 ## Installation
 
 ```bash
-yarn add @phase21/logos
+pnpm add @phase21/logos
 ```
 
 ## Usage

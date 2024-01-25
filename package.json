@@ -7,12 +7,12 @@
         "optimize-chain-logos": "rimraf ./optimized/chain & svgo -q -p 8 -f ./raw/chains -o ./optimized/chain",
         "optimize-symbol-logos": "rimraf ./optimized/symbol & svgo -q -p 8 -f ./raw/symbols -o ./optimized/symbol",
         "optimize-api-provider-logos": "rimraf ./optimized/api-provider & svgo -q -p 8 -f ./raw/api-providers -o ./optimized/api-provider",
-        "build": "yarn optimize-chain-logos && yarn optimize-symbol-logos && yarn optimize-api-provider-logos && node scripts/build.js",
-        "build-svg": "yarn optimize-chain-logos && yarn optimize-symbol-logos && yarn optimize-api-provider-logos && node scripts/build-svg.js",
+        "build": "pnpm run optimize-chain-logos && pnpm run optimize-symbol-logos && pnpm run optimize-api-provider-logos && node scripts/build.js",
+        "build-svg": "pnpm run optimize-chain-logos && pnpm run optimize-symbol-logos && pnpm run optimize-api-provider-logos && node scripts/build-svg.js",
         "fetch": "node scripts/fetch-missing.js",
-        "package": "yarn build-svg && yarn pack --filename logos.tgz",
+        "package": "pnpm run build-svg && yarn pack --filename logos.tgz",
         "prettier": "prettier --write \"**/*.{js,jsx,json,md}\"",
-        "release": "yarn changeset publish"
+        "release": "pnpm changeset publish"
     },
     "dependencies": {
         "camelcase": "^6.3.0"
@@ -25,6 +25,8 @@
         "@phase21/api-integrations": "^1.1.0",
         "@phase21/chains": "^0.5.0",
         "dropbox": "^10.34.0",
+        "node-fetch": "^2.6.1",
+        "dotenv": "^16.4.1",
         "prettier": "^3.2.4",
         "rimraf": "^5.0.5",
         "svgo": "^3.2.0"

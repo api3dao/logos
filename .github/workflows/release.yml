@@ -22,33 +22,19 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "18.x"
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Cache node_modules
-        uses: actions/cache@v4
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-            ${{ runner.os }}-yarn-
-
       - name: Install dependencies
-        run: yarn --frozen-lockfile --network-timeout 300000
+        run: pnpm install --frozen-lockfile
 
       - name: Build package
-        run: yarn build-svg
+        run: pnpm run build-svg
 
       - name: Create Release
         id: changesets
         uses: changesets/action@v1
         with:
-          publish: yarn release
-          commit: "ci: release packages"
-          title: "ci: release packages"
+          publish: pnpm run release
+          commit: "ci: release logos package"
+          title: "ci: release logos package"
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
       - name: Apply changes
