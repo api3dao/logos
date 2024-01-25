@@ -16,7 +16,7 @@ on:
     branches: [ main ]
 
 jobs:
-  pack-local-package:
+  pack-and-deploy-to-gh-pages:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -47,14 +47,14 @@ jobs:
           commit_options: '--no-verify --signoff'
       - name: Build Package
         run: pnpm run package
-      - name: Sleep
-        run: sleep 10
-        if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
       - name: Install Frontend Packages
+        if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
         run: pnpm install
       - name: Build Frontend
+        if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
         run: pnpm --filter "viewer" build
       - name: Deploy to Github Pages
+        if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
