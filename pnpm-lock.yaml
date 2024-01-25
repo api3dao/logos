@@ -70,8 +70,8 @@ importers:
         specifier: ^0.5.0
         version: 0.5.0(typescript@5.3.3)
       '@phase21/logos':
-        specifier: file:./logos.tgz
-        version: file:viewer/logos.tgz
+        specifier: file:../
+        version: 'file:'
       '@testing-library/jest-dom':
         specifier: ^6.2.0
         version: 6.3.0(jest@27.5.1)
@@ -16472,8 +16472,9 @@ packages:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
     dev: true
 
-  file:viewer/logos.tgz:
-    resolution: {integrity: sha512-KHrbhys9wSRqMlfSVSpnysQdz/ebHr0kkzSIR0Fxyk4g9a9VC/R3eGFcRDNaws0ePaHUM8FWE1Cd74FmYOUhNQ==, tarball: file:viewer/logos.tgz}
-    name: beta-logos
-    version: 0.0.14
+  'file:':
+    resolution: {directory: '', type: directory}
+    name: '@phase21/logos'
+    dependencies:
+      camelcase: 6.3.0
     dev: true
