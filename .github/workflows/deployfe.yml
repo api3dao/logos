@@ -11,67 +11,51 @@ on:
       - 'raw/**'
       - scripts/**
       - 'viewer/**'
+      - 'package.json'
   pull_request:
     branches: [ main ]
 
 jobs:
-  pack-local-package:
+  pack-and-deploy-to-gh-pages:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
         with:
-          node-version: 18.x
-          cache: 'yarn'
+          version: 8.12.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "18.x"
+          cache: 'pnpm'
       - name: Set Env
+        if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'fetch')
         run: |
           touch .env
+          echo APP_KEY=${{ secrets.APP_KEY }} >> .env
+          echo APP_SECRET=${{ secrets.APP_SECRET }} >> .env
           echo DROPBOX=${{ secrets.DROPBOX }} >> .env
       - name: Install Packages
-        run: yarn install
+        run: pnpm install 
       - name: Fetch Logos
-        run: yarn fetch
+        if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'fetch')
+        run: pnpm run fetch
       - uses: stefanzweifel/git-auto-commit-action@v5
+        if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'fetch')
         with:
           commit_message: Fetch Logos from Dropbox
           commit_options: '--no-verify --signoff'
       - name: Build Package
-        run: yarn package
-      - name: Upload Package
-        uses: actions/upload-artifact@v4
+        run: pnpm run package
+      - name: Install Frontend Packages
+        if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
+        run: pnpm install
+      - name: Build Frontend
+        if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
+        run: pnpm --filter "viewer" build
+      - name: Deploy to Github Pages
+        if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          name: logos.tgz
-          path: ./logos.tgz
-
-  deploy-frontend:
-    if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
-    needs: pack-local-package
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./viewer
-    steps:
-    - uses: actions/checkout@v4
-    - name: Setup Node
-      uses: actions/setup-node@v4
-      with:
-        node-version: 18.x
-        cache: 'npm'
-    - name: Download Package
-      id: download-package
-      uses: actions/download-artifact@v4
-      with:
-          name: logos.tgz
-          path: ./viewer
-    - name: Sleep
-      run: sleep 10
-    - name: Install Packages
-      run: npm install
-    - name: Build Page
-      run: npm run build
-    - name: Deploy to Github Pages
-      uses: JamesIves/github-pages-deploy-action@v4
-      with:
-        branch: gh-pages
-        folder: ./viewer/build
+          branch: gh-pages
+          folder: ./viewer/build

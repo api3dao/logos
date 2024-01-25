@@ -33,9 +33,18 @@ const ChainList = ({ isTestnet, chain }) => {
                 {selectedChain !== chain ? (
                     <>
                         <Image
+                            src={ChainLogo(chain.id, true)}
+                            width={50}
+                            height={50}
+                            bgColor={'white'}
+                            p={2}
+                        />
+                        <Image
                             src={ChainLogo(chain.id)}
                             width={50}
                             height={50}
+                            bgColor={'black'}
+                            p={2}
                         />
                         <Text fontSize="md" fontWeight="bold" ml={2}>
                             {chain.name}

@@ -3,6 +3,8 @@
 ## Installation
 
 ```bash
+pnpm add @phase21/logos
+npm i @phase21/logos
 yarn add @phase21/logos
 ```
 
@@ -55,90 +57,31 @@ methods: {
 
 ## API
 
+`light` prop is optional and defaults to `false` (dark theme).
+`light = true` will return the light theme logo.
+
 ### ChainLogo
 
 | Prop | Type   | Description |
 | ---- | ------ | ----------- |
 | id   | string | Chain id    |
+| light | boolean | Light theme |
 
 ### SymbolLogo
 
 | Prop | Type   | Description |
 | ---- | ------ | ----------- |
 | id   | string | Symbol id   |
+| light | boolean | Light theme |
 
-## Package update
+### ApiProviderLogo
 
-Run the following command to update the package:
+| Prop | Type   | Description |
+| ---- | ------ | ----------- |
+| id   | string | ApiProvider |
+| light | boolean | Light theme |
 
-```bash
-yarn changeset
-```
 
-Then follow the instructions in the terminal:
+## Visit
 
-```bash
-🦋  What kind of change is this for logos? (current version is x.x.x)
-❯ patch
-  minor
-  major
-```
-
-```bash
-🦋  Please enter a summary for this change (this will be in the changelogs).
-🦋    (submit empty line to open external editor)
-🦋  Summary ›  [CHANGES]
-```
-
-After that, you will be asked to confirm the changeset:
-
-```bash
-🦋  Summary › [CHANGES]
-🦋
-🦋  === Summary of changesets ===
-🦋  patch:  logos
-🦋
-🦋  Is this your desired changeset? (Y/n) › true
-```
-
-If you confirm, the changeset will be created and you will be asked to publish it:
-
-```bash
-🦋  Changeset added! - you can now commit it
-🦋
-🦋  If you want to modify or expand on the changeset summary, you can find it here
-🦋  info .changeset/[MD_FILE]
-✨  Done.
-```
-
-Commit the changeset and push it to the repository:
-
-```bash
-git add .
-git commit -m "chore: update logos"
-git push
-```
-
-Merge the changeset to the main branch:
-
-```bash
-git checkout main
-git merge [BRANCH_NAME]
-git push
-```
-
-To publish the package, merge main to the `production` branch:
-
-```bash
-git checkout production
-git merge main
-git push
-```
-
-Changeset will raise a PR to the `production` branch. After the PR is merged, the package will be published to npm.
-
-## Supported chains and symbols
-
-Visit [this page](https://api3dao.github.io/logos/) for a list of supported chains and symbols.
-
-<!-- prettier-ignore-end -->
+Live demo at [https://api3dao.github.io/logos](https://api3dao.github.io/logos)
