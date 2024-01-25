@@ -31,7 +31,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build package
-        run: pnpm run build-svg
+        run: pnpm run build
 
       - name: Create Release
         id: changesets
