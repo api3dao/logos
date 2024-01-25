@@ -33,7 +33,7 @@ const SymbolsView = () => {
                     <Flex
                         p={3}
                         boxShadow={'md'}
-                        width={'150px'}
+                        width={'200px'}
                         height={'100px'}
                         bgColor={'gray.100'}
                         key={index}
@@ -44,7 +44,12 @@ const SymbolsView = () => {
                     >
                         {selectedSymbol !== feed ? (
                             <>
-                                <Image src={SymbolLogo(feed)} width={50} height={50} />
+                                <Image src={SymbolLogo(feed)} width={50} height={50}
+                                    bgColor={'white'}
+                                    p={2} />
+                                <Image src={SymbolLogo(feed, true)} width={50} height={50}
+                                    bgColor={'black'}
+                                    p={2} />
                                 <Text fontSize="sm" fontWeight="bold" ml={2}>
                                     {feed}
                                 </Text>

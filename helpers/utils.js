@@ -75,7 +75,7 @@ function generateFunction(batchName, switchCase, mode) {
             switch (sanitizeName(\`\${id}\${light ? "l" : ""}\`).toLowerCase()) {
                 ${switchCase}
                 default:
-                    return ${getErrorImage(mode)}
+                    return light ? ${batchName}(id) : ${getErrorImage(mode)}
             }
         }
 

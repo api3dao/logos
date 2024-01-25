@@ -57,6 +57,9 @@ methods: {
 
 ## API
 
+`light` prop is optional and defaults to `false` (dark theme).
+`light = true` will return the light theme logo.
+
 ### ChainLogo
 
 | Prop | Type   | Description |
