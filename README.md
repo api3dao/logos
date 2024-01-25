@@ -4,6 +4,8 @@
 
 ```bash
 pnpm add @phase21/logos
+npm i @phase21/logos
+yarn add @phase21/logos
 ```
 
 ## Usage
@@ -60,9 +62,23 @@ methods: {
 | Prop | Type   | Description |
 | ---- | ------ | ----------- |
 | id   | string | Chain id    |
+| light | boolean | Light theme |
 
 ### SymbolLogo
 
 | Prop | Type   | Description |
 | ---- | ------ | ----------- |
 | id   | string | Symbol id   |
+| light | boolean | Light theme |
+
+### ApiProviderLogo
+
+| Prop | Type   | Description |
+| ---- | ------ | ----------- |
+| id   | string | ApiProvider |
+| light | boolean | Light theme |
+
+
+## Visit
+
+Live demo at [https://api3dao.github.io/logos](https://api3dao.github.io/logos)

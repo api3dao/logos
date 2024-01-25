@@ -67,12 +67,12 @@ function generateFunction(batchName, switchCase, mode) {
             });
         }
 
-        function ${batchName}(id) {
+        function ${batchName}(id, light = false) {
             if (!id) {
                 return ${getErrorImage(mode)}
             }
 
-            switch (sanitizeName(id).toLowerCase()) {
+            switch (sanitizeName(\`\${id}\${light ? "l" : ""}\`).toLowerCase()) {
                 ${switchCase}
                 default:
                     return ${getErrorImage(mode)}
@@ -88,6 +88,7 @@ function generateDocAnnotationSvg(description, batchName, example) {
 /**
  *
  * @param {string} id - Unique ID for the logo element.
+ * @param {boolean} [light=false] - Light version.
  * @returns
  * ${description}
  * 
@@ -116,7 +117,7 @@ function generateTypes(batchName, mode) {
     const example = mode === 'chain' ? '1' : mode === 'api-provider' ? 'nodary' : 'eth';
 
     return `${generateDocAnnotationSvg(`${batchName} component`, batchName, example)}
-declare function ${batchName}(id: string): string;
+declare function ${batchName}(id: string, light: boolean): string;
 export default ${batchName};
 `;
 }
