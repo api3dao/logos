@@ -57,30 +57,28 @@ methods: {
 
 ## API
 
-`light` prop is optional and defaults to `false` (dark theme).
-`light = true` will return the light theme logo.
+`light` prop is optional and defaults to `false` (dark theme). `light = true` will return the light theme logo.
 
 ### ChainLogo
 
-| Prop | Type   | Description |
-| ---- | ------ | ----------- |
-| id   | string | Chain id    |
+| Prop  | Type    | Description |
+| ----- | ------- | ----------- |
+| id    | string  | Chain id    |
 | light | boolean | Light theme |
 
 ### SymbolLogo
 
-| Prop | Type   | Description |
-| ---- | ------ | ----------- |
-| id   | string | Symbol id   |
+| Prop  | Type    | Description |
+| ----- | ------- | ----------- |
+| id    | string  | Symbol id   |
 | light | boolean | Light theme |
 
 ### ApiProviderLogo
 
-| Prop | Type   | Description |
-| ---- | ------ | ----------- |
-| id   | string | ApiProvider |
+| Prop  | Type    | Description |
+| ----- | ------- | ----------- |
+| id    | string  | ApiProvider |
 | light | boolean | Light theme |
-
 
 ## Visit
 

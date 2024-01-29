@@ -3,7 +3,6 @@ import ChainsView from './ChainsView';
 import ApiProviderView from './ApiProviderView';
 import MissingLogosView from './MissingLogosView';
 import Docs from './Docs';
-import Changelog from './ChangeLog';
 import { VStack, Text, Tab, Tabs, TabList, TabPanel, TabPanels } from '@chakra-ui/react';
 
 const Welcome = () => {
@@ -34,7 +33,6 @@ const Welcome = () => {
                     <Tab>ApiProviders</Tab>
                     <Tab>Missing</Tab>
                     <Tab>Docs</Tab>
-                    <Tab>Changelog</Tab>
                 </TabList>
                 <TabPanels>
                     <TabPanel>
@@ -51,9 +49,6 @@ const Welcome = () => {
                     </TabPanel>
                     <TabPanel>
                         <Docs />
-                    </TabPanel>
-                    <TabPanel>
-                        <Changelog />
                     </TabPanel>
                 </TabPanels>
             </Tabs>

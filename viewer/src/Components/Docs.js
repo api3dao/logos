@@ -1,6 +1,7 @@
-import { Text, VStack } from '@chakra-ui/react';
+import { Flex, Text, VStack, Image } from '@chakra-ui/react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { ChainLogo, SymbolLogo, ApiProviderLogo } from '@phase21/logos';
 
 const ChainsView = () => {
     return (
@@ -46,6 +47,32 @@ const ChainsView = () => {
                 style={dracula}
             />
 
+            <Flex p={3} gap={3} wrap={'wrap'} bgColor={"gray.100"} alignItems="center" justifyContent="left">
+                <Image src={ChainLogo('43114')} width={50} height={50} alt="43114" />
+                <Image src={SymbolLogo('BTC')} width={50} height={50} alt="BTC" />
+                <Image src={ApiProviderLogo('nodary')} width={50} height={50} alt="nodary" />
+            </Flex>
+
+            <Text fontSize="xl" fontWeight="bold" ml={2}>
+                Light/Dark mode
+            </Text>
+
+            <SyntaxHighlighter
+                PreTag="div"
+                children={String(`import { ChainLogo, SymbolLogo, ApiProviderLogo } from '@phase21/logos';
+
+<div>
+    <img src={ ChainLogo('59144', true) } width={50} height={50} />
+    <img src={ ChainLogo('59144') } width={50} height={50} />
+</div>`)}
+                language={'jsx'}
+                style={dracula}
+            />
+
+            <Flex p={3} gap={3} wrap={'wrap'} bgColor={"gray.100"} alignItems="center" justifyContent="left">
+                <Image src={ChainLogo('59144', true)} width={50} height={50} alt="43114" />
+                <Image src={ChainLogo('59144')} width={50} height={50} alt="43114" />
+            </Flex>
             <Text fontSize="xl" fontWeight="bold" ml={2}>
                 Usage Vue.js
             </Text>

@@ -37,12 +37,14 @@ const ApiProvidersView = () => {
                     >
                         {selectedApiProvider !== provider ? (
                             <>
-                                <Image src={ApiProviderLogo(provider)} width={50} height={50}
-                                    bgColor={'white'}
-                                    p={2} />
-                                <Image src={ApiProviderLogo(provider, true)} width={50} height={50}
+                                <Image src={ApiProviderLogo(provider)} width={50} height={50} bgColor={'white'} p={2} />
+                                <Image
+                                    src={ApiProviderLogo(provider, true)}
+                                    width={50}
+                                    height={50}
                                     bgColor={'black'}
-                                    p={2} />
+                                    p={2}
+                                />
                                 <Text fontSize="md" fontWeight="bold" ml={2}>
                                     {provider}
                                 </Text>
@@ -55,7 +57,6 @@ const ApiProvidersView = () => {
                                     onExit={() => setSelectedApiProvider(null)}
                                 />
                             </>
-
                         )}
                     </Flex>
                 );
