@@ -70,8 +70,8 @@ const ChainsView = () => {
             />
 
             <Flex p={3} gap={3} wrap={'wrap'} bgColor={"gray.100"} alignItems="center" justifyContent="left">
-                <Image src={ChainLogo('59144', true)} width={50} height={50} alt="43114" />
-                <Image src={ChainLogo('59144')} width={50} height={50} alt="43114" />
+                <Image src={ChainLogo('59144', true)} width={50} height={50} />
+                <Image src={ChainLogo('59144')} width={50} height={50} />
             </Flex>
             <Text fontSize="xl" fontWeight="bold" ml={2}>
                 Usage Vue.js
@@ -108,6 +108,11 @@ methods: {
                 language={'html'}
                 style={dracula}
             />
+            <Flex p={3} gap={3} wrap={'wrap'} bgColor={"gray.100"} alignItems="center" justifyContent="left">
+                <Image src={SymbolLogo('eth')} width={50} height={50} />
+                <Image src={ChainLogo('1')} width={50} height={50} />
+                <Image src={ApiProviderLogo('nodary')} width={50} height={50} />
+            </Flex>
         </VStack>
     );
 };

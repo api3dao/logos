@@ -41,12 +41,4 @@ jobs:
           commit: "ci: release logos package"
           title: "ci: release logos package"
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
-      - name: Apply changes
-        if: steps.changesets.outputs.published == 'true'
-        uses: peter-evans/create-pull-request@v5
-        with:
-          branch: main
-          base: production
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
