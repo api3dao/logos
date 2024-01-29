@@ -1,5 +1,11 @@
 # @api3/logos
 
+## 2.8.2
+
+### Patch Changes
+
+- 47337ac: Fixes optional parameter
+
 ## 2.8.1
 
 ### Patch Changes
