@@ -17,8 +17,15 @@ const LogoView = (method, feed, isLight = false) => {
 
 const InfoView = ({ method, feed, onExit }) => {
     return (
-        <Flex bgColor={"gray.300"} p={5} boxShadow={'md'} gap={5} zIndex={0} alignItems={'center'} wrap={'wrap'}>
-            <Flex p={2} bgColor={"white"} flexDirection={'row'} width={'100%'} justifyContent={'left'} alignItems={'center'}>
+        <Flex bgColor={'gray.300'} p={5} boxShadow={'md'} gap={5} zIndex={0} alignItems={'center'} wrap={'wrap'}>
+            <Flex
+                p={2}
+                bgColor={'white'}
+                flexDirection={'row'}
+                width={'100%'}
+                justifyContent={'left'}
+                alignItems={'center'}
+            >
                 {LogoView(method, feed, true)}
                 <Text fontSize="md" fontWeight="bold" ml={2}>
                     {' '}
@@ -37,9 +44,16 @@ const InfoView = ({ method, feed, onExit }) => {
                     style={xonokai}
                 />
             </Flex>
-            <Flex p={2} bgColor={"black"} flexDirection={'row'} width={'100%'} justifyContent={'left'} alignItems={'center'}>
+            <Flex
+                p={2}
+                bgColor={'black'}
+                flexDirection={'row'}
+                width={'100%'}
+                justifyContent={'left'}
+                alignItems={'center'}
+            >
                 {LogoView(method, feed, false)}
-                <Text color={"white"} fontSize="md" fontWeight="bold" ml={2}>
+                <Text color={'white'} fontSize="md" fontWeight="bold" ml={2}>
                     {' '}
                     {feed}{' '}
                 </Text>
