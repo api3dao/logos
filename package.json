@@ -24,7 +24,7 @@
         "@phase21/api-integrations": "^1.1.0",
         "@phase21/chains": "^0.5.0",
         "dropbox": "^10.34.0",
-        "node-fetch": "^3.3.2",
+        "node-fetch": "^2.7.0",
         "dotenv": "^16.4.1",
         "prettier": "^3.2.4",
         "rimraf": "^5.0.5",
