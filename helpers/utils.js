@@ -117,7 +117,7 @@ function generateTypes(batchName, mode) {
     const example = mode === 'chain' ? '1' : mode === 'api-provider' ? 'nodary' : 'eth';
 
     return `${generateDocAnnotationSvg(`${batchName} component`, batchName, example)}
-declare function ${batchName}(id: string, light: boolean): string;
+declare function ${batchName}(id: string, light?: boolean): string;
 export default ${batchName};
 `;
 }
