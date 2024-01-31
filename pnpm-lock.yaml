@@ -28,8 +28,8 @@ importers:
         specifier: ^1.1.0
         version: 1.1.0(eslint@8.56.0)(jest@27.5.1)(typescript@5.3.3)
       '@phase21/chains':
-        specifier: ^0.5.0
-        version: 0.5.0(typescript@5.3.3)
+        specifier: ^4.5.1
+        version: 4.5.1(typescript@5.3.3)
       dotenv:
         specifier: ^16.4.1
         version: 16.4.1
@@ -67,8 +67,8 @@ importers:
         specifier: ^1.1.0
         version: 1.1.0(eslint@8.56.0)(jest@27.5.1)(typescript@5.3.3)
       '@phase21/chains':
-        specifier: ^0.5.0
-        version: 0.5.0(typescript@5.3.3)
+        specifier: ^4.5.1
+        version: 4.5.1(typescript@5.3.3)
       '@phase21/logos':
         specifier: file:../
         version: 'file:'
@@ -4897,8 +4897,8 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@phase21/chains@0.5.0(typescript@5.3.3):
-    resolution: {integrity: sha512-JOgYJfVYDK0w87gdDHClmKekDdDDoxjHcZHhWHjMzeKX9GX1keWhpheT8crjJI4E7TSNPaq9uZo7qF8D1ePxHA==}
+  /@phase21/chains@4.5.1(typescript@5.3.3):
+    resolution: {integrity: sha512-1ZLZ+qoKMcvl7KRQANt4LTSklGqQ1/DZJS656/ruI8vZwBWAOdtErTjhHs6idPb4xMHInQLjlspf9yWtgWoTmQ==}
     dependencies:
       viem: 2.5.0(typescript@5.3.3)(zod@3.22.4)
       zod: 3.22.4
