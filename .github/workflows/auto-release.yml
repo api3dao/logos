@@ -1,0 +1,48 @@
+# https://github.com/changesets/action
+name: Auto-release
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+jobs:       
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.12.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "18.x"
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build package
+        run: pnpm run build
+
+      - name: Check file existence
+        id: check_files
+        uses: andstor/file-existence-action@v3
+        with:
+          files: "./.changeset/changeset.md"
+
+      - name: Changeset version
+        if: steps.check_files.outputs.files_exists == 'true'
+        run: pnpm run changeset version
+
+      - name: Changeset publish
+        if: steps.check_files.outputs.files_exists == 'true'
+        run: pnpm run changeset publish

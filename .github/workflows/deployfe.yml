@@ -40,13 +40,25 @@ jobs:
       - name: Fetch Logos
         if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'fetch')
         run: pnpm run fetch
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        id: auto-commit-action
         if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'fetch')
         with:
           commit_message: Fetch Logos from Dropbox
           commit_options: '--no-verify --signoff'
       - name: Build Package
         run: pnpm run package
+      - name: "Run if changes have been detected"
+        id: add-changeset
+        if: steps.auto-commit-action.outputs.changes_detected == 'true'
+        run: pnpm run auto-release
+      - name: Add changeset
+        uses: stefanzweifel/git-auto-commit-action@v5
+        if : steps.auto-commit-action.outputs.changes_detected == 'true'
+        with:
+          commit_message: Added changeset
+          commit_options: '--no-verify --signoff'
       - name: Install Frontend Packages
         if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
         run: pnpm install
