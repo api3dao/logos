@@ -66,7 +66,7 @@ function buildSwitchCase(mode) {
 
 function buildLogoImports(files, mode, format) {
     let options = getLogoList(mode);
-    options.push('error');
+    options.push('placeholder');
     const prefix = mode === 'chain' ? 'Chain' : '';
     return utils.generateImports(files, options, camelcase(mode, { pascalCase: true }), prefix, mode, format);
 }
