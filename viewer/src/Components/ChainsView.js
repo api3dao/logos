@@ -22,7 +22,7 @@ const ChainList = ({ isTestnet, chain }) => {
                 p={3}
                 boxShadow={'md'}
                 width={'310px'}
-                height={'80px'}
+                height={'100px'}
                 bgColor={'gray.100'}
                 key={index}
                 alignItems="center"
