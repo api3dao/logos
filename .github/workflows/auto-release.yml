@@ -3,8 +3,8 @@ name: Auto-release
 
 on:
   push:
-  pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
