@@ -10,7 +10,8 @@ async function createChangeset() {
 ---
 
 # What's Changed
-Auto-generated changeset by the release script.
+Release created by the release script.
+Logos updated.
 `;
     await fs.writeFile('./.changeset/changeset.md', changeset);
     console.log('✨ Created changeset file.');
