@@ -13,8 +13,8 @@ module.exports = {
     renameFiles
 };
 
-function getErrorImage(mode) {
-    return camelcase(mode, { pascalCase: true }) + 'Error';
+function getPlaceholderImage(mode) {
+    return camelcase(mode, { pascalCase: true }) + 'Placeholder';
 }
 
 function sanitizeName(name, suffix = '', prefix = '') {
@@ -69,13 +69,13 @@ function generateFunction(batchName, switchCase, mode) {
 
         function ${batchName}(id, light = false) {
             if (!id) {
-                return ${getErrorImage(mode)}
+                return ${getPlaceholderImage(mode)}
             }
 
             switch (sanitizeName(\`\${id}\${light ? "l" : ""}\`).toLowerCase()) {
                 ${switchCase}
                 default:
-                    return light ? ${batchName}(id) : ${getErrorImage(mode)}
+                    return light ? ${batchName}(id) : ${getPlaceholderImage(mode)}
             }
         }
 

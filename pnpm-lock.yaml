@@ -70,8 +70,8 @@ importers:
         specifier: ^4.5.1
         version: 4.5.1(typescript@5.3.3)
       '@phase21/logos':
-        specifier: file:../
-        version: 'file:'
+        specifier: workspace:*
+        version: link:..
       '@testing-library/jest-dom':
         specifier: ^6.4.1
         version: 6.4.1(jest@27.5.1)
@@ -16755,11 +16755,4 @@ packages:
 
   /zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
-    dev: true
-
-  'file:':
-    resolution: {directory: '', type: directory}
-    name: '@phase21/logos'
-    dependencies:
-      camelcase: 6.3.0
     dev: true
