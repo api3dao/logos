@@ -1,5 +1,13 @@
 # @api3/logos
 
+## 2.8.4
+
+### Patch Changes
+
+- fb4263a: # What's Changed
+  Release created by the release script.
+  Logos updated.
+
 ## 2.8.3
 
 ### Patch Changes
