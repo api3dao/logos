@@ -25,7 +25,6 @@ async function checkChangeset() {
     } else {
         await createChangeset();
     }
-    await createChangeset();
 }
 
 async function main() {
