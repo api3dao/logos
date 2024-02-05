@@ -42,6 +42,9 @@ jobs:
       - name: Changeset version
         if: steps.check_files.outputs.files_exists == 'true'
         run: pnpm changeset version
+      
+      - name: Sleep for 5 seconds
+        run: sleep 5
 
       - name: Create Release
         if: steps.check_files.outputs.files_exists == 'true'
@@ -51,3 +54,5 @@ jobs:
           publish: pnpm run release
           commit: "ci: release logos package"
           title: "ci: release logos package"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
