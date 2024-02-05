@@ -1,5 +1,5 @@
 # https://github.com/changesets/action
-name: Release
+name: Auto-release
 
 on:
   push:
@@ -9,24 +9,8 @@ on:
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-jobs:
-
-  check-file:
-    name: Release
-    runs-on: ubuntu-latest
-    steps:
-    - name: Check file existence
-      id: check_files
-      uses: andstor/file-existence-action@v1
-      with:
-        files: "./.changeset/changeset.md"
-
-    - name: File exists
-      if: steps.check_files.outputs.files_exists == 'true'
-      run: echo "It exists !"
-            
+jobs:       
   release:
-    needs: check-file
     name: Release
     runs-on: ubuntu-latest
     steps:
@@ -49,8 +33,16 @@ jobs:
       - name: Build package
         run: pnpm run build
 
-#      - name: Changeset version
-#        run: pnpm run changeset version
-#
-#      - name: Changeset publish
-#        run: pnpm run changeset publish
+      - name: Check file existence
+        id: check_files
+        uses: andstor/file-existence-action@v1
+        with:
+          files: "./.changeset/changeset.md"
+
+      - name: Changeset version
+        if: steps.check_files.outputs.files_exists == 'true'
+        run: pnpm run changeset version
+
+      - name: Changeset publish
+        if: steps.check_files.outputs.files_exists == 'true'
+        run: pnpm run changeset publish
