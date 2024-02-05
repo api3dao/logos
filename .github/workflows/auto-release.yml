@@ -41,8 +41,8 @@ jobs:
 
       - name: Changeset version
         if: steps.check_files.outputs.files_exists == 'true'
-        run: pnpm run changeset version
+        run: pnpm changeset version
 
       - name: Changeset publish
         if: steps.check_files.outputs.files_exists == 'true'
-        run: pnpm run changeset publish
+        run: pnpm changeset publish
