@@ -43,6 +43,11 @@ jobs:
         if: steps.check_files.outputs.files_exists == 'true'
         run: pnpm changeset version
 
-      - name: Changeset publish
+      - name: Create Release
         if: steps.check_files.outputs.files_exists == 'true'
-        run: pnpm changeset publish
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: pnpm run release
+          commit: "ci: release logos package"
+          title: "ci: release logos package"
