@@ -43,8 +43,13 @@ jobs:
         if: steps.check_files.outputs.files_exists == 'true'
         run: pnpm changeset version
       
-      - name: Sleep for 5 seconds
-        run: sleep 5
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        id: auto-commit-action
+        if: steps.check_files.outputs.files_exists == 'true'
+        with:
+          commit_message: Update version
+          commit_options: '--no-verify --signoff'
 
       - name: Create Release
         if: steps.check_files.outputs.files_exists == 'true'
