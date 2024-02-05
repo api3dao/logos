@@ -28,8 +28,8 @@ importers:
         specifier: ^1.1.0
         version: 1.1.0(eslint@8.56.0)(jest@27.5.1)(typescript@5.3.3)
       '@phase21/chains':
-        specifier: ^4.5.1
-        version: 4.5.1(typescript@5.3.3)
+        specifier: ^4.6.0
+        version: 4.6.0(typescript@5.3.3)
       dotenv:
         specifier: ^16.4.1
         version: 16.4.1
@@ -67,8 +67,8 @@ importers:
         specifier: ^1.1.0
         version: 1.1.0(eslint@8.56.0)(jest@27.5.1)(typescript@5.3.3)
       '@phase21/chains':
-        specifier: ^4.5.1
-        version: 4.5.1(typescript@5.3.3)
+        specifier: ^4.6.0
+        version: 4.6.0(typescript@5.3.3)
       '@phase21/logos':
         specifier: workspace:*
         version: link:..
@@ -4897,10 +4897,10 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@phase21/chains@4.5.1(typescript@5.3.3):
-    resolution: {integrity: sha512-1ZLZ+qoKMcvl7KRQANt4LTSklGqQ1/DZJS656/ruI8vZwBWAOdtErTjhHs6idPb4xMHInQLjlspf9yWtgWoTmQ==}
+  /@phase21/chains@4.6.0(typescript@5.3.3):
+    resolution: {integrity: sha512-sLBTIWScjwgKdXyPaivXwzpCi7OerTA3SFGDTEIZuYfdR8Gs+4SECvu6WDf1+VfUQVU05bKeZoHL4xRgC9kYkA==}
     dependencies:
-      viem: 2.5.0(typescript@5.3.3)(zod@3.22.4)
+      viem: 2.7.3(typescript@5.3.3)(zod@3.22.4)
       zod: 3.22.4
     transitivePeerDependencies:
       - bufferutil
@@ -16022,8 +16022,8 @@ packages:
       vfile-message: 4.0.2
     dev: true
 
-  /viem@2.5.0(typescript@5.3.3)(zod@3.22.4):
-    resolution: {integrity: sha512-ytHXIWtlgPs4mcsGxXjJrQ25v+N4dE2hBzgCU8CVv4iXNh3PRFRgyYa7igZlmxiMVzkfSHHADOtivS980JhilA==}
+  /viem@2.7.3(typescript@5.3.3)(zod@3.22.4):
+    resolution: {integrity: sha512-+eoi3ZLXX7csB8/mbluIS+d3rUvtDwg3+Iu2hT+plJAdENdin5fW+SCyWOegJCm2yDKSo5xnUDBHMa1TCYk+dQ==}
     peerDependencies:
       typescript: '>=5.0.4'
     peerDependenciesMeta:
