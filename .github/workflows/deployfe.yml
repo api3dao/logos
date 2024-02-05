@@ -47,6 +47,8 @@ jobs:
         with:
           commit_message: Fetch Logos from Dropbox
           commit_options: '--no-verify --signoff'
+      - name: Build Package
+        run: pnpm run package
       - name: "Run if changes have been detected"
         id: add-changeset
         if: steps.auto-commit-action.outputs.changes_detected == 'true'
@@ -57,8 +59,6 @@ jobs:
         with:
           commit_message: Added changeset
           commit_options: '--no-verify --signoff'
-      - name: Build Package
-        run: pnpm run package
       - name: Install Frontend Packages
         if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
         run: pnpm install
