@@ -47,8 +47,14 @@ jobs:
           commit_message: Fetch Logos from Dropbox
           commit_options: '--no-verify --signoff'
       - name: "Run if changes have been detected"
+        id: add-changeset
         if: steps.auto-commit-action.outputs.changes_detected == 'true'
-        run: echo "Changes!"
+        run: pnpm run auto-release
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        if : steps.add-changeset.outputs.changes_detected == 'true'
+        with:
+          commit_message: Added changeset
+          commit_options: '--no-verify --signoff'
       - name: Build Package
         run: pnpm run package
       - name: Install Frontend Packages
