@@ -3,7 +3,7 @@ name: Auto-release
 
 on:
   schedule:
-      - cron: '15 */3,8-21 * * *'
+      - cron: '15 8,12,16,20 * * *'
   push:
     branches:
       - main
