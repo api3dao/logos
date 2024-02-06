@@ -2,6 +2,8 @@
 name: Auto-release
 
 on:
+  schedule:
+    - cron: '*/6 * * * *'
   push:
     branches:
       - main
