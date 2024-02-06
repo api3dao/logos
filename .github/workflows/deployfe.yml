@@ -4,6 +4,8 @@
 name: Deploy to Github Pages
 
 on:
+  schedule:
+      - cron: '55 * * * *'
   push:
     branches: [ main ]
     paths:
