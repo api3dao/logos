@@ -63,3 +63,11 @@ jobs:
           title: "ci: release logos package"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Merge main to production
+        if: steps.changesets.outputs.published == 'true'
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          from_branch: main
+          target_branch: production
+          github_token: ${{ secrets.GITHUB_TOKEN }}
