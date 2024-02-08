@@ -1,5 +1,13 @@
 # @api3/logos
 
+## 2.8.5
+
+### Patch Changes
+
+- 8c45d99: # What's Changed
+  Release created by the release script.
+  Logos updated.
+
 ## 2.8.4
 
 ### Patch Changes
