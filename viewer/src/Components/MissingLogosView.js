@@ -29,7 +29,7 @@ const MissingBatchView = ({ header, batch, method }) => {
                     <Flex
                         p={3}
                         boxShadow={'md'}
-                        width={'150px'}
+                        width={'320px'}
                         height={'100px'}
                         bgColor={'gray.100'}
                         key={index}
