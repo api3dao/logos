@@ -134,12 +134,13 @@ async function downloadLogos(category, file) {
         return;
     }
 
-
     const dbx = await getDropbox();
     try {
         const response = await dbx.filesDownload({ path: file.path_lower });
         var blob = response.result.fileBinary;
         await saveToDisk(prefix, file.name, category, blob);
+        const path = `../raw/${category}s/${prefix}${file.name}`;
+        await fs.appendFile('./.changeset/changeset-details.md', `|<img src=" ${path}" width="36" alt="">|${file.name.replace('.svg', '')}|${category}|\n`, 'utf-8');
         console.log(`Downloaded ${file.name}`);
     } catch (error) {
         console.error(error);
