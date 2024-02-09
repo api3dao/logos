@@ -4,15 +4,28 @@ async function getChangeset() {
     return await fs.readdir('./.changeset');
 }
 
+async function getDetails() {
+    try {
+        const details = await fs.readFile('./.changeset/changeset-details.md', 'utf-8');
+        return details;
+    } catch (error) {
+        return '';
+    }
+}
+
 async function createChangeset() {
+    const details = await getDetails();
+
     const changeset = `---
 "@phase21/logos": patch
 ---
 
-# What's Changed
-Release created by the release script.
-Logos updated.
-`;
+Some changes have been made to the \`logos\`.
+
+|Logo|Name|Category|
+|---|---|---|
+` + details;
+
     await fs.writeFile('./.changeset/changeset.md', changeset);
     console.log('✨ Created changeset file.');
 }
@@ -20,7 +33,7 @@ Logos updated.
 
 async function checkChangeset() {
     const changeset = await getChangeset();
-    if (changeset.some(file => file.endsWith('.md'))) {
+    if (changeset.some(file => file.match(/changeset.md$/))) {
         console.log('There is already a .md file in the .changeset directory.');
     } else {
         await createChangeset();
