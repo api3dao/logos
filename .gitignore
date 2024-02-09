@@ -7,3 +7,5 @@ package-lock.json
 logos.tgz
 yarn.lock
 .env
+
+changeset-details.md
