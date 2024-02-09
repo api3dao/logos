@@ -1,6 +1,7 @@
 require('dotenv').config();
 const chains = require('@phase21/chains');
 const fs = require('fs/promises');
+const { existsSync } = require('node:fs');
 const utils = require('../helpers/utils');
 const { apisData, getApiProviderAliases } = require('@phase21/api-integrations');
 const dropbox = require('dropbox');
@@ -68,6 +69,26 @@ function getLogoList(mode) {
     }
 }
 
+async function checkAlternateLogos(foundLogos) {
+    categories.forEach(async (category) => {
+        const alternateLogos = getLogoList(category).reduce((acc, chain) => {
+            const foundLogo = foundLogos.find((foundLogo) => foundLogo.name.toLowerCase().includes(chain.toLowerCase() + '-light'));
+            if (foundLogo) {
+                acc.push(foundLogo);
+            }
+            return acc;
+        }, []);
+        alternateLogos.map((foundLogo) => {
+            const prefix = category === 'chain' ? 'Chain' : '';
+            if (existsSync(`./raw/${category}s/${prefix}${foundLogo.name}`)) {
+                return;
+            }
+            console.log('Found alternate logo:', foundLogo.name);
+            downloadLogos(category, foundLogo);
+        });
+    });
+}
+
 async function searchLogos() {
     console.log('🏗 Fetching logo files...');
     const foundLogos = await fetchLogos();
@@ -75,20 +96,22 @@ async function searchLogos() {
     missingLogos.map((missingLogoCategory) => {
         missingLogoCategory.logos.map((missingLogo) => {
             foundLogos.map((foundLogo) => {
-                if (foundLogo.name.toLowerCase() === `${missingLogo.toLowerCase()}.svg`) {
-                    downloadLogos(missingLogoCategory.category, foundLogo.name);
+                if (utils.sanitizeName(foundLogo.name).toLowerCase() === `${utils.sanitizeName(missingLogo).toLowerCase()}`) {
+                    downloadLogos(missingLogoCategory.category, foundLogo);
                 }
             });
         });
     });
 
+    console.log('🏗 Checking for alternate logos...');
+    await checkAlternateLogos(foundLogos) // Check for alternate logos
     console.log('✅ Finished fetching logo files.');
 }
 
 async function fetchLogos() {
     const dbx = await getDropbox();
     try {
-        const response = await dbx.filesListFolder({ path: '' });
+        const response = await dbx.filesListFolder({ path: '', recursive: true });
         return response.result.entries;
     } catch (error) {
         console.error(error);
@@ -96,8 +119,7 @@ async function fetchLogos() {
     }
 }
 
-async function saveToDisk(file, category, blob) {
-    const prefix = category === 'chain' ? 'Chain' : '';
+async function saveToDisk(prefix, file, category, blob) {
     fs.writeFile(`./raw/${category}s/${prefix}${file}`, blob, function (err) {
         if (err) {
             console.error(err);
@@ -106,12 +128,19 @@ async function saveToDisk(file, category, blob) {
 }
 
 async function downloadLogos(category, file) {
+    const prefix = category === 'chain' ? 'Chain' : '';
+    if (existsSync(`./raw/${category}s/${prefix}${file.name}`)) {
+        console.log(`File ${file.name} already exists`);
+        return;
+    }
+
+
     const dbx = await getDropbox();
     try {
-        const response = await dbx.filesDownload({ path: `/${file}` });
+        const response = await dbx.filesDownload({ path: file.path_lower });
         var blob = response.result.fileBinary;
-        await saveToDisk(file, category, blob);
-        console.log(`Downloaded ${file}`);
+        await saveToDisk(prefix, file.name, category, blob);
+        console.log(`Downloaded ${file.name}`);
     } catch (error) {
         console.error(error);
     }
