@@ -13,7 +13,7 @@ const categories = ['chain', 'symbol', 'api-provider'];
 function getManualLogos(mode) {
     switch (mode) {
         case 'chain':
-            return ['5001L', '5000L', '280L', '324L', '59140L', '59144L'];
+            return ['5001-light', '5000-light', '280-light', '324-light', '59140-light', '59144-light'];
         case 'symbol':
             return [];
         case 'api-provider':
