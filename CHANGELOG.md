@@ -1,5 +1,11 @@
 # @api3/logos
 
+## 2.9.0
+
+### Minor Changes
+
+- f1e0223: Light version support improved
+
 ## 2.8.5
 
 ### Patch Changes
