@@ -10,14 +10,18 @@ const outputPath = './dist';
 
 const categories = ['chain', 'symbol', 'api-provider'];
 
+let chainLightLogos = [];
+let apiProviderLightLogos = [];
+let symbolLightLogos = [];
+
 function getManualLogos(mode) {
     switch (mode) {
         case 'chain':
-            return ['5001L', '5000L', '280L', '324L', '59140L', '59144L'];
+            return [...chainLightLogos];
         case 'symbol':
-            return [];
+            return [...symbolLightLogos];
         case 'api-provider':
-            return [];
+            return [...apiProviderLightLogos];
         default:
             break;
     }
@@ -133,10 +137,27 @@ async function renameFiles() {
     });
 }
 
+async function findLightLogos() {
+    const [chainFiles, apiProviderFiles, symbolFiles] = await Promise.all([
+        fs.readdir('./optimized/chain', 'utf-8'),
+        fs.readdir('./optimized/api-provider', 'utf-8'),
+        fs.readdir('./optimized/symbol', 'utf-8')
+    ]);
+
+    chainLightLogos = chainFiles
+        .filter((file) => file.includes('light'))
+        .map((file) => file.replace('Chain', ''))
+
+    apiProviderLightLogos = apiProviderFiles.filter((file) => file.includes('light'));
+
+    symbolLightLogos = symbolFiles.filter((file) => file.includes('light'));
+}
+
 async function main() {
     console.log('🏗 Building logo package...');
     rimraf(`${outputPath}/`)
-        .then(() => Promise.all([renameFiles()]))
+        .then(findLightLogos)
+        .then(renameFiles)
         .then(() => Promise.all([generateLogos('cjs'), generateLogos('esm')]))
         .then(() => console.log('✅ Finished building package.'));
 }

@@ -72,7 +72,7 @@ function generateFunction(batchName, switchCase, mode) {
                 return ${getPlaceholderImage(mode)}
             }
 
-            switch (sanitizeName(\`\${id}\${light ? "l" : ""}\`).toLowerCase()) {
+            switch (sanitizeName(\`\${id}\${light ? "light" : ""}\`).toLowerCase()) {
                 ${switchCase}
                 default:
                     return light ? ${batchName}(id) : ${getPlaceholderImage(mode)}
