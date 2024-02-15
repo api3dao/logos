@@ -144,7 +144,7 @@ async function downloadLogos(category, file) {
         const response = await dbx.filesDownload({ path: file.path_lower });
         var blob = response.result.fileBinary;
         await saveToDisk(prefix, file.name, category, blob);
-        const path = `../raw/${category}s/${prefix}${file.name}`;
+        const path = `./raw/${category}s/${prefix}${file.name}`;
         await fs.appendFile(
             './.changeset/details.txt',
             `|<img src=" ${path}" width="36" alt="">|${file.name.replace('.svg', '')}|${category}|\n`,
