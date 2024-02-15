@@ -1,35 +1,5 @@
 # @api3/logos
 
-## 2.9.3
-
-### Patch Changes
-
-- Some changes have been made to the `logos`.
-
-  | Logo                                                      | Name  | Category |
-  | --------------------------------------------------------- | ----- | -------- |
-  | <img src="./raw/chains/Chain84532.svg" width="36" alt=""> | 84532 | chain    |
-
-## 2.9.2
-
-### Patch Changes
-
-- Some changes have been made to the `logos`.
-
-  | Logo                                                       | Name  | Category |
-  | ---------------------------------------------------------- | ----- | -------- |
-  | <img src=" ./raw/chains/Chain84532.svg" width="36" alt=""> | 84532 | chain    |
-
-## 2.9.1
-
-### Patch Changes
-
-- Some changes have been made to the `logos`.
-
-  | Logo                                                        | Name  | Category |
-  | ----------------------------------------------------------- | ----- | -------- |
-  | <img src=" ../raw/chains/Chain84532.svg" width="36" alt=""> | 84532 | chain    |
-
 ## 2.9.0
 
 ### Minor Changes
