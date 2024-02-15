@@ -147,7 +147,7 @@ async function downloadLogos(category, file) {
         const path = `./raw/${category}s/${prefix}${file.name}`;
         await fs.appendFile(
             './.changeset/details.txt',
-            `|<img src=" ${path}" width="36" alt="">|${file.name.replace('.svg', '')}|${category}|\n`,
+            `|<img src="${path}" width="36" alt="">|${file.name.replace('.svg', '')}|${category}|\n`,
             'utf-8'
         );
         console.log(`Downloaded ${file.name}`);
