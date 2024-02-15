@@ -51,16 +51,10 @@ jobs:
           commit_options: '--no-verify --signoff'
       - name: Build Package
         run: pnpm run package
-      - name: "Run if changes have been detected"
+      - name: "Add changeset"
         id: add-changeset
         if: steps.auto-commit-action.outputs.changes_detected == 'true'
         run: pnpm run auto-release
-      - name: Add changeset
-        uses: stefanzweifel/git-auto-commit-action@v5
-        if : steps.auto-commit-action.outputs.changes_detected == 'true'
-        with:
-          commit_message: Added changeset
-          commit_options: '--no-verify --signoff'
       - name: Install Frontend Packages
         if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
         run: pnpm install
@@ -73,3 +67,39 @@ jobs:
         with:
           branch: gh-pages
           folder: ./viewer/build
+      - name: Check file existence
+        id: check_files
+        uses: andstor/file-existence-action@v3
+        with:
+          files: "./.changeset/changeset.md"
+
+      - name: Changeset version
+        if: steps.check_files.outputs.files_exists == 'true'
+        run: pnpm changeset version
+      
+      - name: Commit version
+        uses: stefanzweifel/git-auto-commit-action@v5
+        id: auto-commit-version
+        if: steps.check_files.outputs.files_exists == 'true'
+        with:
+          commit_message: Update version
+          commit_options: '--no-verify --signoff'
+
+      - name: Create Release
+        if: steps.check_files.outputs.files_exists == 'true'
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: pnpm run release
+          commit: "ci: release logos package"
+          title: "ci: release logos package"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Merge main to production
+        if: steps.changesets.outputs.published == 'true'
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          from_branch: main
+          target_branch: production
+          github_token: ${{ secrets.GITHUB_TOKEN }}
