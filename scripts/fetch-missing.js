@@ -95,8 +95,6 @@ async function searchLogos() {
     console.log('🏗 Fetching logo files...');
     const foundLogos = await fetchLogos();
 
-    console.log(foundLogos);
-
     missingLogos.map((missingLogoCategory) => {
         missingLogoCategory.logos.map((missingLogo) => {
             foundLogos.map((foundLogo) => {
@@ -148,7 +146,7 @@ async function downloadLogos(category, file) {
         await saveToDisk(prefix, file.name, category, blob);
         const path = `../raw/${category}s/${prefix}${file.name}`;
         await fs.appendFile(
-            './.changeset/details.md',
+            './.changeset/details.txt',
             `|<img src=" ${path}" width="36" alt="">|${file.name.replace('.svg', '')}|${category}|\n`,
             'utf-8'
         );
