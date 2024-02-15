@@ -6,7 +6,7 @@ async function getChangeset() {
 
 async function getDetails() {
     try {
-        const details = await fs.readFile('./.changeset/changeset-details.md', 'utf-8');
+        const details = await fs.readFile('./.changeset/details.md', 'utf-8');
         return details;
     } catch (error) {
         return '';
