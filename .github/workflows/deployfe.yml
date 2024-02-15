@@ -86,7 +86,7 @@ jobs:
           commit_options: '--no-verify --signoff'
 
       - name: Create Release
-        if: steps.check_files.outputs.files_exists == 'true'
+        if : steps.check_files.outputs.files_exists == 'true' && (github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'release'))
         id: changesets
         uses: changesets/action@v1
         with:
