@@ -47,7 +47,7 @@ const ChainsView = () => {
                 style={dracula}
             />
 
-            <Flex p={3} gap={3} wrap={'wrap'} bgColor={"gray.100"} alignItems="center" justifyContent="left">
+            <Flex p={3} gap={3} wrap={'wrap'} bgColor={'gray.100'} alignItems="center" justifyContent="left">
                 <Image src={ChainLogo('43114')} width={50} height={50} alt="43114" />
                 <Image src={SymbolLogo('BTC')} width={50} height={50} alt="BTC" />
                 <Image src={ApiProviderLogo('nodary')} width={50} height={50} alt="nodary" />
@@ -69,7 +69,7 @@ const ChainsView = () => {
                 style={dracula}
             />
 
-            <Flex p={3} gap={3} wrap={'wrap'} bgColor={"gray.100"} alignItems="center" justifyContent="left">
+            <Flex p={3} gap={3} wrap={'wrap'} bgColor={'gray.100'} alignItems="center" justifyContent="left">
                 <Image src={ChainLogo('59144', true)} width={50} height={50} />
                 <Image src={ChainLogo('59144')} width={50} height={50} />
             </Flex>
@@ -108,7 +108,7 @@ methods: {
                 language={'html'}
                 style={dracula}
             />
-            <Flex p={3} gap={3} wrap={'wrap'} bgColor={"gray.100"} alignItems="center" justifyContent="left">
+            <Flex p={3} gap={3} wrap={'wrap'} bgColor={'gray.100'} alignItems="center" justifyContent="left">
                 <Image src={SymbolLogo('eth')} width={50} height={50} />
                 <Image src={ChainLogo('1')} width={50} height={50} />
                 <Image src={ApiProviderLogo('nodary')} width={50} height={50} />

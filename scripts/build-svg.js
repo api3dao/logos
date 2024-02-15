@@ -144,9 +144,7 @@ async function findLightLogos() {
         fs.readdir('./optimized/symbol', 'utf-8')
     ]);
 
-    chainLightLogos = chainFiles
-        .filter((file) => file.includes('light'))
-        .map((file) => file.replace('Chain', ''))
+    chainLightLogos = chainFiles.filter((file) => file.includes('light')).map((file) => file.replace('Chain', ''));
 
     apiProviderLightLogos = apiProviderFiles.filter((file) => file.includes('light'));
 

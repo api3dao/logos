@@ -72,7 +72,9 @@ function getLogoList(mode) {
 async function checkAlternateLogos(foundLogos) {
     categories.forEach(async (category) => {
         const alternateLogos = getLogoList(category).reduce((acc, chain) => {
-            const foundLogo = foundLogos.find((foundLogo) => foundLogo.name.toLowerCase().includes(chain.toLowerCase() + '-light'));
+            const foundLogo = foundLogos.find((foundLogo) =>
+                foundLogo.name.toLowerCase().includes(chain.toLowerCase() + '-light')
+            );
             if (foundLogo) {
                 acc.push(foundLogo);
             }
@@ -96,7 +98,10 @@ async function searchLogos() {
     missingLogos.map((missingLogoCategory) => {
         missingLogoCategory.logos.map((missingLogo) => {
             foundLogos.map((foundLogo) => {
-                if (utils.sanitizeName(foundLogo.name).toLowerCase() === `${utils.sanitizeName(missingLogo).toLowerCase()}`) {
+                if (
+                    utils.sanitizeName(foundLogo.name).toLowerCase() ===
+                    `${utils.sanitizeName(missingLogo).toLowerCase()}`
+                ) {
                     downloadLogos(missingLogoCategory.category, foundLogo);
                 }
             });
@@ -104,7 +109,7 @@ async function searchLogos() {
     });
 
     console.log('🏗 Checking for alternate logos...');
-    await checkAlternateLogos(foundLogos) // Check for alternate logos
+    await checkAlternateLogos(foundLogos); // Check for alternate logos
     console.log('✅ Finished fetching logo files.');
 }
 
@@ -139,8 +144,12 @@ async function downloadLogos(category, file) {
         const response = await dbx.filesDownload({ path: file.path_lower });
         var blob = response.result.fileBinary;
         await saveToDisk(prefix, file.name, category, blob);
-        const path = `../raw/${category}s/${prefix}${file.name}`;
-        await fs.appendFile('./.changeset/changeset-details.md', `|<img src=" ${path}" width="36" alt="">|${file.name.replace('.svg', '')}|${category}|\n`, 'utf-8');
+        const path = `./raw/${category}s/${prefix}${file.name}`;
+        await fs.appendFile(
+            './.changeset/details.txt',
+            `|<img src="${path}" width="36" alt="">|${file.name.replace('.svg', '')}|${category}|\n`,
+            'utf-8'
+        );
         console.log(`Downloaded ${file.name}`);
     } catch (error) {
         console.error(error);
