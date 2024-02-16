@@ -15,15 +15,14 @@ let dbx = null;
 
 async function initDropbox() {
     console.log('🏗 Initializing Dropbox...');
-    const response = await fetch(
-        `https://api.dropbox.com/oauth2/token?refresh_token=${process.env.DROPBOX}&grant_type=refresh_token&client_id=${process.env.APP_KEY}&client_secret=${process.env.APP_SECRET}`,
-        {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            }
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
         }
-    );
+    };
+    const url = `https://api.dropbox.com/oauth2/token?refresh_token=${process.env.DROPBOX}&grant_type=refresh_token&client_id=${process.env.APP_KEY}&client_secret=${process.env.APP_SECRET}`;
+    const response = await fetch(url, options);
 
     const data = await response.json();
     dbx = new dropbox.Dropbox({ accessToken: data.access_token });
@@ -36,23 +35,10 @@ async function getDropbox() {
     return dbx || (await initDropbox());
 }
 
-function getManualLogos(mode) {
-    switch (mode) {
-        case 'chain':
-            return [];
-        case 'symbol':
-            return [];
-        case 'api-provider':
-            return [];
-        default:
-            break;
-    }
-}
-
 function getLogoList(mode) {
     switch (mode) {
         case 'chain':
-            return [...getManualLogos(mode), ...chains.CHAINS.map((chain) => chain.id)];
+            return [...chains.CHAINS.map((chain) => chain.id)];
         case 'symbol':
             const supportedFeed = [
                 ...new Set(
@@ -61,9 +47,9 @@ function getLogoList(mode) {
                         .flat()
                 )
             ];
-            return [...getManualLogos(mode), ...new Set(supportedFeed.map((feed) => feed.split('/')).flat())];
+            return [...new Set(supportedFeed.map((feed) => feed.split('/')).flat())];
         case 'api-provider':
-            return [...getManualLogos(mode), ...getApiProviderAliases()];
+            return [...getApiProviderAliases()];
         default:
             break;
     }
