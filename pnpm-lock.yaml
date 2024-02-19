@@ -25,8 +25,8 @@ importers:
         specifier: ^2.27.1
         version: 2.27.1
       '@phase21/api-integrations':
-        specifier: ^1.1.0
-        version: 1.1.0(eslint@8.56.0)(jest@27.5.1)(typescript@5.3.3)
+        specifier: ^1.2.0
+        version: 1.2.0(eslint@8.56.0)(jest@27.5.1)(typescript@5.3.3)
       '@phase21/chains':
         specifier: ^4.9.0
         version: 4.9.0(typescript@5.3.3)
@@ -64,8 +64,8 @@ importers:
         specifier: ^11.11.0
         version: 11.11.0(@emotion/react@11.11.3)(@types/react@18.2.48)(react@18.2.0)
       '@phase21/api-integrations':
-        specifier: ^1.1.0
-        version: 1.1.0(eslint@8.56.0)(jest@27.5.1)(typescript@5.3.3)
+        specifier: ^1.2.0
+        version: 1.2.0(eslint@8.56.0)(jest@27.5.1)(typescript@5.3.3)
       '@phase21/chains':
         specifier: ^4.9.0
         version: 4.9.0(typescript@5.3.3)
@@ -137,8 +137,8 @@ packages:
       '@jridgewell/trace-mapping': 0.3.22
     dev: true
 
-  /@api3/airnode-abi@0.13.0:
-    resolution: {integrity: sha512-qWe3w3cGvpwUhONlLOkx8uMJ17m1qbC6b4g7xf9Jo0GZ6/AObcrBnsmPL7/JAlAtbvsTg25wS4o/TZaEA+gpYg==}
+  /@api3/airnode-abi@0.14.0:
+    resolution: {integrity: sha512-hoIdFMqe0ENITj145INdHitLbLHK2Q3M5rsPGmTrmCz1QrhuIqdswJM9T60ieqTx6v2taCrddD67Vez7OvKJyA==}
     dependencies:
       ethers: 5.7.2
       lodash: 4.17.21
@@ -147,12 +147,12 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@api3/airnode-adapter@0.13.0:
-    resolution: {integrity: sha512-Lletix7nsfIcj9HQ/bF1zuFr9/cc/IUfltjHB0nYrKKXr0Ox/ggxST7u2yEPhL7s88D0wJAOSiVnvNhllITG7A==}
+  /@api3/airnode-adapter@0.14.0:
+    resolution: {integrity: sha512-gZojDtwxWClmNzhMFkC9ahTKZ17VZ8gP+Js6VVM9sb65+dUgNlom3YH7v9MtPKwKKl66rNN0M0Kb9eTqO07OwA==}
     dependencies:
-      '@api3/ois': 2.2.1
+      '@api3/ois': 2.3.1
       '@api3/promise-utils': 0.4.0
-      axios: 1.6.6
+      axios: 1.6.7
       bignumber.js: 9.1.2
       ethers: 5.7.2
       lodash: 4.17.21
@@ -162,18 +162,18 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@api3/airnode-feed@0.4.0(eslint@8.56.0)(jest@27.5.1)(typescript@5.3.3):
-    resolution: {integrity: sha512-xvl2x+fqvq8PS7n30+0xaQmm+Bc+9jsOmmUtHBw08hwrVuS3n7ff51OXBRueAsb9Qn0NTzd4srJNh3pDDmRwDw==}
-    engines: {node: '>=18.19.0', pnpm: ^8.14.1}
+  /@api3/airnode-feed@0.5.0(eslint@8.56.0)(jest@27.5.1)(typescript@5.3.3):
+    resolution: {integrity: sha512-NYNALs95tv/qyFOFphNRbgK11XtloPMt9ci9/cOd36RSdnu2aClrnLwC7J2zxAJm6s5TOtffG2OutRsbjgeUqg==}
+    engines: {node: '>=18.19.0'}
     dependencies:
-      '@api3/airnode-abi': 0.13.0
-      '@api3/airnode-adapter': 0.13.0
-      '@api3/airnode-node': 0.13.0(eslint@8.56.0)(jest@27.5.1)(typescript@5.3.3)
-      '@api3/airnode-validator': 0.13.0
-      '@api3/commons': 0.6.1(eslint@8.56.0)(jest@27.5.1)(typescript@5.3.3)
-      '@api3/ois': 2.3.1
+      '@api3/airnode-abi': 0.14.0
+      '@api3/airnode-adapter': 0.14.0
+      '@api3/airnode-node': 0.14.0(eslint@8.56.0)(jest@27.5.1)(typescript@5.3.3)
+      '@api3/airnode-validator': 0.14.0
+      '@api3/commons': 0.6.2(eslint@8.56.0)(jest@27.5.1)(typescript@5.3.3)
+      '@api3/ois': 2.3.2
       '@api3/promise-utils': 0.4.0
-      axios: 1.6.6
+      axios: 1.6.7
       dotenv: 16.4.4
       ethers: 5.7.2
       express: 4.18.2
@@ -193,16 +193,17 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@api3/airnode-node@0.13.0(eslint@8.56.0)(jest@27.5.1)(typescript@5.3.3):
-    resolution: {integrity: sha512-RY4Q+SaVZc9X/DSoX215HLg8c1wSlms8kJUx///n4MKiuXEEkG+Dc3dZDqtUCqWtLfOWNXoCcNYv8L9Fomk+LQ==}
+  /@api3/airnode-node@0.14.0(eslint@8.56.0)(jest@27.5.1)(typescript@5.3.3):
+    resolution: {integrity: sha512-fSh0NwM6GDVFOCcltATrQUU1RCZbgYMy2iliwHhF5BfDZYuHs4W5RWP9PXFc863yUDJyY/NSSWUTjRD3Flpeqg==}
     dependencies:
-      '@api3/airnode-abi': 0.13.0
-      '@api3/airnode-adapter': 0.13.0
-      '@api3/airnode-protocol': 0.13.0
-      '@api3/airnode-utilities': 0.13.0
-      '@api3/airnode-validator': 0.13.0
-      '@api3/commons': 0.3.0(eslint@8.56.0)(jest@27.5.1)(typescript@5.3.3)
-      '@api3/ois': 2.2.1
+      '@api3/airnode-abi': 0.14.0
+      '@api3/airnode-adapter': 0.14.0
+      '@api3/airnode-protocol': 0.14.0
+      '@api3/airnode-utilities': 0.14.0
+      '@api3/airnode-validator': 0.14.0
+      '@api3/chains': 4.9.0(typescript@5.3.3)
+      '@api3/commons': 0.5.0(eslint@8.56.0)(jest@27.5.1)(typescript@5.3.3)
+      '@api3/ois': 2.3.1
       '@api3/promise-utils': 0.4.0
       '@aws-sdk/client-lambda': 3.499.0
       date-fns: 2.30.0
@@ -227,16 +228,16 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@api3/airnode-protocol-v1@2.10.0:
-    resolution: {integrity: sha512-5pXI9OUXeyM2IbVYrkW48Eymt7qGT5nfBU8GR2XZsRE8dCRZTIIfp+xdAMH+OFm62GGnUDz9e1uTiAHkRWrtKA==}
+  /@api3/airnode-protocol-v1@3.2.0:
+    resolution: {integrity: sha512-l0zej3d04ySea7NzVW4tNL155u3sFq3scxPrK1Bk5kXbtODxKa2xpLhczZ/Rr8HYGIvFiSsNSU+OgYNIhgiCYQ==}
     dependencies:
       '@openzeppelin/contracts': 4.8.2
     dev: true
 
-  /@api3/airnode-protocol@0.13.0:
-    resolution: {integrity: sha512-mbmVmQAQN7Wge/hWuxpqocEV95ofjcseOM08ruJwK8bEGyOUhhPshLsTOLNL/apqeZoe/DsfWp0Y/LIJ7DF83A==}
+  /@api3/airnode-protocol@0.14.0:
+    resolution: {integrity: sha512-0SJWETw7vUELQ+r0kC+SKiHHZfeRI+kUqE7r1CVhmfop0rpYX7ZV2jAMrUNYzPyZ4oQ4+uGvNPFqsy6GkoG9dw==}
     dependencies:
-      '@api3/airnode-protocol-v1': 2.10.0
+      '@api3/airnode-protocol-v1': 3.2.0
       '@openzeppelin/contracts': 4.4.2
       ethers: 5.7.2
     transitivePeerDependencies:
@@ -244,10 +245,10 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@api3/airnode-utilities@0.13.0:
-    resolution: {integrity: sha512-lcWFw7gGxj5OGNNtLgSpYw/iKBR7oOC+Pfwp7bTt1FoBsHoDizGenAq710gtIxQXVEEkzdPSeOZf9Hxqqix8KQ==}
+  /@api3/airnode-utilities@0.14.0:
+    resolution: {integrity: sha512-aElERCDoP2C7Tx8vzqFkRONi6WCFRuDHTEpFZKQeilLdgPNqSKwj0FZI0CVgAFkvLpeELTTpV1s0c7GOrUVLOA==}
     dependencies:
-      '@api3/airnode-validator': 0.13.0
+      '@api3/airnode-validator': 0.14.0
       '@api3/promise-utils': 0.4.0
       date-fns: 2.30.0
       ethers: 5.7.2
@@ -256,12 +257,12 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@api3/airnode-validator@0.13.0:
-    resolution: {integrity: sha512-Yt4g00NKug0CfE0Y3ytoH7Myjhcu1gaUV42X67LJHl2y+vtiGvVbqJq4cqjDATfL8KANgdJ/RdVh4lgs5BKamA==}
+  /@api3/airnode-validator@0.14.0:
+    resolution: {integrity: sha512-gpjUCrobf+tCn4NqzM/O02OHu597KDELivnyf/PvB9Wm9zdf6zttX/djdE29L+QFV4aHwwYi1aP8zC1Ez7i0wg==}
     hasBin: true
     dependencies:
-      '@api3/airnode-protocol': 0.13.0
-      '@api3/ois': 2.2.1
+      '@api3/airnode-protocol': 0.14.0
+      '@api3/ois': 2.3.1
       '@api3/promise-utils': 0.4.0
       dotenv: 16.4.4
       ethers: 5.7.2
@@ -274,49 +275,24 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@api3/commons@0.3.0(eslint@8.56.0)(jest@27.5.1)(typescript@5.3.3):
-    resolution: {integrity: sha512-27+UkW0qCWvQCJuO8vbyBhJ94IXELKhqCKjFxC5ZUQrJHRHWT4zz2wmdbsvgUHBZhuAuFPaz/78yjMCjzJ6S8Q==}
+  /@api3/chains@4.9.0(typescript@5.3.3):
+    resolution: {integrity: sha512-lbdXmaswmXr73B67w+I0OU9tYFHWD0KTfz75BW99tmF0GsyWTzKzWb2T2/yNV7kSeNPuuEYQ+SsSz7bft/Y7Zg==}
+    dependencies:
+      viem: 2.7.3(typescript@5.3.3)(zod@3.22.4)
+      zod: 3.22.4
+    transitivePeerDependencies:
+      - bufferutil
+      - typescript
+      - utf-8-validate
+    dev: true
+
+  /@api3/commons@0.5.0(eslint@8.56.0)(jest@27.5.1)(typescript@5.3.3):
+    resolution: {integrity: sha512-PqSukqnAGQORuGTSLaQiVuxUtU5RBNOhm5GEnX0fhROhoKyX11E5EJuuQqYwIG4LsBkhVGNJuR7PhnUs6VmwrA==}
     engines: {node: ^18.14.0, pnpm: ^8.8.0}
     peerDependencies:
       eslint: ^8.50.0
     dependencies:
-      '@api3/ois': 2.3.1
-      '@api3/promise-utils': 0.4.0
-      '@typescript-eslint/eslint-plugin': 6.19.1(@typescript-eslint/parser@6.19.1)(eslint@8.56.0)(typescript@5.3.3)
-      '@typescript-eslint/parser': 6.19.1(eslint@8.56.0)(typescript@5.3.3)
-      eslint: 8.56.0
-      eslint-config-next: 13.5.6(eslint@8.56.0)(typescript@5.3.3)
-      eslint-plugin-check-file: 2.6.2(eslint@8.56.0)
-      eslint-plugin-cypress: 2.15.1(eslint@8.56.0)
-      eslint-plugin-deprecation: 2.0.0(eslint@8.56.0)(typescript@5.3.3)
-      eslint-plugin-functional: 6.0.0(eslint@8.56.0)(typescript@5.3.3)
-      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@6.19.1)(eslint-import-resolver-typescript@3.6.1)(eslint@8.56.0)
-      eslint-plugin-jest: 27.6.3(@typescript-eslint/eslint-plugin@6.19.1)(eslint@8.56.0)(jest@27.5.1)(typescript@5.3.3)
-      eslint-plugin-jest-formatting: 3.1.0(eslint@8.56.0)
-      eslint-plugin-lodash: 7.4.0(eslint@8.56.0)
-      eslint-plugin-no-only-tests: 3.1.0
-      eslint-plugin-promise: 6.1.1(eslint@8.56.0)
-      eslint-plugin-react: 7.33.2(eslint@8.56.0)
-      eslint-plugin-react-hooks: 4.6.0(eslint@8.56.0)
-      eslint-plugin-unicorn: 48.0.1(eslint@8.56.0)
-      lodash: 4.17.21
-      winston: 3.11.0
-      winston-console-format: 1.0.8
-    transitivePeerDependencies:
-      - eslint-import-resolver-typescript
-      - eslint-import-resolver-webpack
-      - jest
-      - supports-color
-      - typescript
-    dev: true
-
-  /@api3/commons@0.6.1(eslint@8.56.0)(jest@27.5.1)(typescript@5.3.3):
-    resolution: {integrity: sha512-ey/TVZFVJIYDQa8YMENXnw0tZGTwFx0Jl17ONXTU4sxwkyM5x43P5bgOLrdnvLpWYh1V5tSv29iJ7UGaV6qZ4Q==}
-    engines: {node: ^18.14.0 || ^20.10.0, pnpm: ^8.8.0}
-    peerDependencies:
-      eslint: ^8.50.0
-    dependencies:
-      '@api3/ois': 2.3.1
+      '@api3/ois': 2.3.2
       '@api3/promise-utils': 0.4.0
       '@typescript-eslint/eslint-plugin': 6.19.1(@typescript-eslint/parser@6.19.1)(eslint@8.56.0)(typescript@5.3.3)
       '@typescript-eslint/parser': 6.19.1(eslint@8.56.0)(typescript@5.3.3)
@@ -350,15 +326,55 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@api3/ois@2.2.1:
-    resolution: {integrity: sha512-C4tSMBccDlD8NkZMVATQXOKctI46fSOlzpbZmZoFknsIdYfQvGNU49StGRJZ6fJJkwXEX1TlkRC7rY2yHEJjqw==}
+  /@api3/commons@0.6.2(eslint@8.56.0)(jest@27.5.1)(typescript@5.3.3):
+    resolution: {integrity: sha512-IBR9WAcbglFdMyehiv3MWFVK1jKv2jAao6tU2DcUmMztea0H+Nn9xAomHCwAlg7mTNn3qk7ZpWosZNGZjfeSTw==}
+    engines: {node: ^18.14.0 || ^20.10.0, pnpm: ^8.8.0}
+    peerDependencies:
+      eslint: ^8.50.0
+    dependencies:
+      '@api3/ois': 2.3.2
+      '@api3/promise-utils': 0.4.0
+      '@typescript-eslint/eslint-plugin': 6.19.1(@typescript-eslint/parser@6.19.1)(eslint@8.56.0)(typescript@5.3.3)
+      '@typescript-eslint/parser': 6.19.1(eslint@8.56.0)(typescript@5.3.3)
+      eslint: 8.56.0
+      eslint-config-next: 13.5.6(eslint@8.56.0)(typescript@5.3.3)
+      eslint-plugin-check-file: 2.6.2(eslint@8.56.0)
+      eslint-plugin-cypress: 2.15.1(eslint@8.56.0)
+      eslint-plugin-deprecation: 2.0.0(eslint@8.56.0)(typescript@5.3.3)
+      eslint-plugin-functional: 6.0.0(eslint@8.56.0)(typescript@5.3.3)
+      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@6.19.1)(eslint-import-resolver-typescript@3.6.1)(eslint@8.56.0)
+      eslint-plugin-jest: 27.6.3(@typescript-eslint/eslint-plugin@6.19.1)(eslint@8.56.0)(jest@27.5.1)(typescript@5.3.3)
+      eslint-plugin-jest-formatting: 3.1.0(eslint@8.56.0)
+      eslint-plugin-lodash: 7.4.0(eslint@8.56.0)
+      eslint-plugin-no-only-tests: 3.1.0
+      eslint-plugin-promise: 6.1.1(eslint@8.56.0)
+      eslint-plugin-react: 7.33.2(eslint@8.56.0)
+      eslint-plugin-react-hooks: 4.6.0(eslint@8.56.0)
+      eslint-plugin-unicorn: 48.0.1(eslint@8.56.0)
+      ethers: 5.7.2
+      lodash: 4.17.21
+      winston: 3.11.0
+      winston-console-format: 1.0.8
+      zod: 3.22.4
+    transitivePeerDependencies:
+      - bufferutil
+      - eslint-import-resolver-typescript
+      - eslint-import-resolver-webpack
+      - jest
+      - supports-color
+      - typescript
+      - utf-8-validate
+    dev: true
+
+  /@api3/ois@2.3.1:
+    resolution: {integrity: sha512-7TmgEiJn3TrqV2BZGh4fKTF4qX7Q/dyGdQh9L6gj4dHBmoKzfK0eDbwjWR+RokYrd9k4E4whGNxEnzdZr3ubSA==}
     dependencies:
       lodash: 4.17.21
       zod: 3.22.4
     dev: true
 
-  /@api3/ois@2.3.1:
-    resolution: {integrity: sha512-7TmgEiJn3TrqV2BZGh4fKTF4qX7Q/dyGdQh9L6gj4dHBmoKzfK0eDbwjWR+RokYrd9k4E4whGNxEnzdZr3ubSA==}
+  /@api3/ois@2.3.2:
+    resolution: {integrity: sha512-hYQCbCAtWMGKV+pECRY5tbfCSOcheeo9s6wtrhn1dOWw151VeG0sKG3VbBEsyA6cvSaldewBWY3t/JGaupdThg==}
     dependencies:
       lodash: 4.17.21
       zod: 3.22.4
@@ -4874,13 +4890,13 @@ packages:
     resolution: {integrity: sha512-kEUOgPQszC0fSYWpbh2kT94ltOJwj1qfT2DWo+zVttmGmf97JZ99LspePNaeeaLhCImaHVeBbjaQFZQn7+Zc5g==}
     dev: true
 
-  /@phase21/api-integrations@1.1.0(eslint@8.56.0)(jest@27.5.1)(typescript@5.3.3):
-    resolution: {integrity: sha512-u60FQOKfiHPcdnoTknJkEvs4GRhJURBeZBc0Zj4uiMH4pJzpS8RvCevo/fwBAvcI1qQaPsVuXdVyb80kSrlqJQ==}
+  /@phase21/api-integrations@1.2.0(eslint@8.56.0)(jest@27.5.1)(typescript@5.3.3):
+    resolution: {integrity: sha512-SqFoGFN2iWoIGCKLcKBvQcZmP1KFrgE0PW6qlVOC8SwXmrlfSG0e+9wdYdznhoGAmAGTeSc7UZODRH5E8oZNUA==}
     requiresBuild: true
     dependencies:
-      '@api3/airnode-abi': 0.13.0
-      '@api3/airnode-feed': 0.4.0(eslint@8.56.0)(jest@27.5.1)(typescript@5.3.3)
-      '@api3/ois': 2.3.1
+      '@api3/airnode-abi': 0.14.0
+      '@api3/airnode-feed': 0.5.0(eslint@8.56.0)(jest@27.5.1)(typescript@5.3.3)
+      '@api3/ois': 2.3.2
       ethers: 5.7.2
       zod: 3.22.4
     transitivePeerDependencies:
@@ -6836,8 +6852,8 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /axios@1.6.6:
-    resolution: {integrity: sha512-XZLZDFfXKM9U/Y/B4nNynfCRUqNyVZ4sBC/n9GDRCkq9vd2mIvKjKKsbIh1WPmHmNbg6ND7cTBY3Y2+u1G3/2Q==}
+  /axios@1.6.7:
+    resolution: {integrity: sha512-/hDJGff6/c7u0hDkvkGxR/oy6CbCs8ziCsC7SqmhjfozqiJGc8Z11wrv9z9lYfY4K8l+H9TpjcMDX0xOZmx+RA==}
     dependencies:
       follow-redirects: 1.15.5
       form-data: 4.0.0
