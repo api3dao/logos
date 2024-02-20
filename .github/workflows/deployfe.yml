@@ -18,12 +18,10 @@ on:
     branches: [ main ]
 
 jobs:
-  pack-and-deploy-release:
+  pack-and-deploy-to-gh-pages:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
@@ -53,10 +51,16 @@ jobs:
           commit_options: '--no-verify --signoff'
       - name: Build Package
         run: pnpm run package
-      - name: "Add changeset"
+      - name: "Run if changes have been detected"
         id: add-changeset
         if: steps.auto-commit-action.outputs.changes_detected == 'true'
         run: pnpm run auto-release
+      - name: Add changeset
+        uses: stefanzweifel/git-auto-commit-action@v5
+        if : steps.auto-commit-action.outputs.changes_detected == 'true'
+        with:
+          commit_message: Added changeset
+          commit_options: '--no-verify --signoff'
       - name: Install Frontend Packages
         if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
         run: pnpm install
