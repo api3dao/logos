@@ -37,3 +37,5 @@ credentials.json
 
 # Custom
 /dev-scripts
+
+*.md
