@@ -81,12 +81,10 @@ jobs:
       
       - name: Commit version
         uses: stefanzweifel/git-auto-commit-action@v5
-        id: auto-commit-version
-        if: steps.check_files.outputs.files_exists == 'true'
+        if: steps.check_files.outputs.files_exists == 'true' && steps.auto-commit-action.outputs.changes_detected == 'false'
         with:
           commit_message: Update version
           commit_options: '--no-verify --signoff'
-          push_options: '--set-upstream origin main'
 
       - name: Create Release
         if : steps.check_files.outputs.files_exists == 'true' && (github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'release'))
