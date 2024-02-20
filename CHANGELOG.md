@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 2.9.1
+
+### Patch Changes
+
+- 66f2d1d: Some changes have been made to the `logos`.
+
+  | Logo                                                            | Name      | Category     |
+  | --------------------------------------------------------------- | --------- | ------------ |
+  | <img src="./raw/api-providers/coingecko.svg" width="36" alt=""> | coingecko | api-provider |
+
 ## 2.9.0
 
 ### Minor Changes
