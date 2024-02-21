@@ -1,5 +1,11 @@
 # @api3/logos
 
+## 2.9.2
+
+### Patch Changes
+
+- 0beed88: Add provenance check
+
 ## 2.9.1
 
 ### Patch Changes
