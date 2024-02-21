@@ -8,11 +8,17 @@ on:
 
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+  NPM_CONFIG_PROVENANCE: true
 
 jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+      packages: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v4
         with:
