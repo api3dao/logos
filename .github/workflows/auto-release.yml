@@ -4,9 +4,6 @@ name: Auto-release
 on:
   schedule:
       - cron: '15 8,12,16,20 * * *'
-  push:
-    branches:
-      - main
 
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
