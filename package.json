@@ -30,7 +30,7 @@
         "@phase21/chains": "^4.9.0",
         "dropbox": "^10.34.0",
         "node-fetch": "^2.7.0",
-        "dotenv": "^16.4.4",
+        "dotenv": "^16.4.5",
         "prettier": "^3.2.5",
         "rimraf": "^5.0.5",
         "svgo": "^3.2.0"
