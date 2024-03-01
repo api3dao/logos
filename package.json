@@ -1,6 +1,6 @@
 {
     "name": "@phase21/logos",
-    "version": "2.9.2",
+    "version": "2.9.3",
     "license": "MIT",
     "sideEffects": false,
     "repository": {
@@ -27,10 +27,10 @@
         "@changesets/changelog-github": "^0.5.0",
         "@changesets/cli": "^2.27.1",
         "@phase21/api-integrations": "^1.2.0",
-        "@phase21/chains": "^4.9.0",
+        "@phase21/chains": "^4.11.0",
         "dropbox": "^10.34.0",
         "node-fetch": "^2.7.0",
-        "dotenv": "^16.4.4",
+        "dotenv": "^16.4.5",
         "prettier": "^3.2.5",
         "rimraf": "^5.0.5",
         "svgo": "^3.2.0"
