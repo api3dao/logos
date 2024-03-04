@@ -4,7 +4,7 @@
     "homepage": "https://api3dao.github.io/logos/",
     "private": true,
     "devDependencies": {
-        "@phase21/chains": "^4.11.0",
+        "@phase21/chains": "^4.11.1",
         "@chakra-ui/icons": "^2.1.1",
         "@chakra-ui/react": "^2.8.2",
         "@emotion/react": "^11.11.4",
