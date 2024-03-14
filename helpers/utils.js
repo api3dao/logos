@@ -64,7 +64,7 @@ function generateFunction(batchName, switchCase, mode) {
         function sanitizeName(id) {
             return camelcase(id, {
             pascalCase: true
-            });
+            }).replace(/ExchangeRate/g, '');
         }
 
         function ${batchName}(id, light = false) {
