@@ -39,7 +39,8 @@ function getLogoList(mode) {
                         .flat()
                 )
             ];
-            return [...getManualLogos(mode), ...new Set(supportedFeed.map((feed) => feed.split('/')).flat())];
+            const reduced = (supportedFeed.map((feed) => feed.replaceAll(' Exchange Rate', '').split('/')).flat());
+            return [...getManualLogos(mode), ...new Set(reduced)];
         case 'api-provider':
             return [...getManualLogos(mode), ...getApiProviderAliases()];
         default:
