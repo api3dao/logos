@@ -48,3 +48,8 @@ jobs:
           title: "ci: release logos package"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create pull request
+        if: steps.changesets.outputs.published == 'true'
+        run: gh pr create -B main -H production --title 'Merge production into main' --body 'Merges production into main'
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
