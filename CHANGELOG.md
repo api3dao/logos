@@ -1,5 +1,11 @@
 # @api3/logos
 
+## 2.10.0
+
+### Minor Changes
+
+- d273851: Exchange Rate postfix is now ignored
+
 ## 2.9.5
 
 ### Patch Changes
