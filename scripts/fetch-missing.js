@@ -47,7 +47,8 @@ function getLogoList(mode) {
                         .flat()
                 )
             ];
-            return [...new Set(supportedFeed.map((feed) => feed.split('/')).flat())];
+            const reduced = (supportedFeed.map((feed) => feed.replaceAll(' Exchange Rate', '').split('/')).flat());
+            return [...new Set(reduced)];
         case 'api-provider':
             return [...getApiProviderAliases()];
         default:
