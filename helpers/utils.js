@@ -19,7 +19,7 @@ function getManualLogos(mode) {
         case 'chain':
             return [...chainLightLogos, '25', '534352'];
         case 'symbol':
-            return [...symbolLightLogos, 'alpaca', 'amd', 'amp', 'apxeth'];
+            return [...symbolLightLogos, 'alpaca', 'amd', 'amp', 'apxeth', 'bch', 'benqi', 'bit', 'blockstack'];
         case 'api-provider':
             return [...apiProviderLightLogos];
         default:
