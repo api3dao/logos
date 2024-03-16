@@ -17,7 +17,7 @@ const SymbolsView = () => {
                     .flat()
             )
         ];
-        const manual = ['alpaca', 'amd', 'amp', 'apxeth', 'bch', 'benqi', 'bit', 'blockstack', 'brz', 'bsv', 'busd', 'chain', 'dash', 'dfi', 'dkk', 'dym', 'eb', 'ecash', 'elrond', 'eos', 'etc', 'ezeth', 'flux', 'ftx', 'gate', 'gmt'];
+        const manual = ['alpaca', 'amd', 'amp', 'apxeth', 'bch', 'benqi', 'bit', 'blockstack', 'brz', 'bsv', 'busd', 'chain', 'dash', 'dfi', 'dkk', 'eb', 'ecash', 'elrond', 'eos', 'etc', 'ezeth', 'flux', 'ftx', 'gate', 'gmt', 'hkd', 'icon', 'icx', 'iost', 'iotx', 'jst', 'klay', 'knc', 'leo', 'lpt', 'lrc', 'luna'];
         const filteredFeeds = [...manual, ...new Set(supportedFeed.map((feed) => feed.split('/')).flat())];
         return filteredFeeds.filter((feed) => feed.toLowerCase().includes(symbol.toLowerCase()));
     };

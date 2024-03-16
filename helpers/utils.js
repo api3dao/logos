@@ -19,7 +19,7 @@ function getManualLogos(mode) {
         case 'chain':
             return ['25', '534352'];
         case 'symbol':
-            return ['alpaca', 'amd', 'amp', 'apxeth', 'bch', 'benqi', 'bit', 'blockstack', 'brz', 'bsv', 'busd', 'chain', 'dash', 'dfi', 'dkk', 'dym', 'eb', 'ecash', 'elrond', 'eos', 'etc', 'ezeth', 'flux', 'ftx', 'gate', 'gmt'];
+            return ['alpaca', 'amd', 'amp', 'apxeth', 'bch', 'benqi', 'bit', 'blockstack', 'brz', 'bsv', 'busd', 'chain', 'dash', 'dfi', 'dkk', 'eb', 'ecash', 'elrond', 'eos', 'etc', 'ezeth', 'flux', 'ftx', 'gate', 'gmt', 'hkd', 'icon', 'icx', 'iost', 'iotx', 'jst', 'klay', 'knc', 'leo', 'lpt', 'lrc', 'luna'];
         case 'api-provider':
             return [];
         default:
