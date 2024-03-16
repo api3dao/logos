@@ -10,8 +10,22 @@ module.exports = {
     generateFunction,
     generateTypes,
     copySvgFiles,
-    renameFiles
+    renameFiles,
+    getManualLogos
 };
+
+function getManualLogos(mode) {
+    switch (mode) {
+        case 'chain':
+            return [...chainLightLogos, '25', '534352'];
+        case 'symbol':
+            return [...symbolLightLogos, 'alpaca', 'amd', 'amp', 'apxeth'];
+        case 'api-provider':
+            return [...apiProviderLightLogos];
+        default:
+            break;
+    }
+}
 
 function getPlaceholderImage(mode) {
     return camelcase(mode, { pascalCase: true }) + 'Placeholder';

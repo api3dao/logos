@@ -17,19 +17,6 @@ let chainLightLogos = [];
 let apiProviderLightLogos = [];
 let symbolLightLogos = [];
 
-function getManualLogos(mode) {
-    switch (mode) {
-        case 'chain':
-            return [...chainLightLogos, "25", "534352"];
-        case 'symbol':
-            return [...symbolLightLogos, "alpaca", "amd", "amp", "apxeth"];
-        case 'api-provider':
-            return [...apiProviderLightLogos];
-        default:
-            break;
-    }
-}
-
 async function initDropbox() {
     console.log('🏗 Initializing Dropbox...');
     const options = {
@@ -55,7 +42,7 @@ async function getDropbox() {
 function getLogoList(mode) {
     switch (mode) {
         case 'chain':
-            return [...getManualLogos(mode), ...chains.CHAINS.map((chain) => chain.id)];
+            return [...chainLightLogos, ...utils.getManualLogos(mode), ...chains.CHAINS.map((chain) => chain.id)];
         case 'symbol':
             const supportedFeed = [
                 ...new Set(
@@ -65,9 +52,9 @@ function getLogoList(mode) {
                 )
             ];
             const reduced = (supportedFeed.map((feed) => feed.replaceAll(' Exchange Rate', '').split('/')).flat());
-            return [...getManualLogos(mode), ...new Set(reduced)];
+            return [...symbolLightLogos, ...utils.getManualLogos(mode), ...new Set(reduced)];
         case 'api-provider':
-            return [...getManualLogos(mode), ...getApiProviderAliases()];
+            return [...apiProviderLightLogos, ...utils.getManualLogos(mode), ...getApiProviderAliases()];
         default:
             break;
     }
