@@ -17,7 +17,7 @@ let symbolLightLogos = [];
 function getManualLogos(mode) {
     switch (mode) {
         case 'chain':
-            return [...chainLightLogos];
+            return [...chainLightLogos, "25", "534352"];
         case 'symbol':
             return [...symbolLightLogos];
         case 'api-provider':
