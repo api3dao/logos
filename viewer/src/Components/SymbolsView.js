@@ -17,7 +17,8 @@ const SymbolsView = () => {
                     .flat()
             )
         ];
-        const filteredFeeds = [...new Set(supportedFeed.map((feed) => feed.split('/')).flat())];
+        const manual = ['alpaca', 'amd', 'amp', 'apxeth'];
+        const filteredFeeds = [...manual, ...new Set(supportedFeed.map((feed) => feed.split('/')).flat())];
         return filteredFeeds.filter((feed) => feed.toLowerCase().includes(symbol.toLowerCase()));
     };
 
