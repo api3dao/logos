@@ -17,11 +17,11 @@ module.exports = {
 function getManualLogos(mode) {
     switch (mode) {
         case 'chain':
-            return [...chainLightLogos, '25', '534352'];
+            return ['25', '534352'];
         case 'symbol':
-            return [...symbolLightLogos, 'alpaca', 'amd', 'amp', 'apxeth', 'bch', 'benqi', 'bit', 'blockstack'];
+            return ['alpaca', 'amd', 'amp', 'apxeth', 'bch', 'benqi', 'bit', 'blockstack'];
         case 'api-provider':
-            return [...apiProviderLightLogos];
+            return [];
         default:
             break;
     }
