@@ -13,6 +13,10 @@ const categories = ['chain', 'symbol', 'api-provider'];
 
 let dbx = null;
 
+let chainLightLogos = [];
+let apiProviderLightLogos = [];
+let symbolLightLogos = [];
+
 function getManualLogos(mode) {
     switch (mode) {
         case 'chain':
