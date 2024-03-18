@@ -13,6 +13,10 @@ const categories = ['chain', 'symbol', 'api-provider'];
 
 let dbx = null;
 
+let chainLightLogos = [];
+let apiProviderLightLogos = [];
+let symbolLightLogos = [];
+
 async function initDropbox() {
     console.log('🏗 Initializing Dropbox...');
     const options = {
@@ -38,7 +42,7 @@ async function getDropbox() {
 function getLogoList(mode) {
     switch (mode) {
         case 'chain':
-            return [...chains.CHAINS.map((chain) => chain.id)];
+            return [...chainLightLogos, ...utils.getManualLogos(mode), ...chains.CHAINS.map((chain) => chain.id)];
         case 'symbol':
             const supportedFeed = [
                 ...new Set(
@@ -48,9 +52,9 @@ function getLogoList(mode) {
                 )
             ];
             const reduced = (supportedFeed.map((feed) => feed.replaceAll(' Exchange Rate', '').split('/')).flat());
-            return [...new Set(reduced)];
+            return [...symbolLightLogos, ...utils.getManualLogos(mode), ...new Set(reduced)];
         case 'api-provider':
-            return [...getApiProviderAliases()];
+            return [...apiProviderLightLogos, ...utils.getManualLogos(mode), ...getApiProviderAliases()];
         default:
             break;
     }
