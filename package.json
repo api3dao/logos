@@ -7,6 +7,16 @@
         "type": "git",
         "url": "https://github.com/api3dao/logos"
     },
+    "keywords": [
+        "api3",
+        "logos",
+        "api",
+        "blockchain",
+        "ethereum",
+        "chain",
+        "symbol",
+        "api-provider"
+    ],
     "scripts": {
         "optimize-chain-logos": "rimraf ./optimized/chain & svgo -q -p 8 -f ./raw/chains -o ./optimized/chain",
         "optimize-symbol-logos": "rimraf ./optimized/symbol & svgo -q -p 8 -f ./raw/symbols -o ./optimized/symbol",
@@ -14,7 +24,11 @@
         "build": "pnpm run optimize-chain-logos && pnpm run optimize-symbol-logos && pnpm run optimize-api-provider-logos && node scripts/build-svg.js",
         "fetch": "node scripts/fetch-missing.js",
         "package": "pnpm run build",
-        "prettier": "prettier --write \"**/*.{js,jsx,json,md}\"",
+        "lint": "pnpm run format:check && pnpm run lint:eslint",
+        "lint:eslint": "eslint . --ext .js,.ts,.tsx",
+        "type-check": "tsc && yarn frontend:type-check && yarn package:compile --noEmit",
+        "format:check": "prettier --check \"./**/*.{js,ts,tsx,css,md,json,sol}\"",
+        "format": "prettier --write \"./**/*.{js,ts,tsx,css,md,json,sol}\"",
         "release": "pnpm changeset publish",
         "auto-release": "node scripts/release.js"
     },
@@ -22,6 +36,7 @@
         "camelcase": "^6.3.0"
     },
     "devDependencies": {
+        "eslint": "^8.48.0",
         "@babel/core": "^7.24.0",
         "@babel/preset-react": "^7.23.3",
         "@changesets/changelog-github": "^0.5.0",
@@ -33,6 +48,9 @@
         "dotenv": "^16.4.5",
         "prettier": "^3.2.5",
         "rimraf": "^5.0.5",
+        "@typescript-eslint/eslint-plugin": "^7.1.0",
+        "@typescript-eslint/parser": "^7.1.0",
+        "eslint-config-prettier": "^9.1.0",
         "svgo": "^3.2.0"
     },
     "main": "./dist/cjs/index.js",
