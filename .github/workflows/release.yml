@@ -39,13 +39,22 @@ jobs:
       - name: Build package
         run: pnpm run build
 
+      - name: Ensure main is present for commit message prep
+        run: |
+          git checkout main
+          git checkout production
+
+      - name: Prep commit message
+        run: |
+          echo "NEW_VERSION=$(yarn changeset status --output=release.json > /dev/null && jq -r '.releases[0].newVersion' release.json && rm release.json)" >> "$GITHUB_ENV"
+
       - name: Create Release
         id: changesets
         uses: changesets/action@v1
         with:
           publish: pnpm run release
-          commit: "ci: release logos package"
-          title: "ci: release logos package"
+          commit: 'ci: release logos v${{ env.NEW_VERSION }}'
+          title: 'ci: release logos v${{ env.NEW_VERSION }}'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Create pull request
