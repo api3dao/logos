@@ -1,5 +1,11 @@
 # @api3/logos
 
+## 2.10.3
+
+### Patch Changes
+
+- 156e699: Test release
+
 ## 2.10.2
 
 ### Patch Changes
