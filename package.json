@@ -7,6 +7,16 @@
         "type": "git",
         "url": "https://github.com/api3dao/logos"
     },
+    "keywords": [
+        "api3",
+        "logos",
+        "api",
+        "blockchain",
+        "ethereum",
+        "chain",
+        "symbol",
+        "api-provider"
+    ],
     "scripts": {
         "optimize-chain-logos": "rimraf ./optimized/chain & svgo -q -p 8 -f ./raw/chains -o ./optimized/chain",
         "optimize-symbol-logos": "rimraf ./optimized/symbol & svgo -q -p 8 -f ./raw/symbols -o ./optimized/symbol",
