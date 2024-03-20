@@ -18,7 +18,7 @@ function getLogoList(mode) {
     switch (mode) {
         case 'chain':
             return [...chainLightLogos, ...utils.getManualLogos(mode), ...chains.CHAINS.map((chain) => chain.id)];
-        case 'symbol':
+        case 'symbol': {
             const supportedFeed = [
                 ...new Set(
                     getApiProviderAliases()
@@ -26,8 +26,9 @@ function getLogoList(mode) {
                         .flat()
                 )
             ];
-            const reduced = (supportedFeed.map((feed) => feed.replaceAll(' Exchange Rate', '').split('/')).flat());
+            const reduced = supportedFeed.map((feed) => feed.replaceAll(' Exchange Rate', '').split('/')).flat();
             return [...symbolLightLogos, ...utils.getManualLogos(mode), ...new Set(reduced)];
+        }
         case 'api-provider':
             return [...apiProviderLightLogos, ...utils.getManualLogos(mode), ...getApiProviderAliases()];
         default:
