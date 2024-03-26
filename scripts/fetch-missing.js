@@ -1,5 +1,5 @@
 require('dotenv').config();
-const chains = require('@phase21/chains');
+const chains = require('@api3/chains');
 const fs = require('fs/promises');
 const { existsSync } = require('node:fs');
 const utils = require('../helpers/utils');
