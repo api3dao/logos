@@ -63,6 +63,9 @@ importers:
 
   viewer:
     devDependencies:
+      '@api3/chains':
+        specifier: ^4.14.0
+        version: 4.14.0(typescript@5.3.3)
       '@chakra-ui/icons':
         specifier: ^2.1.1
         version: 2.1.1(@chakra-ui/system@2.6.2)(react@18.2.0)
@@ -78,9 +81,6 @@ importers:
       '@phase21/api-integrations':
         specifier: ^1.5.0
         version: 1.5.0
-      '@phase21/chains':
-        specifier: ^4.12.0
-        version: 4.12.0(typescript@5.3.3)
       '@phase21/logos':
         specifier: workspace:*
         version: link:..
@@ -4243,17 +4243,6 @@ packages:
       zod: 3.22.4
     transitivePeerDependencies:
       - bufferutil
-      - utf-8-validate
-    dev: true
-
-  /@phase21/chains@4.12.0(typescript@5.3.3):
-    resolution: {integrity: sha512-F2SgrVqqc4+cnDwmyCmxgf2a89h2IZl3ZNDZy+v+CuBleywY3RPSKDmFZ60906j/6+VoFl8cdb83lGUrTjH2wQ==}
-    dependencies:
-      viem: 2.7.19(typescript@5.3.3)(zod@3.22.4)
-      zod: 3.22.4
-    transitivePeerDependencies:
-      - bufferutil
-      - typescript
       - utf-8-validate
     dev: true
 
