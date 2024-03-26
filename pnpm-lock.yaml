@@ -12,6 +12,9 @@ importers:
         specifier: ^6.3.0
         version: 6.3.0
     devDependencies:
+      '@api3/chains':
+        specifier: ^4.14.0
+        version: 4.14.0(typescript@5.3.3)
       '@babel/core':
         specifier: ^7.24.3
         version: 7.24.3
@@ -27,9 +30,6 @@ importers:
       '@phase21/api-integrations':
         specifier: ^1.5.0
         version: 1.5.0
-      '@phase21/chains':
-        specifier: ^4.12.0
-        version: 4.12.0(typescript@5.3.3)
       '@typescript-eslint/eslint-plugin':
         specifier: ^7.3.1
         version: 7.3.1(@typescript-eslint/parser@7.3.1)(eslint@8.57.0)(typescript@5.3.3)
@@ -156,6 +156,17 @@ packages:
       lodash: 4.17.21
     transitivePeerDependencies:
       - bufferutil
+      - utf-8-validate
+    dev: true
+
+  /@api3/chains@4.14.0(typescript@5.3.3):
+    resolution: {integrity: sha512-zM37/EW6bsYVmu6wea+3+D7FlK60kI6LBYwCRxE85ISUUCT6gkclkFLksGN6vrw4ZTl9Xool2fbhALHiuYA7Uw==}
+    dependencies:
+      viem: 2.7.19(typescript@5.3.3)(zod@3.22.4)
+      zod: 3.22.4
+    transitivePeerDependencies:
+      - bufferutil
+      - typescript
       - utf-8-validate
     dev: true
 
