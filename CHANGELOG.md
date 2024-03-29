@@ -1,5 +1,11 @@
 # @api3/logos
 
+## 2.11.0
+
+### Minor Changes
+
+- 70f88e8: Missing sepolia testnet logos added
+
 ## 2.10.2
 
 ### Patch Changes
