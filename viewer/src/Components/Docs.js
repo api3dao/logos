@@ -113,6 +113,75 @@ methods: {
                 <Image src={ChainLogo('1')} width={50} height={50} />
                 <Image src={ApiProviderLogo('nodary')} width={50} height={50} />
             </Flex>
+            <Text fontSize="xl" fontWeight="bold" ml={2}>
+                Usage Nuxt/Vue.js
+            </Text>
+
+            <Text fontSize="lg" fontWeight="bold" ml={2}>
+                Create a logos.ts in plugins folder;
+            </Text>
+            <SyntaxHighlighter
+                PreTag="div"
+                children={String(`import { ChainLogo, SymbolLogo, ApiProviderLogo } from "@phase21/logos"
+
+export default defineNuxtPlugin(() => {
+    return {
+        provide: {
+            chainLogo: (chainId: string) => ChainLogo(chainId),
+            symbolLogo: (symbol: string) => SymbolLogo(symbol),
+            apiProviderLogo: (provider: string) => ApiProviderLogo(provider),
+        }
+    }
+})`)}
+                language={'typescript'}
+                style={dracula}
+            />
+            <Text fontSize="lg" fontWeight="bold" ml={2}>
+                Define the plugin in nuxt.config file;
+            </Text>
+            <SyntaxHighlighter
+                PreTag="div"
+                children={String(`// https://nuxt.com/docs/api/configuration/nuxt-config
+import { defineNuxtConfig } from 'nuxt/config'
+
+export default defineNuxtConfig({
+  devtools: { enabled: true },
+  build: {
+    transpile: ['@phase21/logos'],
+  },
+  plugins: [
+    '~/plugins/logos',
+  ],
+})`)}
+                language={'typescript'}
+                style={dracula}
+            />
+            <Text fontSize="lg" fontWeight="bold" ml={2}>
+                Call it from your .vue file;
+            </Text>
+            <SyntaxHighlighter
+                PreTag="div"
+                children={String(`<script setup lang="ts">
+const { $chainLogo, $symbolLogo, $apiProviderLogo } = useNuxtApp()
+</script>
+
+<template>
+  <div>
+    <img v-bind:src="$chainLogo('1')" alt="eth" width="50px" height="50px" />
+    <img v-bind:src="$symbolLogo('btc')" alt="btc" width="50px" height="50px" />
+    <img v-bind:src="$apiProviderLogo('nodary')" alt="nodary" width="50px" height="50px" />
+
+  </div>
+</template>`)}
+                language={'html'}
+                style={dracula}
+            />
+
+            <Flex p={3} gap={3} wrap={'wrap'} bgColor={'gray.100'} alignItems="center" justifyContent="left">
+                <Image src={ChainLogo('1')} width={50} height={50} />
+                <Image src={SymbolLogo('btc')} width={50} height={50} />
+                <Image src={ApiProviderLogo('nodary')} width={50} height={50} />
+            </Flex>
         </VStack>
     );
 };

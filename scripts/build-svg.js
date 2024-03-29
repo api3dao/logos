@@ -1,4 +1,4 @@
-const chains = require('@phase21/chains');
+const chains = require('@api3/chains');
 const fs = require('fs/promises');
 const { rimraf } = require('rimraf');
 const babel = require('@babel/core');
