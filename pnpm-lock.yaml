@@ -13,8 +13,8 @@ importers:
         version: 6.3.0
     devDependencies:
       '@api3/chains':
-        specifier: ^4.14.0
-        version: 4.14.0(typescript@5.3.3)
+        specifier: ^4.15.0
+        version: 4.15.0(typescript@5.3.3)
       '@babel/core':
         specifier: ^7.24.3
         version: 7.24.3
@@ -64,8 +64,8 @@ importers:
   viewer:
     devDependencies:
       '@api3/chains':
-        specifier: ^4.14.0
-        version: 4.14.0(typescript@5.3.3)
+        specifier: ^4.15.0
+        version: 4.15.0(typescript@5.3.3)
       '@chakra-ui/icons':
         specifier: ^2.1.1
         version: 2.1.1(@chakra-ui/system@2.6.2)(react@18.2.0)
@@ -159,10 +159,10 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@api3/chains@4.14.0(typescript@5.3.3):
-    resolution: {integrity: sha512-zM37/EW6bsYVmu6wea+3+D7FlK60kI6LBYwCRxE85ISUUCT6gkclkFLksGN6vrw4ZTl9Xool2fbhALHiuYA7Uw==}
+  /@api3/chains@4.15.0(typescript@5.3.3):
+    resolution: {integrity: sha512-5B9FIZsSgVqdt5p7RggkTP5VmuE/Ac7notC8BTHxO0RkxbxsnatCgeiuUO3HtWJbY9Y5JYi6D7Kqk6UxpwLdwA==}
     dependencies:
-      viem: 2.7.19(typescript@5.3.3)(zod@3.22.4)
+      viem: 2.9.6(typescript@5.3.3)(zod@3.22.4)
       zod: 3.22.4
     transitivePeerDependencies:
       - bufferutil
@@ -14321,8 +14321,8 @@ packages:
       vfile-message: 4.0.2
     dev: true
 
-  /viem@2.7.19(typescript@5.3.3)(zod@3.22.4):
-    resolution: {integrity: sha512-UOMeqy+8p2709ra2j9HEOL1NfjsXZzlJ8gwR6YO/zXH8KIZvyzW07t4iQARF5+ShVZ/7+/1ec8oPjVi1M//33A==}
+  /viem@2.9.6(typescript@5.3.3)(zod@3.22.4):
+    resolution: {integrity: sha512-VVFWjGQei2wnWTvAB/xrIf22m6flCwxeBr8LnwejXMTSSi1EORWEswrw2lfKTmw3TlRPSG4uSiQMa/d0l0DKRg==}
     peerDependencies:
       typescript: '>=5.0.4'
     peerDependenciesMeta:
