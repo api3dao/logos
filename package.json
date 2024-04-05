@@ -1,6 +1,6 @@
 {
-    "name": "@phase21/logos",
-    "version": "2.11.0",
+    "name": "@api3/logos",
+    "version": "0.1.0",
     "license": "MIT",
     "sideEffects": false,
     "repository": {
