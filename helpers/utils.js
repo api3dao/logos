@@ -186,7 +186,7 @@ function generateDocAnnotationSvg(description, batchName, example) {
  * 
  * @example
  * \`\`\`
- * import { ${batchName}Svg } from '@phase21/logos';
+ * import { ${batchName}Svg } from '@api3/logos';
  * 
  * const App = () => {
  * return <img src={${batchName}Svg("${example}")} alt="Logo" />;
@@ -195,7 +195,7 @@ function generateDocAnnotationSvg(description, batchName, example) {
  * 
  * @example
  * \`\`\`
- * import { ${batchName}Svg } from '@phase21/logos';
+ * import { ${batchName}Svg } from '@api3/logos';
  * 
  * const App = () => {
  * return <img src={${batchName}Svg("${example}")} alt="Logo" width="64" height="64" />;
