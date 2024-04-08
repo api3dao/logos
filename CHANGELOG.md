@@ -1,5 +1,17 @@
 # @api3/logos
 
+## 2.11.1
+
+### Patch Changes
+
+- 0526662: Some changes have been made to the `logos`.
+
+  | Logo                                                   | Name   | Category |
+  | ------------------------------------------------------ | ------ | -------- |
+  | <img src="./raw/symbols/pendle.svg" width="36" alt=""> | pendle | symbol   |
+  | <img src="./raw/symbols/mpeth.svg" width="36" alt="">  | mpeth  | symbol   |
+  | <img src="./raw/symbols/usdb.svg" width="36" alt="">   | usdb   | symbol   |
+
 ## 2.11.0
 
 ### Minor Changes
