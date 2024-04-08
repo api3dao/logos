@@ -28,8 +28,8 @@ importers:
         specifier: ^2.27.1
         version: 2.27.1
       '@phase21/api-integrations':
-        specifier: ^1.5.0
-        version: 1.5.0
+        specifier: ^1.6.0
+        version: 1.6.0
       '@typescript-eslint/eslint-plugin':
         specifier: ^7.5.0
         version: 7.5.0(@typescript-eslint/parser@7.5.0)(eslint@8.57.0)(typescript@5.3.3)
@@ -79,8 +79,8 @@ importers:
         specifier: ^11.11.5
         version: 11.11.5(@emotion/react@11.11.4)(@types/react@18.2.48)(react@18.2.0)
       '@phase21/api-integrations':
-        specifier: ^1.5.0
-        version: 1.5.0
+        specifier: ^1.6.0
+        version: 1.6.0
       '@phase21/logos':
         specifier: workspace:*
         version: link:..
@@ -149,8 +149,8 @@ packages:
       '@jridgewell/trace-mapping': 0.3.25
     dev: true
 
-  /@api3/airnode-abi@0.14.0:
-    resolution: {integrity: sha512-hoIdFMqe0ENITj145INdHitLbLHK2Q3M5rsPGmTrmCz1QrhuIqdswJM9T60ieqTx6v2taCrddD67Vez7OvKJyA==}
+  /@api3/airnode-abi@0.14.1:
+    resolution: {integrity: sha512-iKBJeLkKAT+ywgG8mf2G+yqeYBUVxDf7KMvpYWB/qdVjgo+qGJfLnoh9h5+u9fiUSVJS9L4c0YDWZiG2Ex5gzw==}
     dependencies:
       ethers: 5.7.2
       lodash: 4.17.21
@@ -4187,11 +4187,11 @@ packages:
       fastq: 1.16.0
     dev: true
 
-  /@phase21/api-integrations@1.5.0:
-    resolution: {integrity: sha512-96aOPXTiz5vG752Lxq4zK62zRx9+JjnCQZmUpVJ3UuqCXpZvUjDl13EqfMMwIaUNwutGPrH05+Za6KSX9C+YFg==}
+  /@phase21/api-integrations@1.6.0:
+    resolution: {integrity: sha512-C8O58HmTi17kSLVvPkSoCv0lDvztkplCtzakdsf9jj8Q4yw5K/IMwgKJFUecxyE5ifFKltYmJKNN2HchrPtdhg==}
     requiresBuild: true
     dependencies:
-      '@api3/airnode-abi': 0.14.0
+      '@api3/airnode-abi': 0.14.1
       '@api3/ois': 2.3.2
       ethers: 5.7.2
       zod: 3.22.4
