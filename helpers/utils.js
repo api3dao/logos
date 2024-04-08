@@ -117,7 +117,12 @@ function sanitizeName(name, suffix = '', prefix = '') {
 }
 
 function generateSwitchCase(array, prefix) {
-    return array
+    const sanitized = array.map((item) => {
+        return sanitizeName(item, '', '');
+    });
+
+    const filtered = [...new Set(sanitized)];
+    return filtered
         .map((item) => `case "${sanitizeName(item).toLowerCase()}":\n\treturn ${prefix}${sanitizeName(item, '')};\n`)
         .join('');
 }
@@ -134,7 +139,13 @@ function formatImport(item, filename, prefix, path, format) {
 }
 
 function generateImports(files, array, prefix, file_prefix, path, format) {
-    return array
+    const sanitized = array.map((item) => {
+        return sanitizeName(item, '', '');
+    });
+
+    const filtered = [...new Set(sanitized)];
+
+    return filtered
         .map((item) => {
             let filename = checkFile(files, item, file_prefix);
             return formatImport(item, filename, prefix, path, format);
