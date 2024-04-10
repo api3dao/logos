@@ -13,8 +13,8 @@ importers:
         version: 6.3.0
     devDependencies:
       '@api3/chains':
-        specifier: ^4.16.2
-        version: 4.16.2(typescript@5.3.3)
+        specifier: ^4.17.0
+        version: 4.17.0(typescript@5.3.3)
       '@babel/core':
         specifier: ^7.24.4
         version: 7.24.4
@@ -64,8 +64,8 @@ importers:
   viewer:
     devDependencies:
       '@api3/chains':
-        specifier: ^4.16.2
-        version: 4.16.2(typescript@5.3.3)
+        specifier: ^4.17.0
+        version: 4.17.0(typescript@5.3.3)
       '@chakra-ui/icons':
         specifier: ^2.1.1
         version: 2.1.1(@chakra-ui/system@2.6.2)(react@18.2.0)
@@ -159,8 +159,8 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@api3/chains@4.16.2(typescript@5.3.3):
-    resolution: {integrity: sha512-rMjfjb0jBgJo9hLahBw2lBdaUhnMRNb3JQngMRgvC/XdpyRJQQHRkHEebA7BfFiYhfbRTWczUNhky6qzc2Hr9w==}
+  /@api3/chains@4.17.0(typescript@5.3.3):
+    resolution: {integrity: sha512-3o2f6DUwaKnjHJ3pZruWFpe2j9UvKtJsYDIhOYAGe02P0voWyDh+xVbCKPjPr1q75EGbftyK4OezK6vYx8LNTQ==}
     dependencies:
       viem: 2.9.6(typescript@5.3.3)(zod@3.22.4)
       zod: 3.22.4
