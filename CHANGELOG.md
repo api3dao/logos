@@ -1,5 +1,11 @@
 # @api3/logos
 
+## 0.1.1
+
+### Patch Changes
+
+- e6eadb0: Publish using changeset
+
 ## 2.11.1
 
 ### Patch Changes
