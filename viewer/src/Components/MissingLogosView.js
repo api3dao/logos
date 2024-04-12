@@ -7,7 +7,7 @@ import {
     ApiProviderLogo,
     ChainLogoMissing,
     ChainLogo
-} from '@phase21/logos';
+} from '@api3/logos';
 import Title from '../Custom/Title';
 
 const MissingBatchView = ({ header, batch, method }) => {

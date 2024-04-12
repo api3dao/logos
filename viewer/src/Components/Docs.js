@@ -1,7 +1,7 @@
 import { Flex, Text, VStack, Image } from '@chakra-ui/react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { ChainLogo, SymbolLogo, ApiProviderLogo } from '@phase21/logos';
+import { ChainLogo, SymbolLogo, ApiProviderLogo } from '@api3/logos';
 
 const ChainsView = () => {
     return (
@@ -27,7 +27,7 @@ const ChainsView = () => {
             </Text>
             <SyntaxHighlighter
                 PreTag="div"
-                children={String('npm install @phase21/logos')}
+                children={String('npm install @api3/logos')}
                 language={'bash'}
                 style={dracula}
             />
@@ -36,7 +36,7 @@ const ChainsView = () => {
             </Text>
             <SyntaxHighlighter
                 PreTag="div"
-                children={String(`import { ChainLogo, SymbolLogo, ApiProviderLogo } from '@phase21/logos';
+                children={String(`import { ChainLogo, SymbolLogo, ApiProviderLogo } from '@api3/logos';
 
 <div>
     <img src={ ChainLogo('43114') } width={50} height={50} alt='43114' />
@@ -59,7 +59,7 @@ const ChainsView = () => {
 
             <SyntaxHighlighter
                 PreTag="div"
-                children={String(`import { ChainLogo, SymbolLogo, ApiProviderLogo } from '@phase21/logos';
+                children={String(`import { ChainLogo, SymbolLogo, ApiProviderLogo } from '@api3/logos';
 
 <div>
     <img src={ ChainLogo('59144', true) } width={50} height={50} />
@@ -88,7 +88,7 @@ const ChainsView = () => {
 
 <script>
 
-import { ChainLogo, SymbolLogo, ApiProviderLogo } from '@phase21/logos';
+import { ChainLogo, SymbolLogo, ApiProviderLogo } from '@api3/logos';
 export default {
 ...
 methods: {
@@ -122,7 +122,7 @@ methods: {
             </Text>
             <SyntaxHighlighter
                 PreTag="div"
-                children={String(`import { ChainLogo, SymbolLogo, ApiProviderLogo } from "@phase21/logos"
+                children={String(`import { ChainLogo, SymbolLogo, ApiProviderLogo } from "@api3/logos"
 
 export default defineNuxtPlugin(() => {
     return {
@@ -147,7 +147,7 @@ import { defineNuxtConfig } from 'nuxt/config'
 export default defineNuxtConfig({
   devtools: { enabled: true },
   build: {
-    transpile: ['@phase21/logos'],
+    transpile: ['@api3/logos'],
   },
   plugins: [
     '~/plugins/logos',

@@ -18,7 +18,7 @@ async function createChangeset() {
 
     const changeset =
         `---
-"@phase21/logos": patch
+"@api3/logos": patch
 ---
 
 Some changes have been made to the \`logos\`.
