@@ -1,5 +1,11 @@
 # @api3/logos
 
+## 0.1.3
+
+### Patch Changes
+
+- f98daf5: Adds Linea Sepolia Testnet logo
+
 ## 0.1.2
 
 ### Patch Changes
