@@ -1,5 +1,14 @@
 # @api3/logos
 
+## 0.1.2
+
+### Patch Changes
+
+- 896b2be: Some changes have been made to the `logos`.
+
+  | Logo | Name | Category |
+  | ---- | ---- | -------- |
+
 ## 0.1.1
 
 ### Patch Changes
