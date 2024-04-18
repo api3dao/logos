@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 0.1.5
+
+### Patch Changes
+
+- 4de62e0: Some changes have been made to the `logos`.
+
+  | Logo                                                  | Name  | Category |
+  | ----------------------------------------------------- | ----- | -------- |
+  | <img src="./raw/symbols/susde.svg" width="36" alt=""> | susde | symbol   |
+
 ## 0.1.4
 
 ### Patch Changes
