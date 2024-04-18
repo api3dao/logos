@@ -1,5 +1,16 @@
 # @api3/logos
 
+## 0.1.4
+
+### Patch Changes
+
+- 95ef951: Some changes have been made to the `logos`.
+
+  | Logo                                                 | Name | Category |
+  | ---------------------------------------------------- | ---- | -------- |
+  | <img src="./raw/symbols/sei.svg" width="36" alt="">  | sei  | symbol   |
+  | <img src="./raw/symbols/ondo.svg" width="36" alt=""> | ondo | symbol   |
+
 ## 0.1.3
 
 ### Patch Changes
