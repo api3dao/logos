@@ -3,7 +3,7 @@ const fs = require('fs/promises');
 const { rimraf } = require('rimraf');
 const babel = require('@babel/core');
 const utils = require('../helpers/utils');
-const { apisData, getApiProviderAliases } = require('@phase21/api-integrations');
+const { apisData, getApiProviderAliases } = require('@api3/api-integrations');
 const camelcase = require('camelcase');
 
 const outputPath = './dist';

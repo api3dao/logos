@@ -3,7 +3,7 @@ const chains = require('@api3/chains');
 const fs = require('fs/promises');
 const { existsSync } = require('node:fs');
 const utils = require('../helpers/utils');
-const { apisData, getApiProviderAliases } = require('@phase21/api-integrations');
+const { apisData, getApiProviderAliases } = require('@api3/api-integrations');
 const dropbox = require('dropbox');
 const fetch = require('node-fetch');
 
