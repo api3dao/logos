@@ -3,7 +3,7 @@ import { SymbolLogo } from '@api3/logos';
 import SearchRow from '../Custom/SearchRow';
 import { useState } from 'react';
 import InfoView from '../Custom/InfoView';
-import { apisData, getApiProviderAliases } from '@phase21/api-integrations';
+import { apisData, getApiProviderAliases } from '@api3/api-integrations';
 
 const SymbolsView = () => {
     const [symbol, setSymbol] = useState('');
