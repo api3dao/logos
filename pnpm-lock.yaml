@@ -13,8 +13,8 @@ importers:
         version: 6.3.0
     devDependencies:
       '@api3/chains':
-        specifier: ^4.17.1
-        version: 4.17.1(typescript@5.4.5)
+        specifier: ^5.0.0
+        version: 5.0.0(typescript@5.4.5)
       '@babel/core':
         specifier: ^7.24.4
         version: 7.24.4
@@ -64,8 +64,8 @@ importers:
   viewer:
     devDependencies:
       '@api3/chains':
-        specifier: ^4.17.1
-        version: 4.17.1(typescript@5.4.5)
+        specifier: ^5.0.0
+        version: 5.0.0(typescript@5.4.5)
       '@api3/logos':
         specifier: workspace:*
         version: link:..
@@ -159,8 +159,8 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@api3/chains@4.17.1(typescript@5.4.5):
-    resolution: {integrity: sha512-gPglE7PPm6TCdnDR+/EC5J8z4yrTS/eV/24PRK8HzkLwRkMx4UdnoNwQ2B00bGlQTkPnMuxTTnEzgyAnv3qhNQ==}
+  /@api3/chains@5.0.0(typescript@5.4.5):
+    resolution: {integrity: sha512-ChG9ewKuboDxj+N09FPp7ty1xGsRV2uXHf0dGiz90GiWq07zE8t4GjnAs2IFDGrcNVzwqnrRyNrLOT18ijmZAg==}
     dependencies:
       viem: 2.9.25(typescript@5.4.5)(zod@3.23.0)
       zod: 3.23.0
