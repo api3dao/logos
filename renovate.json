@@ -7,6 +7,11 @@
             "enabled": false
         },
         {
+            "matchPackageNames": ["eslint"],
+            "matchUpdateTypes": ["major"],
+            "enabled": false
+        },
+        {
             "matchUpdateTypes": ["patch", "minor"],
             "schedule": ["after 3pm on Friday"],
             "groupName": "other minor updates",
@@ -19,14 +24,14 @@
             "labels": ["deploy"]
         },
         {
-            "matchPackagePatterns": ["@api3/.*", "@phase21/.*"],
+            "matchPackagePatterns": ["@api3/.*"],
             "matchUpdateTypes": ["major"],
             "schedule": ["before 4pm"],
             "groupName": "api3 major updates",
             "labels": ["deploy"]
         },
         {
-            "matchPackagePatterns": ["@api3/.*", "@phase21/.*"],
+            "matchPackagePatterns": ["@api3/.*"],
             "matchUpdateTypes": ["patch", "minor"],
             "schedule": ["before 6pm"],
             "groupName": "api3",
