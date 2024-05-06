@@ -1,5 +1,17 @@
 # @api3/logos
 
+## 0.1.14
+
+### Patch Changes
+
+- 49a72dd: Add missing logos
+
+  - inEVM
+  - inEVM testnet
+  - Merlin
+  - Merlin testnet
+  - Taiko Hekla testnet
+
 ## 0.1.13
 
 ### Patch Changes
