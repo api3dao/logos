@@ -1,6 +1,8 @@
 const fs = require('fs/promises');
 const camelcase = require('camelcase');
 const { rename } = require('fs');
+const chains = require('@api3/chains');
+const { apisData, getApiProviderAliases } = require('@api3/api-integrations');
 
 module.exports = {
     sanitizeName,
@@ -11,8 +13,32 @@ module.exports = {
     generateTypes,
     copySvgFiles,
     renameFiles,
-    getManualLogos
+    getManualLogos,
+    getDeprecatedChains,
+    getChains,
+    getApiProviders,
+    getSupportedFeeds
 };
+
+function getDeprecatedChains() {
+    return ['1313161555', '1313161554', '56288', '288', '71401', '647', '416'];
+}
+
+function getChains() {
+    return chains.CHAINS.filter((chain) => chain.id && !getDeprecatedChains().includes(chain.id));
+}
+
+function getApiProviders() {
+    return getApiProviderAliases().filter((api) => !api.match(/(.*)(-mock)/));
+}
+
+function getSupportedFeeds() {
+    const supportedFeeds = getApiProviders()
+        .map((apiProvider) => Object.values(apisData[apiProvider].supportedFeedsInBatches).flat(2))
+        .flat();
+    const reduced = supportedFeeds.map((feed) => feed.replaceAll(' Exchange Rate', '').split('/')).flat();
+    return new Set(reduced);
+}
 
 function getManualLogos(mode) {
     switch (mode) {

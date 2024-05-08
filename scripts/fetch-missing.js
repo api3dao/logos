@@ -1,9 +1,7 @@
 require('dotenv').config();
-const chains = require('@api3/chains');
 const fs = require('fs/promises');
 const { existsSync } = require('node:fs');
 const utils = require('../helpers/utils');
-const { apisData, getApiProviderAliases } = require('@api3/api-integrations');
 const dropbox = require('dropbox');
 const fetch = require('node-fetch');
 
@@ -12,10 +10,6 @@ let missingLogos = [];
 const categories = ['chain', 'symbol', 'api-provider'];
 
 let dbx = null;
-
-let chainLightLogos = [];
-let apiProviderLightLogos = [];
-let symbolLightLogos = [];
 
 async function initDropbox() {
     console.log('🏗 Initializing Dropbox...');
@@ -42,20 +36,11 @@ async function getDropbox() {
 function getLogoList(mode) {
     switch (mode) {
         case 'chain':
-            return [...chainLightLogos, ...utils.getManualLogos(mode), ...chains.CHAINS.map((chain) => chain.id)];
-        case 'symbol': {
-            const supportedFeed = [
-                ...new Set(
-                    getApiProviderAliases()
-                        .map((apiProvider) => Object.values(apisData[apiProvider].supportedFeedsInBatches).flat(2))
-                        .flat()
-                )
-            ];
-            const reduced = supportedFeed.map((feed) => feed.replaceAll(' Exchange Rate', '').split('/')).flat();
-            return [...symbolLightLogos, ...utils.getManualLogos(mode), ...new Set(reduced)];
-        }
+            return [...utils.getManualLogos(mode), ...utils.getChains().map((chain) => chain.id)];
+        case 'symbol':
+            return [...utils.getManualLogos(mode), ...utils.getSupportedFeeds()];
         case 'api-provider':
-            return [...apiProviderLightLogos, ...utils.getManualLogos(mode), ...getApiProviderAliases()];
+            return [...utils.getManualLogos(mode), ...utils.getApiProviders()];
         default:
             break;
     }

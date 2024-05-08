@@ -8,9 +8,12 @@ import InfoView from '../Custom/InfoView';
 
 const ChainList = ({ isTestnet, chain }) => {
     const [selectedChain, setSelectedChain] = useState('');
+    const deprecatedChains = ['1313161555', '1313161554', '56288', '288', '71401', '647', '416'];
 
     const getChains = (isTestnet) => {
-        return Api3Chains.CHAINS.filter(
+        const filteredChains = Api3Chains.CHAINS.filter((chain) => chain.id && !deprecatedChains.includes(chain.id));
+
+        return filteredChains.filter(
             (chainObject) =>
                 chainObject.name.toLowerCase().includes(chain.toLowerCase()) && chainObject.testnet === isTestnet
         );
@@ -54,10 +57,12 @@ const ChainsView = () => {
     const [chain, setChain] = useState('');
 
     return (
-        <Flex p={3} gap={3} bgColor={'white'} wrap={'wrap'} alignItems="center" justifyContent="left">
-            <Text fontSize="md" fontWeight="bold" ml={2}>
-                There is a total of {Api3Chains.CHAINS.length} chains
-            </Text>
+        <Flex p={3} gap={3} bgColor={'white'} wrap={'wrap'} alignItems="center" justifyContent="center">
+            <Flex width={'100%'}>
+                <Text fontSize="md" fontWeight="bold" ml={2}>
+                    There is a total of {Api3Chains.CHAINS.length} chains
+                </Text>
+            </Flex>
             <SearchRow text={chain} setText={setChain} placeholder={'Enter a chain'} />
             <Title header={'Mainnets'} />
             <ChainList isTestnet={false} chain={chain} />

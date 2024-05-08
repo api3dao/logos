@@ -1,9 +1,7 @@
-const chains = require('@api3/chains');
 const fs = require('fs/promises');
 const { rimraf } = require('rimraf');
 const babel = require('@babel/core');
 const utils = require('../helpers/utils');
-const { apisData, getApiProviderAliases } = require('@api3/api-integrations');
 const camelcase = require('camelcase');
 
 const outputPath = './dist';
@@ -17,20 +15,11 @@ let symbolLightLogos = [];
 function getLogoList(mode) {
     switch (mode) {
         case 'chain':
-            return [...chainLightLogos, ...utils.getManualLogos(mode), ...chains.CHAINS.map((chain) => chain.id)];
-        case 'symbol': {
-            const supportedFeed = [
-                ...new Set(
-                    getApiProviderAliases()
-                        .map((apiProvider) => Object.values(apisData[apiProvider].supportedFeedsInBatches).flat(2))
-                        .flat()
-                )
-            ];
-            const reduced = supportedFeed.map((feed) => feed.replaceAll(' Exchange Rate', '').split('/')).flat();
-            return [...symbolLightLogos, ...utils.getManualLogos(mode), ...new Set(reduced)];
-        }
+            return [...chainLightLogos, ...utils.getManualLogos(mode), ...utils.getChains().map((chain) => chain.id)];
+        case 'symbol':
+            return [...symbolLightLogos, ...utils.getManualLogos(mode), ...utils.getSupportedFeeds()];
         case 'api-provider':
-            return [...apiProviderLightLogos, ...utils.getManualLogos(mode), ...getApiProviderAliases()];
+            return [...apiProviderLightLogos, ...utils.getManualLogos(mode), ...utils.getApiProviders()];
         default:
             break;
     }
