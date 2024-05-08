@@ -7,7 +7,7 @@ const App = () => {
     return (
         <HashRouter>
             <Header />
-            <Flex h="calc(100vh - 90px)" spacing={0} p={5} alignItems={'stretch'} flexDirection={'row'}>
+            <Flex h="calc(100vh - 70px)" spacing={0} p={5} alignItems={'stretch'} flexDirection={'row'}>
                 <VStack width={'100%'} alignItems={'center'}>
                     <Routes>
                         <Route path="/" element={<Welcome />} />
