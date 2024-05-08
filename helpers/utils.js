@@ -11,8 +11,13 @@ module.exports = {
     generateTypes,
     copySvgFiles,
     renameFiles,
-    getManualLogos
+    getManualLogos,
+    getDeprecatedChains
 };
+
+function getDeprecatedChains() {
+    return ['1313161555', '1313161554', '56288', '288', '71401', '647', '416'];
+}
 
 function getManualLogos(mode) {
     switch (mode) {
