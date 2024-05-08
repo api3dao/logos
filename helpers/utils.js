@@ -17,7 +17,7 @@ module.exports = {
     getDeprecatedChains,
     getChains,
     getApiProviders,
-    getSupportedFeeds,
+    getSupportedFeeds
 };
 
 function getDeprecatedChains() {
@@ -35,7 +35,7 @@ function getApiProviders() {
 function getSupportedFeeds() {
     const supportedFeeds = getApiProviders()
         .map((apiProvider) => Object.values(apisData[apiProvider].supportedFeedsInBatches).flat(2))
-        .flat()
+        .flat();
     const reduced = supportedFeeds.map((feed) => feed.replaceAll(' Exchange Rate', '').split('/')).flat();
     return new Set(reduced);
 }
