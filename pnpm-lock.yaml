@@ -13,8 +13,8 @@ importers:
         version: 6.3.0
     devDependencies:
       '@api3/api-integrations':
-        specifier: ^1.4.1
-        version: 1.4.1
+        specifier: ^1.5.1
+        version: 1.5.1
       '@api3/chains':
         specifier: ^6.2.0
         version: 6.2.0(typescript@5.4.5)
@@ -64,8 +64,8 @@ importers:
   viewer:
     devDependencies:
       '@api3/api-integrations':
-        specifier: ^1.4.1
-        version: 1.4.1
+        specifier: ^1.5.1
+        version: 1.5.1
       '@api3/chains':
         specifier: ^6.2.0
         version: 6.2.0(typescript@5.4.5)
@@ -159,14 +159,14 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@api3/api-integrations@1.4.1:
-    resolution: {integrity: sha512-QoVVq4zN7PwwbYPs5/se6lzm0EsF1aKDRXz3G0jitOe6r5PWVY3CSsrxTfUPu+lKvqNPLWSNq2lsqB4LejGCPA==}
+  /@api3/api-integrations@1.5.1:
+    resolution: {integrity: sha512-mdy29/de6ECawiCyZpxuZud+uMggQgGmUNPKdQcEf7oPD35Va3bSDNQeG0+qy5gQZwh2JzYcD+EURbE4YrFewA==}
     requiresBuild: true
     dependencies:
       '@api3/airnode-abi': 0.14.1
       '@api3/ois': 2.3.2
       ethers: 5.7.2
-      zod: 3.23.0
+      zod: 3.23.6
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -15086,10 +15086,6 @@ packages:
   /yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
-    dev: true
-
-  /zod@3.23.0:
-    resolution: {integrity: sha512-OFLT+LTocvabn6q76BTwVB0hExEBS0IduTr3cqZyMqEDbOnYmcU+y0tUAYbND4uwclpBGi4I4UUBGzylWpjLGA==}
     dev: true
 
   /zod@3.23.6:
