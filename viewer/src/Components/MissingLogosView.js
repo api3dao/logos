@@ -16,7 +16,7 @@ const MissingBatchView = ({ header, batch, method }) => {
     };
 
     return batch.length === 0 ? null : (
-        <Flex gap={3} bgColor={'white'} wrap={'wrap'} alignItems="center" justifyContent="left">
+        <Flex gap={3} bgColor={'white'} wrap={'wrap'} alignItems="center" justifyContent="center">
             <VStack width={'100%'} alignItems={'left'}>
                 <Title header={header} />
                 <Text fontSize="md" fontWeight="bold" ml={2}>
@@ -29,15 +29,15 @@ const MissingBatchView = ({ header, batch, method }) => {
                     <Flex
                         p={3}
                         boxShadow={'md'}
-                        width={'320px'}
-                        height={'100px'}
+                        width={'300px'}
+                        height={'70px'}
                         bgColor={'gray.100'}
                         key={index}
                         alignItems="center"
                         justifyContent="left"
                         cursor={'pointer'}
                     >
-                        <Image src={method(item)} width={50} height={50} />
+                        <Image src={method(item)} width={'32px'} height={'32px'} />
                         <Text fontSize="sm" fontWeight="bold" ml={2}>
                             {header === 'Chains' ? getChain(item) : item}
                         </Text>

@@ -15,10 +15,12 @@ const ApiProvidersView = () => {
     };
 
     return (
-        <Flex p={3} gap={3} bgColor={'white'} wrap={'wrap'} alignItems="center" justifyContent="left">
-            <Text fontSize="md" fontWeight="bold" ml={2}>
-                There is a total of {getApiProviders().length} api providers
-            </Text>
+        <Flex p={3} gap={3} bgColor={'white'} wrap={'wrap'} alignItems="center" justifyContent="center">
+            <Flex width={'100%'}>
+                <Text fontSize="md" fontWeight="bold" ml={2}>
+                    There is a total of {getApiProviders().length} api providers
+                </Text>
+            </Flex>
             <SearchRow text={apiProvider} setText={setApiProvider} placeholder={'Enter a symbol'} />
 
             {getApiProviders().map((provider, index) => {

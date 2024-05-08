@@ -57,10 +57,12 @@ const ChainsView = () => {
     const [chain, setChain] = useState('');
 
     return (
-        <Flex p={3} gap={3} bgColor={'white'} wrap={'wrap'} alignItems="center" justifyContent="left">
-            <Text fontSize="md" fontWeight="bold" ml={2}>
-                There is a total of {Api3Chains.CHAINS.length} chains
-            </Text>
+        <Flex p={3} gap={3} bgColor={'white'} wrap={'wrap'} alignItems="center" justifyContent="center">
+            <Flex width={'100%'}>
+                <Text fontSize="md" fontWeight="bold" ml={2}>
+                    There is a total of {Api3Chains.CHAINS.length} chains
+                </Text>
+            </Flex>
             <SearchRow text={chain} setText={setChain} placeholder={'Enter a chain'} />
             <Title header={'Mainnets'} />
             <ChainList isTestnet={false} chain={chain} />
