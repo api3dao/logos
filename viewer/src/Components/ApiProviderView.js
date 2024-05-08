@@ -10,8 +10,8 @@ const ApiProvidersView = () => {
     const [selectedApiProvider, setSelectedApiProvider] = useState('');
 
     const getApiProviders = () => {
-        const apiProviders = getApiProviderAliases();
-        return apiProviders.filter((provider) => provider.toLowerCase().includes(apiProvider.toLowerCase()));
+        const filteredApiProviders = getApiProviderAliases().filter((api) => !api.match(/(.*)(-mock)/));
+        return filteredApiProviders.filter((provider) => provider.toLowerCase().includes(apiProvider.toLowerCase()));
     };
 
     return (

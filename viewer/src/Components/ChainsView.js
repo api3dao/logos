@@ -8,9 +8,12 @@ import InfoView from '../Custom/InfoView';
 
 const ChainList = ({ isTestnet, chain }) => {
     const [selectedChain, setSelectedChain] = useState('');
+    const deprecatedChains = ['1313161555', '1313161554', '56288', '288', '71401', '647', '416'];
 
     const getChains = (isTestnet) => {
-        return Api3Chains.CHAINS.filter(
+        const filteredChains = Api3Chains.CHAINS.filter((chain) => chain.id && !deprecatedChains.includes(chain.id));
+
+        return filteredChains.filter(
             (chainObject) =>
                 chainObject.name.toLowerCase().includes(chain.toLowerCase()) && chainObject.testnet === isTestnet
         );
