@@ -1,5 +1,16 @@
 # @api3/logos
 
+## 0.1.19
+
+### Patch Changes
+
+- b1c8275: Some changes have been made to the `logos`.
+
+  | Logo                                                 | Name | Category |
+  | ---------------------------------------------------- | ---- | -------- |
+  | <img src="./raw/symbols/ordi.svg" width="36" alt=""> | ordi | symbol   |
+  | <img src="./raw/symbols/sats.svg" width="36" alt=""> | sats | symbol   |
+
 ## 0.1.18
 
 ### Patch Changes
