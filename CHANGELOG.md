@@ -1,5 +1,18 @@
 # @api3/logos
 
+## 0.1.21
+
+### Patch Changes
+
+-   14dada6: Some changes have been made to the `logos`.
+
+    | Logo                                                     | Name | Category |
+    | -------------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/chains/Chain2424.svg" width="36" alt=""> | 2424 | chain    |
+    | <img src="./raw/chains/Chain2525.svg" width="36" alt=""> | 2525 | chain    |
+
+-   e2bcb3a: Add OEV Network logo Update inEVM and inEVM testnet logos
+
 ## 0.1.20
 
 ### Patch Changes
