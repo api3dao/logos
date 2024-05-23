@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 0.1.24
+
+### Patch Changes
+
+-   505d2db: Some changes have been made to the `logos`.
+
+    | Logo                                                  | Name  | Category |
+    | ----------------------------------------------------- | ----- | -------- |
+    | <img src="./raw/symbols/speth.svg" width="36" alt=""> | speth | symbol   |
+
 ## 0.1.23
 
 ### Patch Changes
