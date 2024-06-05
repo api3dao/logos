@@ -12,7 +12,7 @@ const SymbolsView = () => {
     const getSymbols = () => {
         const supportedFeed = [
             ...new Set(
-                getApiProviderAliases()
+                getApiProviderAliases().filter((api) => !api.match(/(.*)(-mock)/))
                     .map((apiProvider) => Object.values(apisData[apiProvider].supportedFeedsInBatches).flat(2))
                     .flat()
             )
