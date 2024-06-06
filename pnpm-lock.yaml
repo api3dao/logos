@@ -13,8 +13,8 @@ importers:
         version: 6.3.0
     devDependencies:
       '@api3/api-integrations':
-        specifier: ^1.12.0
-        version: 1.12.0
+        specifier: ^1.13.0
+        version: 1.13.0
       '@api3/chains':
         specifier: ^7.1.0
         version: 7.1.0(typescript@5.4.5)
@@ -64,8 +64,8 @@ importers:
   viewer:
     devDependencies:
       '@api3/api-integrations':
-        specifier: ^1.12.0
-        version: 1.12.0
+        specifier: ^1.13.0
+        version: 1.13.0
       '@api3/chains':
         specifier: ^7.1.0
         version: 7.1.0(typescript@5.4.5)
@@ -159,13 +159,13 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@api3/api-integrations@1.12.0:
-    resolution: {integrity: sha512-aM7JKjAB6LKtmDUDBeCiUdUmTnJEl5j9YiYhL4ZH7IFtJeZ4QZo7NsSqFZ7ZCdRFEnIVigsH5SjcPSi2qjuYKA==}
+  /@api3/api-integrations@1.13.0:
+    resolution: {integrity: sha512-mJBUT3stk2hnSZXSGS9fkSXhr77+GlpQr6O7IhZ9ra5ll58X2StQI4MyonWj46UvcFeWCltHHhE6C/XZfA4c9Q==}
     dependencies:
       '@api3/airnode-abi': 0.14.1
       '@api3/ois': 2.3.2
       ethers: 5.7.2
-      zod: 3.23.6
+      zod: 3.23.8
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -186,7 +186,7 @@ packages:
     resolution: {integrity: sha512-hYQCbCAtWMGKV+pECRY5tbfCSOcheeo9s6wtrhn1dOWw151VeG0sKG3VbBEsyA6cvSaldewBWY3t/JGaupdThg==}
     dependencies:
       lodash: 4.17.21
-      zod: 3.23.6
+      zod: 3.23.8
     dev: true
 
   /@apideck/better-ajv-errors@0.3.6(ajv@8.12.0):
@@ -15209,6 +15209,10 @@ packages:
 
   /zod@3.23.6:
     resolution: {integrity: sha512-RTHJlZhsRbuA8Hmp/iNL7jnfc4nZishjsanDAfEY1QpDQZCahUp3xDzl+zfweE9BklxMUcgBgS1b7Lvie/ZVwA==}
+    dev: true
+
+  /zod@3.23.8:
+    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
     dev: true
 
   /zwitch@2.0.4:
