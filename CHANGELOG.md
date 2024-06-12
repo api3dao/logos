@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 0.1.34
+
+### Patch Changes
+
+-   9835ef9: Some changes have been made to the `logos`.
+
+    | Logo                                                  | Name  | Category |
+    | ----------------------------------------------------- | ----- | -------- |
+    | <img src="./raw/symbols/taiko.svg" width="36" alt=""> | taiko | symbol   |
+
 ## 0.1.33
 
 ### Patch Changes
