@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 0.1.36
+
+### Patch Changes
+
+-   8716d45: Some changes have been made to the `logos`.
+
+    | Logo                                              | Name | Category |
+    | ------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/w.svg" width="36" alt=""> | w    | symbol   |
+
 ## 0.1.35
 
 ### Patch Changes
