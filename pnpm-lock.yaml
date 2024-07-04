@@ -16,8 +16,8 @@ importers:
         specifier: ^1.16.0
         version: 1.16.0
       '@api3/chains':
-        specifier: ^8.0.0
-        version: 8.0.0(typescript@5.4.5)
+        specifier: ^8.1.0
+        version: 8.1.0(typescript@5.4.5)
       '@babel/core':
         specifier: ^7.24.7
         version: 7.24.7
@@ -67,8 +67,8 @@ importers:
         specifier: ^1.16.0
         version: 1.16.0
       '@api3/chains':
-        specifier: ^8.0.0
-        version: 8.0.0(typescript@5.4.5)
+        specifier: ^8.1.0
+        version: 8.1.0(typescript@5.4.5)
       '@api3/logos':
         specifier: workspace:*
         version: link:..
@@ -171,8 +171,8 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@api3/chains@8.0.0(typescript@5.4.5):
-    resolution: {integrity: sha512-A01JgkxsmWswyHqx/vU4KNTXTlohD+wjuBi6Q5fBi/ncJv5dScm/bJOICLRsxFZH9wfy/8CI+oPyKqog87Spiw==}
+  /@api3/chains@8.1.0(typescript@5.4.5):
+    resolution: {integrity: sha512-CJnnnqb6Z5c0l/gGTBbBcnYrYPmfQQnriNdmLL10E4dFQ4h+7uqAzvIxo+iYR1+U2YZW1oNuUy+k1zyRNgESsA==}
     dependencies:
       viem: 2.17.0(typescript@5.4.5)(zod@3.23.8)
       zod: 3.23.8
@@ -14349,7 +14349,7 @@ packages:
       spdy: 4.0.2
       webpack: 5.91.0
       webpack-dev-middleware: 5.3.4(webpack@5.91.0)
-      ws: 8.16.0
+      ws: 8.17.1
     transitivePeerDependencies:
       - bufferutil
       - debug
@@ -14772,19 +14772,6 @@ packages:
     peerDependencies:
       bufferutil: ^4.0.1
       utf-8-validate: ^5.0.2
-    peerDependenciesMeta:
-      bufferutil:
-        optional: true
-      utf-8-validate:
-        optional: true
-    dev: true
-
-  /ws@8.16.0:
-    resolution: {integrity: sha512-HS0c//TP7Ina87TfiPUz1rQzMhHrl/SG2guqRcTOIUYD2q8uhUdNHZYJUaQ8aTGPzCh+c6oawMKW35nFl1dxyQ==}
-    engines: {node: '>=10.0.0'}
-    peerDependencies:
-      bufferutil: ^4.0.1
-      utf-8-validate: '>=5.0.2'
     peerDependenciesMeta:
       bufferutil:
         optional: true
