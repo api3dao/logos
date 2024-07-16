@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 0.1.42
+
+### Patch Changes
+
+-   eab2525: Some changes have been made to the `logos`.
+
+    | Logo                                                  | Name  | Category |
+    | ----------------------------------------------------- | ----- | -------- |
+    | <img src="./raw/symbols/ineth.svg" width="36" alt=""> | ineth | symbol   |
+
 ## 0.1.41
 
 ### Patch Changes
