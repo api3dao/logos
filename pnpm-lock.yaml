@@ -13,8 +13,8 @@ importers:
         version: 6.3.0
     devDependencies:
       '@api3/api-integrations':
-        specifier: ^1.16.0
-        version: 1.16.0
+        specifier: ^1.17.0
+        version: 1.17.0(typescript@5.4.5)
       '@api3/chains':
         specifier: ^8.1.1
         version: 8.1.1(typescript@5.4.5)
@@ -64,8 +64,8 @@ importers:
   viewer:
     devDependencies:
       '@api3/api-integrations':
-        specifier: ^1.16.0
-        version: 1.16.0
+        specifier: ^1.17.0
+        version: 1.17.0(typescript@5.4.5)
       '@api3/chains':
         specifier: ^8.1.1
         version: 8.1.1(typescript@5.4.5)
@@ -149,8 +149,8 @@ packages:
       '@jridgewell/trace-mapping': 0.3.25
     dev: true
 
-  /@api3/airnode-abi@0.14.1:
-    resolution: {integrity: sha512-iKBJeLkKAT+ywgG8mf2G+yqeYBUVxDf7KMvpYWB/qdVjgo+qGJfLnoh9h5+u9fiUSVJS9L4c0YDWZiG2Ex5gzw==}
+  /@api3/airnode-abi@0.14.2:
+    resolution: {integrity: sha512-C3AVklVyTG3A4v7Q3tGrE0UmVinPnPouZmtcW7fdOprnHB/WgHbRDbb9KmI6cMmhKCur7CpwmTY5MVH/E7TpcQ==}
     dependencies:
       ethers: 5.7.2
       lodash: 4.17.21
@@ -159,15 +159,17 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@api3/api-integrations@1.16.0:
-    resolution: {integrity: sha512-yWeiD6MA7IgKqHBu1iK+asDULgrCdxZAR+oOh2wI05hGK/UQZCw4T0uXIa6Fl3tG0EJDndIxAg+ZeOwzytND8g==}
+  /@api3/api-integrations@1.17.0(typescript@5.4.5):
+    resolution: {integrity: sha512-4rnkRT5c700rv29Pj8P/1KH20BtiE55J1JSh/4P5d3DJbbVdsXvmrZeC5/vuVylt3cRog7vHlETL5ovnSIUUTg==}
     dependencies:
-      '@api3/airnode-abi': 0.14.1
+      '@api3/airnode-abi': 0.14.2
+      '@api3/chains': 8.1.1(typescript@5.4.5)
       '@api3/ois': 2.3.2
       ethers: 5.7.2
       zod: 3.23.8
     transitivePeerDependencies:
       - bufferutil
+      - typescript
       - utf-8-validate
     dev: true
 
