@@ -47,9 +47,9 @@
         "node-fetch": "^2.7.0",
         "dotenv": "^16.4.5",
         "prettier": "^3.3.3",
-        "rimraf": "^5.0.9",
-        "@typescript-eslint/eslint-plugin": "^7.18.0",
-        "@typescript-eslint/parser": "^7.18.0",
+        "rimraf": "^6.0.1",
+        "@typescript-eslint/eslint-plugin": "^8.0.0",
+        "@typescript-eslint/parser": "^8.0.0",
         "eslint-config-prettier": "^9.1.0",
         "svgo": "^3.3.0"
     },
