@@ -13,8 +13,8 @@ importers:
         version: 6.3.0
     devDependencies:
       '@api3/api-integrations':
-        specifier: ^1.19.0
-        version: 1.19.0(typescript@5.4.5)
+        specifier: ^1.20.0
+        version: 1.20.0(typescript@5.4.5)
       '@api3/chains':
         specifier: ^9.0.0
         version: 9.0.0(typescript@5.4.5)
@@ -64,8 +64,8 @@ importers:
   viewer:
     devDependencies:
       '@api3/api-integrations':
-        specifier: ^1.19.0
-        version: 1.19.0(typescript@5.4.5)
+        specifier: ^1.20.0
+        version: 1.20.0(typescript@5.4.5)
       '@api3/chains':
         specifier: ^9.0.0
         version: 9.0.0(typescript@5.4.5)
@@ -159,24 +159,13 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@api3/api-integrations@1.19.0(typescript@5.4.5):
-    resolution: {integrity: sha512-as/zgE4ylTUqFtHXzhrrtoZqHm247ry0unxrf/5ljCLRREn72T1CdFIVGnO0vJV2gxQpvOVg1eSk75aI1d8t4A==}
+  /@api3/api-integrations@1.20.0(typescript@5.4.5):
+    resolution: {integrity: sha512-E3UB44saXhycosQ4pfsoNhs1hZ4/ID9uDDOjSfFnDwKpFQ+e9cL5UE2rkBYSyKfIbrXNW2xx/JbfZLfvAeR2SA==}
     dependencies:
       '@api3/airnode-abi': 0.14.2
-      '@api3/chains': 8.1.1(typescript@5.4.5)
+      '@api3/chains': 9.0.0(typescript@5.4.5)
       '@api3/ois': 2.3.2
       ethers: 5.7.2
-      zod: 3.23.8
-    transitivePeerDependencies:
-      - bufferutil
-      - typescript
-      - utf-8-validate
-    dev: true
-
-  /@api3/chains@8.1.1(typescript@5.4.5):
-    resolution: {integrity: sha512-2woMgPksMEzH2tU7ZH5tHNHr9qbZDG+bEWcAGcs+A3/GJKNBaTmxVerIyTo4IZA9f6vN91i7fH3UPAq/S8KQDw==}
-    dependencies:
-      viem: 2.17.0(typescript@5.4.5)(zod@3.23.8)
       zod: 3.23.8
     transitivePeerDependencies:
       - bufferutil
