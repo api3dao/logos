@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 0.1.46
+
+### Patch Changes
+
+-   1c35aa4: Some changes have been made to the `logos`.
+
+    | Logo                                                | Name | Category |
+    | --------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/cfx.svg" width="36" alt=""> | cfx  | symbol   |
+
 ## 0.1.45
 
 ### Patch Changes
