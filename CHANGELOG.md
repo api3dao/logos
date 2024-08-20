@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 0.1.47
+
+### Patch Changes
+
+-   a42c39c: Some changes have been made to the `logos`.
+
+    | Logo                                                    | Name    | Category |
+    | ------------------------------------------------------- | ------- | -------- |
+    | <img src="./raw/symbols/ankreth.svg" width="36" alt=""> | ankreth | symbol   |
+
 ## 0.1.46
 
 ### Patch Changes
