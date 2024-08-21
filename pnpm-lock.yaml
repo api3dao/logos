@@ -16,8 +16,8 @@ importers:
         specifier: ^1.23.0
         version: 1.23.0(typescript@5.4.5)
       '@api3/chains':
-        specifier: ^9.2.1
-        version: 9.2.1(typescript@5.4.5)
+        specifier: ^10.0.0
+        version: 10.0.0(typescript@5.4.5)
       '@babel/core':
         specifier: ^7.25.2
         version: 7.25.2
@@ -67,8 +67,8 @@ importers:
         specifier: ^1.23.0
         version: 1.23.0(typescript@5.4.5)
       '@api3/chains':
-        specifier: ^9.2.1
-        version: 9.2.1(typescript@5.4.5)
+        specifier: ^10.0.0
+        version: 10.0.0(typescript@5.4.5)
       '@api3/logos':
         specifier: workspace:*
         version: link:..
@@ -166,6 +166,17 @@ packages:
       '@api3/chains': 9.2.1(typescript@5.4.5)
       '@api3/ois': 2.3.2
       ethers: 5.7.2
+      zod: 3.23.8
+    transitivePeerDependencies:
+      - bufferutil
+      - typescript
+      - utf-8-validate
+    dev: true
+
+  /@api3/chains@10.0.0(typescript@5.4.5):
+    resolution: {integrity: sha512-ZGPadx2cqCnNagO9qQraWIT6vwtbCR7Dtxj+WnpJXsdrN/ITSeItkptSligfi49D73TbJ/SzSpV4Hb20990jMg==}
+    dependencies:
+      viem: 2.18.8(typescript@5.4.5)(zod@3.23.8)
       zod: 3.23.8
     transitivePeerDependencies:
       - bufferutil
