@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 0.1.48
+
+### Patch Changes
+
+-   e284a9e: Some changes have been made to the `logos`.
+
+    | Logo                                                       | Name | Category     |
+    | ---------------------------------------------------------- | ---- | ------------ |
+    | <img src="./raw/api-providers/ankr.svg" width="36" alt=""> | ankr | api-provider |
+
 ## 0.1.47
 
 ### Patch Changes
