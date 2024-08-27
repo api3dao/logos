@@ -13,8 +13,8 @@ importers:
         version: 6.3.0
     devDependencies:
       '@api3/api-integrations':
-        specifier: ^1.24.0
-        version: 1.24.0(typescript@5.4.5)
+        specifier: ^1.25.0
+        version: 1.25.0(typescript@5.4.5)
       '@api3/chains':
         specifier: ^10.0.0
         version: 10.0.0(typescript@5.4.5)
@@ -64,8 +64,8 @@ importers:
   viewer:
     devDependencies:
       '@api3/api-integrations':
-        specifier: ^1.24.0
-        version: 1.24.0(typescript@5.4.5)
+        specifier: ^1.25.0
+        version: 1.25.0(typescript@5.4.5)
       '@api3/chains':
         specifier: ^10.0.0
         version: 10.0.0(typescript@5.4.5)
@@ -159,8 +159,8 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@api3/api-integrations@1.24.0(typescript@5.4.5):
-    resolution: {integrity: sha512-aS/x1oGOJ9EadEmYFoagpCQABbcQ/LLY2kxHSKFIAcPRLR82g5Kqvxbio+Bz9GjpDU35aqaKPE35Clu2xVnlnQ==}
+  /@api3/api-integrations@1.25.0(typescript@5.4.5):
+    resolution: {integrity: sha512-Ek+pMOqhrJxUEMAZGoUg3k3DOhF9GMBUX3eyk6YLb+KX+0weFHaaM7BRJ/IOC2aJtD3nWW8pY0UIv4cYxCaC2Q==}
     dependencies:
       '@api3/airnode-abi': 0.14.2
       '@api3/chains': 9.2.1(typescript@5.4.5)
