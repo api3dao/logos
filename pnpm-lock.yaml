@@ -13,11 +13,11 @@ importers:
         version: 6.3.0
     devDependencies:
       '@api3/api-integrations':
-        specifier: ^1.26.0
-        version: 1.26.0(typescript@5.4.5)
+        specifier: ^1.27.0
+        version: 1.27.0(typescript@5.4.5)
       '@api3/chains':
-        specifier: ^10.0.0
-        version: 10.0.0(typescript@5.4.5)
+        specifier: ^10.1.0
+        version: 10.1.0(typescript@5.4.5)
       '@babel/core':
         specifier: ^7.25.2
         version: 7.25.2
@@ -64,11 +64,11 @@ importers:
   viewer:
     devDependencies:
       '@api3/api-integrations':
-        specifier: ^1.26.0
-        version: 1.26.0(typescript@5.4.5)
+        specifier: ^1.27.0
+        version: 1.27.0(typescript@5.4.5)
       '@api3/chains':
-        specifier: ^10.0.0
-        version: 10.0.0(typescript@5.4.5)
+        specifier: ^10.1.0
+        version: 10.1.0(typescript@5.4.5)
       '@api3/logos':
         specifier: workspace:*
         version: link:..
@@ -159,11 +159,11 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@api3/api-integrations@1.26.0(typescript@5.4.5):
-    resolution: {integrity: sha512-M8zgM6nJTGh5dp0pKzj7/uvw3v/MQmet13sgc6S8F+ml5XLKwvRNgEnGsjpcVhgwozTQCFV71SPU56n6uZbhyQ==}
+  /@api3/api-integrations@1.27.0(typescript@5.4.5):
+    resolution: {integrity: sha512-n3jQa5GsslTU6vlUn/qm/A2+3YVzjLaWlhENRJEB2JZQnK9+eOUQkeP3IhUGkYOUdxL4f4M1FEeJ8YGXEb6HwQ==}
     dependencies:
       '@api3/airnode-abi': 0.14.2
-      '@api3/chains': 10.0.0(typescript@5.4.5)
+      '@api3/chains': 10.1.0(typescript@5.4.5)
       '@api3/ois': 2.3.2
       ethers: 5.7.2
       zod: 3.23.8
@@ -173,8 +173,8 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@api3/chains@10.0.0(typescript@5.4.5):
-    resolution: {integrity: sha512-ZGPadx2cqCnNagO9qQraWIT6vwtbCR7Dtxj+WnpJXsdrN/ITSeItkptSligfi49D73TbJ/SzSpV4Hb20990jMg==}
+  /@api3/chains@10.1.0(typescript@5.4.5):
+    resolution: {integrity: sha512-Cgo6ojd1idK99vIcJ2JiEfOyCTu34+pbQ6IM1LD4wEi6cHBrf8FZWs51LjcjKrDEV8R74o0IqX0QvvkvyyNkVA==}
     dependencies:
       viem: 2.18.8(typescript@5.4.5)(zod@3.23.8)
       zod: 3.23.8
