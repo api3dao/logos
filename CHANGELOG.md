@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 0.1.51
+
+### Patch Changes
+
+-   1f78d97: Some changes have been made to the `logos`.
+
+    | Logo                                                  | Name  | Category |
+    | ----------------------------------------------------- | ----- | -------- |
+    | <img src="./raw/symbols/ageth.svg" width="36" alt=""> | ageth | symbol   |
+
 ## 0.1.50
 
 ### Patch Changes
