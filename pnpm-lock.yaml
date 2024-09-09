@@ -16,8 +16,8 @@ importers:
         specifier: ^1.28.0
         version: 1.28.0(typescript@5.4.5)
       '@api3/chains':
-        specifier: ^10.1.1
-        version: 10.1.1(typescript@5.4.5)
+        specifier: ^10.2.0
+        version: 10.2.0(typescript@5.4.5)
       '@babel/core':
         specifier: ^7.25.2
         version: 7.25.2
@@ -67,8 +67,8 @@ importers:
         specifier: ^1.28.0
         version: 1.28.0(typescript@5.4.5)
       '@api3/chains':
-        specifier: ^10.1.1
-        version: 10.1.1(typescript@5.4.5)
+        specifier: ^10.2.0
+        version: 10.2.0(typescript@5.4.5)
       '@api3/logos':
         specifier: workspace:*
         version: link:..
@@ -163,7 +163,7 @@ packages:
     resolution: {integrity: sha512-puYY9YLGD/gkpeKxiiiT/BXxVU7G4PEuKrFrDjJFbSD0Od2VSXUTc8wy5DYDZY+oekXpCJDnseVlQHPQtaBlLA==}
     dependencies:
       '@api3/airnode-abi': 0.14.2
-      '@api3/chains': 10.1.1(typescript@5.4.5)
+      '@api3/chains': 10.2.0(typescript@5.4.5)
       '@api3/ois': 2.3.2
       ethers: 5.7.2
       zod: 3.23.8
@@ -173,8 +173,8 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@api3/chains@10.1.1(typescript@5.4.5):
-    resolution: {integrity: sha512-E7gmFeRzfAnQQupR22auTXpA/8l8NhqixK7kqT3z1+jQmRhLbp0LUI9raD2ev6pNvTdfnp/J0d4q2zISp2vUyg==}
+  /@api3/chains@10.2.0(typescript@5.4.5):
+    resolution: {integrity: sha512-83x5+nkn6CMGhvj5seYZhTgPKsYVflx7+akvyiKaJKziwW8wUi2B4QRAcPQcLMrF13qx/u6qwGVI9vmYbx/g7A==}
     dependencies:
       viem: 2.21.2(typescript@5.4.5)(zod@3.23.8)
       zod: 3.23.8
@@ -4384,10 +4384,6 @@ packages:
     resolution: {integrity: sha512-hw437iINopmQuxWPSUEvqE56NCPsiU8N4AYtfHmJFckclktzK9YQJieD3XkDCDH4OjL+C7zgPUh73R/nrcHrqw==}
     dev: true
 
-  /@scure/base@1.1.6:
-    resolution: {integrity: sha512-ok9AWwhcgYuGG3Zfhyqg+zwl+Wn5uE+dwC0NV/2qQkx4dABbb/bx96vWu8NSj+BNjjSjno+JRYRjle1jV08k3g==}
-    dev: true
-
   /@scure/base@1.1.8:
     resolution: {integrity: sha512-6CyAclxj3Nb0XT7GHK6K4zK6k2xJm6E4Ft0Ohjt4WgegiFUHEtFb2CGzmPmGBwoIhrLsqNLYfLr04Y1GePrzZg==}
     dev: true
@@ -4397,7 +4393,7 @@ packages:
     dependencies:
       '@noble/curves': 1.4.0
       '@noble/hashes': 1.4.0
-      '@scure/base': 1.1.6
+      '@scure/base': 1.1.8
     dev: true
 
   /@scure/bip39@1.4.0:
@@ -14238,7 +14234,7 @@ packages:
     resolution: {integrity: sha512-drMGNWKdaixZNobeORVIqq7k5DsRC9FnG201K2QjeOoQLmtSDaSsVZdkg6n5jUALJKcAG++zBPJXmv6hy0nWFg==}
     dependencies:
       '@noble/curves': 1.4.0
-      '@noble/hashes': 1.4.0
+      '@noble/hashes': 1.5.0
     dev: true
 
   /webidl-conversions@3.0.1:
