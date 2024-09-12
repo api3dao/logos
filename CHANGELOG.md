@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 0.1.56
+
+### Patch Changes
+
+-   f5dfeed: Add RENDER symbol
+
+    | Logo                                                   | Name   | Category |
+    | ------------------------------------------------------ | ------ | -------- |
+    | <img src="./raw/symbols/render.svg" width="36" alt=""> | render | symbol   |
+
 ## 0.1.55
 
 ### Patch Changes
