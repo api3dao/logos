@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 0.1.55
+
+### Patch Changes
+
+-   4d8e518: Some changes have been made to the `logos`.
+
+    | Logo                                                | Name | Category |
+    | --------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/pol.svg" width="36" alt=""> | pol  | symbol   |
+
 ## 0.1.54
 
 ### Patch Changes

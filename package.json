@@ -1,6 +1,6 @@
 {
     "name": "@api3/logos",
-    "version": "0.1.54",
+    "version": "0.1.55",
     "license": "MIT",
     "sideEffects": false,
     "repository": {
@@ -41,7 +41,7 @@
         "@babel/preset-react": "^7.24.7",
         "@changesets/changelog-github": "^0.5.0",
         "@changesets/cli": "^2.27.8",
-        "@api3/api-integrations": "^1.28.0",
+        "@api3/api-integrations": "^1.29.0",
         "@api3/chains": "^10.2.0",
         "dropbox": "^10.34.0",
         "node-fetch": "^2.7.0",
