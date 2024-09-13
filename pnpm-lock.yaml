@@ -16,8 +16,8 @@ importers:
         specifier: ^1.29.0
         version: 1.29.0(typescript@5.4.5)
       '@api3/chains':
-        specifier: ^10.2.0
-        version: 10.2.0(typescript@5.4.5)
+        specifier: ^10.2.1
+        version: 10.2.1(typescript@5.4.5)
       '@babel/core':
         specifier: ^7.25.2
         version: 7.25.2
@@ -67,8 +67,8 @@ importers:
         specifier: ^1.29.0
         version: 1.29.0(typescript@5.4.5)
       '@api3/chains':
-        specifier: ^10.2.0
-        version: 10.2.0(typescript@5.4.5)
+        specifier: ^10.2.1
+        version: 10.2.1(typescript@5.4.5)
       '@api3/logos':
         specifier: workspace:*
         version: link:..
@@ -163,7 +163,7 @@ packages:
     resolution: {integrity: sha512-yHOP7xHYxOSXHL5Sw1+7PUfkVoVmO08dmkm8R0XrPvO736/VFKj21MvbBeQbEJUM0TgfyheBgKRLAdPVYSaYDw==}
     dependencies:
       '@api3/airnode-abi': 0.14.2
-      '@api3/chains': 10.2.0(typescript@5.4.5)
+      '@api3/chains': 10.2.1(typescript@5.4.5)
       '@api3/ois': 2.3.2
       ethers: 5.7.2
       zod: 3.23.8
@@ -173,8 +173,8 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@api3/chains@10.2.0(typescript@5.4.5):
-    resolution: {integrity: sha512-83x5+nkn6CMGhvj5seYZhTgPKsYVflx7+akvyiKaJKziwW8wUi2B4QRAcPQcLMrF13qx/u6qwGVI9vmYbx/g7A==}
+  /@api3/chains@10.2.1(typescript@5.4.5):
+    resolution: {integrity: sha512-KN0lCj/l7OakpS+ZyB3jJm6lrPaT8GPwnjF0CfDl/OLmSx+frgfgfsCwYZ8YKtowO6OrzLE2oTxU48YwXToMeQ==}
     dependencies:
       viem: 2.21.2(typescript@5.4.5)(zod@3.23.8)
       zod: 3.23.8
