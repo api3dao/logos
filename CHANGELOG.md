@@ -1,5 +1,16 @@
 # @api3/logos
 
+## 0.1.57
+
+### Patch Changes
+
+-   5368de1: Some changes have been made to the `logos`.
+
+    | Logo                                                | Name | Category |
+    | --------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/zro.svg" width="36" alt=""> | zro  | symbol   |
+    | <img src="./raw/symbols/zk.svg" width="36" alt="">  | zk   | symbol   |
+
 ## 0.1.56
 
 ### Patch Changes
