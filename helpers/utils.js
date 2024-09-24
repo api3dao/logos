@@ -1,8 +1,7 @@
 const fs = require('fs/promises');
 const camelcase = require('camelcase');
 const { rename } = require('fs');
-const chains = require('@api3/chains');
-const { apisData, getApiProviderAliases } = require('@api3/api-integrations');
+const { getChains, dapis } = require('@api3/dapi-management');
 
 module.exports = {
     sanitizeName,
@@ -14,116 +13,32 @@ module.exports = {
     copySvgFiles,
     renameFiles,
     getManualLogos,
-    getDeprecatedChains,
-    getChains,
+    getSupportedChains,
     getApiProviders,
     getSupportedFeeds
 };
 
-function getDeprecatedChains() {
-    return ['1313161555', '1313161554', '56288', '288', '71401', '647', '416'];
-}
-
-function getChains() {
-    return chains.CHAINS.filter((chain) => chain.id && !getDeprecatedChains().includes(chain.id));
-}
-
 function getApiProviders() {
-    return getApiProviderAliases().filter((api) => !api.match(/(.*)(-mock)/));
+    const providers = [...new Set(dapis.map((dapi) => dapi.providers).flat())];
+    const filteredApiProviders = providers.filter((api) => !api.match(/(.*)(-mock)/));
+    return filteredApiProviders;
 }
 
 function getSupportedFeeds() {
-    const supportedFeeds = getApiProviders()
-        .map((apiProvider) => Object.values(apisData[apiProvider].supportedFeedsInBatches).flat(2))
-        .flat();
-    const reduced = supportedFeeds.map((feed) => feed.replaceAll(' Exchange Rate', '').split('/')).flat();
-    return new Set(reduced);
+    const filtered = dapis.filter((dapi) => dapi.stage !== 'retired').map((dapi) => dapi.name);
+    return filtered.map((feed) => feed.replaceAll(' Exchange Rate', '').split('/')).flat();
+}
+
+function getSupportedChains() {
+    return getChains().filter((chain) => chain.stage !== 'retired');
 }
 
 function getManualLogos(mode) {
     switch (mode) {
         case 'chain':
-            return ['25', '534352'];
+            return [];
         case 'symbol':
-            return [
-                'alpaca',
-                'amd',
-                'amp',
-                'apxeth',
-                'bch',
-                'benqi',
-                'bit',
-                'blockstack',
-                'brz',
-                'bsv',
-                'busd',
-                'chain',
-                'dash',
-                'dfi',
-                'dkk',
-                'eb',
-                'ecash',
-                'elrond',
-                'eos',
-                'etc',
-                'ezeth',
-                'flux',
-                'ftx',
-                'gate',
-                'gmt',
-                'hkd',
-                'icon',
-                'icx',
-                'iost',
-                'iotx',
-                'jst',
-                'klay',
-                'knc',
-                'leo',
-                'lpt',
-                'lrc',
-                'luna',
-                'mim',
-                'mimatic',
-                'miota',
-                'neo',
-                'neutr',
-                'nexo',
-                'nke',
-                'nok',
-                'omg',
-                'one',
-                'ooki',
-                'pax',
-                'pltr',
-                'pufeth',
-                'pyusd',
-                'qcom',
-                'qi',
-                'qnt',
-                'rbtc',
-                'rus',
-                'rvn',
-                'srm',
-                'stock',
-                'susd',
-                'tfuel',
-                'theta',
-                'twt',
-                'uber',
-                'usa',
-                'usdd',
-                'vet',
-                'waves',
-                'wld',
-                'xaut',
-                'xec',
-                'xvs',
-                'zc',
-                'zcash',
-                'zkevm',
-                'zs'
-            ];
+            return [];
         case 'api-provider':
             return [];
         default:
