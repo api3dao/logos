@@ -30,7 +30,22 @@ function getSupportedFeeds() {
 }
 
 function getSupportedChains() {
-    return getChains().filter((chain) => chain.stage !== 'retired');
+    return getChains()
+        .filter((chain) => chain.stage !== 'retired')
+        .map((chain) => chain.id);
+}
+
+function getSupportList(mode) {
+    switch (mode) {
+        case 'chain':
+            return getSupportedChains();
+        case 'symbol':
+            return getSupportedFeeds();
+        case 'api-provider':
+            return getApiProviders();
+        default:
+            break;
+    }
 }
 
 function getManualLogos(mode) {
@@ -167,7 +182,14 @@ export default ${batchName};
 }
 
 async function copySvgFiles(files, logosDir, prefix = '') {
+    const supportList = getSupportList(prefix);
+    const exceptions = ['Placeholder', 'Light'];
     files.forEach(async (file) => {
+        const isSupported =
+            supportList.some(
+                (item) => item.toLowerCase() === file.replace('.svg', '').replace('Chain', '').toLowerCase()
+            ) || exceptions.some((item) => file.includes(item));
+        if (!isSupported) return;
         await fs.copyFile(`./optimized/${prefix}/${file}`, `${logosDir}/${file}`);
     });
 }
