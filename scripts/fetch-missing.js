@@ -36,7 +36,7 @@ async function getDropbox() {
 function getLogoList(mode) {
     switch (mode) {
         case 'chain':
-            return [...utils.getManualLogos(mode), ...utils.getSupportedChains().map((chain) => chain.id)];
+            return [...utils.getManualLogos(mode), ...utils.getSupportedChains()];
         case 'symbol':
             return [...utils.getManualLogos(mode), ...utils.getSupportedFeeds()];
         case 'api-provider':
