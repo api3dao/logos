@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 0.1.58
+
+### Patch Changes
+
+-   5c9988c: Some changes have been made to the `logos`.
+
+    | Logo                                                            | Name      | Category     |
+    | --------------------------------------------------------------- | --------- | ------------ |
+    | <img src="./raw/api-providers/blocksize.svg" width="36" alt=""> | blocksize | api-provider |
+
 ## 0.1.57
 
 ### Patch Changes
