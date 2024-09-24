@@ -1,5 +1,5 @@
 import { Flex, Text, Image, VStack } from '@chakra-ui/react';
-import * as Api3Chains from '@api3/chains';
+import { getChains } from '@api3/dapi-management';
 import {
     SymbolLogoMissing,
     SymbolLogo,
@@ -12,7 +12,7 @@ import Title from '../Custom/Title';
 
 const MissingBatchView = ({ header, batch, method }) => {
     const getChain = (chainId) => {
-        return Api3Chains.CHAINS.find((chainObject) => chainObject.id === chainId).name + ' (' + chainId + ')';
+        return getChains().find((chainObject) => chainObject.id === chainId).name + ' (' + chainId + ')';
     };
 
     return batch.length === 0 ? null : (

@@ -3,101 +3,15 @@ import { SymbolLogo } from '@api3/logos';
 import SearchRow from '../Custom/SearchRow';
 import { useState } from 'react';
 import InfoView from '../Custom/InfoView';
-import { apisData, getApiProviderAliases } from '@api3/api-integrations';
+import { dapis } from '@api3/dapi-management';
 
 const SymbolsView = () => {
     const [symbol, setSymbol] = useState('');
     const [selectedSymbol, setSelectedSymbol] = useState('');
 
     const getSymbols = () => {
-        const supportedFeed = [
-            ...new Set(
-                getApiProviderAliases()
-                    .filter((api) => !api.match(/(.*)(-mock)/))
-                    .map((apiProvider) => Object.values(apisData[apiProvider].supportedFeedsInBatches).flat(2))
-                    .flat()
-            )
-        ];
-        const manual = [
-            'alpaca',
-            'amd',
-            'amp',
-            'apxeth',
-            'bch',
-            'benqi',
-            'bit',
-            'blockstack',
-            'brz',
-            'bsv',
-            'busd',
-            'chain',
-            'dash',
-            'dfi',
-            'dkk',
-            'eb',
-            'ecash',
-            'elrond',
-            'eos',
-            'etc',
-            'ezeth',
-            'flux',
-            'ftx',
-            'gate',
-            'gmt',
-            'hkd',
-            'icon',
-            'icx',
-            'iost',
-            'iotx',
-            'jst',
-            'klay',
-            'knc',
-            'leo',
-            'lpt',
-            'lrc',
-            'luna',
-            'mim',
-            'mimatic',
-            'miota',
-            'neo',
-            'neutr',
-            'nexo',
-            'nke',
-            'nok',
-            'omg',
-            'one',
-            'ooki',
-            'pax',
-            'pltr',
-            'pufeth',
-            'pyusd',
-            'qcom',
-            'qi',
-            'qnt',
-            'rbtc',
-            'rus',
-            'rvn',
-            'srm',
-            'stock',
-            'susd',
-            'tfuel',
-            'theta',
-            'twt',
-            'uber',
-            'usa',
-            'usdd',
-            'vet',
-            'waves',
-            'wld',
-            'xaut',
-            'xec',
-            'xvs',
-            'zc',
-            'zcash',
-            'zkevm',
-            'zs'
-        ];
-        const filteredFeeds = [...manual, ...new Set(supportedFeed.map((feed) => feed.split('/')).flat())];
+        const supportedFeeds = dapis.filter((dapi) => dapi.stage !== 'retired').map((dapi) => dapi.name);
+        const filteredFeeds = [...new Set(supportedFeeds.map((feed) => feed.split('/')).flat())];
         return filteredFeeds.filter((feed) => feed.toLowerCase().includes(symbol.toLowerCase()));
     };
 

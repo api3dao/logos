@@ -3,14 +3,15 @@ import { ApiProviderLogo } from '@api3/logos';
 import SearchRow from '../Custom/SearchRow';
 import { useState } from 'react';
 import InfoView from '../Custom/InfoView';
-import { getApiProviderAliases } from '@api3/api-integrations';
+import { dapis } from '@api3/dapi-management';
 
 const ApiProvidersView = () => {
     const [apiProvider, setApiProvider] = useState('');
     const [selectedApiProvider, setSelectedApiProvider] = useState('');
 
     const getApiProviders = () => {
-        const filteredApiProviders = getApiProviderAliases().filter((api) => !api.match(/(.*)(-mock)/));
+        const providers = [...new Set(dapis.map((dapi) => dapi.providers).flat())];
+        const filteredApiProviders = providers.filter((api) => !api.match(/(.*)(-mock)/));
         return filteredApiProviders.filter((provider) => provider.toLowerCase().includes(apiProvider.toLowerCase()));
     };
 
