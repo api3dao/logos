@@ -1,25 +1,22 @@
 import { Flex, Text, Spacer, Image } from '@chakra-ui/react';
 import { ChainLogo } from '@api3/logos';
-import * as Api3Chains from '@api3/chains';
+import { getChains, api3Chains } from '@api3/dapi-management';
 import SearchRow from '../Custom/SearchRow';
 import { useState } from 'react';
 import Title from '../Custom/Title';
 import InfoView from '../Custom/InfoView';
 
+const getSupportedChains = (isTestnet) => {
+    const supportedChainIds = getChains()
+        .filter((chain) => chain.stage !== 'retired')
+        .map((chain) => chain.id);
+    return api3Chains.CHAINS.filter((chain) => supportedChainIds.includes(chain.id) && chain.testnet === isTestnet);
+};
+
 const ChainList = ({ isTestnet, chain }) => {
     const [selectedChain, setSelectedChain] = useState('');
-    const deprecatedChains = ['1313161555', '1313161554', '56288', '288', '71401', '647', '416'];
 
-    const getChains = (isTestnet) => {
-        const filteredChains = Api3Chains.CHAINS.filter((chain) => chain.id && !deprecatedChains.includes(chain.id));
-
-        return filteredChains.filter(
-            (chainObject) =>
-                chainObject.name.toLowerCase().includes(chain.toLowerCase()) && chainObject.testnet === isTestnet
-        );
-    };
-
-    return getChains(isTestnet).map((chain, index) => {
+    return getSupportedChains(isTestnet).map((chain, index) => {
         return (
             <Flex
                 p={3}
@@ -60,7 +57,8 @@ const ChainsView = () => {
         <Flex p={3} gap={3} bgColor={'white'} wrap={'wrap'} alignItems="center" justifyContent="center">
             <Flex width={'100%'}>
                 <Text fontSize="md" fontWeight="bold" ml={2}>
-                    There is a total of {Api3Chains.CHAINS.length} chains
+                    There is a total of {getSupportedChains(false).length} mainnet chains and{' '}
+                    {getSupportedChains(true).length} testnet chains
                 </Text>
             </Flex>
             <SearchRow text={chain} setText={setChain} placeholder={'Enter a chain'} />

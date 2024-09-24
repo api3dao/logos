@@ -15,7 +15,11 @@ let symbolLightLogos = [];
 function getLogoList(mode) {
     switch (mode) {
         case 'chain':
-            return [...chainLightLogos, ...utils.getManualLogos(mode), ...utils.getChains().map((chain) => chain.id)];
+            return [
+                ...chainLightLogos,
+                ...utils.getManualLogos(mode),
+                ...utils.getSupportedChains().map((chain) => chain.id)
+            ];
         case 'symbol':
             return [...symbolLightLogos, ...utils.getManualLogos(mode), ...utils.getSupportedFeeds()];
         case 'api-provider':
