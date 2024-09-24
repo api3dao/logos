@@ -13,8 +13,8 @@ importers:
         version: 6.3.0
     devDependencies:
       '@api3/dapi-management':
-        specifier: 1.84.0
-        version: 1.84.0(typescript@5.6.2)
+        specifier: 1.85.0
+        version: 1.85.0(typescript@5.6.2)
       '@babel/core':
         specifier: ^7.25.2
         version: 7.25.2
@@ -61,8 +61,8 @@ importers:
   viewer:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 1.84.0
-        version: 1.84.0(typescript@5.6.2)
+        specifier: 1.85.0
+        version: 1.85.0(typescript@5.6.2)
       '@api3/logos':
         specifier: workspace:*
         version: link:..
@@ -198,8 +198,8 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@api3/dapi-management@1.84.0(typescript@5.6.2):
-    resolution: {integrity: sha512-8mRNC0ct1pn0dOIn2CRDL1SoBSS7IVXl5HuJ5wOvySWC77gNRjHfM3kAI2OYHURmvg52lGc394n13BwVxLsxzg==}
+  /@api3/dapi-management@1.85.0(typescript@5.6.2):
+    resolution: {integrity: sha512-un0BCDfz1iND8b4CNSLSH9XXJi1DEu7suQ9DxND4R1zqgv+pfG8qseNpspKRjD/YGocygGKTcACYhaCatjSSjA==}
     dependencies:
       '@api3/api-integrations': 2.0.0(typescript@5.6.2)
       '@api3/chains': 10.2.1(typescript@5.6.2)
@@ -14285,7 +14285,7 @@ packages:
     resolution: {integrity: sha512-drMGNWKdaixZNobeORVIqq7k5DsRC9FnG201K2QjeOoQLmtSDaSsVZdkg6n5jUALJKcAG++zBPJXmv6hy0nWFg==}
     dependencies:
       '@noble/curves': 1.4.0
-      '@noble/hashes': 1.4.0
+      '@noble/hashes': 1.5.0
     dev: true
 
   /webidl-conversions@3.0.1:
