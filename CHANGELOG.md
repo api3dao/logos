@@ -1,5 +1,14 @@
 # @api3/logos
 
+## 0.2.0
+
+### Minor Changes
+
+-   3a08da1: Support for a specified chain, symbol, or api-provider is now limited to following stages:
+    -   surveying
+    -   active
+    -   deprecated
+
 ## 0.1.58
 
 ### Patch Changes
