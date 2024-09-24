@@ -1,8 +1,7 @@
 const fs = require('fs/promises');
 const camelcase = require('camelcase');
 const { rename } = require('fs');
-const chains = require('@api3/chains');
-const { apisData, getApiProviderAliases } = require('@api3/api-integrations');
+const { getChains, dapis } = require('@api3/dapi-management');
 
 module.exports = {
     sanitizeName,
@@ -14,30 +13,24 @@ module.exports = {
     copySvgFiles,
     renameFiles,
     getManualLogos,
-    getDeprecatedChains,
-    getChains,
+    getSupportedChains,
     getApiProviders,
     getSupportedFeeds
 };
 
-function getDeprecatedChains() {
-    return ['1313161555', '1313161554', '56288', '288', '71401', '647', '416'];
-}
-
-function getChains() {
-    return chains.CHAINS.filter((chain) => chain.id && !getDeprecatedChains().includes(chain.id));
-}
-
 function getApiProviders() {
-    return getApiProviderAliases().filter((api) => !api.match(/(.*)(-mock)/));
+    const providers = [...new Set(dapis.map((dapi) => dapi.providers).flat())];
+    const filteredApiProviders = providers.filter((api) => !api.match(/(.*)(-mock)/));
+    return filteredApiProviders;
 }
 
 function getSupportedFeeds() {
-    const supportedFeeds = getApiProviders()
-        .map((apiProvider) => Object.values(apisData[apiProvider].supportedFeedsInBatches).flat(2))
-        .flat();
-    const reduced = supportedFeeds.map((feed) => feed.replaceAll(' Exchange Rate', '').split('/')).flat();
-    return new Set(reduced);
+    const filtered = dapis.filter((dapi) => dapi.stage !== 'retired').map((dapi) => dapi.name);
+    return filtered.map((feed) => feed.replaceAll(' Exchange Rate', '').split('/')).flat();
+}
+
+function getSupportedChains() {
+    return getChains().filter((chain) => chain.stage !== 'retired');
 }
 
 function getManualLogos(mode) {
