@@ -36,7 +36,7 @@
         "camelcase": "^6.3.0"
     },
     "devDependencies": {
-        "eslint": "^8.57.0",
+        "eslint": "^8.57.1",
         "@babel/core": "^7.25.2",
         "@babel/preset-react": "^7.24.7",
         "@changesets/changelog-github": "^0.5.0",
@@ -47,8 +47,8 @@
         "dotenv": "^16.4.5",
         "prettier": "^3.3.3",
         "rimraf": "^6.0.1",
-        "@typescript-eslint/eslint-plugin": "^8.5.0",
-        "@typescript-eslint/parser": "^8.5.0",
+        "@typescript-eslint/eslint-plugin": "^8.7.0",
+        "@typescript-eslint/parser": "^8.7.0",
         "eslint-config-prettier": "^9.1.0",
         "svgo": "^3.3.0"
     },
