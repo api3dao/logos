@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 0.2.2
+
+### Patch Changes
+
+-   ff453e3: Some changes have been made to the `logos`.
+
+    | Logo                                                    | Name    | Category |
+    | ------------------------------------------------------- | ------- | -------- |
+    | <img src="./raw/symbols/insteth.svg" width="36" alt=""> | insteth | symbol   |
+
 ## 0.2.1
 
 ### Patch Changes
