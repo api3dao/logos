@@ -1,5 +1,11 @@
 # @api3/logos
 
+## 0.2.1
+
+### Patch Changes
+
+-   2c124a9: Remove unused svg files
+
 ## 0.2.0
 
 ### Minor Changes
