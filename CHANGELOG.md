@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 0.2.3
+
+### Patch Changes
+
+-   7f4a1aa: Some changes have been made to the `logos`.
+
+    | Logo                                                 | Name | Category |
+    | ---------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/eurc.svg" width="36" alt=""> | eurc | symbol   |
+
 ## 0.2.2
 
 ### Patch Changes
