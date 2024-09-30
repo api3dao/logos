@@ -13,8 +13,8 @@ importers:
         version: 6.3.0
     devDependencies:
       '@api3/dapi-management':
-        specifier: 1.88.1
-        version: 1.88.1(typescript@5.6.2)
+        specifier: 1.88.2
+        version: 1.88.2(typescript@5.6.2)
       '@babel/core':
         specifier: ^7.25.2
         version: 7.25.2
@@ -61,8 +61,8 @@ importers:
   viewer:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 1.88.1
-        version: 1.88.1(typescript@5.6.2)
+        specifier: 1.88.2
+        version: 1.88.2(typescript@5.6.2)
       '@api3/logos':
         specifier: workspace:*
         version: link:..
@@ -152,8 +152,8 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@api3/api-integrations@2.3.0(typescript@5.6.2):
-    resolution: {integrity: sha512-tgrC9xNhYQ15kSpJO9oBu9hI98aDb6GQ4vspIVxdETtFbt+s5/L6BKhHCQ/H6V7hyvmHhjf2+Pzet+Shp+bREQ==}
+  /@api3/api-integrations@2.3.1(typescript@5.6.2):
+    resolution: {integrity: sha512-Y4JuVC0uucj32rkoGWx8j5sz7PmiWC9NYb67/KJxaCiqWl1xUh0BNT6urELo79KgDqnviMt4SWiBxNwZ2PZH8g==}
     dependencies:
       '@api3/airnode-abi': 0.14.2
       '@api3/chains': 10.2.2(typescript@5.6.2)
@@ -198,10 +198,10 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@api3/dapi-management@1.88.1(typescript@5.6.2):
-    resolution: {integrity: sha512-X3154ysSpAeLu+o7uy2cBBb5iS8Lr3k7TfnOeOLNEmsZg3+DDlYPJGzUbF4DkUQxPTqfnXDQDDfKLyx0edF6bg==}
+  /@api3/dapi-management@1.88.2(typescript@5.6.2):
+    resolution: {integrity: sha512-5XLcoXJFB38tPzUgiLFms7dwfga3WTwL0eFFVuhjfhlM1rt+Tu7kp0BCr0m+zoAVpCMBJ4WJABiQOx+gGqyB1w==}
     dependencies:
-      '@api3/api-integrations': 2.3.0(typescript@5.6.2)
+      '@api3/api-integrations': 2.3.1(typescript@5.6.2)
       '@api3/chains': 10.2.2(typescript@5.6.2)
       '@api3/commons': 0.13.2
       ethers: 6.13.2
