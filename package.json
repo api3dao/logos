@@ -7,6 +7,7 @@
         "type": "git",
         "url": "https://github.com/api3dao/logos"
     },
+    "packageManager": "pnpm@9.8.0",
     "keywords": [
         "api3",
         "logos",
