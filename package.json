@@ -42,7 +42,7 @@
         "@babel/preset-react": "^7.24.7",
         "@changesets/changelog-github": "^0.5.0",
         "@changesets/cli": "^2.27.8",
-        "@api3/dapi-management": "1.88.2",
+        "@api3/dapi-management": "1.88.3",
         "dropbox": "^10.34.0",
         "node-fetch": "^2.7.0",
         "dotenv": "^16.4.5",
