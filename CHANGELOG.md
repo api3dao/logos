@@ -1,5 +1,16 @@
 # @api3/logos
 
+## 0.2.4
+
+### Patch Changes
+
+-   11aaa98: Some changes have been made to the `logos`.
+
+    | Logo                                                 | Name | Category |
+    | ---------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/ausd.svg" width="36" alt=""> | ausd | symbol   |
+    | <img src="./raw/symbols/ebtc.svg" width="36" alt=""> | ebtc | symbol   |
+
 ## 0.2.3
 
 ### Patch Changes
