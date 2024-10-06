@@ -13,8 +13,8 @@ importers:
         version: 6.3.0
     devDependencies:
       '@api3/dapi-management':
-        specifier: 1.90.0
-        version: 1.90.0(typescript@5.6.2)
+        specifier: 1.91.0
+        version: 1.91.0(typescript@5.6.2)
       '@babel/core':
         specifier: ^7.25.2
         version: 7.25.2
@@ -61,8 +61,8 @@ importers:
   viewer:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 1.90.0
-        version: 1.90.0(typescript@5.6.2)
+        specifier: 1.91.0
+        version: 1.91.0(typescript@5.6.2)
       '@api3/logos':
         specifier: workspace:*
         version: link:..
@@ -147,8 +147,8 @@ packages:
     resolution: {integrity: sha512-vP8Ywp9opGGgtRnoNEKu81n/+OvjFdUkOa4P8Z334VaDYoVARLInc781tOQsny8gScrOO/HF2s9K4U//LpWXqQ==}
     engines: {node: '>=18.14.0'}
 
-  '@api3/dapi-management@1.90.0':
-    resolution: {integrity: sha512-4Nl1vgEeguIkJ8FJy3lErJtDIyfW0wuOuUvjDZhVPP36GSasHRorMu+TG1j+idLNHYOjYY6xiJvpGo+kXChRZg==}
+  '@api3/dapi-management@1.91.0':
+    resolution: {integrity: sha512-DX3rcpBSHTbjW0Ad66cFX7rAJq+EmYkSq/Lad0tRdC2nLNYFB3EfcYqXw+5If8TAucCgm4/GhUp7vCJV2CG3RQ==}
 
   '@api3/ois@2.3.2':
     resolution: {integrity: sha512-hYQCbCAtWMGKV+pECRY5tbfCSOcheeo9s6wtrhn1dOWw151VeG0sKG3VbBEsyA6cvSaldewBWY3t/JGaupdThg==}
@@ -3738,6 +3738,7 @@ packages:
   eslint@8.57.1:
     resolution: {integrity: sha512-ypowyDxpVSYpkXr9WPv2PAZCtNip1Mv5KTW0SCurXv/9iOpcrH9PaqUElksqEB6pChqHGDRCFTyrZlGhnLNGiA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
 
   espree@9.6.1:
@@ -3787,8 +3788,8 @@ packages:
   ethers@5.7.2:
     resolution: {integrity: sha512-wswUsmWo1aOK8rR7DIKiWSw9DbLWe6x98Jrn8wcTflTVvaXhAMaB5zGAXy0GYQEQp9iO1iSHWVyARQm11zUtyg==}
 
-  ethers@6.13.2:
-    resolution: {integrity: sha512-9VkriTTed+/27BGuY1s0hf441kqwHJ1wtN2edksEtiRvXx+soxRX3iSXTfFqq2+YwrOqbDoTHjIhQnjJRlzKmg==}
+  ethers@6.13.3:
+    resolution: {integrity: sha512-/DzbZOLVtoO4fKvvQwpEucHAQgIwBGWuRvBdwE/lMXgXvvHHTSkn7XqAQ2b+gjJzZDJjWA9OD05bVceVOsBHbg==}
     engines: {node: '>=14.0.0'}
 
   eventemitter3@4.0.7:
@@ -7447,12 +7448,12 @@ snapshots:
       - debug
       - utf-8-validate
 
-  '@api3/dapi-management@1.90.0(typescript@5.6.2)':
+  '@api3/dapi-management@1.91.0(typescript@5.6.2)':
     dependencies:
       '@api3/api-integrations': 2.4.0(typescript@5.6.2)
       '@api3/chains': 10.2.3(typescript@5.6.2)
       '@api3/commons': 0.13.2
-      ethers: 6.13.2
+      ethers: 6.13.3
       zod: 3.23.8
     transitivePeerDependencies:
       - bufferutil
@@ -12310,7 +12311,7 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
-  ethers@6.13.2:
+  ethers@6.13.3:
     dependencies:
       '@adraffy/ens-normalize': 1.10.1
       '@noble/curves': 1.2.0
