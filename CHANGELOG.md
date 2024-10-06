@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 0.2.5
+
+### Patch Changes
+
+-   91c94ca: Some changes have been made to the `logos`.
+
+    | Logo                                                 | Name | Category |
+    | ---------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/fbtc.svg" width="36" alt=""> | fbtc | symbol   |
+
 ## 0.2.4
 
 ### Patch Changes
