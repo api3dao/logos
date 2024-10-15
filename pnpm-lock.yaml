@@ -13,8 +13,8 @@ importers:
         version: 6.3.0
     devDependencies:
       '@api3/dapi-management':
-        specifier: 1.93.0
-        version: 1.93.0(typescript@5.6.2)
+        specifier: 1.94.0
+        version: 1.94.0(typescript@5.6.2)
       '@babel/core':
         specifier: ^7.25.7
         version: 7.25.7
@@ -61,8 +61,8 @@ importers:
   viewer:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 1.93.0
-        version: 1.93.0(typescript@5.6.2)
+        specifier: 1.94.0
+        version: 1.94.0(typescript@5.6.2)
       '@api3/logos':
         specifier: workspace:*
         version: link:..
@@ -147,8 +147,8 @@ packages:
     resolution: {integrity: sha512-oHTOV6rygP5nA2gKh7oV5wFTwLJC+njUxRIEe48FZwjTXdjfXaLH6aX/j09XOmW+TjC3sQ/ecJsFCanBQ3ugoQ==}
     engines: {node: '>=18.14.0'}
 
-  '@api3/dapi-management@1.93.0':
-    resolution: {integrity: sha512-DUdwRC/AI6T2B7jCYFOJ7mvsqlNSZfaVQETb+049RSRFthTVL03EXRjl2mc4AYNsh/35maeeXTXc560FtRD5YQ==}
+  '@api3/dapi-management@1.94.0':
+    resolution: {integrity: sha512-hkD3boPTfBG+Kat9n0EwfD0TGTye0wad1q94Eew+Ro0ocvg4+HG0jxkuXwY45UsBvEHwU3mqUo0ZZw4jQNgpUA==}
 
   '@api3/ois@2.3.2':
     resolution: {integrity: sha512-hYQCbCAtWMGKV+pECRY5tbfCSOcheeo9s6wtrhn1dOWw151VeG0sKG3VbBEsyA6cvSaldewBWY3t/JGaupdThg==}
@@ -7117,7 +7117,7 @@ snapshots:
       - debug
       - utf-8-validate
 
-  '@api3/dapi-management@1.93.0(typescript@5.6.2)':
+  '@api3/dapi-management@1.94.0(typescript@5.6.2)':
     dependencies:
       '@api3/api-integrations': 2.6.0(typescript@5.6.2)
       '@api3/chains': 10.3.0(typescript@5.6.2)
