@@ -13,8 +13,8 @@ importers:
         version: 6.3.0
     devDependencies:
       '@api3/dapi-management':
-        specifier: 1.95.1
-        version: 1.95.1(typescript@5.6.2)
+        specifier: 1.95.2
+        version: 1.95.2(typescript@5.6.2)
       '@babel/core':
         specifier: ^7.25.7
         version: 7.25.7
@@ -61,8 +61,8 @@ importers:
   viewer:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 1.95.1
-        version: 1.95.1(typescript@5.6.2)
+        specifier: 1.95.2
+        version: 1.95.2(typescript@5.6.2)
       '@api3/logos':
         specifier: workspace:*
         version: link:..
@@ -137,8 +137,8 @@ packages:
   '@api3/airnode-abi@0.14.2':
     resolution: {integrity: sha512-C3AVklVyTG3A4v7Q3tGrE0UmVinPnPouZmtcW7fdOprnHB/WgHbRDbb9KmI6cMmhKCur7CpwmTY5MVH/E7TpcQ==}
 
-  '@api3/api-integrations@2.7.0':
-    resolution: {integrity: sha512-k6AZcR7IpSVOBRL4u9I0E/g0PsOYn2FCnMWBe7lCiewK2t0v/u1ZlI/9O/Ttvk4gX145c9BndvpqMznfub1qwg==}
+  '@api3/api-integrations@2.8.0':
+    resolution: {integrity: sha512-f+dfIAf2QkFRwKv/xT6Esgn7GB7OtbmtJ/bvVR9b5ffDirZPkUiuRLZIA/a5hJvdXUfrU+QKdOA/lbH/C+Q/kQ==}
 
   '@api3/chains@10.4.0':
     resolution: {integrity: sha512-09hY7nOVvNy35Ca8v/f2cyw0ltFtD9MeIh/+LKJH9gclnwTOUibUmgn4l0GwHSYy2Z6mR9TcVUisd/bVqfuGkA==}
@@ -147,8 +147,8 @@ packages:
     resolution: {integrity: sha512-oHTOV6rygP5nA2gKh7oV5wFTwLJC+njUxRIEe48FZwjTXdjfXaLH6aX/j09XOmW+TjC3sQ/ecJsFCanBQ3ugoQ==}
     engines: {node: '>=18.14.0'}
 
-  '@api3/dapi-management@1.95.1':
-    resolution: {integrity: sha512-yrZ+hTSFXZr21nCDnfWg7X21c4cUtCozY6spjcEab0othLX8Tcn8VqV19C7VI8OPbaoyCh0hO6SOta5pG7pvjw==}
+  '@api3/dapi-management@1.95.2':
+    resolution: {integrity: sha512-Q/WKM9IqLPf2SBAsqkdnSW7DsZmpIr0zgZA7zFRl6373d50lxaEKwVvstCACBNhdaiODBSoHGVdkBQRcShNq0g==}
 
   '@api3/ois@2.3.2':
     resolution: {integrity: sha512-hYQCbCAtWMGKV+pECRY5tbfCSOcheeo9s6wtrhn1dOWw151VeG0sKG3VbBEsyA6cvSaldewBWY3t/JGaupdThg==}
@@ -7078,7 +7078,7 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
-  '@api3/api-integrations@2.7.0(typescript@5.6.2)':
+  '@api3/api-integrations@2.8.0(typescript@5.6.2)':
     dependencies:
       '@api3/airnode-abi': 0.14.2
       '@api3/chains': 10.4.0(typescript@5.6.2)
@@ -7117,9 +7117,9 @@ snapshots:
       - debug
       - utf-8-validate
 
-  '@api3/dapi-management@1.95.1(typescript@5.6.2)':
+  '@api3/dapi-management@1.95.2(typescript@5.6.2)':
     dependencies:
-      '@api3/api-integrations': 2.7.0(typescript@5.6.2)
+      '@api3/api-integrations': 2.8.0(typescript@5.6.2)
       '@api3/chains': 10.4.0(typescript@5.6.2)
       '@api3/commons': 0.13.3
       ethers: 6.13.3
