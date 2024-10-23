@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 0.2.9
+
+### Patch Changes
+
+-   9128d06: Some changes have been made to the `logos`.
+
+    | Logo                                                 | Name | Category |
+    | ---------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/tusd.svg" width="36" alt=""> | tusd | symbol   |
+
 ## 0.2.8
 
 ### Patch Changes
