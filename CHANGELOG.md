@@ -1,5 +1,16 @@
 # @api3/logos
 
+## 0.2.10
+
+### Patch Changes
+
+-   c6303a0: Some changes have been made to the `logos`.
+
+    | Logo                                                   | Name   | Category |
+    | ------------------------------------------------------ | ------ | -------- |
+    | <img src="./raw/symbols/msteth.svg" width="36" alt=""> | msteth | symbol   |
+    | <img src="./raw/symbols/egeth.svg" width="36" alt="">  | egeth  | symbol   |
+
 ## 0.2.9
 
 ### Patch Changes
