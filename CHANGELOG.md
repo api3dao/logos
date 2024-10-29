@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 0.2.11
+
+### Patch Changes
+
+-   1f8b0ec: Some changes have been made to the `logos`.
+
+    | Logo                                                | Name | Category |
+    | --------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/scr.svg" width="36" alt=""> | scr  | symbol   |
+
 ## 0.2.10
 
 ### Patch Changes
