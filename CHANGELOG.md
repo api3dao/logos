@@ -1,5 +1,16 @@
 # @api3/logos
 
+## 0.2.13
+
+### Patch Changes
+
+-   40d8098: Some changes have been made to the `logos`.
+
+    | Logo                                                  | Name  | Category |
+    | ----------------------------------------------------- | ----- | -------- |
+    | <img src="./raw/symbols/brett.svg" width="36" alt=""> | brett | symbol   |
+    | <img src="./raw/symbols/cbbtc.svg" width="36" alt=""> | cbbtc | symbol   |
+
 ## 0.2.12
 
 ### Patch Changes
