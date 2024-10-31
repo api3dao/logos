@@ -1,5 +1,16 @@
 # @api3/logos
 
+## 0.2.12
+
+### Patch Changes
+
+-   0cdd0ce: Some changes have been made to the `logos`.
+
+    | Logo                                                                | Name          | Category     |
+    | ------------------------------------------------------------------- | ------------- | ------------ |
+    | <img src="./raw/api-providers/shift-markets.svg" width="36" alt=""> | shift-markets | api-provider |
+    | <img src="./raw/symbols/cook.svg" width="36" alt="">                | cook          | symbol       |
+
 ## 0.2.11
 
 ### Patch Changes
