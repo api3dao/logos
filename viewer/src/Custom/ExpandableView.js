@@ -1,5 +1,5 @@
 import { Text, Flex, Spacer, VStack, Box } from '@chakra-ui/react';
-import { TriangleDownIcon, TriangleUpIcon } from '@chakra-ui/icons';
+import { TbTriangleFilled, TbTriangleInvertedFilled } from 'react-icons/tb';
 import { useState } from 'react';
 
 const ExpandableView = ({ view, header, defaultState = false, size = 'md' }) => {
@@ -14,9 +14,9 @@ const ExpandableView = ({ view, header, defaultState = false, size = 'md' }) => 
                     </Text>
                     <Spacer />
                     {isOpen ? (
-                        <TriangleUpIcon width={'24px'} height={'24px'} cursor={'pointer'} />
+                        <TbTriangleFilled size={'24px'} cursor={'pointer'} />
                     ) : (
-                        <TriangleDownIcon width={'24px'} height={'24px'} cursor={'pointer'} />
+                        <TbTriangleInvertedFilled size={'24px'} cursor={'pointer'} />
                     )}
                 </Flex>
             </Box>
