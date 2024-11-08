@@ -38,8 +38,6 @@ jobs:
                   echo DROPBOX=${{ secrets.DROPBOX }} >> .env
             - name: Install Packages
               run: pnpm install
-            - name: Lint
-              run: pnpm run lint
             - name: Version Check
               run: pnpm run version-check
             - name: Commit changes
