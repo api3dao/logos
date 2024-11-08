@@ -47,7 +47,7 @@ jobs:
                   branch: control-branch
                   commit_message: Fetch updated logos from Dropbox
                   commit_options: '--no-verify --signoff'
-            - name: create pull request
-              run: gh pr create -B main -H control-branch --title 'Check logo updates' --body 'Created by Github action'
+            - name: Create pull request
+              run: gh pr create -B main -H control-branch --title 'Check logo updates' --body 'This PR checks for logo updates'
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
