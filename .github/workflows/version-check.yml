@@ -21,8 +21,10 @@ jobs:
     check-dropbox:
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout gh-pages branch
+            - name: Checkout control branch
               uses: actions/checkout@v4
+              with:
+                  ref: control-branch
             - name: Control branch
               run: |
                   git checkout -b control-branch
