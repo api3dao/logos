@@ -44,5 +44,6 @@ jobs:
               uses: stefanzweifel/git-auto-commit-action@v5
               id: auto-commit-action
               with:
+                  branch: control-branch
                   commit_message: Fetch updated logos from Dropbox
                   commit_options: '--no-verify --signoff'
