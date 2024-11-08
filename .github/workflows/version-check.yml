@@ -26,7 +26,8 @@ jobs:
               with:
                   ref: main
                   fetch-depth: 0
-            - run: |
+            - name: Create control branch
+              run: |
                   git checkout -b control-branch
             - name: Setup pnpm
               uses: pnpm/action-setup@v4
@@ -63,12 +64,8 @@ jobs:
                       echo "skip=true" >> "$GITHUB_OUTPUT"
                   fi
 
-            - name: Check if pull request exists
-              if: '!steps.check.outputs.skip'
-              run: echo "Pull request already exists"
-
             - name: Create pull request
-              if: steps.auto-commit-action.outputs.changes_detected == 'true'
+              if: steps.auto-commit-action.outputs.changes_detected == 'true' && steps.check.outputs.skip != 'true'
               run: gh pr create -B main -H control-branch --title 'Check logo updates' --body 'This PR checks for logo updates'
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
