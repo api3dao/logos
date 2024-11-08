@@ -24,7 +24,10 @@ jobs:
             - name: Checkout control branch
               uses: actions/checkout@v4
               with:
-                  ref: control-branch
+                  ref: main
+                  fetch-depth: 0
+            - run: |
+                  git checkout -b control-branch
             - name: Setup pnpm
               uses: pnpm/action-setup@v4
             - name: Set Env
