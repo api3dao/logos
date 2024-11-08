@@ -21,7 +21,13 @@ jobs:
     check-dropbox:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4
+            - name: Checkout gh-pages branch
+              uses: actions/checkout@v4
+              with:
+                  ref: main
+            - name: Control branch
+              run: |
+                  git checkout -b control-branch
             - name: Setup pnpm
               uses: pnpm/action-setup@v4
             - name: Set Env
@@ -36,3 +42,9 @@ jobs:
               run: pnpm run lint
             - name: Version Check
               run: pnpm run version-check
+            - name: Commit changes
+              uses: stefanzweifel/git-auto-commit-action@v5
+              id: auto-commit-action
+              with:
+                  commit_message: Fetch updated logos from Dropbox
+                  commit_options: '--no-verify --signoff'

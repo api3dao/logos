@@ -112,6 +112,34 @@ async function fetchLogos() {
     }
 }
 
+async function saveToDisk(prefix, file, category, blob) {
+    fs.writeFile(`./raw/${category}s/${prefix}${file}`, blob, function (err) {
+        if (err) {
+            console.error(err);
+        }
+    });
+}
+
+async function downloadLogos(category, file) {
+    const prefix = category === 'chain' ? 'Chain' : '';
+
+    const dbx = await getDropbox();
+    try {
+        const response = await dbx.filesDownload({ path: file.path_lower });
+        var blob = response.result.fileBinary;
+        await saveToDisk(prefix, file.name, category, blob);
+        const path = `./raw/${category}s/${prefix}${file.name}`;
+        await fs.appendFile(
+            './.changeset/details.txt',
+            `|<img src="${path}" width="36" alt="">|${file.name.replace('.svg', '')}|${category}|\n`,
+            'utf-8'
+        );
+        console.log(`Downloaded ${file.name}`);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 async function compareLogos(curentLogosList, foundLogos) {
     console.log('🏗 Comparing logo files...');
     console.log('Found logos:', foundLogos.length);
@@ -131,6 +159,7 @@ async function compareLogos(curentLogosList, foundLogos) {
                 console.log(`❌ ${logo.name} not found in Dropbox.`);
             } else if (foundLogo.content_hash !== logo.hash) {
                 console.log(`❌ ${logo.name} hash mismatch.`);
+                downloadLogos(category, foundLogo);
             } else {
                 console.log(`✅ ${logo.name} is up to date.`);
             }
