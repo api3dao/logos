@@ -72,9 +72,10 @@ async function getLogoFileHashes(dir, mode) {
 
     return await Promise.all(
         sanitize.map(async (logo) => {
+            const fileName = utils.sanitizeName(logo).toLowerCase();
             return {
                 name: logo,
-                hash: await calcHash(dir, `${utils.sanitizeName(logo, '', prefix).toLowerCase()}.svg`)
+                hash: await calcHash(dir, `${prefix}${fileName}.svg`)
             };
         })
     );
