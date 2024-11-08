@@ -1,0 +1,38 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Deploy to Github Pages
+
+on:
+    schedule:
+        - cron: '0 8,12,16,20 * * *'
+    push:
+        branches: [main]
+        paths:
+            - 'data/**'
+            - 'raw/**'
+            - scripts/**
+            - 'viewer/**'
+            - 'package.json'
+    pull_request:
+        branches: [main]
+
+jobs:
+    pack-and-deploy-to-gh-pages:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v4
+            - name: Set Env
+              run: |
+                  touch .env
+                  echo APP_KEY=${{ secrets.APP_KEY }} >> .env
+                  echo APP_SECRET=${{ secrets.APP_SECRET }} >> .env
+                  echo DROPBOX=${{ secrets.DROPBOX }} >> .env
+            - name: Install Packages
+              run: pnpm install
+            - name: Lint
+              run: pnpm run lint
+            - name: Fetch Logos
+              run: pnpm run version-check
