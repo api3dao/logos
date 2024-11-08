@@ -54,7 +54,7 @@ jobs:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: |
                   prs=$(gh pr list \
-                      --repo "logos" \
+                      --repo "$GITHUB_REPOSITORY" \
                       --head 'control-branch' \
                       --base 'main' \
                       --json title \
