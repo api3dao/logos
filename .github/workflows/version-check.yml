@@ -5,7 +5,7 @@ name: Check for logo updates
 
 on:
     schedule:
-        - cron: '0 8,12,16,20 * * *'
+        - cron: '0 7,11,15,19 * * *'
     push:
         branches: [main]
         paths:
@@ -47,3 +47,7 @@ jobs:
                   branch: control-branch
                   commit_message: Fetch updated logos from Dropbox
                   commit_options: '--no-verify --signoff'
+            - name: create pull request
+              run: gh pr create -B main -H control-branch --title 'Check logo updates' --body 'Created by Github action'
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
