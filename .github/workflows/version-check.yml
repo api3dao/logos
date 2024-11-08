@@ -48,6 +48,24 @@ jobs:
                   commit_message: Fetch updated logos from Dropbox
                   commit_options: '--no-verify --signoff'
                   push_options: '--force'
+            - name: Check if PR exists
+              id: check
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: |
+                  prs=$(gh pr list \
+                      --repo "logos" \
+                      --head 'control-branch' \
+                      --base 'main' \
+                      --jq 'length')
+                  if ((prs > 0)); then
+                      echo "skip=true" >> "$GITHUB_OUTPUT"
+                  fi
+
+            - name: Check if pull request exists
+              if: '!steps.check.outputs.skip'
+              run: echo "Pull request already exists"
+
             - name: Create pull request
               if: steps.auto-commit-action.outputs.changes_detected == 'true'
               run: gh pr create -B main -H control-branch --title 'Check logo updates' --body 'This PR checks for logo updates'
