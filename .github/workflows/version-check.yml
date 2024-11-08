@@ -57,6 +57,7 @@ jobs:
                       --repo "logos" \
                       --head 'control-branch' \
                       --base 'main' \
+                      --json title \
                       --jq 'length')
                   if ((prs > 0)); then
                       echo "skip=true" >> "$GITHUB_OUTPUT"
