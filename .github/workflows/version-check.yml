@@ -1,0 +1,53 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Check for logo updates
+
+on:
+    schedule:
+        - cron: '0 7,11,15,19 * * *'
+    push:
+        branches: [main]
+        paths:
+            - 'data/**'
+            - 'raw/**'
+            - scripts/**
+            - 'viewer/**'
+            - 'package.json'
+    pull_request:
+        branches: [main]
+
+jobs:
+    check-dropbox:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout gh-pages branch
+              uses: actions/checkout@v4
+            - name: Control branch
+              run: |
+                  git checkout -b control-branch
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v4
+            - name: Set Env
+              run: |
+                  touch .env
+                  echo APP_KEY=${{ secrets.APP_KEY }} >> .env
+                  echo APP_SECRET=${{ secrets.APP_SECRET }} >> .env
+                  echo DROPBOX=${{ secrets.DROPBOX }} >> .env
+            - name: Install Packages
+              run: pnpm install
+            - name: Lint
+              run: pnpm run lint
+            - name: Version Check
+              run: pnpm run version-check
+            - name: Commit changes
+              uses: stefanzweifel/git-auto-commit-action@v5
+              id: auto-commit-action
+              with:
+                  branch: control-branch
+                  commit_message: Fetch updated logos from Dropbox
+                  commit_options: '--no-verify --signoff'
+            - name: create pull request
+              run: gh pr create -B main -H control-branch --title 'Check logo updates' --body 'Created by Github action'
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
