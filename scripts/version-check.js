@@ -45,16 +45,20 @@ function getLogoList(mode) {
 }
 
 async function calcHash(dir, file) {
-    const fileBuffer = await fs.readFile(`${dir}/${file}`);
-
-    //hash 2 times to get the same hash as dropbox
-    const hashSum1 = crypto.createHash('sha256');
-    hashSum1.update(fileBuffer);
-    const hex = hashSum1.digest('hex');
-    const binary = Buffer.from(hex, 'hex');
-    const hashSum2 = crypto.createHash('sha256');
-    hashSum2.update(binary);
-    return hashSum2.digest('hex');
+    try {
+        const fileBuffer = await fs.readFile(`${dir}/${file}`);
+        //hash 2 times to get the same hash as dropbox
+        const hashSum1 = crypto.createHash('sha256');
+        hashSum1.update(fileBuffer);
+        const hex = hashSum1.digest('hex');
+        const binary = Buffer.from(hex, 'hex');
+        const hashSum2 = crypto.createHash('sha256');
+        hashSum2.update(binary);
+        return hashSum2.digest('hex');
+    } catch (error) {
+        console.error(error);
+        return '';
+    }
 }
 
 async function getLogoFileHashes(dir, mode) {
