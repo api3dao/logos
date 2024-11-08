@@ -23,8 +23,6 @@ jobs:
         steps:
             - name: Checkout gh-pages branch
               uses: actions/checkout@v4
-              with:
-                  ref: main
             - name: Control branch
               run: |
                   git checkout -b control-branch
