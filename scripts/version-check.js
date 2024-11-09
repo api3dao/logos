@@ -101,6 +101,33 @@ async function checkLogos() {
     return curentLogosList;
 }
 
+async function getDetails() {
+    try {
+        const details = await fs.readFile('./.changeset/details-update.txt', 'utf-8');
+        return details;
+    } catch (error) {
+        return '';
+    }
+}
+
+async function createChangeset() {
+    const details = await getDetails();
+
+    const changeset =
+        `---
+"@api3/logos": patch
+---
+
+Following logos has been updated:
+
+|Logo|Name|Category|
+|---|---|---|
+` + details;
+
+    await fs.writeFile('./.changeset/changeset.md', changeset);
+    console.log('✨ Created changeset file.');
+}
+
 async function fetchLogos() {
     const dbx = await getDropbox();
     try {
@@ -130,7 +157,7 @@ async function downloadLogos(category, file) {
         await saveToDisk(prefix, file.name, category, blob);
         const path = `./raw/${category}s/${prefix}${file.name}`;
         await fs.appendFile(
-            './.changeset/details.txt',
+            './.changeset/details-update.txt',
             `|<img src="${path}" width="36" alt="">|${file.name.replace('.svg', '')}|${category}|\n`,
             'utf-8'
         );
@@ -159,7 +186,7 @@ async function compareLogos(curentLogosList, foundLogos) {
                 console.log(`❌ ${logo.name} not found in Dropbox.`);
             } else if (foundLogo.content_hash !== logo.hash) {
                 console.log(`❌ ${logo.name} hash mismatch.`);
-                downloadLogos(category, foundLogo);
+                await downloadLogos(category, foundLogo);
             } else {
                 console.log(`✅ ${logo.name} is up to date.`);
             }
@@ -174,7 +201,7 @@ async function main() {
     const foundLogos = await fetchLogos();
 
     await compareLogos(curentLogosList, foundLogos);
-
+    await createChangeset();
     console.log('✅ Finished checking logo files.');
 }
 
