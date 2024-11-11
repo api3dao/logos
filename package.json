@@ -1,13 +1,13 @@
 {
     "name": "@api3/logos",
-    "version": "0.2.13",
+    "version": "0.2.14",
     "license": "MIT",
     "sideEffects": false,
     "repository": {
         "type": "git",
         "url": "https://github.com/api3dao/logos"
     },
-    "packageManager": "pnpm@9.12.2",
+    "packageManager": "pnpm@9.12.3",
     "keywords": [
         "api3",
         "logos",
@@ -24,6 +24,7 @@
         "optimize-api-provider-logos": "rimraf ./optimized/api-provider & svgo -q -p 8 -f ./raw/api-providers -o ./optimized/api-provider",
         "build": "pnpm run optimize-chain-logos && pnpm run optimize-symbol-logos && pnpm run optimize-api-provider-logos && node scripts/build-svg.js",
         "fetch": "node scripts/fetch-missing.js",
+        "version-check": "node scripts/version-check.js",
         "package": "pnpm run build",
         "lint": "pnpm run format:check && pnpm run lint:eslint",
         "lint:eslint": "eslint . --ext .js,.ts,.tsx",
@@ -38,18 +39,18 @@
     },
     "devDependencies": {
         "eslint": "^8.57.1",
-        "@babel/core": "^7.25.9",
+        "@babel/core": "^7.26.0",
         "@babel/preset-react": "^7.25.9",
         "@changesets/changelog-github": "^0.5.0",
         "@changesets/cli": "^2.27.9",
-        "@api3/dapi-management": "1.99.0",
+        "@api3/dapi-management": "1.102.0",
         "dropbox": "^10.34.0",
         "node-fetch": "^2.7.0",
         "dotenv": "^16.4.5",
         "prettier": "^3.3.3",
         "rimraf": "^6.0.1",
-        "@typescript-eslint/eslint-plugin": "^8.11.0",
-        "@typescript-eslint/parser": "^8.11.0",
+        "@typescript-eslint/eslint-plugin": "^8.13.0",
+        "@typescript-eslint/parser": "^8.13.0",
         "eslint-config-prettier": "^9.1.0",
         "svgo": "^3.3.0"
     },

@@ -3,7 +3,7 @@ import { Flex, Spacer, Text } from '@chakra-ui/react';
 import { ApiProviderLogo, SymbolLogo, ChainLogo } from '@api3/logos';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { xonokai } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { CloseIcon } from '@chakra-ui/icons';
+import { VscChromeClose } from 'react-icons/vsc';
 
 const LogoView = (method, feed, isLight = false) => {
     if (method === 'Chain') {
@@ -32,7 +32,7 @@ const InfoView = ({ method, feed, onExit }) => {
                     {feed}{' '}
                 </Text>
                 <Spacer />
-                <CloseIcon onClick={() => onExit(null)} cursor={'pointer'} />
+                <VscChromeClose onClick={() => onExit(null)} cursor={'pointer'} />
             </Flex>
             <Flex flexDirection={'column'} justifyContent={'left'} alignItems={'left'}>
                 <SyntaxHighlighter

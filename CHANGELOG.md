@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 0.2.14
+
+### Patch Changes
+
+-   cfd8205: Some changes have been made to the `logos`.
+
+    | Logo                                                          | Name    | Category     |
+    | ------------------------------------------------------------- | ------- | ------------ |
+    | <img src="./raw/api-providers/alchemy.svg" width="36" alt=""> | alchemy | api-provider |
+
 ## 0.2.13
 
 ### Patch Changes
