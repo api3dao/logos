@@ -112,6 +112,10 @@ async function getDetails() {
 
 async function createChangeset() {
     const details = await getDetails();
+    if (!details || details === '') {
+        console.log('❌ No logos to update.');
+        return;
+    }
 
     const changeset =
         `---
