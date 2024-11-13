@@ -13,8 +13,8 @@ importers:
         version: 6.3.0
     devDependencies:
       '@api3/dapi-management':
-        specifier: 1.102.0
-        version: 1.102.0(typescript@5.6.2)
+        specifier: 1.103.0
+        version: 1.103.0(typescript@5.6.2)
       '@babel/core':
         specifier: ^7.26.0
         version: 7.26.0
@@ -61,8 +61,8 @@ importers:
   viewer:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 1.102.0
-        version: 1.102.0(typescript@5.6.2)
+        specifier: 1.103.0
+        version: 1.103.0(typescript@5.6.2)
       '@api3/logos':
         specifier: workspace:*
         version: link:..
@@ -134,15 +134,15 @@ packages:
   '@api3/api-integrations@2.19.0':
     resolution: {integrity: sha512-p7yeQcBxhGkygujKWCCN07lYAtRaYTJQObqcbvL/lDrQxBKIhV2oLf0EpEZ+eAOCIlf1eDMBNlTWFoA0mHkiQQ==}
 
-  '@api3/chains@10.6.1':
-    resolution: {integrity: sha512-k9BMMXxVKrmzakqF34XJAw2pa2b+pQijbxr1Iwd8FWuUQx/3j8zK2ztQN0eN7HqXly2QoKWcA5cP05DjsyN8Gw==}
+  '@api3/chains@10.7.1':
+    resolution: {integrity: sha512-WIQ4aRqnSi+0tyBnglYKY5IXeutYhDgL2E26/l29EFbRQ9UV36+eZZ9RdVbsieFUdFA641jXCB1VAs39oOm3sg==}
 
   '@api3/commons@0.13.3':
     resolution: {integrity: sha512-oHTOV6rygP5nA2gKh7oV5wFTwLJC+njUxRIEe48FZwjTXdjfXaLH6aX/j09XOmW+TjC3sQ/ecJsFCanBQ3ugoQ==}
     engines: {node: '>=18.14.0'}
 
-  '@api3/dapi-management@1.102.0':
-    resolution: {integrity: sha512-lHqGrBb+sHCzpA2OIMFDJDGc4qskP6zOn6YzHsz0mxjqAcyH2egOivLeS99b1nbBGQDIpnORY3GakgPZEv+Cmw==}
+  '@api3/dapi-management@1.103.0':
+    resolution: {integrity: sha512-o0CX4dYSo+/q/lbfc8r3fpTuy6tvAwUZoopScOnRy0zyz1TXgwwrsmmDukzS57E0vYRI5jjdB71/BB4C5oI2MA==}
 
   '@api3/ois@2.3.2':
     resolution: {integrity: sha512-hYQCbCAtWMGKV+pECRY5tbfCSOcheeo9s6wtrhn1dOWw151VeG0sKG3VbBEsyA6cvSaldewBWY3t/JGaupdThg==}
@@ -7274,7 +7274,7 @@ snapshots:
   '@api3/api-integrations@2.19.0(typescript@5.6.2)':
     dependencies:
       '@api3/airnode-abi': 0.14.2
-      '@api3/chains': 10.6.1(typescript@5.6.2)
+      '@api3/chains': 10.7.1(typescript@5.6.2)
       '@api3/ois': 2.3.2
       ethers: 5.7.2
       zod: 3.23.8
@@ -7283,7 +7283,7 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@api3/chains@10.6.1(typescript@5.6.2)':
+  '@api3/chains@10.7.1(typescript@5.6.2)':
     dependencies:
       viem: 2.21.32(typescript@5.6.2)(zod@3.23.8)
       zod: 3.23.8
@@ -7310,10 +7310,10 @@ snapshots:
       - debug
       - utf-8-validate
 
-  '@api3/dapi-management@1.102.0(typescript@5.6.2)':
+  '@api3/dapi-management@1.103.0(typescript@5.6.2)':
     dependencies:
       '@api3/api-integrations': 2.19.0(typescript@5.6.2)
-      '@api3/chains': 10.6.1(typescript@5.6.2)
+      '@api3/chains': 10.7.1(typescript@5.6.2)
       '@api3/commons': 0.13.3
       ethers: 6.13.4
       zod: 3.23.8
