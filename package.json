@@ -7,7 +7,7 @@
         "type": "git",
         "url": "https://github.com/api3dao/logos"
     },
-    "packageManager": "pnpm@9.12.3",
+    "packageManager": "pnpm@9.13.2",
     "keywords": [
         "api3",
         "logos",
@@ -49,8 +49,8 @@
         "dotenv": "^16.4.5",
         "prettier": "^3.3.3",
         "rimraf": "^6.0.1",
-        "@typescript-eslint/eslint-plugin": "^8.13.0",
-        "@typescript-eslint/parser": "^8.13.0",
+        "@typescript-eslint/eslint-plugin": "^8.14.0",
+        "@typescript-eslint/parser": "^8.14.0",
         "eslint-config-prettier": "^9.1.0",
         "svgo": "^3.3.0"
     },
