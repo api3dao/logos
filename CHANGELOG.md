@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 0.2.20
+
+### Patch Changes
+
+-   11facc9: Some changes have been made to the `logos`.
+
+    | Logo                                                | Name | Category |
+    | --------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/zrc.svg" width="36" alt=""> | zrc  | symbol   |
+
 ## 0.2.19
 
 ### Patch Changes
