@@ -13,8 +13,8 @@ importers:
         version: 6.3.0
     devDependencies:
       '@api3/dapi-management':
-        specifier: 1.110.1
-        version: 1.110.1(typescript@5.6.2)
+        specifier: 1.111.0
+        version: 1.111.0(typescript@5.6.2)
       '@babel/core':
         specifier: ^7.26.0
         version: 7.26.0
@@ -61,8 +61,8 @@ importers:
   viewer:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 1.110.1
-        version: 1.110.1(typescript@5.6.2)
+        specifier: 1.111.0
+        version: 1.111.0(typescript@5.6.2)
       '@api3/logos':
         specifier: workspace:*
         version: link:..
@@ -137,12 +137,15 @@ packages:
   '@api3/chains@10.8.1':
     resolution: {integrity: sha512-pWwp0C9ymDdXzqktexBaeeakaOKDErsRigLBuzYSM5DMWhdl/8UzkEWBh6eNXGLLc+fhAhPM+j98Z5LWnKMR8g==}
 
+  '@api3/chains@11.0.0':
+    resolution: {integrity: sha512-LE1OfoyKr6HYacAh1Z4VHCKRcSuLq/fl3CHdCNKig2F/4ZrGQgI/PBv03O8FVjdqsQqvW1RV6y6A8onpdGMSpg==}
+
   '@api3/commons@0.13.3':
     resolution: {integrity: sha512-oHTOV6rygP5nA2gKh7oV5wFTwLJC+njUxRIEe48FZwjTXdjfXaLH6aX/j09XOmW+TjC3sQ/ecJsFCanBQ3ugoQ==}
     engines: {node: '>=18.14.0'}
 
-  '@api3/dapi-management@1.110.1':
-    resolution: {integrity: sha512-kAlImfI5recuff+VX9SI3/fYtY/lPZnIpNdj9vHere0QkYK5K9BZVwXUSQaqCt6/PR4WD64PBE/ixKIP0zd6Ew==}
+  '@api3/dapi-management@1.111.0':
+    resolution: {integrity: sha512-iCSZaprGyfYVcZKykp+1uNikxsMt3g2ueVRS/qbaAc3qy92gpzLKVlzaTCcNREmGlwZjqL5OsIf45MNl4a2vRQ==}
 
   '@api3/ois@2.3.2':
     resolution: {integrity: sha512-hYQCbCAtWMGKV+pECRY5tbfCSOcheeo9s6wtrhn1dOWw151VeG0sKG3VbBEsyA6cvSaldewBWY3t/JGaupdThg==}
@@ -7087,6 +7090,15 @@ snapshots:
       - typescript
       - utf-8-validate
 
+  '@api3/chains@11.0.0(typescript@5.6.2)':
+    dependencies:
+      viem: 2.21.32(typescript@5.6.2)(zod@3.23.8)
+      zod: 3.23.8
+    transitivePeerDependencies:
+      - bufferutil
+      - typescript
+      - utf-8-validate
+
   '@api3/commons@0.13.3':
     dependencies:
       '@api3/ois': 2.3.2
@@ -7105,10 +7117,10 @@ snapshots:
       - debug
       - utf-8-validate
 
-  '@api3/dapi-management@1.110.1(typescript@5.6.2)':
+  '@api3/dapi-management@1.111.0(typescript@5.6.2)':
     dependencies:
       '@api3/api-integrations': 2.23.0(typescript@5.6.2)
-      '@api3/chains': 10.8.1(typescript@5.6.2)
+      '@api3/chains': 11.0.0(typescript@5.6.2)
       '@api3/commons': 0.13.3
       ethers: 6.13.4
       zod: 3.23.8
