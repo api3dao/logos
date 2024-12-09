@@ -1,10 +1,21 @@
 # @api3/logos
 
+## 0.2.21
+
+### Patch Changes
+
+- 541d457: Some changes have been made to the `logos`.
+
+    | Logo                                                            | Name        | Category |
+    | --------------------------------------------------------------- | ----------- | -------- |
+    | <img src="./raw/chains/Chain57054-light.svg" width="36" alt=""> | 57054-light | chain    |
+    | <img src="./raw/chains/Chain57054.svg" width="36" alt="">       | 57054       | chain    |
+
 ## 0.2.20
 
 ### Patch Changes
 
--   11facc9: Some changes have been made to the `logos`.
+- 11facc9: Some changes have been made to the `logos`.
 
     | Logo                                                | Name | Category |
     | --------------------------------------------------- | ---- | -------- |
@@ -14,7 +25,7 @@
 
 ### Patch Changes
 
--   ba689bd: Some changes have been made to the `logos`.
+- ba689bd: Some changes have been made to the `logos`.
 
     | Logo                                                    | Name    | Category |
     | ------------------------------------------------------- | ------- | -------- |
@@ -26,7 +37,7 @@
 
 ### Patch Changes
 
--   5ae06eb: Some changes have been made to the `logos`.
+- 5ae06eb: Some changes have been made to the `logos`.
 
     | Logo                                                       | Name   | Category |
     | ---------------------------------------------------------- | ------ | -------- |
@@ -36,7 +47,7 @@
 
 ### Patch Changes
 
--   1ceb3c2: Following logos has been updated:
+- 1ceb3c2: Following logos has been updated:
 
     | Logo                                                           | Name       | Category |
     | -------------------------------------------------------------- | ---------- | -------- |
@@ -86,7 +97,7 @@
 
 ### Patch Changes
 
--   a64c4ad: Some changes have been made to the `logos`.
+- a64c4ad: Some changes have been made to the `logos`.
 
     | Logo                                                          | Name      | Category |
     | ------------------------------------------------------------- | --------- | -------- |
@@ -100,7 +111,7 @@
 
 ### Patch Changes
 
--   9d82f63: Following logos has been updated:
+- 9d82f63: Following logos has been updated:
 
     | Logo                                                         | Name      | Category |
     | ------------------------------------------------------------ | --------- | -------- |
@@ -125,7 +136,7 @@
 
 ### Patch Changes
 
--   cfd8205: Some changes have been made to the `logos`.
+- cfd8205: Some changes have been made to the `logos`.
 
     | Logo                                                          | Name    | Category     |
     | ------------------------------------------------------------- | ------- | ------------ |
@@ -135,7 +146,7 @@
 
 ### Patch Changes
 
--   40d8098: Some changes have been made to the `logos`.
+- 40d8098: Some changes have been made to the `logos`.
 
     | Logo                                                  | Name  | Category |
     | ----------------------------------------------------- | ----- | -------- |
@@ -146,7 +157,7 @@
 
 ### Patch Changes
 
--   0cdd0ce: Some changes have been made to the `logos`.
+- 0cdd0ce: Some changes have been made to the `logos`.
 
     | Logo                                                                | Name          | Category     |
     | ------------------------------------------------------------------- | ------------- | ------------ |
@@ -157,7 +168,7 @@
 
 ### Patch Changes
 
--   1f8b0ec: Some changes have been made to the `logos`.
+- 1f8b0ec: Some changes have been made to the `logos`.
 
     | Logo                                                | Name | Category |
     | --------------------------------------------------- | ---- | -------- |
@@ -167,7 +178,7 @@
 
 ### Patch Changes
 
--   c6303a0: Some changes have been made to the `logos`.
+- c6303a0: Some changes have been made to the `logos`.
 
     | Logo                                                   | Name   | Category |
     | ------------------------------------------------------ | ------ | -------- |
@@ -178,7 +189,7 @@
 
 ### Patch Changes
 
--   9128d06: Some changes have been made to the `logos`.
+- 9128d06: Some changes have been made to the `logos`.
 
     | Logo                                                 | Name | Category |
     | ---------------------------------------------------- | ---- | -------- |
@@ -188,7 +199,7 @@
 
 ### Patch Changes
 
--   bd8c1d5: Some changes have been made to the `logos`.
+- bd8c1d5: Some changes have been made to the `logos`.
 
     | Logo                                                      | Name      | Category |
     | --------------------------------------------------------- | --------- | -------- |
@@ -201,7 +212,7 @@
 
 ### Patch Changes
 
--   254d34e: Some changes have been made to the `logos`.
+- 254d34e: Some changes have been made to the `logos`.
 
     | Logo                                                       | Name   | Category |
     | ---------------------------------------------------------- | ------ | -------- |
@@ -211,7 +222,7 @@
 
 ### Patch Changes
 
--   cec6f5b: Some changes have been made to the `logos`.
+- cec6f5b: Some changes have been made to the `logos`.
 
     | Logo                                                     | Name | Category |
     | -------------------------------------------------------- | ---- | -------- |
@@ -221,7 +232,7 @@
 
 ### Patch Changes
 
--   91c94ca: Some changes have been made to the `logos`.
+- 91c94ca: Some changes have been made to the `logos`.
 
     | Logo                                                 | Name | Category |
     | ---------------------------------------------------- | ---- | -------- |
@@ -231,7 +242,7 @@
 
 ### Patch Changes
 
--   11aaa98: Some changes have been made to the `logos`.
+- 11aaa98: Some changes have been made to the `logos`.
 
     | Logo                                                 | Name | Category |
     | ---------------------------------------------------- | ---- | -------- |
@@ -242,7 +253,7 @@
 
 ### Patch Changes
 
--   7f4a1aa: Some changes have been made to the `logos`.
+- 7f4a1aa: Some changes have been made to the `logos`.
 
     | Logo                                                 | Name | Category |
     | ---------------------------------------------------- | ---- | -------- |
@@ -252,7 +263,7 @@
 
 ### Patch Changes
 
--   ff453e3: Some changes have been made to the `logos`.
+- ff453e3: Some changes have been made to the `logos`.
 
     | Logo                                                    | Name    | Category |
     | ------------------------------------------------------- | ------- | -------- |
@@ -262,22 +273,22 @@
 
 ### Patch Changes
 
--   2c124a9: Remove unused svg files
+- 2c124a9: Remove unused svg files
 
 ## 0.2.0
 
 ### Minor Changes
 
--   3a08da1: Support for a specified chain, symbol, or api-provider is now limited to following stages:
-    -   surveying
-    -   active
-    -   deprecated
+- 3a08da1: Support for a specified chain, symbol, or api-provider is now limited to following stages:
+    - surveying
+    - active
+    - deprecated
 
 ## 0.1.58
 
 ### Patch Changes
 
--   5c9988c: Some changes have been made to the `logos`.
+- 5c9988c: Some changes have been made to the `logos`.
 
     | Logo                                                            | Name      | Category     |
     | --------------------------------------------------------------- | --------- | ------------ |
@@ -287,7 +298,7 @@
 
 ### Patch Changes
 
--   5368de1: Some changes have been made to the `logos`.
+- 5368de1: Some changes have been made to the `logos`.
 
     | Logo                                                | Name | Category |
     | --------------------------------------------------- | ---- | -------- |
@@ -298,7 +309,7 @@
 
 ### Patch Changes
 
--   f5dfeed: Add RENDER symbol
+- f5dfeed: Add RENDER symbol
 
     | Logo                                                   | Name   | Category |
     | ------------------------------------------------------ | ------ | -------- |
@@ -308,7 +319,7 @@
 
 ### Patch Changes
 
--   4d8e518: Some changes have been made to the `logos`.
+- 4d8e518: Some changes have been made to the `logos`.
 
     | Logo                                                | Name | Category |
     | --------------------------------------------------- | ---- | -------- |
@@ -318,7 +329,7 @@
 
 ### Patch Changes
 
--   a6f433e: Some changes have been made to the `logos`.
+- a6f433e: Some changes have been made to the `logos`.
 
     | Logo                                                     | Name | Category |
     | -------------------------------------------------------- | ---- | -------- |
@@ -328,7 +339,7 @@
 
 ### Patch Changes
 
--   d35ff66: Some changes have been made to the `logos`.
+- d35ff66: Some changes have been made to the `logos`.
 
     | Logo                                                               | Name         | Category     |
     | ------------------------------------------------------------------ | ------------ | ------------ |
@@ -340,7 +351,7 @@
 
 ### Patch Changes
 
--   9bb574c: Some changes have been made to the `logos`.
+- 9bb574c: Some changes have been made to the `logos`.
 
     | Logo                                                            | Name        | Category |
     | --------------------------------------------------------------- | ----------- | -------- |
@@ -351,7 +362,7 @@
 
 ### Patch Changes
 
--   1f78d97: Some changes have been made to the `logos`.
+- 1f78d97: Some changes have been made to the `logos`.
 
     | Logo                                                  | Name  | Category |
     | ----------------------------------------------------- | ----- | -------- |
@@ -361,7 +372,7 @@
 
 ### Patch Changes
 
--   621b739: Some changes have been made to the `logos`.
+- 621b739: Some changes have been made to the `logos`.
 
     | Logo                                                                | Name            | Category |
     | ------------------------------------------------------------------- | --------------- | -------- |
@@ -374,7 +385,7 @@
 
 ### Patch Changes
 
--   2336a4b: Some changes have been made to the `logos`.
+- 2336a4b: Some changes have been made to the `logos`.
 
     | Logo                                                       | Name   | Category |
     | ---------------------------------------------------------- | ------ | -------- |
@@ -384,7 +395,7 @@
 
 ### Patch Changes
 
--   e284a9e: Some changes have been made to the `logos`.
+- e284a9e: Some changes have been made to the `logos`.
 
     | Logo                                                       | Name | Category     |
     | ---------------------------------------------------------- | ---- | ------------ |
@@ -394,7 +405,7 @@
 
 ### Patch Changes
 
--   a42c39c: Some changes have been made to the `logos`.
+- a42c39c: Some changes have been made to the `logos`.
 
     | Logo                                                    | Name    | Category |
     | ------------------------------------------------------- | ------- | -------- |
@@ -404,7 +415,7 @@
 
 ### Patch Changes
 
--   1c35aa4: Some changes have been made to the `logos`.
+- 1c35aa4: Some changes have been made to the `logos`.
 
     | Logo                                                | Name | Category |
     | --------------------------------------------------- | ---- | -------- |
@@ -414,7 +425,7 @@
 
 ### Patch Changes
 
--   6979ada: Some changes have been made to the `logos`.
+- 6979ada: Some changes have been made to the `logos`.
 
     | Logo                                                         | Name     | Category |
     | ------------------------------------------------------------ | -------- | -------- |
@@ -426,7 +437,7 @@
 
 ### Patch Changes
 
--   9d2935c: Some changes have been made to the `logos`.
+- 9d2935c: Some changes have been made to the `logos`.
 
     | Logo                                                        | Name    | Category |
     | ----------------------------------------------------------- | ------- | -------- |
@@ -437,7 +448,7 @@
 
 ### Patch Changes
 
--   0cd02ac: Some changes have been made to the `logos`.
+- 0cd02ac: Some changes have been made to the `logos`.
 
     | Logo                                                           | Name       | Category |
     | -------------------------------------------------------------- | ---------- | -------- |
@@ -447,7 +458,7 @@
 
 ### Patch Changes
 
--   eab2525: Some changes have been made to the `logos`.
+- eab2525: Some changes have been made to the `logos`.
 
     | Logo                                                  | Name  | Category |
     | ----------------------------------------------------- | ----- | -------- |
@@ -457,7 +468,7 @@
 
 ### Patch Changes
 
--   5541c17: Some changes have been made to the `logos`.
+- 5541c17: Some changes have been made to the `logos`.
 
     | Logo                                                           | Name       | Category |
     | -------------------------------------------------------------- | ---------- | -------- |
@@ -468,7 +479,7 @@
 
 ### Patch Changes
 
--   ea5a3de: Some changes have been made to the `logos`.
+- ea5a3de: Some changes have been made to the `logos`.
 
     | Logo                                                      | Name  | Category |
     | --------------------------------------------------------- | ----- | -------- |
@@ -478,7 +489,7 @@
 
 ### Patch Changes
 
--   529b222: Some changes have been made to the `logos`.
+- 529b222: Some changes have been made to the `logos`.
 
     | Logo                                                      | Name  | Category |
     | --------------------------------------------------------- | ----- | -------- |
@@ -488,7 +499,7 @@
 
 ### Patch Changes
 
--   85c2c52: Some changes have been made to the `logos`.
+- 85c2c52: Some changes have been made to the `logos`.
 
     | Logo                                                  | Name  | Category |
     | ----------------------------------------------------- | ----- | -------- |
@@ -498,7 +509,7 @@
 
 ### Patch Changes
 
--   f57f25a: Some changes have been made to the `logos`.
+- f57f25a: Some changes have been made to the `logos`.
 
     | Logo                                                   | Name   | Category |
     | ------------------------------------------------------ | ------ | -------- |
@@ -508,7 +519,7 @@
 
 ### Patch Changes
 
--   8716d45: Some changes have been made to the `logos`.
+- 8716d45: Some changes have been made to the `logos`.
 
     | Logo                                              | Name | Category |
     | ------------------------------------------------- | ---- | -------- |
@@ -518,7 +529,7 @@
 
 ### Patch Changes
 
--   1728dea: Some changes have been made to the `logos`.
+- 1728dea: Some changes have been made to the `logos`.
 
     | Logo                                                       | Name   | Category |
     | ---------------------------------------------------------- | ------ | -------- |
@@ -538,7 +549,7 @@
 
 ### Patch Changes
 
--   9835ef9: Some changes have been made to the `logos`.
+- 9835ef9: Some changes have been made to the `logos`.
 
     | Logo                                                  | Name  | Category |
     | ----------------------------------------------------- | ----- | -------- |
@@ -548,7 +559,7 @@
 
 ### Patch Changes
 
--   e7a6ee9: Some changes have been made to the `logos`.
+- e7a6ee9: Some changes have been made to the `logos`.
 
     | Logo                                                       | Name   | Category |
     | ---------------------------------------------------------- | ------ | -------- |
@@ -560,7 +571,7 @@
 
 ### Patch Changes
 
--   f6bae57: Some changes have been made to the `logos`.
+- f6bae57: Some changes have been made to the `logos`.
 
     | Logo                                                       | Name   | Category |
     | ---------------------------------------------------------- | ------ | -------- |
@@ -571,7 +582,7 @@
 
 ### Patch Changes
 
--   74bf580: Some changes have been made to the `logos`.
+- 74bf580: Some changes have been made to the `logos`.
 
     | Logo                                                       | Name       | Category |
     | ---------------------------------------------------------- | ---------- | -------- |
@@ -584,7 +595,7 @@
 
 ### Patch Changes
 
--   ea2c27d: Some changes have been made to the `logos`.
+- ea2c27d: Some changes have been made to the `logos`.
 
     | Logo                                                       | Name   | Category |
     | ---------------------------------------------------------- | ------ | -------- |
@@ -595,7 +606,7 @@
 
 ### Patch Changes
 
--   4e894f8: Some changes have been made to the `logos`.
+- 4e894f8: Some changes have been made to the `logos`.
 
     | Logo                                                     | Name | Category |
     | -------------------------------------------------------- | ---- | -------- |
@@ -605,7 +616,7 @@
 
 ### Patch Changes
 
--   563b8ed: Some changes have been made to the `logos`.
+- 563b8ed: Some changes have been made to the `logos`.
 
     | Logo                                                  | Name  | Category |
     | ----------------------------------------------------- | ----- | -------- |
@@ -618,7 +629,7 @@
 
 ### Patch Changes
 
--   e111fc7: Some changes have been made to the `logos`.
+- e111fc7: Some changes have been made to the `logos`.
 
     | Logo                                                 | Name | Category |
     | ---------------------------------------------------- | ---- | -------- |
@@ -631,7 +642,7 @@
 
 ### Patch Changes
 
--   97140e9: Some changes have been made to the `logos`.
+- 97140e9: Some changes have been made to the `logos`.
 
     | Logo                                                       | Name   | Category |
     | ---------------------------------------------------------- | ------ | -------- |
@@ -642,7 +653,7 @@
 
 ### Patch Changes
 
--   b305a8c: Some changes have been made to the `logos`.
+- b305a8c: Some changes have been made to the `logos`.
 
     | Logo                                                           | Name       | Category |
     | -------------------------------------------------------------- | ---------- | -------- |
@@ -656,7 +667,7 @@
 
 ### Patch Changes
 
--   505d2db: Some changes have been made to the `logos`.
+- 505d2db: Some changes have been made to the `logos`.
 
     | Logo                                                  | Name  | Category |
     | ----------------------------------------------------- | ----- | -------- |
@@ -666,7 +677,7 @@
 
 ### Patch Changes
 
--   f50a0b3: Some changes have been made to the `logos`.
+- f50a0b3: Some changes have been made to the `logos`.
 
     | Logo                                                        | Name    | Category |
     | ----------------------------------------------------------- | ------- | -------- |
@@ -678,7 +689,7 @@
 
 ### Patch Changes
 
--   15a263c: Some changes have been made to the `logos`.
+- 15a263c: Some changes have been made to the `logos`.
 
     | Logo                                                     | Name | Category |
     | -------------------------------------------------------- | ---- | -------- |
@@ -689,20 +700,20 @@
 
 ### Patch Changes
 
--   14dada6: Some changes have been made to the `logos`.
+- 14dada6: Some changes have been made to the `logos`.
 
     | Logo                                                     | Name | Category |
     | -------------------------------------------------------- | ---- | -------- |
     | <img src="./raw/chains/Chain2424.svg" width="36" alt=""> | 2424 | chain    |
     | <img src="./raw/chains/Chain2525.svg" width="36" alt=""> | 2525 | chain    |
 
--   e2bcb3a: Add OEV Network logo Update inEVM and inEVM testnet logos
+- e2bcb3a: Add OEV Network logo Update inEVM and inEVM testnet logos
 
 ## 0.1.20
 
 ### Patch Changes
 
--   4cd762f: Some changes have been made to the `logos`.
+- 4cd762f: Some changes have been made to the `logos`.
 
     | Logo                                                     | Name | Category |
     | -------------------------------------------------------- | ---- | -------- |
@@ -712,7 +723,7 @@
 
 ### Patch Changes
 
--   b1c8275: Some changes have been made to the `logos`.
+- b1c8275: Some changes have been made to the `logos`.
 
     | Logo                                                 | Name | Category |
     | ---------------------------------------------------- | ---- | -------- |
@@ -723,7 +734,7 @@
 
 ### Patch Changes
 
--   9236566: Some changes have been made to the `logos`.
+- 9236566: Some changes have been made to the `logos`.
 
     | Logo                                                           | Name       | Category |
     | -------------------------------------------------------------- | ---------- | -------- |
@@ -741,7 +752,7 @@
 
 ### Patch Changes
 
--   e6b1d8d: Some changes have been made to the `logos`.
+- e6b1d8d: Some changes have been made to the `logos`.
 
     | Logo                                                            | Name        | Category |
     | --------------------------------------------------------------- | ----------- | -------- |
@@ -751,7 +762,7 @@
 
 ### Patch Changes
 
--   9a4cefd: Some changes have been made to the `logos`.
+- 9a4cefd: Some changes have been made to the `logos`.
 
     | Logo                                                            | Name        | Category |
     | --------------------------------------------------------------- | ----------- | -------- |
@@ -762,7 +773,7 @@
 
 ### Patch Changes
 
--   0c06bae: Some changes have been made to the `logos`.
+- 0c06bae: Some changes have been made to the `logos`.
 
     | Logo                                                     | Name | Category |
     | -------------------------------------------------------- | ---- | -------- |
@@ -773,19 +784,19 @@
 
 ### Patch Changes
 
--   49a72dd: Add missing logos
+- 49a72dd: Add missing logos
 
-    -   inEVM
-    -   inEVM testnet
-    -   Merlin
-    -   Merlin testnet
-    -   Taiko Hekla testnet
+    - inEVM
+    - inEVM testnet
+    - Merlin
+    - Merlin testnet
+    - Taiko Hekla testnet
 
 ## 0.1.13
 
 ### Patch Changes
 
--   f71592c: Some changes have been made to the `logos`.
+- f71592c: Some changes have been made to the `logos`.
 
     | Logo                                                      | Name  | Category |
     | --------------------------------------------------------- | ----- | -------- |
@@ -795,7 +806,7 @@
 
 ### Patch Changes
 
--   85a1592: Some changes have been made to the `logos`.
+- 85a1592: Some changes have been made to the `logos`.
 
     | Logo                                                      | Name  | Category |
     | --------------------------------------------------------- | ----- | -------- |
@@ -805,7 +816,7 @@
 
 ### Patch Changes
 
--   8f98a89: Some changes have been made to the `logos`.
+- 8f98a89: Some changes have been made to the `logos`.
 
     | Logo                                                          | Name      | Category |
     | ------------------------------------------------------------- | --------- | -------- |
@@ -818,7 +829,7 @@
 
 ### Patch Changes
 
--   8a2e358: Some changes have been made to the `logos`.
+- 8a2e358: Some changes have been made to the `logos`.
 
     | Logo                                                  | Name  | Category |
     | ----------------------------------------------------- | ----- | -------- |
@@ -832,7 +843,7 @@
 
 ### Patch Changes
 
--   bfd976e: Some changes have been made to the `logos`.
+- bfd976e: Some changes have been made to the `logos`.
 
     | Logo                                                      | Name  | Category |
     | --------------------------------------------------------- | ----- | -------- |
@@ -845,7 +856,7 @@
 
 ### Patch Changes
 
--   88b3789: Some changes have been made to the `logos`.
+- 88b3789: Some changes have been made to the `logos`.
 
     | Logo                                                       | Name   | Category |
     | ---------------------------------------------------------- | ------ | -------- |
@@ -859,7 +870,7 @@
 
 ### Patch Changes
 
--   ab0af3d: Some changes have been made to the `logos`.
+- ab0af3d: Some changes have been made to the `logos`.
 
     | Logo                                                            | Name        | Category |
     | --------------------------------------------------------------- | ----------- | -------- |
@@ -877,7 +888,7 @@
 
 ### Patch Changes
 
--   1097190: Some changes have been made to the `logos`.
+- 1097190: Some changes have been made to the `logos`.
 
     | Logo                                                  | Name  | Category |
     | ----------------------------------------------------- | ----- | -------- |
@@ -891,7 +902,7 @@
 
 ### Patch Changes
 
--   4de62e0: Some changes have been made to the `logos`.
+- 4de62e0: Some changes have been made to the `logos`.
 
     | Logo                                                  | Name  | Category |
     | ----------------------------------------------------- | ----- | -------- |
@@ -901,7 +912,7 @@
 
 ### Patch Changes
 
--   95ef951: Some changes have been made to the `logos`.
+- 95ef951: Some changes have been made to the `logos`.
 
     | Logo                                                 | Name | Category |
     | ---------------------------------------------------- | ---- | -------- |
@@ -912,13 +923,13 @@
 
 ### Patch Changes
 
--   f98daf5: Adds Linea Sepolia Testnet logo
+- f98daf5: Adds Linea Sepolia Testnet logo
 
 ## 0.1.2
 
 ### Patch Changes
 
--   896b2be: Some changes have been made to the `logos`.
+- 896b2be: Some changes have been made to the `logos`.
 
     | Logo | Name | Category |
     | ---- | ---- | -------- |
@@ -927,13 +938,13 @@
 
 ### Patch Changes
 
--   e6eadb0: Publish using changeset
+- e6eadb0: Publish using changeset
 
 ## 2.11.1
 
 ### Patch Changes
 
--   0526662: Some changes have been made to the `logos`.
+- 0526662: Some changes have been made to the `logos`.
 
     | Logo                                                   | Name   | Category |
     | ------------------------------------------------------ | ------ | -------- |
@@ -945,13 +956,13 @@
 
 ### Minor Changes
 
--   70f88e8: Missing sepolia testnet logos added
+- 70f88e8: Missing sepolia testnet logos added
 
 ## 2.10.2
 
 ### Patch Changes
 
--   401566b: Some changes have been made to the `logos`.
+- 401566b: Some changes have been made to the `logos`.
 
     | Logo                                                              | Name        | Category     |
     | ----------------------------------------------------------------- | ----------- | ------------ |
@@ -979,7 +990,7 @@
 
 ### Patch Changes
 
--   944ac32: Some changes have been made to the `logos`.
+- 944ac32: Some changes have been made to the `logos`.
 
     | Logo                                                           | Name       | Category |
     | -------------------------------------------------------------- | ---------- | -------- |
@@ -990,13 +1001,13 @@
 
 ### Minor Changes
 
--   d273851: Exchange Rate postfix is now ignored
+- d273851: Exchange Rate postfix is now ignored
 
 ## 2.9.5
 
 ### Patch Changes
 
--   3aba9f5: Some changes have been made to the `logos`.
+- 3aba9f5: Some changes have been made to the `logos`.
 
     | Logo                                                  | Name  | Category |
     | ----------------------------------------------------- | ----- | -------- |
@@ -1010,7 +1021,7 @@
 
 ### Patch Changes
 
--   62a1d48: Some changes have been made to the `logos`.
+- 62a1d48: Some changes have been made to the `logos`.
 
     | Logo                                                              | Name              | Category |
     | ----------------------------------------------------------------- | ----------------- | -------- |
@@ -1025,7 +1036,7 @@
 
 ### Patch Changes
 
--   c77672d: Some changes have been made to the `logos`.
+- c77672d: Some changes have been made to the `logos`.
 
     | Logo                                                          | Name      | Category |
     | ------------------------------------------------------------- | --------- | -------- |
@@ -1036,13 +1047,13 @@
 
 ### Patch Changes
 
--   0beed88: Add provenance check
+- 0beed88: Add provenance check
 
 ## 2.9.1
 
 ### Patch Changes
 
--   66f2d1d: Some changes have been made to the `logos`.
+- 66f2d1d: Some changes have been made to the `logos`.
 
     | Logo                                                            | Name      | Category     |
     | --------------------------------------------------------------- | --------- | ------------ |
@@ -1052,61 +1063,61 @@
 
 ### Minor Changes
 
--   f1e0223: Light version support improved
+- f1e0223: Light version support improved
 
 ## 2.8.5
 
 ### Patch Changes
 
--   8c45d99: # What's Changed Release created by the release script. Logos updated.
+- 8c45d99: # What's Changed Release created by the release script. Logos updated.
 
 ## 2.8.4
 
 ### Patch Changes
 
--   fb4263a: # What's Changed Release created by the release script. Logos updated.
+- fb4263a: # What's Changed Release created by the release script. Logos updated.
 
 ## 2.8.3
 
 ### Patch Changes
 
--   e781776: # What's Changed Release created by the release script. Logos updated.
+- e781776: # What's Changed Release created by the release script. Logos updated.
 
 ## 2.8.2
 
 ### Patch Changes
 
--   47337ac: Fixes optional parameter
+- 47337ac: Fixes optional parameter
 
 ## 2.8.1
 
 ### Patch Changes
 
--   c69c97f: Fixed mEth logo
+- c69c97f: Fixed mEth logo
 
 ## 2.8.0
 
 ### Minor Changes
 
--   0ff4256: Light mode is implemented
+- 0ff4256: Light mode is implemented
 
 ## 2.7.0
 
 ### Minor Changes
 
--   2faedee: Logo designed synced with market
+- 2faedee: Logo designed synced with market
 
 ## 2.6.0
 
 ### Minor Changes
 
--   c22c01f: Blast Sepolia Testnet added
+- c22c01f: Blast Sepolia Testnet added
 
 ## 2.5.0
 
 ### Minor Changes
 
--   1af67c6: New chain logos added;
+- 1af67c6: New chain logos added;
 
     1. Lightlink (chain ID: 1890)
     2. LightLink Goerli Testnet (chain ID: 1891)
@@ -1115,102 +1126,102 @@
 
 ### Minor Changes
 
--   b26653b: \`@nodary/utilities\` replaced with \`@phase21/api-integrations\`.
+- b26653b: \`@nodary/utilities\` replaced with \`@phase21/api-integrations\`.
 
 ## 2.3.0
 
 ### Minor Changes
 
--   e7ef4c3: New symbols are added.
+- e7ef4c3: New symbols are added.
 
-    -   `uniETH`
-    -   `osETH`
-    -   `weETH`
-    -   `PYUSD`
-    -   `WLD`
+    - `uniETH`
+    - `osETH`
+    - `weETH`
+    - `PYUSD`
+    - `WLD`
 
 ## 2.2.0
 
 ### Minor Changes
 
--   a539166: Dependency update: `@phase21/chains`
+- a539166: Dependency update: `@phase21/chains`
 
 ## 2.1.0
 
 ### Minor Changes
 
--   6ccfa82: Update api-integrations to `@phase21/api-integrations`
+- 6ccfa82: Update api-integrations to `@phase21/api-integrations`
 
 ## 2.0.0
 
 ### Major Changes
 
--   f8cb93a: Package moved to phase21 organization
+- f8cb93a: Package moved to phase21 organization
 
 ## 1.0.0
 
 ### Major Changes
 
--   3c328a1: Package name has been changed to `api3-logos` `api-integrations` package is updated
+- 3c328a1: Package name has been changed to `api3-logos` `api-integrations` package is updated
 
 ## 0.0.18
 
 ### Patch Changes
 
--   c5d9628: - New logos added: ASTR, USDe, HG, INTC, DIS
-    -   Renovate config updated
+- c5d9628: - New logos added: ASTR, USDe, HG, INTC, DIS
+    - Renovate config updated
 
 ## 0.0.17
 
 ### Patch Changes
 
--   b6935b0: Dependency packages updated.
+- b6935b0: Dependency packages updated.
 
 ## 0.0.16
 
 ### Patch Changes
 
--   5b80f72: Update Polygon network logos
+- 5b80f72: Update Polygon network logos
 
 ## 0.0.15
 
 ### Patch Changes
 
--   2cb7881: Move camelcase from devDependencies to dependencies
+- 2cb7881: Move camelcase from devDependencies to dependencies
 
 ## 0.0.14
 
 ### Patch Changes
 
--   bc0d03f:
-    -   Missing supported chains, symbols and logos will return a placeholder image instead of throwing an error.
-    -   Unsuppored chains, symbols and logos will return an error image.
-    -   A new tab added to frontend to display missing and chains, symbols and logos.
+- bc0d03f:
+    - Missing supported chains, symbols and logos will return a placeholder image instead of throwing an error.
+    - Unsuppored chains, symbols and logos will return an error image.
+    - A new tab added to frontend to display missing and chains, symbols and logos.
 
 ## 0.0.13
 
 ### Patch Changes
 
--   10139eb:
-    -   Added missing dependency (camelcase)
+- 10139eb:
+    - Added missing dependency (camelcase)
 
 ## 0.0.12
 
 ### Patch Changes
 
--   a4195dc:
-    -   Release bug fixed
+- a4195dc:
+    - Release bug fixed
 
 ## 0.0.11
 
 ### Patch Changes
 
--   a47a5a0:
+- a47a5a0:
 
-    -   React support removed.
+    - React support removed.
 
-    -   `ChainLogo`, `SymbolLogo` and `ApiProviderLogo` now return a string instead of a React component.
-    -   Returned string is a base64 encoded SVG image.
+    - `ChainLogo`, `SymbolLogo` and `ApiProviderLogo` now return a string instead of a React component.
+    - Returned string is a base64 encoded SVG image.
 
     ```js
     import { ChainLogo, SymbolLogo, ApiProviderLogo } from 'logos';
@@ -1226,7 +1237,7 @@
 
 ### Patch Changes
 
--   8fd2486: Added new symbols; 'BABA', 'ETHx', 'MATICx', 'PYTH', 'WOO', 'MATIC Exchange Rate', 'NG', 'QQQ', 'PYPL'
+- 8fd2486: Added new symbols; 'BABA', 'ETHx', 'MATICx', 'PYTH', 'WOO', 'MATIC Exchange Rate', 'NG', 'QQQ', 'PYPL'
 
     | Symbol Name         | Logo                                                                                                                          |
     | ------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
@@ -1244,13 +1255,13 @@
 
 ### Patch Changes
 
--   a19b40e: Fix invalid import statement for cjs
+- a19b40e: Fix invalid import statement for cjs
 
 ## 0.0.8
 
 ### Patch Changes
 
--   c797370: Added new symbols; mETH, EURE, GHO, RDNT
+- c797370: Added new symbols; mETH, EURE, GHO, RDNT
 
     | Symbol Name | Logo                                                                                                                                                |
     | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1263,27 +1274,27 @@
 
 ### Patch Changes
 
--   de4bec0: Export functions fixed.
+- de4bec0: Export functions fixed.
 
 ## 0.0.6
 
 ### Patch Changes
 
--   f3149d9: Add example view.
+- f3149d9: Add example view.
 
 ## 0.0.5
 
 ### Patch Changes
 
--   a835657: - JSDoc annotations added to `logos` package.
+- a835657: - JSDoc annotations added to `logos` package.
 
-    -   `logos` package now exports `Logo` as svg string.
-    -   `logos` package now exports `Logo` as React component.
-    -   Package size reduced.
+    - `logos` package now exports `Logo` as svg string.
+    - `logos` package now exports `Logo` as React component.
+    - Package size reduced.
 
-    -   Method names changed.
+    - Method names changed.
 
-        -   SVG component
+        - SVG component
 
             ```javascript
             ChainLogoSvg(id: string)
@@ -1297,7 +1308,7 @@
             <img src={ApiProviderLogoSvg('nodary')} width={50} height={50} alt='' />
             ```
 
-        -   React component
+        - React component
 
             ```javascript
             ChainLogo(id: string)
@@ -1315,7 +1326,7 @@
 
 ### Patch Changes
 
--   3601672: SVG export is now available.
+- 3601672: SVG export is now available.
 
     ```javascript
     ChainIconBase64(id: string)
@@ -1335,18 +1346,18 @@
 
 ### Patch Changes
 
--   ede55ad: Null check added
+- ede55ad: Null check added
 
 ## 0.0.2
 
 ### Patch Changes
 
--   6a0ab5d: Package name changed to @api3/logos
+- 6a0ab5d: Package name changed to @api3/logos
 
 ## 0.0.1
 
 ### Patch Changes
 
--   0ed4fd3: Test release
--   b1ab864: initial release
--   6f06f87: Test Release
+- 0ed4fd3: Test release
+- b1ab864: initial release
+- 6f06f87: Test Release
