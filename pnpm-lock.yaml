@@ -13,8 +13,8 @@ importers:
         version: 6.3.0
     devDependencies:
       '@api3/dapi-management':
-        specifier: 1.112.0
-        version: 1.112.0(typescript@5.6.2)
+        specifier: 1.112.1
+        version: 1.112.1(typescript@5.6.2)
       '@babel/core':
         specifier: ^7.26.0
         version: 7.26.0
@@ -61,8 +61,8 @@ importers:
   viewer:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 1.112.0
-        version: 1.112.0(typescript@5.6.2)
+        specifier: 1.112.1
+        version: 1.112.1(typescript@5.6.2)
       '@api3/logos':
         specifier: workspace:*
         version: link:..
@@ -131,11 +131,8 @@ packages:
   '@api3/airnode-abi@0.14.2':
     resolution: {integrity: sha512-C3AVklVyTG3A4v7Q3tGrE0UmVinPnPouZmtcW7fdOprnHB/WgHbRDbb9KmI6cMmhKCur7CpwmTY5MVH/E7TpcQ==}
 
-  '@api3/api-integrations@2.23.0':
-    resolution: {integrity: sha512-Ce4rHFYopzqlE2lwgDjMKenWvH+0kRANDVyMKs57NpGTBdmwuCZJnHULWAtP3UnAbbHFldLntGMS2lGufDAI8w==}
-
-  '@api3/chains@10.8.1':
-    resolution: {integrity: sha512-pWwp0C9ymDdXzqktexBaeeakaOKDErsRigLBuzYSM5DMWhdl/8UzkEWBh6eNXGLLc+fhAhPM+j98Z5LWnKMR8g==}
+  '@api3/api-integrations@2.24.0':
+    resolution: {integrity: sha512-NvoRk3ZyX9Sidmi7m7OL0Ehu74gYtJrQgFKxgcxrJKUVf1TfyckITR3TdhlTxF2u8cCFhaSdQRNwxsGoy2SmpA==}
 
   '@api3/chains@11.0.0':
     resolution: {integrity: sha512-LE1OfoyKr6HYacAh1Z4VHCKRcSuLq/fl3CHdCNKig2F/4ZrGQgI/PBv03O8FVjdqsQqvW1RV6y6A8onpdGMSpg==}
@@ -144,8 +141,8 @@ packages:
     resolution: {integrity: sha512-DEAopivj60gdVO4pm1y0gcbnUh5H4A69Wh1pWFVmYf8hJIaC03ovXC01E2Lp+G1Ot9jHndrPM6kwr4XCzwQjVw==}
     engines: {node: '>=18.14.0'}
 
-  '@api3/dapi-management@1.112.0':
-    resolution: {integrity: sha512-PIpvIj5Tnm+TQ8MuGqCynSGiRrSaZ/BXt/fDfEyso2xAm9DLPOCpkS1rBk9DDZviqpHUBs02b2rWk+b/OPhmfQ==}
+  '@api3/dapi-management@1.112.1':
+    resolution: {integrity: sha512-jXM6XYmP0nsKMyjnWk0bShK16CABjlsJMFsx+AaVWNxTdqeiOm8gF5tCKkR0eqY+2lkoVCGv/wnKBAzBNXXJmA==}
 
   '@api3/ois@2.3.2':
     resolution: {integrity: sha512-hYQCbCAtWMGKV+pECRY5tbfCSOcheeo9s6wtrhn1dOWw151VeG0sKG3VbBEsyA6cvSaldewBWY3t/JGaupdThg==}
@@ -4695,10 +4692,6 @@ packages:
   lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
 
-  logform@2.6.1:
-    resolution: {integrity: sha512-CdaO738xRapbKIMVn2m4F6KTj4j7ooJ8POVnebSgKo3KBz5axNXRAL7ZdRjIV6NOr2Uf4vjtRkxrFETOioCqSA==}
-    engines: {node: '>= 12.0.0'}
-
   logform@2.7.0:
     resolution: {integrity: sha512-TFYA4jnP7PVbmlBIfhlSe+WKxs9dklXMTEGcBCIvLhE/Tn3H6Gk1norupVW7m5Cnd4bLcr08AytbyV/xj7f/kQ==}
     engines: {node: '>= 12.0.0'}
@@ -7073,21 +7066,12 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
-  '@api3/api-integrations@2.23.0(typescript@5.6.2)':
+  '@api3/api-integrations@2.24.0(typescript@5.6.2)':
     dependencies:
       '@api3/airnode-abi': 0.14.2
-      '@api3/chains': 10.8.1(typescript@5.6.2)
+      '@api3/chains': 11.0.0(typescript@5.6.2)
       '@api3/ois': 2.3.2
       ethers: 5.7.2
-      zod: 3.23.8
-    transitivePeerDependencies:
-      - bufferutil
-      - typescript
-      - utf-8-validate
-
-  '@api3/chains@10.8.1(typescript@5.6.2)':
-    dependencies:
-      viem: 2.21.32(typescript@5.6.2)(zod@3.23.8)
       zod: 3.23.8
     transitivePeerDependencies:
       - bufferutil
@@ -7121,9 +7105,9 @@ snapshots:
       - debug
       - utf-8-validate
 
-  '@api3/dapi-management@1.112.0(typescript@5.6.2)':
+  '@api3/dapi-management@1.112.1(typescript@5.6.2)':
     dependencies:
-      '@api3/api-integrations': 2.23.0(typescript@5.6.2)
+      '@api3/api-integrations': 2.24.0(typescript@5.6.2)
       '@api3/chains': 11.0.0(typescript@5.6.2)
       '@api3/commons': 0.13.4
       ethers: 6.13.4
@@ -13510,15 +13494,6 @@ snapshots:
 
   lodash@4.17.21: {}
 
-  logform@2.6.1:
-    dependencies:
-      '@colors/colors': 1.6.0
-      '@types/triple-beam': 1.3.5
-      fecha: 4.2.3
-      ms: 2.1.3
-      safe-stable-stringify: 2.5.0
-      triple-beam: 1.4.1
-
   logform@2.7.0:
     dependencies:
       '@colors/colors': 1.6.0
@@ -16092,7 +16067,7 @@ snapshots:
   winston-console-format@1.0.8:
     dependencies:
       colors: 1.4.0
-      logform: 2.6.1
+      logform: 2.7.0
       triple-beam: 1.4.1
 
   winston-transport@4.9.0:
