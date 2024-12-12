@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 0.2.23
+
+### Patch Changes
+
+- f99e65c: Some changes have been made to the `logos`.
+
+    | Logo                                                 | Name | Category |
+    | ---------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/lbtc.svg" width="36" alt=""> | lbtc | symbol   |
+
 ## 0.2.22
 
 ### Patch Changes
