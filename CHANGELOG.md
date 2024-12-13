@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 0.2.25
+
+### Patch Changes
+
+- a8b3a78: Some changes have been made to the `logos`.
+
+    | Logo                                                      | Name      | Category |
+    | --------------------------------------------------------- | --------- | -------- |
+    | <img src="./raw/symbols/inwsteths.svg" width="36" alt=""> | inwsteths | symbol   |
+
 ## 0.2.24
 
 ### Patch Changes
@@ -10,7 +20,7 @@
     | ------------------------------------------------------------- | --------- | -------- |
     | <img src="./raw/chains/Chain146.svg" width="36" alt="">       | 146       | chain    |
     | <img src="./raw/chains/Chain146-light.svg" width="36" alt=""> | 146-light | chain    |
-    
+
 ## 0.2.23
 
 ### Patch Changes
