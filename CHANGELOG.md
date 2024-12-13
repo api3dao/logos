@@ -10,7 +10,7 @@
     | ------------------------------------------------------------- | --------- | -------- |
     | <img src="./raw/chains/Chain146.svg" width="36" alt="">       | 146       | chain    |
     | <img src="./raw/chains/Chain146-light.svg" width="36" alt=""> | 146-light | chain    |
-
+    
 ## 0.2.23
 
 ### Patch Changes
