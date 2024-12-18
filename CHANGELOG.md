@@ -1,5 +1,16 @@
 # @api3/logos
 
+## 0.2.26
+
+### Patch Changes
+
+- c18aa36: Some changes have been made to the `logos`.
+
+    | Logo                                                    | Name | Category |
+    | ------------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/chains/Chain177.svg" width="36" alt=""> | 177  | chain    |
+    | <img src="./raw/chains/Chain133.svg" width="36" alt=""> | 133  | chain    |
+
 ## 0.2.25
 
 ### Patch Changes
