@@ -1,5 +1,18 @@
 # @api3/logos
 
+## 0.2.28
+
+### Patch Changes
+
+- b4e43a9: Some changes have been made to the `logos`.
+
+    | Logo                                                    | Name    | Category |
+    | ------------------------------------------------------- | ------- | -------- |
+    | <img src="./raw/symbols/s-light.svg" width="36" alt=""> | s-light | symbol   |
+    | <img src="./raw/symbols/velo.svg" width="36" alt="">    | velo    | symbol   |
+    | <img src="./raw/symbols/s.svg" width="36" alt="">       | s       | symbol   |
+    | <img src="./raw/symbols/scrvusd.svg" width="36" alt=""> | scrvusd | symbol   |
+
 ## 0.2.27
 
 ### Patch Changes
