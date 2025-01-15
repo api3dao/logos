@@ -1,5 +1,16 @@
 # @api3/logos
 
+## 0.2.29
+
+### Patch Changes
+
+- feecef6: Following logos has been updated:
+
+    | Logo                                                   | Name   | Category |
+    | ------------------------------------------------------ | ------ | -------- |
+    | <img src="./raw/symbols/crv.svg" width="36" alt="">    | crv    | symbol   |
+    | <img src="./raw/symbols/crvusd.svg" width="36" alt=""> | crvusd | symbol   |
+
 ## 0.2.28
 
 ### Patch Changes
