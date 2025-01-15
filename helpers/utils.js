@@ -15,8 +15,13 @@ module.exports = {
     getManualLogos,
     getSupportedChains,
     getApiProviders,
-    getSupportedFeeds
+    getSupportedFeeds,
+    getDapps
 };
+
+function getDapps() {
+    return [];
+}
 
 function getApiProviders() {
     const providers = [...new Set(dapis.map((dapi) => dapi.providers).flat())];
@@ -43,8 +48,10 @@ function getSupportList(mode) {
             return getSupportedFeeds();
         case 'api-provider':
             return getApiProviders();
+        case 'dapp':
+            return getDapps();
         default:
-            break;
+            return [];
     }
 }
 
@@ -56,8 +63,10 @@ function getManualLogos(mode) {
             return [];
         case 'api-provider':
             return [];
+        case 'dapp':
+            return [];
         default:
-            break;
+            return [];
     }
 }
 
