@@ -24,6 +24,7 @@
         "optimize-api-provider-logos": "rimraf ./optimized/api-provider & svgo -q -p 8 -f ./raw/api-providers -o ./optimized/api-provider",
         "build": "pnpm run optimize-chain-logos && pnpm run optimize-symbol-logos && pnpm run optimize-api-provider-logos && node scripts/build-svg.js",
         "fetch": "node scripts/fetch-missing.js",
+        "maintenance": "node scripts/toggle-mainteance-mode.js",
         "version-check": "node scripts/version-check.js",
         "package": "pnpm run build",
         "lint": "pnpm run format:check && pnpm run lint:eslint",
