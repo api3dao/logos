@@ -42,11 +42,6 @@ function disableMaintenanceMode() {
 function main() {
     const command = process.env.ACTION;
 
-    if (!command) {
-        console.error('No command provided. Please use enable or disable');
-        process.exit(1);
-    }
-
     switch (command) {
         case 'enable':
             enableMaintenanceMode();
@@ -58,8 +53,8 @@ function main() {
             disableMaintenanceMode();
             break;
         default:
-            console.error('Invalid command. Please use enable or disable');
-            process.exit(1);
+            console.log("No valid command found. Please use 'enable', 'delayed' or 'disable'");
+            break;
     }
 }
 
