@@ -4,17 +4,6 @@
 name: Deploy to Github Pages
 
 on:
-  workflow_dispatch:
-    inputs:
-      maintenance:
-        description: 'This workflow can be used to enable maintenance mode on the logos app. Choose "enabled" to enable maintenance mode immediately, "delayed" to enable maintenance mode after 10 minutes or "disabled" to disable maintenance mode. Make sure to run this workflow on the production-api3-market branch to avoid any issues.'
-        required: true
-        default: 'disabled'
-        type: choice
-        options:
-        - enabled
-        - delayed
-        - disabled
   schedule:
       - cron: '0 8,12,16,20 * * *'
   push:
@@ -71,8 +60,6 @@ jobs:
       - name: Install Frontend Packages
         if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
         run: pnpm install
-      - name: Check maintenance mode
-        run: ACTION=${{ inputs.maintenance }} pnpm maintenance
       - name: Build Frontend
         if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
         run: pnpm --filter "viewer" build
