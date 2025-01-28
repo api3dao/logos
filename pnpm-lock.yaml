@@ -13,8 +13,8 @@ importers:
         version: 6.3.0
     devDependencies:
       '@api3/dapi-management':
-        specifier: 2.11.0
-        version: 2.11.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
+        specifier: 2.14.0
+        version: 2.14.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@babel/core':
         specifier: ^7.26.0
         version: 7.26.0
@@ -61,8 +61,8 @@ importers:
   viewer:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 2.11.0
-        version: 2.11.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
+        specifier: 2.14.0
+        version: 2.14.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@api3/logos':
         specifier: workspace:*
         version: link:..
@@ -154,8 +154,8 @@ packages:
     resolution: {integrity: sha512-t8RSIu48FL1RWzScgHdXTVN8agJRFk4XlV7zCoHkBMY1qnCcZJ8JwZnY2rb01Mc0Y5w9V/N/NO9BwQFioqJ4aw==}
     hasBin: true
 
-  '@api3/api-integrations@2.27.0':
-    resolution: {integrity: sha512-2RRm2iz3nB8szkOqp/JvFMUsAI0iONg/8kiUIv+A+/YJNY+L+fgesTaJjPbjAUmpL2VUnQt1ZlG0piCZQbCeyg==}
+  '@api3/api-integrations@2.29.0':
+    resolution: {integrity: sha512-t4YFWmOwS7gRpHM6yibD3iM1ehCfdancqB0fbqAWELFxswKKLHTxEkmYAVllNvoymiaMS+FLOMzARzN03We+Sw==}
 
   '@api3/chains@11.5.0':
     resolution: {integrity: sha512-Qc8EICOkwxj4BDBOtbRGnj7huAg9Td/EmqXr1/crPOUI9e/als8LKGFpVS3YPZzOePfXWsp7SVazc1J4ZBxFlg==}
@@ -173,8 +173,8 @@ packages:
     peerDependencies:
       eslint: ^8.50.0
 
-  '@api3/dapi-management@2.11.0':
-    resolution: {integrity: sha512-IKSy/7TXx+M1aqbBP3YSKLWHSvDNaAWCIYTBywL3AsygR9fvPuILiActXacOjRKT1QNPP4tdqeRazwYqGWh0Wg==}
+  '@api3/dapi-management@2.14.0':
+    resolution: {integrity: sha512-gfPdrchm6ux2jPLtjisY4yRmhfaZdde46Hyogvs1Gl2E8oKpJETIzibFLShBU6xVm0oLul6bOzqkus81C5EV3A==}
 
   '@api3/ois@2.3.2':
     resolution: {integrity: sha512-hYQCbCAtWMGKV+pECRY5tbfCSOcheeo9s6wtrhn1dOWw151VeG0sKG3VbBEsyA6cvSaldewBWY3t/JGaupdThg==}
@@ -4204,8 +4204,8 @@ packages:
   ethers@5.7.2:
     resolution: {integrity: sha512-wswUsmWo1aOK8rR7DIKiWSw9DbLWe6x98Jrn8wcTflTVvaXhAMaB5zGAXy0GYQEQp9iO1iSHWVyARQm11zUtyg==}
 
-  ethers@6.13.4:
-    resolution: {integrity: sha512-21YtnZVg4/zKkCQPjrDj38B1r4nQvTZLopUGMLQ1ePU2zV/joCfDC3t3iKQjWRzjjjbzR+mdAIoikeBRNkdllA==}
+  ethers@6.13.5:
+    resolution: {integrity: sha512-+knKNieu5EKRThQJWwqaJ10a6HE9sSehGeqWN65//wE7j47ZpFhKAnHB/JJFibwwg61I/koxaPsXbXpD/skNOQ==}
     engines: {node: '>=14.0.0'}
 
   eventemitter3@4.0.7:
@@ -7856,8 +7856,8 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
 
-  zod@3.23.8:
-    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
+  zod@3.24.1:
+    resolution: {integrity: sha512-muH7gBL9sI1nciMZV67X5fTKKBLtwpZ5VBp1vsOQzj1MhrBZ4wlVCm3gedKZWLp0Oyel8sIGfeiz54Su+OVT+A==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -7912,7 +7912,7 @@ snapshots:
       ethers: 5.7.2
       express: 4.21.0
       lodash: 4.17.21
-      zod: 3.23.8
+      zod: 3.24.1
     transitivePeerDependencies:
       - aws-crt
       - bufferutil
@@ -7946,7 +7946,7 @@ snapshots:
       google-auth-library: 9.15.0
       lodash: 4.17.21
       yargs: 17.7.2
-      zod: 3.23.8
+      zod: 3.24.1
     transitivePeerDependencies:
       - aws-crt
       - bufferutil
@@ -7994,19 +7994,19 @@ snapshots:
       lodash: 4.17.21
       ora: 5.4.1
       yargs: 17.7.2
-      zod: 3.23.8
+      zod: 3.24.1
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
 
-  '@api3/api-integrations@2.27.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
+  '@api3/api-integrations@2.29.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
     dependencies:
       '@api3/airnode-abi': 0.14.2
       '@api3/chains': 11.5.0(typescript@5.6.2)
       '@api3/ois': 2.3.2
       '@api3/signed-api': 2.1.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       ethers: 5.7.2
-      zod: 3.23.8
+      zod: 3.24.1
     transitivePeerDependencies:
       - aws-crt
       - bufferutil
@@ -8023,8 +8023,8 @@ snapshots:
 
   '@api3/chains@11.5.0(typescript@5.6.2)':
     dependencies:
-      viem: 2.21.32(typescript@5.6.2)(zod@3.23.8)
-      zod: 3.23.8
+      viem: 2.21.32(typescript@5.6.2)(zod@3.24.1)
+      zod: 3.24.1
     transitivePeerDependencies:
       - bufferutil
       - typescript
@@ -8032,8 +8032,8 @@ snapshots:
 
   '@api3/chains@4.17.1(typescript@5.6.2)':
     dependencies:
-      viem: 2.21.32(typescript@5.6.2)(zod@3.23.8)
-      zod: 3.23.8
+      viem: 2.21.32(typescript@5.6.2)(zod@3.24.1)
+      zod: 3.24.1
     transitivePeerDependencies:
       - bufferutil
       - typescript
@@ -8051,7 +8051,7 @@ snapshots:
       lodash: 4.17.21
       winston: 3.17.0
       winston-console-format: 1.0.8
-      zod: 3.23.8
+      zod: 3.24.1
     transitivePeerDependencies:
       - bufferutil
       - debug
@@ -8082,7 +8082,7 @@ snapshots:
       lodash: 4.17.21
       winston: 3.17.0
       winston-console-format: 1.0.8
-      zod: 3.23.8
+      zod: 3.24.1
     transitivePeerDependencies:
       - bufferutil
       - eslint-import-resolver-typescript
@@ -8093,13 +8093,13 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@api3/dapi-management@2.11.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
+  '@api3/dapi-management@2.14.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
     dependencies:
-      '@api3/api-integrations': 2.27.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
+      '@api3/api-integrations': 2.29.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@api3/chains': 11.5.0(typescript@5.6.2)
       '@api3/commons': 0.13.4
-      ethers: 6.13.4
-      zod: 3.23.8
+      ethers: 6.13.5
+      zod: 3.24.1
     transitivePeerDependencies:
       - aws-crt
       - bufferutil
@@ -8117,7 +8117,7 @@ snapshots:
   '@api3/ois@2.3.2':
     dependencies:
       lodash: 4.17.21
-      zod: 3.23.8
+      zod: 3.24.1
 
   '@api3/promise-utils@0.4.0': {}
 
@@ -8132,7 +8132,7 @@ snapshots:
       express: 4.21.0
       lodash: 4.17.21
       workerpool: 9.2.0
-      zod: 3.23.8
+      zod: 3.24.1
     transitivePeerDependencies:
       - aws-crt
       - bufferutil
@@ -12475,10 +12475,10 @@ snapshots:
 
   abab@2.0.6: {}
 
-  abitype@1.0.6(typescript@5.6.2)(zod@3.23.8):
+  abitype@1.0.6(typescript@5.6.2)(zod@3.24.1):
     optionalDependencies:
       typescript: 5.6.2
-      zod: 3.23.8
+      zod: 3.24.1
 
   accepts@1.3.8:
     dependencies:
@@ -14283,7 +14283,7 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
-  ethers@6.13.4:
+  ethers@6.13.5:
     dependencies:
       '@adraffy/ens-normalize': 1.10.1
       '@noble/curves': 1.2.0
@@ -18291,14 +18291,14 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.2
 
-  viem@2.21.32(typescript@5.6.2)(zod@3.23.8):
+  viem@2.21.32(typescript@5.6.2)(zod@3.24.1):
     dependencies:
       '@adraffy/ens-normalize': 1.11.0
       '@noble/curves': 1.6.0
       '@noble/hashes': 1.5.0
       '@scure/bip32': 1.5.0
       '@scure/bip39': 1.4.0
-      abitype: 1.0.6(typescript@5.6.2)(zod@3.23.8)
+      abitype: 1.0.6(typescript@5.6.2)(zod@3.24.1)
       isows: 1.0.6(ws@8.18.0)
       webauthn-p256: 0.0.10
       ws: 8.18.0
@@ -18749,6 +18749,6 @@ snapshots:
 
   yocto-queue@0.1.0: {}
 
-  zod@3.23.8: {}
+  zod@3.24.1: {}
 
   zwitch@2.0.4: {}

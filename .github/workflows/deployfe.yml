@@ -4,17 +4,6 @@
 name: Deploy to Github Pages
 
 on:
-  workflow_dispatch:
-    inputs:
-      maintenance:
-        description: 'Maintenance mode'
-        required: true
-        default: 'disabled'
-        type: choice
-        options:
-        - enabled
-        - delayed
-        - disabled
   schedule:
       - cron: '0 8,12,16,20 * * *'
   push:
@@ -71,8 +60,6 @@ jobs:
       - name: Install Frontend Packages
         if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
         run: pnpm install
-      - name: Check maintenance mode
-        run: ACTION=${{ inputs.maintenance }} pnpm maintenance
       - name: Build Frontend
         if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
         run: pnpm --filter "viewer" build
