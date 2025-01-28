@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 0.2.31
+
+### Patch Changes
+
+- d707dec: Some changes have been made to the `logos`.
+
+    | Logo                                                | Name | Category |
+    | --------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/mtl.svg" width="36" alt=""> | mtl  | symbol   |
+
 ## 0.2.30
 
 ### Patch Changes
