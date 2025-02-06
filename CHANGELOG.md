@@ -1,5 +1,11 @@
 # @api3/logos
 
+## 0.3.0
+
+### Minor Changes
+
+- c1b7182: Override Berachain and BERA logos
+
 ## 0.2.31
 
 ### Patch Changes
