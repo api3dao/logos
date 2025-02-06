@@ -51,9 +51,9 @@ function getSupportList(mode) {
 function getManualLogos(mode) {
     switch (mode) {
         case 'chain':
-            return [];
+            return ['80094'];
         case 'symbol':
-            return [];
+            return ['BERA'];
         case 'api-provider':
             return [];
         default:
