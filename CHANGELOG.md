@@ -1,5 +1,17 @@
 # @api3/logos
 
+## 0.3.1
+
+### Patch Changes
+
+- 2f445e1: Following logos has been updated:
+
+    | Logo                                                      | Name  | Category |
+    | --------------------------------------------------------- | ----- | -------- |
+    | <img src="./raw/chains/Chain80094.svg" width="36" alt=""> | 80094 | chain    |
+
+- 7b21b4c: Remove overrides
+
 ## 0.3.0
 
 ### Minor Changes
