@@ -13,8 +13,8 @@ importers:
         version: 6.3.0
     devDependencies:
       '@api3/dapi-management':
-        specifier: 2.20.0
-        version: 2.20.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
+        specifier: 2.21.0
+        version: 2.21.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@babel/core':
         specifier: ^7.26.0
         version: 7.26.0
@@ -61,8 +61,8 @@ importers:
   viewer:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 2.19.0
-        version: 2.19.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
+        specifier: 2.21.0
+        version: 2.21.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@api3/logos':
         specifier: workspace:*
         version: link:..
@@ -154,11 +154,8 @@ packages:
     resolution: {integrity: sha512-t8RSIu48FL1RWzScgHdXTVN8agJRFk4XlV7zCoHkBMY1qnCcZJ8JwZnY2rb01Mc0Y5w9V/N/NO9BwQFioqJ4aw==}
     hasBin: true
 
-  '@api3/api-integrations@2.32.0':
-    resolution: {integrity: sha512-fjFleMKxFLCh7vpoUgErptSEeEsnEsSmMzvSZzf7ukMspVCSdOELIaZI2ussaB8PWR4Wx/xjn8UIzhhcmdwrVw==}
-
-  '@api3/chains@11.5.1':
-    resolution: {integrity: sha512-2V2+LvnhwSfpgo52JY0PFuk3ujgq1FdnhajIKXcAjIasbnSCfrapMersGnV3FdPlZfT7jxHczRb47lx5gwgLLQ==}
+  '@api3/api-integrations@2.35.0':
+    resolution: {integrity: sha512-05ZtdHrPR7V2pZNDoRMw486Zgj7T/OqDySScio+HaXcOsPZFl0kOb6Nc8kAdinjcDa29NJ4aMi/oO5nRFc+ziw==}
 
   '@api3/chains@11.6.0':
     resolution: {integrity: sha512-DZt3W1gaw66EGGCatcJgHecEwSZ1CdYa9riiUfByesvrMLXAbUII41HgWq3P4NvgpyUfgpUvgN0WAq/HFzG7eA==}
@@ -176,11 +173,8 @@ packages:
     peerDependencies:
       eslint: ^8.50.0
 
-  '@api3/dapi-management@2.19.0':
-    resolution: {integrity: sha512-o/nJrwJyyv6kV+TQ7+VsvIcK+1SHhbF16KswiMmIMtPMNBtHFizJ++nUEw86xgAElQLi6xFkbkud6InensA+ZA==}
-
-  '@api3/dapi-management@2.20.0':
-    resolution: {integrity: sha512-iQHZwBAFP/m8D2dkoXRXw+2P6pEH5UOy8+1fOa8svvD2jDoJ919fwdzCFhRApDKsluTPSUchYmZ53iFLKqWIbQ==}
+  '@api3/dapi-management@2.21.0':
+    resolution: {integrity: sha512-BrhGZvWQxJdgu70I6d24IFP0FYUhFP4LtNiW1vza96EHdJCok+yjsu6DiLBxF0nzo/T9VH/uN++kwLfGCSCJmA==}
 
   '@api3/ois@2.3.2':
     resolution: {integrity: sha512-hYQCbCAtWMGKV+pECRY5tbfCSOcheeo9s6wtrhn1dOWw151VeG0sKG3VbBEsyA6cvSaldewBWY3t/JGaupdThg==}
@@ -8005,10 +7999,10 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
-  '@api3/api-integrations@2.32.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
+  '@api3/api-integrations@2.35.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
     dependencies:
       '@api3/airnode-abi': 0.14.2
-      '@api3/chains': 11.5.1(typescript@5.6.2)
+      '@api3/chains': 11.6.0(typescript@5.6.2)
       '@api3/ois': 2.3.2
       '@api3/signed-api': 2.1.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       ethers: 5.7.2
@@ -8024,15 +8018,6 @@ snapshots:
       - eslint-plugin-import-x
       - jest
       - supports-color
-      - typescript
-      - utf-8-validate
-
-  '@api3/chains@11.5.1(typescript@5.6.2)':
-    dependencies:
-      viem: 2.21.32(typescript@5.6.2)(zod@3.24.1)
-      zod: 3.24.1
-    transitivePeerDependencies:
-      - bufferutil
       - typescript
       - utf-8-validate
 
@@ -8108,30 +8093,9 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@api3/dapi-management@2.19.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
+  '@api3/dapi-management@2.21.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
     dependencies:
-      '@api3/api-integrations': 2.32.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
-      '@api3/chains': 11.5.1(typescript@5.6.2)
-      '@api3/commons': 0.13.4
-      ethers: 6.13.5
-      zod: 3.24.1
-    transitivePeerDependencies:
-      - aws-crt
-      - bufferutil
-      - debug
-      - encoding
-      - eslint
-      - eslint-import-resolver-typescript
-      - eslint-import-resolver-webpack
-      - eslint-plugin-import-x
-      - jest
-      - supports-color
-      - typescript
-      - utf-8-validate
-
-  '@api3/dapi-management@2.20.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
-    dependencies:
-      '@api3/api-integrations': 2.32.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
+      '@api3/api-integrations': 2.35.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@api3/chains': 11.6.0(typescript@5.6.2)
       '@api3/commons': 0.13.4
       ethers: 6.13.5
@@ -13888,7 +13852,7 @@ snapshots:
       eslint: 8.57.1
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.7.0(eslint-plugin-import@2.30.0)(eslint@8.57.1)
-      eslint-plugin-import: 2.30.0(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.6.2))(eslint-import-resolver-typescript@3.7.0)(eslint@8.57.1)
+      eslint-plugin-import: 2.30.0(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.6.2))(eslint@8.57.1)
       eslint-plugin-jsx-a11y: 6.10.0(eslint@8.57.1)
       eslint-plugin-react: 7.36.1(eslint@8.57.1)
       eslint-plugin-react-hooks: 4.6.2(eslint@8.57.1)
@@ -13975,16 +13939,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-module-utils@2.11.1(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.6.2))(eslint-import-resolver-node@0.3.9)(eslint@8.57.1):
-    dependencies:
-      debug: 3.2.7
-    optionalDependencies:
-      '@typescript-eslint/parser': 6.21.0(eslint@8.57.1)(typescript@5.6.2)
-      eslint: 8.57.1
-      eslint-import-resolver-node: 0.3.9
-    transitivePeerDependencies:
-      - supports-color
-
   eslint-plugin-check-file@2.8.0(eslint@8.57.1):
     dependencies:
       eslint: 8.57.1
@@ -14056,34 +14010,6 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-plugin-import@2.30.0(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.6.2))(eslint-import-resolver-typescript@3.7.0)(eslint@8.57.1):
-    dependencies:
-      '@rtsao/scc': 1.1.0
-      array-includes: 3.1.8
-      array.prototype.findlastindex: 1.2.5
-      array.prototype.flat: 1.3.2
-      array.prototype.flatmap: 1.3.2
-      debug: 3.2.7
-      doctrine: 2.1.0
-      eslint: 8.57.1
-      eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.11.1(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.6.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.7.0)(eslint@8.57.1)
-      hasown: 2.0.2
-      is-core-module: 2.15.1
-      is-glob: 4.0.3
-      minimatch: 3.1.2
-      object.fromentries: 2.0.8
-      object.groupby: 1.0.3
-      object.values: 1.2.0
-      semver: 6.3.1
-      tsconfig-paths: 3.15.0
-    optionalDependencies:
-      '@typescript-eslint/parser': 6.21.0(eslint@8.57.1)(typescript@5.6.2)
-    transitivePeerDependencies:
-      - eslint-import-resolver-typescript
-      - eslint-import-resolver-webpack
-      - supports-color
-
   eslint-plugin-import@2.30.0(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.6.2))(eslint@8.57.1):
     dependencies:
       '@rtsao/scc': 1.1.0
@@ -14095,7 +14021,7 @@ snapshots:
       doctrine: 2.1.0
       eslint: 8.57.1
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.11.1(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.6.2))(eslint-import-resolver-node@0.3.9)(eslint@8.57.1)
+      eslint-module-utils: 2.11.1(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.6.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.7.0)(eslint@8.57.1)
       hasown: 2.0.2
       is-core-module: 2.15.1
       is-glob: 4.0.3
