@@ -1,5 +1,11 @@
 # @api3/logos
 
+## 0.3.2
+
+### Patch Changes
+
+- 5239f93: Add missing logos for USDS sUSDS
+
 ## 0.3.1
 
 ### Patch Changes
