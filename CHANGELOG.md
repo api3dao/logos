@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 0.3.4
+
+### Patch Changes
+
+- eac703d: Some changes have been made to the `logos`.
+
+    | Logo                                                     | Name | Category |
+    | -------------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/chains/Chain2021.svg" width="36" alt=""> | 2021 | chain    |
+
 ## 0.3.3
 
 ### Patch Changes
