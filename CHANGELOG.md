@@ -1,5 +1,11 @@
 # @api3/logos
 
+## 0.3.3
+
+### Patch Changes
+
+- 420b243: Add unichain logo
+
 ## 0.3.2
 
 ### Patch Changes
