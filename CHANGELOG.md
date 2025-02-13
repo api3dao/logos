@@ -1,5 +1,17 @@
 # @api3/logos
 
+## 0.3.3
+
+### Patch Changes
+
+- bcf5127: Following logos has been updated:
+
+    | Logo                                                 | Name | Category |
+    | ---------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/bera.svg" width="36" alt=""> | bera | symbol   |
+
+- 420b243: Add unichain logo
+
 ## 0.3.2
 
 ### Patch Changes
