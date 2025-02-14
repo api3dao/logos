@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 0.3.6
+
+### Patch Changes
+
+- b482ea4: Some changes have been made to the `logos`.
+
+    | Logo                                                         | Name   | Category     |
+    | ------------------------------------------------------------ | ------ | ------------ |
+    | <img src="./raw/api-providers/infura.svg" width="36" alt=""> | infura | api-provider |
+
 ## 0.3.5
 
 ### Patch Changes
