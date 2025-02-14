@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 0.3.5
+
+### Patch Changes
+
+- 51e1120: Following logos has been updated:
+
+    | Logo                                                     | Name | Category |
+    | -------------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/chains/Chain2020.svg" width="36" alt=""> | 2020 | chain    |
+
 ## 0.3.4
 
 ### Patch Changes
