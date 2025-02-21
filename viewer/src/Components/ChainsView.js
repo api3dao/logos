@@ -1,6 +1,6 @@
 import { Flex, Text, Spacer, Image } from '@chakra-ui/react';
 import { ChainLogo } from '@api3/logos';
-import { getChains, api3Chains } from '@api3/dapi-management';
+import { getChains, api3Contracts } from '@api3/dapi-management';
 import SearchRow from '../Custom/SearchRow';
 import { useState } from 'react';
 import Title from '../Custom/Title';
@@ -10,7 +10,7 @@ const getSupportedChains = (isTestnet) => {
     const supportedChainIds = getChains()
         .filter((chain) => chain.stage !== 'retired')
         .map((chain) => chain.id);
-    return api3Chains.CHAINS.filter((chain) => supportedChainIds.includes(chain.id) && chain.testnet === isTestnet);
+    return api3Contracts.CHAINS.filter((chain) => supportedChainIds.includes(chain.id) && chain.testnet === isTestnet);
 };
 
 const ChainList = ({ isTestnet, chain }) => {
