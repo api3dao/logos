@@ -1,5 +1,11 @@
 # @api3/logos
 
+## 0.3.7
+
+### Patch Changes
+
+- 3f68f22: Add missing logos for frxUSD and sfrxUSD
+
 ## 0.3.6
 
 ### Patch Changes
