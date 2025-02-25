@@ -13,8 +13,8 @@ importers:
         version: 6.3.0
     devDependencies:
       '@api3/dapi-management':
-        specifier: 3.0.1
-        version: 3.0.1(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
+        specifier: 3.0.2
+        version: 3.0.2(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@babel/core':
         specifier: ^7.26.0
         version: 7.26.0
@@ -61,8 +61,8 @@ importers:
   viewer:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 3.0.1
-        version: 3.0.1(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
+        specifier: 3.0.2
+        version: 3.0.2(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@api3/logos':
         specifier: workspace:*
         version: link:..
@@ -134,8 +134,8 @@ packages:
   '@api3/airnode-adapter@0.15.0':
     resolution: {integrity: sha512-F+guPjNtXpYcTzsLMalVAOEWQTyr33jdFlWp/HCZ8kMUzZzGc1QpH65eJbs+gw9dMY7SlA/CGQjgLRad+2VIGA==}
 
-  '@api3/airnode-feed@3.1.0':
-    resolution: {integrity: sha512-wR+7meM+YlFo63cbJNLXGNjpJP/78s8uqHwjsMtVrOkHmCXMvkyaEEZ92aLgLIx02C2RTyBBygwnG02/39kMdA==}
+  '@api3/airnode-feed@3.2.0':
+    resolution: {integrity: sha512-16kRBMBMNxy1jSPN12lJ6JP/CcXiK1Duo60TgFRbSm4AN6El7iriKN88rVt76M6EPrV82PMri3G8m9Mbemm1tQ==}
     engines: {node: '>=18.20.5'}
 
   '@api3/airnode-node@0.15.0':
@@ -154,8 +154,8 @@ packages:
     resolution: {integrity: sha512-VS/ZX0q6g8/kfjpKuqblXN8pAjdWG5uRpTSZ8dvgjoTi//+9DVlBan06FCvPkxMBBJjo8/Mf4xG78tRFNr0GDQ==}
     hasBin: true
 
-  '@api3/api-integrations@2.38.0':
-    resolution: {integrity: sha512-2uv3efWOdqCdIrSwsHB/mJVSB/bTbRVeiTXUG/GXl4xrrYteSMo64lMakpyiyxd5eJkUpIgloWvP+goLb2bAxw==}
+  '@api3/api-integrations@2.39.0':
+    resolution: {integrity: sha512-tvMX8DIBkc9g3jSuduTPwxEodJAi0WPf1NYZ763CWWpOSazFtFl2/kQ8iUiMsZom/v0beYarZEjC8hOJxzVgOw==}
 
   '@api3/chains@8.1.1':
     resolution: {integrity: sha512-2woMgPksMEzH2tU7ZH5tHNHr9qbZDG+bEWcAGcs+A3/GJKNBaTmxVerIyTo4IZA9f6vN91i7fH3UPAq/S8KQDw==}
@@ -175,8 +175,8 @@ packages:
     engines: {node: '>=20.17.9'}
     hasBin: true
 
-  '@api3/dapi-management@3.0.1':
-    resolution: {integrity: sha512-PQtKnVCAfMF6M/p0M3rUJjQx7/jh8X9EeroUjlbrIKFHPxOSJlFju1EOSGE1GhgYc1/l6166DXPb2c6+b5OiHQ==}
+  '@api3/dapi-management@3.0.2':
+    resolution: {integrity: sha512-BxX5pdqkmtY07YAM277xVuMu/SY/B7uUBo0a3SQwij7WOebtPaZ40ECa3jIfpx7MJ3M3wb0yZKkJe0t3v9Hn6g==}
 
   '@api3/ois@2.3.2':
     resolution: {integrity: sha512-hYQCbCAtWMGKV+pECRY5tbfCSOcheeo9s6wtrhn1dOWw151VeG0sKG3VbBEsyA6cvSaldewBWY3t/JGaupdThg==}
@@ -184,8 +184,8 @@ packages:
   '@api3/promise-utils@0.4.0':
     resolution: {integrity: sha512-+8fcNjjQeQAuuSXFwu8PMZcYzjwjDiGYcMUfAQ0lpREb1zHonwWZ2N0B9h/g1cvWzg9YhElbeb/SyhCrNm+b/A==}
 
-  '@api3/signed-api@3.1.0':
-    resolution: {integrity: sha512-Mo8K/4wxpUoqTXo1LlR9JRwrFpLZQ4aihpu/P0T/CBfnrr9gpDRaYDUA+B4jvU7yvQU4oUxgfhmI+dwUQxLo1A==}
+  '@api3/signed-api@3.2.0':
+    resolution: {integrity: sha512-TDwZGO8cWj9Rp0+tompyNqt/4UKpShScYeGRQMLId41OHmScaS2xe7c4/YRqkFq4q5kGWJ43CRXoWX9S+24xXA==}
     engines: {node: '>=18.20.5'}
 
   '@apideck/better-ajv-errors@0.3.6':
@@ -7968,6 +7968,9 @@ packages:
   zod@3.24.1:
     resolution: {integrity: sha512-muH7gBL9sI1nciMZV67X5fTKKBLtwpZ5VBp1vsOQzj1MhrBZ4wlVCm3gedKZWLp0Oyel8sIGfeiz54Su+OVT+A==}
 
+  zod@3.24.2:
+    resolution: {integrity: sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ==}
+
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
@@ -8007,7 +8010,7 @@ snapshots:
       - debug
       - utf-8-validate
 
-  '@api3/airnode-feed@3.1.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
+  '@api3/airnode-feed@3.2.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
     dependencies:
       '@api3/airnode-abi': 0.15.0
       '@api3/airnode-adapter': 0.15.0
@@ -8021,7 +8024,7 @@ snapshots:
       ethers: 5.7.2
       express: 4.21.2
       lodash: 4.17.21
-      zod: 3.24.1
+      zod: 3.24.2
     transitivePeerDependencies:
       - aws-crt
       - bufferutil
@@ -8055,7 +8058,7 @@ snapshots:
       google-auth-library: 9.15.0
       lodash: 4.17.21
       yargs: 17.7.2
-      zod: 3.24.1
+      zod: 3.24.2
     transitivePeerDependencies:
       - aws-crt
       - bufferutil
@@ -8112,7 +8115,7 @@ snapshots:
       lodash: 4.17.21
       ora: 5.4.1
       yargs: 17.7.2
-      zod: 3.24.1
+      zod: 3.24.2
     transitivePeerDependencies:
       - bufferutil
       - debug
@@ -8125,12 +8128,12 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@api3/api-integrations@2.38.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
+  '@api3/api-integrations@2.39.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
     dependencies:
       '@api3/airnode-abi': 0.15.0
       '@api3/contracts': 17.1.0(typescript@5.6.2)(zod@3.24.1)
       '@api3/ois': 2.3.2
-      '@api3/signed-api': 3.1.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
+      '@api3/signed-api': 3.2.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       ethers: 5.7.2
       zod: 3.24.1
     transitivePeerDependencies:
@@ -8149,8 +8152,8 @@ snapshots:
 
   '@api3/chains@8.1.1(typescript@5.6.2)':
     dependencies:
-      viem: 2.23.3(typescript@5.6.2)(zod@3.24.1)
-      zod: 3.24.1
+      viem: 2.23.3(typescript@5.6.2)(zod@3.24.2)
+      zod: 3.24.2
     transitivePeerDependencies:
       - bufferutil
       - typescript
@@ -8201,7 +8204,7 @@ snapshots:
       lodash: 4.17.21
       winston: 3.17.0
       winston-console-format: 1.0.8
-      zod: 3.24.1
+      zod: 3.24.2
     transitivePeerDependencies:
       - bufferutil
       - debug
@@ -8224,9 +8227,9 @@ snapshots:
       - utf-8-validate
       - zod
 
-  '@api3/dapi-management@3.0.1(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
+  '@api3/dapi-management@3.0.2(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
     dependencies:
-      '@api3/api-integrations': 2.38.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
+      '@api3/api-integrations': 2.39.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@api3/commons': 0.13.4
       '@api3/contracts': 17.1.0(typescript@5.6.2)(zod@3.24.1)
       ethers: 6.13.5
@@ -8252,9 +8255,9 @@ snapshots:
 
   '@api3/promise-utils@0.4.0': {}
 
-  '@api3/signed-api@3.1.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
+  '@api3/signed-api@3.2.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
     dependencies:
-      '@api3/airnode-feed': 3.1.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
+      '@api3/airnode-feed': 3.2.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@api3/commons': 0.13.4
       '@api3/promise-utils': 0.4.0
       '@aws-sdk/client-s3': 3.750.0
@@ -8263,7 +8266,7 @@ snapshots:
       express: 4.21.2
       lodash: 4.17.21
       workerpool: 9.2.0
-      zod: 3.24.1
+      zod: 3.24.2
     transitivePeerDependencies:
       - aws-crt
       - bufferutil
@@ -12875,6 +12878,11 @@ snapshots:
       typescript: 5.6.2
       zod: 3.24.1
 
+  abitype@1.0.8(typescript@5.6.2)(zod@3.24.2):
+    optionalDependencies:
+      typescript: 5.6.2
+      zod: 3.24.2
+
   accepts@1.3.8:
     dependencies:
       mime-types: 2.1.35
@@ -16844,6 +16852,20 @@ snapshots:
     transitivePeerDependencies:
       - zod
 
+  ox@0.6.7(typescript@5.6.2)(zod@3.24.2):
+    dependencies:
+      '@adraffy/ens-normalize': 1.11.0
+      '@noble/curves': 1.8.1
+      '@noble/hashes': 1.7.1
+      '@scure/bip32': 1.6.2
+      '@scure/bip39': 1.5.4
+      abitype: 1.0.8(typescript@5.6.2)(zod@3.24.2)
+      eventemitter3: 5.0.1
+    optionalDependencies:
+      typescript: 5.6.2
+    transitivePeerDependencies:
+      - zod
+
   p-filter@2.1.0:
     dependencies:
       p-map: 2.1.0
@@ -18762,6 +18784,23 @@ snapshots:
       - utf-8-validate
       - zod
 
+  viem@2.23.3(typescript@5.6.2)(zod@3.24.2):
+    dependencies:
+      '@noble/curves': 1.8.1
+      '@noble/hashes': 1.7.1
+      '@scure/bip32': 1.6.2
+      '@scure/bip39': 1.5.4
+      abitype: 1.0.8(typescript@5.6.2)(zod@3.24.2)
+      isows: 1.0.6(ws@8.18.0)
+      ox: 0.6.7(typescript@5.6.2)(zod@3.24.2)
+      ws: 8.18.0
+    optionalDependencies:
+      typescript: 5.6.2
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+      - zod
+
   w3c-hr-time@1.0.2:
     dependencies:
       browser-process-hrtime: 1.0.0
@@ -19198,5 +19237,7 @@ snapshots:
   yocto-queue@0.1.0: {}
 
   zod@3.24.1: {}
+
+  zod@3.24.2: {}
 
   zwitch@2.0.4: {}
