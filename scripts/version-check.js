@@ -136,10 +136,6 @@ async function fetchLogos() {
     const dbx = await getDropbox();
     try {
         const response = await dbx.filesListFolder({ path: '', recursive: true, limit: 1000 });
-        for (let i = 0; i < response.result.entries.length; i++) {
-            const file = response.result.entries[i];
-            console.log(file);
-        }
         return response.result.entries;
     } catch (error) {
         console.error(error);
