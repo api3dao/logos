@@ -1,5 +1,11 @@
 # @api3/logos
 
+## 0.3.8
+
+### Patch Changes
+
+- fc6be85: Remove camelcase dependency
+
 ## 0.3.7
 
 ### Patch Changes
