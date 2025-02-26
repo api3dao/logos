@@ -1,6 +1,6 @@
 const fs = require('fs/promises');
 const { rename } = require('fs');
-const { getChains, dapis } = require('@api3/dapi-management');
+const { getChains, dapis, api3Contracts } = require('@api3/dapi-management');
 
 module.exports = {
     sanitizeName,
@@ -20,7 +20,7 @@ module.exports = {
 };
 
 function getDapps() {
-    return [];
+    return api3Contracts.DAPPS.map((dapp) => dapp.alias);
 }
 
 function getApiProviders() {
@@ -88,14 +88,20 @@ function sanitizeName(name, suffix = '', prefix = '') {
     return prefix + componentName + suffix;
 }
 
-function generateSwitchCase(array, prefix) {
+function generateSwitchCase(files, array, prefix) {
     const sanitized = array.map((item) => {
         return sanitizeName(item, '', '');
     });
 
+    const file_prefix = prefix === 'Chain' ? 'Chain' : '';
+
     const filtered = [...new Set(sanitized)];
     return filtered
-        .map((item) => `case "${sanitizeName(item).toLowerCase()}":\n\treturn ${prefix}${sanitizeName(item, '')};\n`)
+        .map((item) => {
+            let filename = checkFile(files, item, file_prefix);
+            if (item !== 'Placeholder' && filename === 'Placeholder.svg') return '';
+            return `case "${sanitizeName(item).toLowerCase()}":\n\treturn ${prefix}${sanitizeName(item, '')};\n`;
+        })
         .join('');
 }
 
@@ -120,6 +126,7 @@ function generateImports(files, array, prefix, file_prefix, path, format) {
     return filtered
         .map((item) => {
             let filename = checkFile(files, item, file_prefix);
+            if (item !== 'Placeholder' && filename === 'Placeholder.svg') return '';
             return formatImport(item, filename, prefix, path, format);
         })
         .join('');

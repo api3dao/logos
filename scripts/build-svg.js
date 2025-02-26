@@ -44,8 +44,8 @@ async function buildLogos(format = 'esm', dir, mode, batchName) {
     await fs.appendFile(`${outDir}/${batchName}Missing.json`, JSON.stringify(getMissingLogos(files, mode)), 'utf-8');
 }
 
-function buildSwitchCase(mode) {
-    return utils.generateSwitchCase(getLogoList(mode), utils.toPascalCase(mode));
+function buildSwitchCase(files, mode) {
+    return utils.generateSwitchCase(files, getLogoList(mode), utils.toPascalCase(mode));
 }
 
 function buildLogoImports(files, mode, format) {
@@ -72,7 +72,7 @@ async function buildBatch(files, outDir, format = 'esm', batchName, mode) {
 
     const imports = buildLogoImports(files, mode, format);
 
-    let code = await babelTransform(format, imports, batchName, mode);
+    let code = await babelTransform(files, format, imports, batchName, mode);
 
     if (format === 'cjs') {
         code = code.replace('export default', 'module.exports =');
@@ -81,11 +81,11 @@ async function buildBatch(files, outDir, format = 'esm', batchName, mode) {
     await fs.writeFile(`${outDir}/${batchName}.js`, code, 'utf-8');
 }
 
-async function babelTransform(format, imports, batchName, mode) {
+async function babelTransform(files, format, imports, batchName, mode) {
     let { code } = await babel.transformAsync(
         `
         ${imports}
-        ${utils.generateFunction(batchName, buildSwitchCase(mode), mode)}`,
+        ${utils.generateFunction(batchName, buildSwitchCase(files, mode), mode)}`,
         {
             presets: [['@babel/preset-react', { useBuiltIns: true }]]
         }
