@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/logos/static/css/main.d0bd4ad3.css",
-    "main.js": "/logos/static/js/main.9855a3ef.js",
+    "main.js": "/logos/static/js/main.77c5e3b6.js",
     "static/js/35.75e36e13.chunk.js": "/logos/static/js/35.75e36e13.chunk.js",
     "static/media/Brett.svg": "/logos/static/media/Brett.ffb8996b9d5ad66d9cf49ad4d3eba084.svg",
     "static/media/Crv.svg": "/logos/static/media/Crv.01749eb6ba7247722eadab8c52fb9693.svg",
@@ -136,7 +136,7 @@
     "static/media/Movr.svg": "/logos/static/media/Movr.00040bea4d8018942aee0f5fb3a8a78c.svg",
     "static/media/Chain57054Light.svg": "/logos/static/media/Chain57054Light.709f14d74e3df4432c8d12b506e1bcb4.svg",
     "static/media/Chain64165Light.svg": "/logos/static/media/Chain64165Light.badab5a859d8545f553807f3560de1dd.svg",
-    "static/media/UltraEths.svg": "/logos/static/media/UltraEths.b23308fb872a7f4d43f464c058ce40b3.svg",
+    "static/media/Ultraeths.svg": "/logos/static/media/Ultraeths.1524da53b010afe9abddcca9238de7c2.svg",
     "static/media/Osmo.svg": "/logos/static/media/Osmo.2e42a49229599c70b738bf92f544b6b2.svg",
     "static/media/Inwsteths.svg": "/logos/static/media/Inwsteths.833a0241897a0e9440741d7ae5bfd811.svg",
     "static/media/Sushi.svg": "/logos/static/media/Sushi.41d72051b1cafc7ed28f7c23f192b408.svg",
@@ -350,11 +350,11 @@
     "static/media/Chain2221.svg": "/logos/static/media/Chain2221.6eeefc923180fe9140fc1dafafecdc90.svg",
     "static/media/Celo.svg": "/logos/static/media/Celo.f5086b90b66ad4b68b0ec200e9a6043d.svg",
     "main.d0bd4ad3.css.map": "/logos/static/css/main.d0bd4ad3.css.map",
-    "main.9855a3ef.js.map": "/logos/static/js/main.9855a3ef.js.map",
+    "main.77c5e3b6.js.map": "/logos/static/js/main.77c5e3b6.js.map",
     "35.75e36e13.chunk.js.map": "/logos/static/js/35.75e36e13.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d0bd4ad3.css",
-    "static/js/main.9855a3ef.js"
+    "static/js/main.77c5e3b6.js"
   ]
 }
