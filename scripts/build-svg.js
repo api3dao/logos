@@ -2,7 +2,6 @@ const fs = require('fs/promises');
 const { rimraf } = require('rimraf');
 const babel = require('@babel/core');
 const utils = require('../helpers/utils');
-const camelcase = require('camelcase');
 
 const outputPath = './dist';
 
@@ -46,14 +45,14 @@ async function buildLogos(format = 'esm', dir, mode, batchName) {
 }
 
 function buildSwitchCase(mode) {
-    return utils.generateSwitchCase(getLogoList(mode), camelcase(mode, { pascalCase: true }));
+    return utils.generateSwitchCase(getLogoList(mode), utils.toPascalCase(mode));
 }
 
 function buildLogoImports(files, mode, format) {
     let options = getLogoList(mode);
     options.push('placeholder');
     const prefix = mode === 'chain' ? 'Chain' : '';
-    return utils.generateImports(files, options, camelcase(mode, { pascalCase: true }), prefix, mode, format);
+    return utils.generateImports(files, options, utils.toPascalCase(mode), prefix, mode, format);
 }
 
 function getMissingLogos(files, mode) {
@@ -71,19 +70,12 @@ async function buildBatch(files, outDir, format = 'esm', batchName, mode) {
     const types = utils.generateTypes(batchName, mode);
     await fs.writeFile(`${outDir}/${batchName}.d.ts`, types, 'utf-8');
 
-    const imports = `import camelcase from 'camelcase';
-        ${buildLogoImports(files, mode, format)}`;
+    const imports = buildLogoImports(files, mode, format);
 
     let code = await babelTransform(format, imports, batchName, mode);
 
     if (format === 'cjs') {
-        code = code
-            .replace(`import camelcase from 'camelcase'`, `const camelcase = require('camelcase')`)
-            .replace(
-                `import { renderToString } from 'react-dom/server';`,
-                `const { renderToString } = require('react-dom/server');`
-            )
-            .replace('export default', 'module.exports =');
+        code = code.replace('export default', 'module.exports =');
     }
 
     await fs.writeFile(`${outDir}/${batchName}.js`, code, 'utf-8');

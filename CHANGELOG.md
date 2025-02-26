@@ -1,5 +1,125 @@
 # @api3/logos
 
+## 0.3.9
+
+### Patch Changes
+
+- 56725d9: Following logos has been updated:
+
+    | Logo                                                 | Name | Category |
+    | ---------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/usdm.svg" width="36" alt=""> | usdm | symbol   |
+
+## 0.3.8
+
+### Patch Changes
+
+- fc6be85: Remove camelcase dependency
+
+## 0.3.7
+
+### Patch Changes
+
+- 3f68f22: Add missing logos for frxUSD and sfrxUSD
+
+## 0.3.6
+
+### Patch Changes
+
+- b482ea4: Some changes have been made to the `logos`.
+
+    | Logo                                                         | Name   | Category     |
+    | ------------------------------------------------------------ | ------ | ------------ |
+    | <img src="./raw/api-providers/infura.svg" width="36" alt=""> | infura | api-provider |
+
+## 0.3.5
+
+### Patch Changes
+
+- 51e1120: Following logos has been updated:
+
+    | Logo                                                     | Name | Category |
+    | -------------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/chains/Chain2020.svg" width="36" alt=""> | 2020 | chain    |
+
+## 0.3.4
+
+### Patch Changes
+
+- eac703d: Some changes have been made to the `logos`.
+
+    | Logo                                                     | Name | Category |
+    | -------------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/chains/Chain2021.svg" width="36" alt=""> | 2021 | chain    |
+
+## 0.3.3
+
+### Patch Changes
+
+- bcf5127: Following logos has been updated:
+
+    | Logo                                                 | Name | Category |
+    | ---------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/bera.svg" width="36" alt=""> | bera | symbol   |
+
+- 420b243: Add unichain logo
+
+## 0.3.2
+
+### Patch Changes
+
+- 5239f93: Add missing logos for USDS sUSDS
+
+## 0.3.1
+
+### Patch Changes
+
+- 2f445e1: Following logos has been updated:
+
+    | Logo                                                      | Name  | Category |
+    | --------------------------------------------------------- | ----- | -------- |
+    | <img src="./raw/chains/Chain80094.svg" width="36" alt=""> | 80094 | chain    |
+
+- 7b21b4c: Remove overrides
+
+## 0.3.0
+
+### Minor Changes
+
+- c1b7182: Override Berachain and BERA logos
+
+## 0.2.31
+
+### Patch Changes
+
+- d707dec: Some changes have been made to the `logos`.
+
+    | Logo                                                | Name | Category |
+    | --------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/mtl.svg" width="36" alt=""> | mtl  | symbol   |
+
+## 0.2.30
+
+### Patch Changes
+
+- b4c5faa: Some changes have been made to the `logos`.
+
+    | Logo                                                           | Name       | Category |
+    | -------------------------------------------------------------- | ---------- | -------- |
+    | <img src="./raw/chains/Chain1868.svg" width="36" alt="">       | 1868       | chain    |
+    | <img src="./raw/chains/Chain1868-light.svg" width="36" alt=""> | 1868-light | chain    |
+
+## 0.2.29
+
+### Patch Changes
+
+- feecef6: Following logos has been updated:
+
+    | Logo                                                   | Name   | Category |
+    | ------------------------------------------------------ | ------ | -------- |
+    | <img src="./raw/symbols/crv.svg" width="36" alt="">    | crv    | symbol   |
+    | <img src="./raw/symbols/crvusd.svg" width="36" alt=""> | crvusd | symbol   |
+
 ## 0.2.28
 
 ### Patch Changes
