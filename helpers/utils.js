@@ -1,5 +1,4 @@
 const fs = require('fs/promises');
-const camelcase = require('camelcase');
 const { rename } = require('fs');
 const { getChains, dapis } = require('@api3/dapi-management');
 
@@ -15,7 +14,8 @@ module.exports = {
     getManualLogos,
     getSupportedChains,
     getApiProviders,
-    getSupportedFeeds
+    getSupportedFeeds,
+    toPascalCase
 };
 
 function getApiProviders() {
@@ -62,13 +62,20 @@ function getManualLogos(mode) {
 }
 
 function getPlaceholderImage(mode) {
-    return camelcase(mode, { pascalCase: true }) + 'Placeholder';
+    return toPascalCase(mode) + 'Placeholder';
+}
+
+function toPascalCase(string) {
+    return string
+        .replace(/([a-z])([A-Z])/g, '$1 $2')
+        .replace(/[-_]+|[^\p{L}\p{N}]/gu, ' ')
+        .toLowerCase()
+        .replace(/(?:^|\s)(\p{L})/gu, (_, letter) => letter.toUpperCase())
+        .replace(/\s+/g, '');
 }
 
 function sanitizeName(name, suffix = '', prefix = '') {
-    const componentName = `${camelcase(name.replace(/.svg/, ''), {
-        pascalCase: true
-    })}`;
+    const componentName = `${toPascalCase(name.replace(/.svg/, ''))}`;
     return prefix + componentName + suffix;
 }
 
@@ -121,9 +128,7 @@ async function renameFiles(dir) {
 function generateFunction(batchName, switchCase, mode) {
     return `
         function sanitizeName(id) {
-            return camelcase(id, {
-            pascalCase: true
-            }).replace(/ExchangeRate/g, '');
+            return id.replace(/\\s+|-/g, '').replace(/ExchangeRate/g, '');
         }
 
         function ${batchName}(id, light = false) {
