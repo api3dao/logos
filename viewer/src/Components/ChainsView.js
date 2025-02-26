@@ -6,17 +6,20 @@ import { useState } from 'react';
 import Title from '../Custom/Title';
 import InfoView from '../Custom/InfoView';
 
-const getSupportedChains = (isTestnet) => {
+const getSupportedChains = (isTestnet, searchArg) => {
     const supportedChainIds = getChains()
         .filter((chain) => chain.stage !== 'retired')
+        .filter((chain) =>
+            searchArg ? chain.alias.includes(searchArg.toLowerCase()) || chain.id.includes(searchArg) : true
+        )
         .map((chain) => chain.id);
     return api3Contracts.CHAINS.filter((chain) => supportedChainIds.includes(chain.id) && chain.testnet === isTestnet);
 };
 
-const ChainList = ({ isTestnet, chain }) => {
+const ChainList = ({ isTestnet, searchArg }) => {
     const [selectedChain, setSelectedChain] = useState('');
 
-    return getSupportedChains(isTestnet).map((chain, index) => {
+    return getSupportedChains(isTestnet, searchArg).map((chain, index) => {
         return (
             <Flex
                 p={3}
@@ -51,7 +54,7 @@ const ChainList = ({ isTestnet, chain }) => {
 };
 
 const ChainsView = () => {
-    const [chain, setChain] = useState('');
+    const [searchArg, setSearchArg] = useState('');
 
     return (
         <Flex p={3} gap={3} bgColor={'white'} wrap={'wrap'} alignItems="center" justifyContent="center">
@@ -61,11 +64,11 @@ const ChainsView = () => {
                     {getSupportedChains(true).length} testnet chains
                 </Text>
             </Flex>
-            <SearchRow text={chain} setText={setChain} placeholder={'Enter a chain'} />
+            <SearchRow text={searchArg} setText={setSearchArg} placeholder={'Enter a chain id or chain name'} />
             <Title header={'Mainnets'} />
-            <ChainList isTestnet={false} chain={chain} />
+            <ChainList isTestnet={false} searchArg={searchArg} />
             <Title header={'Testnets'} />
-            <ChainList isTestnet={true} chain={chain} />
+            <ChainList isTestnet={true} searchArg={searchArg} />
         </Flex>
     );
 };
