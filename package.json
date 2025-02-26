@@ -34,9 +34,6 @@
         "release": "pnpm changeset publish",
         "auto-release": "node scripts/release.js"
     },
-    "dependencies": {
-        "camelcase": "^6.3.0"
-    },
     "devDependencies": {
         "eslint": "^8.57.1",
         "@babel/core": "^7.26.0",

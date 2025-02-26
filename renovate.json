@@ -3,7 +3,7 @@
     "extends": ["config:recommended"],
     "packageRules": [
         {
-            "matchPackageNames": ["camelcase", "node-fetch"],
+            "matchPackageNames": ["node-fetch"],
             "enabled": false
         },
         {
