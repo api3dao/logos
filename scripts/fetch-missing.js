@@ -93,7 +93,7 @@ async function searchLogos() {
 async function fetchLogos() {
     const dbx = await getDropbox();
     try {
-        const response = await dbx.filesListFolder({ path: '', recursive: true });
+        const response = await dbx.filesListFolder({ path: '', recursive: true, limit: 1000 });
         return response.result.entries;
     } catch (error) {
         console.error(error);
