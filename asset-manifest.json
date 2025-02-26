@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/logos/static/css/main.d0bd4ad3.css",
-    "main.js": "/logos/static/js/main.48d7621d.js",
+    "main.js": "/logos/static/js/main.a9d03d96.js",
     "static/js/35.75e36e13.chunk.js": "/logos/static/js/35.75e36e13.chunk.js",
     "static/media/Brett.svg": "/logos/static/media/Brett.ffb8996b9d5ad66d9cf49ad4d3eba084.svg",
     "static/media/Crv.svg": "/logos/static/media/Crv.01749eb6ba7247722eadab8c52fb9693.svg",
@@ -122,7 +122,6 @@
     "static/media/MaticxLight.svg": "/logos/static/media/MaticxLight.6a6294cc618ed3944624155afb5485f6.svg",
     "static/media/Chain42161.svg": "/logos/static/media/Chain42161.84f013acdc0b95ae20ea5b51c59c8295.svg",
     "static/media/Chain421614.svg": "/logos/static/media/Chain421614.df481dd472a7f641f3cf50715a3ee9ba.svg",
-    "static/media/Usdm.svg": "/logos/static/media/Usdm.fad0ff394bb5549e6193f4ca26018f60.svg",
     "static/media/Frxeth.svg": "/logos/static/media/Frxeth.e12d252a4d8f304cc1305f64ed3d78c4.svg",
     "static/media/Twt.svg": "/logos/static/media/Twt.a952a355e87289d1202091fe3f51024c.svg",
     "static/media/Pol.svg": "/logos/static/media/Pol.b848c36ccc941fafadd2705cacede921.svg",
@@ -187,6 +186,7 @@
     "static/media/Hnt.svg": "/logos/static/media/Hnt.2eed6dcdf0d05f075b74b08dd36a10d5.svg",
     "static/media/Wsteth.svg": "/logos/static/media/Wsteth.dce29f1d26c3c5788267bc62a1c1dea7.svg",
     "static/media/Chain1116.svg": "/logos/static/media/Chain1116.b38273416692b797e77ee1d11c02c937.svg",
+    "static/media/Usdm.svg": "/logos/static/media/Usdm.7f323eba0ba75487c2f8f6c984ba1e48.svg",
     "static/media/Cbbtc.svg": "/logos/static/media/Cbbtc.12a0ea54578dffa9a3cae389933af1a0.svg",
     "static/media/Fxs.svg": "/logos/static/media/Fxs.b9bee9e782b946860c9f62d2544cf1a7.svg",
     "static/media/Chain1115.svg": "/logos/static/media/Chain1115.de14ee3846f245e89562d4fad7411c89.svg",
@@ -350,11 +350,11 @@
     "static/media/Chain2221.svg": "/logos/static/media/Chain2221.6eeefc923180fe9140fc1dafafecdc90.svg",
     "static/media/Celo.svg": "/logos/static/media/Celo.f5086b90b66ad4b68b0ec200e9a6043d.svg",
     "main.d0bd4ad3.css.map": "/logos/static/css/main.d0bd4ad3.css.map",
-    "main.48d7621d.js.map": "/logos/static/js/main.48d7621d.js.map",
+    "main.a9d03d96.js.map": "/logos/static/js/main.a9d03d96.js.map",
     "35.75e36e13.chunk.js.map": "/logos/static/js/35.75e36e13.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d0bd4ad3.css",
-    "static/js/main.48d7621d.js"
+    "static/js/main.a9d03d96.js"
   ]
 }
