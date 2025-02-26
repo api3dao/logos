@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 0.3.9
+
+### Patch Changes
+
+- 56725d9: Following logos has been updated:
+
+    | Logo                                                 | Name | Category |
+    | ---------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/usdm.svg" width="36" alt=""> | usdm | symbol   |
+
 ## 0.3.8
 
 ### Patch Changes
