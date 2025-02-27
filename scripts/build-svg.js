@@ -5,11 +5,12 @@ const utils = require('../helpers/utils');
 
 const outputPath = './dist';
 
-const categories = ['chain', 'symbol', 'api-provider'];
+const categories = ['chain', 'symbol', 'api-provider', 'dapp'];
 
 let chainLightLogos = [];
 let apiProviderLightLogos = [];
 let symbolLightLogos = [];
+let dappsLightLogos = [];
 
 function getLogoList(mode) {
     switch (mode) {
@@ -19,8 +20,10 @@ function getLogoList(mode) {
             return [...symbolLightLogos, ...utils.getManualLogos(mode), ...utils.getSupportedFeeds()];
         case 'api-provider':
             return [...apiProviderLightLogos, ...utils.getManualLogos(mode), ...utils.getApiProviders()];
+        case 'dapp':
+            return [...dappsLightLogos, ...utils.getManualLogos(mode), ...utils.getDapps()];
         default:
-            break;
+            return [];
     }
 }
 
@@ -41,8 +44,8 @@ async function buildLogos(format = 'esm', dir, mode, batchName) {
     await fs.appendFile(`${outDir}/${batchName}Missing.json`, JSON.stringify(getMissingLogos(files, mode)), 'utf-8');
 }
 
-function buildSwitchCase(mode) {
-    return utils.generateSwitchCase(getLogoList(mode), utils.toPascalCase(mode));
+function buildSwitchCase(files, mode) {
+    return utils.generateSwitchCase(files, getLogoList(mode), utils.toPascalCase(mode));
 }
 
 function buildLogoImports(files, mode, format) {
@@ -69,7 +72,7 @@ async function buildBatch(files, outDir, format = 'esm', batchName, mode) {
 
     const imports = buildLogoImports(files, mode, format);
 
-    let code = await babelTransform(format, imports, batchName, mode);
+    let code = await babelTransform(files, format, imports, batchName, mode);
 
     if (format === 'cjs') {
         code = code.replace('export default', 'module.exports =');
@@ -78,11 +81,11 @@ async function buildBatch(files, outDir, format = 'esm', batchName, mode) {
     await fs.writeFile(`${outDir}/${batchName}.js`, code, 'utf-8');
 }
 
-async function babelTransform(format, imports, batchName, mode) {
+async function babelTransform(files, format, imports, batchName, mode) {
     let { code } = await babel.transformAsync(
         `
         ${imports}
-        ${utils.generateFunction(batchName, buildSwitchCase(mode), mode)}`,
+        ${utils.generateFunction(batchName, buildSwitchCase(files, mode), mode)}`,
         {
             presets: [['@babel/preset-react', { useBuiltIns: true }]]
         }
@@ -111,7 +114,8 @@ async function findLightLogos() {
     const [chainFiles, apiProviderFiles, symbolFiles] = await Promise.all([
         fs.readdir('./optimized/chain', 'utf-8'),
         fs.readdir('./optimized/api-provider', 'utf-8'),
-        fs.readdir('./optimized/symbol', 'utf-8')
+        fs.readdir('./optimized/symbol', 'utf-8'),
+        fs.readdir('./optimized/dapp', 'utf-8')
     ]);
 
     chainLightLogos = chainFiles.filter((file) => file.includes('light')).map((file) => file.replace('Chain', ''));

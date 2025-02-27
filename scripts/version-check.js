@@ -5,7 +5,7 @@ const dropbox = require('dropbox');
 const fetch = require('node-fetch');
 const crypto = require('crypto');
 
-const categories = ['chain', 'symbol', 'api-provider'];
+const categories = ['chain', 'symbol', 'api-provider', 'dapp'];
 
 let dbx = null;
 
@@ -39,6 +39,8 @@ function getLogoList(mode) {
             return [...utils.getManualLogos(mode), ...utils.getSupportedFeeds()];
         case 'api-provider':
             return [...utils.getManualLogos(mode), ...utils.getApiProviders()];
+        case 'dapp':
+            return [...utils.getManualLogos(mode), ...utils.getDapps()];
         default:
             break;
     }
