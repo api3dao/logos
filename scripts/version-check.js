@@ -5,7 +5,7 @@ const dropbox = require('dropbox');
 const fetch = require('node-fetch');
 const crypto = require('crypto');
 
-const categories = ['chain', 'symbol', 'api-provider'];
+const categories = ['chain', 'symbol', 'api-provider', 'dapp'];
 
 let dbx = null;
 
