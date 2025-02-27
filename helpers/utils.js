@@ -16,7 +16,8 @@ module.exports = {
     getApiProviders,
     getSupportedFeeds,
     getDapps,
-    toPascalCase
+    toPascalCase,
+    isStringMatch
 };
 
 function getDapps() {
@@ -86,6 +87,10 @@ function toPascalCase(string) {
 function sanitizeName(name, suffix = '', prefix = '') {
     const componentName = `${toPascalCase(name.replace(/.svg/, ''))}`;
     return prefix + componentName + suffix;
+}
+
+function isStringMatch(val1, val2) {
+    return sanitizeName(val1).toLowerCase() === sanitizeName(val2).toLowerCase();
 }
 
 function generateSwitchCase(files, array, prefix) {
