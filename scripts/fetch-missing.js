@@ -7,7 +7,7 @@ const fetch = require('node-fetch');
 
 let missingLogos = [];
 
-const categories = ['chain', 'symbol', 'api-provider'];
+const categories = ['chain', 'symbol', 'api-provider', 'dapp'];
 
 let dbx = null;
 
@@ -41,6 +41,8 @@ function getLogoList(mode) {
             return [...utils.getManualLogos(mode), ...utils.getSupportedFeeds()];
         case 'api-provider':
             return [...utils.getManualLogos(mode), ...utils.getApiProviders()];
+        case 'dapp':
+            return [...utils.getManualLogos(mode), ...utils.getDapps()];
         default:
             break;
     }
@@ -75,10 +77,8 @@ async function searchLogos() {
     missingLogos.map((missingLogoCategory) => {
         missingLogoCategory.logos.map((missingLogo) => {
             foundLogos.map((foundLogo) => {
-                if (
-                    utils.sanitizeName(foundLogo.name).toLowerCase() ===
-                    `${utils.sanitizeName(missingLogo).toLowerCase()}`
-                ) {
+                const isCategoryMatch = foundLogo.path_lower.includes(missingLogoCategory.category);
+                if (utils.isStringMatch(foundLogo.name, missingLogo) && isCategoryMatch) {
                     downloadLogos(missingLogoCategory.category, foundLogo);
                 }
             });
@@ -93,7 +93,7 @@ async function searchLogos() {
 async function fetchLogos() {
     const dbx = await getDropbox();
     try {
-        const response = await dbx.filesListFolder({ path: '', recursive: true });
+        const response = await dbx.filesListFolder({ path: '', recursive: true, limit: 1000 });
         return response.result.entries;
     } catch (error) {
         console.error(error);
