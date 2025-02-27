@@ -208,7 +208,8 @@ async function copySvgFiles(files, logosDir, prefix = '') {
     files.forEach(async (file) => {
         const isSupported =
             supportList.some(
-                (item) =>  sanitizeName(item).toLowerCase() === file.replace('.svg', '').replace('Chain', '').toLowerCase()
+                (item) =>
+                    sanitizeName(item).toLowerCase() === file.replace('.svg', '').replace('Chain', '').toLowerCase()
             ) || exceptions.some((item) => file.includes(item));
         if (!isSupported) return;
         await fs.copyFile(`./optimized/${prefix}/${file}`, `${logosDir}/${file}`);
