@@ -1,5 +1,11 @@
 # @api3/logos
 
+## 0.4.0
+
+### Minor Changes
+
+- 9eefc2c: Adds dApp support
+
 ## 0.3.10
 
 ### Patch Changes
