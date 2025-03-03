@@ -7,7 +7,7 @@
         "type": "git",
         "url": "https://github.com/api3dao/logos"
     },
-    "packageManager": "pnpm@10.5.0",
+    "packageManager": "pnpm@10.5.2",
     "keywords": [
         "api3",
         "logos",
@@ -45,11 +45,11 @@
         "dropbox": "^10.34.0",
         "node-fetch": "^2.7.0",
         "dotenv": "^16.4.7",
-        "prettier": "^3.5.2",
+        "prettier": "^3.5.3",
         "rimraf": "^6.0.1",
-        "@typescript-eslint/eslint-plugin": "^8.25.0",
-        "@typescript-eslint/parser": "^8.25.0",
-        "eslint-config-prettier": "^10.0.1",
+        "@typescript-eslint/eslint-plugin": "^8.26.0",
+        "@typescript-eslint/parser": "^8.26.0",
+        "eslint-config-prettier": "^10.0.2",
         "svgo": "^3.3.0"
     },
     "main": "./dist/cjs/index.js",
