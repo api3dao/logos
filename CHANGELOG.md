@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 0.4.1
+
+### Patch Changes
+
+- cd96f76: Following logos has been updated:
+
+    | Logo                                                 | Name | Category |
+    | ---------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/api3.svg" width="36" alt=""> | api3 | symbol   |
+
 ## 0.4.0
 
 ### Minor Changes
