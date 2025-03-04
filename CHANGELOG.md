@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 0.4.2
+
+### Patch Changes
+
+- 282ea2c: Some changes have been made to the `logos`.
+
+    | Logo                                                 | Name | Category |
+    | ---------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/hype.svg" width="36" alt=""> | hype | symbol   |
+
 ## 0.4.1
 
 ### Patch Changes
