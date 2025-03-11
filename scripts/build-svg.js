@@ -10,7 +10,6 @@ const categories = ['chain', 'symbol', 'api-provider'];
 let chainLightLogos = [];
 let apiProviderLightLogos = [];
 let symbolLightLogos = [];
-let dappsLightLogos = [];
 
 function getLogoList(mode) {
     switch (mode) {
