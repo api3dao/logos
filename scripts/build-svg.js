@@ -5,7 +5,7 @@ const utils = require('../helpers/utils');
 
 const outputPath = './dist';
 
-const categories = ['chain', 'symbol', 'api-provider', 'dapp'];
+const categories = ['chain', 'symbol', 'api-provider'];
 
 let chainLightLogos = [];
 let apiProviderLightLogos = [];
@@ -21,7 +21,7 @@ function getLogoList(mode) {
         case 'api-provider':
             return [...apiProviderLightLogos, ...utils.getManualLogos(mode), ...utils.getApiProviders()];
         case 'dapp':
-            return [...dappsLightLogos, ...utils.getManualLogos(mode), ...utils.getDapps()];
+            return [];
         default:
             return [];
     }

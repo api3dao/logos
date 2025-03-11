@@ -50,7 +50,7 @@ function getSupportList(mode) {
         case 'api-provider':
             return getApiProviders();
         case 'dapp':
-            return getDapps();
+            return [];
         default:
             return [];
     }

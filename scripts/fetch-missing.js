@@ -7,7 +7,7 @@ const fetch = require('node-fetch');
 
 let missingLogos = [];
 
-const categories = ['chain', 'symbol', 'api-provider', 'dapp'];
+const categories = ['chain', 'symbol', 'api-provider'];
 
 let dbx = null;
 
@@ -42,7 +42,7 @@ function getLogoList(mode) {
         case 'api-provider':
             return [...utils.getManualLogos(mode), ...utils.getApiProviders()];
         case 'dapp':
-            return [...utils.getManualLogos(mode), ...utils.getDapps()];
+            return [];
         default:
             break;
     }
