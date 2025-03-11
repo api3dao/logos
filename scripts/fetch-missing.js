@@ -41,8 +41,6 @@ function getLogoList(mode) {
             return [...utils.getManualLogos(mode), ...utils.getSupportedFeeds()];
         case 'api-provider':
             return [...utils.getManualLogos(mode), ...utils.getApiProviders()];
-        case 'dapp':
-            return [];
         default:
             break;
     }

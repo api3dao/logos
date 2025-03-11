@@ -19,8 +19,6 @@ function getLogoList(mode) {
             return [...symbolLightLogos, ...utils.getManualLogos(mode), ...utils.getSupportedFeeds()];
         case 'api-provider':
             return [...apiProviderLightLogos, ...utils.getManualLogos(mode), ...utils.getApiProviders()];
-        case 'dapp':
-            return [];
         default:
             return [];
     }
@@ -113,8 +111,7 @@ async function findLightLogos() {
     const [chainFiles, apiProviderFiles, symbolFiles] = await Promise.all([
         fs.readdir('./optimized/chain', 'utf-8'),
         fs.readdir('./optimized/api-provider', 'utf-8'),
-        fs.readdir('./optimized/symbol', 'utf-8'),
-        fs.readdir('./optimized/dapp', 'utf-8')
+        fs.readdir('./optimized/symbol', 'utf-8')
     ]);
 
     chainLightLogos = chainFiles.filter((file) => file.includes('light')).map((file) => file.replace('Chain', ''));

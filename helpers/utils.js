@@ -1,6 +1,6 @@
 const fs = require('fs/promises');
 const { rename } = require('fs');
-const { getChains, dapis, api3Contracts } = require('@api3/dapi-management');
+const { getChains, dapis } = require('@api3/dapi-management');
 
 module.exports = {
     sanitizeName,
@@ -15,14 +15,9 @@ module.exports = {
     getSupportedChains,
     getApiProviders,
     getSupportedFeeds,
-    getDapps,
     toPascalCase,
     isStringMatch
 };
-
-function getDapps() {
-    return api3Contracts.DAPPS.map((dapp) => dapp.alias);
-}
 
 function getApiProviders() {
     const providers = [...new Set(dapis.map((dapi) => dapi.providers).flat())];
@@ -49,8 +44,6 @@ function getSupportList(mode) {
             return getSupportedFeeds();
         case 'api-provider':
             return getApiProviders();
-        case 'dapp':
-            return [];
         default:
             return [];
     }
@@ -63,8 +56,6 @@ function getManualLogos(mode) {
         case 'symbol':
             return [];
         case 'api-provider':
-            return [];
-        case 'dapp':
             return [];
         default:
             return [];
