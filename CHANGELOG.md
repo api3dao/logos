@@ -1,5 +1,20 @@
 # @api3/logos
 
+## 1.0.0
+
+### Major Changes
+
+- 547c0e0: dApp supoort is removed
+
+### Patch Changes
+
+- caf63bb: Some changes have been made to the `logos`.
+
+    | Logo                                                   | Name   | Category |
+    | ------------------------------------------------------ | ------ | -------- |
+    | <img src="./raw/symbols/tbtc.svg" width="36" alt="">   | tbtc   | symbol   |
+    | <img src="./raw/symbols/demeth.svg" width="36" alt=""> | demeth | symbol   |
+
 ## 0.4.2
 
 ### Patch Changes
