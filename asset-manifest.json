@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/logos/static/css/main.d0bd4ad3.css",
-    "main.js": "/logos/static/js/main.b0e62c1d.js",
+    "main.js": "/logos/static/js/main.b812ed19.js",
     "static/js/35.75e36e13.chunk.js": "/logos/static/js/35.75e36e13.chunk.js",
     "static/media/Brett.svg": "/logos/static/media/Brett.ffb8996b9d5ad66d9cf49ad4d3eba084.svg",
     "static/media/Crv.svg": "/logos/static/media/Crv.01749eb6ba7247722eadab8c52fb9693.svg",
@@ -60,7 +60,6 @@
     "static/media/Bera.svg": "/logos/static/media/Bera.d558ae551e4ed5d5c8b8d9b09a9643e1.svg",
     "static/media/Chain13473.svg": "/logos/static/media/Chain13473.bebdffdf74a592673cac0ec4f792e5c1.svg",
     "static/media/Sfrax.svg": "/logos/static/media/Sfrax.1510e2eb1943111c3eb89b7141da2aa5.svg",
-    "static/media/Chain80084.svg": "/logos/static/media/Chain80084.f0c8c6366271180fa809477cecaf0f00.svg",
     "static/media/Chain80094.svg": "/logos/static/media/Chain80094.cc188e5a4d4b0f609068c52606abe0d2.svg",
     "static/media/Maticx.svg": "/logos/static/media/Maticx.5aa1813bbc7b3093d7dd4d23b7dca667.svg",
     "static/media/Alchemy.svg": "/logos/static/media/Alchemy.6c6b714e47aaf45fbb8878c59ab56dc2.svg",
@@ -357,11 +356,11 @@
     "static/media/Chain2221.svg": "/logos/static/media/Chain2221.6eeefc923180fe9140fc1dafafecdc90.svg",
     "static/media/Celo.svg": "/logos/static/media/Celo.f5086b90b66ad4b68b0ec200e9a6043d.svg",
     "main.d0bd4ad3.css.map": "/logos/static/css/main.d0bd4ad3.css.map",
-    "main.b0e62c1d.js.map": "/logos/static/js/main.b0e62c1d.js.map",
+    "main.b812ed19.js.map": "/logos/static/js/main.b812ed19.js.map",
     "35.75e36e13.chunk.js.map": "/logos/static/js/35.75e36e13.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d0bd4ad3.css",
-    "static/js/main.b0e62c1d.js"
+    "static/js/main.b812ed19.js"
   ]
 }
