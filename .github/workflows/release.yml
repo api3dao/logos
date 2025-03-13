@@ -40,7 +40,7 @@ jobs:
 
       - name: Prep commit message
         run: |
-          echo "NEW_VERSION=$(yarn changeset status --output=release.json > /dev/null && jq -r '.releases[0].newVersion' release.json && rm release.json)" >> "$GITHUB_ENV"
+          echo "NEW_VERSION=$(pnpm changeset status --output=release.json > /dev/null && jq -r '.releases[0].newVersion' release.json && rm release.json)" >> "$GITHUB_ENV"
 
       - name: Create Release
         id: changesets
