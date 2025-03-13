@@ -47,12 +47,12 @@ jobs:
         run: pnpm changeset version
       
       - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5
-        id: auto-commit-action
-        if: steps.check_files.outputs.files_exists == 'true'
-        with:
-          commit_message: Update version
-          commit_options: '--no-verify --signoff'
+        run: |
+          git config --global user.email "
+          git config --global user.name "GitHub Actions"
+          git add .
+          git commit -m "ci: update changeset version"
+          git push
 
       - name: Create Release
         if: steps.check_files.outputs.files_exists == 'true'
