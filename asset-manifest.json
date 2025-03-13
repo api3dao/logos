@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/logos/static/css/main.d0bd4ad3.css",
-    "main.js": "/logos/static/js/main.323b0ea3.js",
+    "main.js": "/logos/static/js/main.fe131467.js",
     "static/js/35.75e36e13.chunk.js": "/logos/static/js/35.75e36e13.chunk.js",
     "static/media/Brett.svg": "/logos/static/media/Brett.ffb8996b9d5ad66d9cf49ad4d3eba084.svg",
     "static/media/Crv.svg": "/logos/static/media/Crv.01749eb6ba7247722eadab8c52fb9693.svg",
@@ -56,6 +56,7 @@
     "static/media/Joe.svg": "/logos/static/media/Joe.d39a7b96bd2baf355d8abf882409c092.svg",
     "static/media/Mtl.svg": "/logos/static/media/Mtl.dcce0fb882e6cde2fc3e040ffa53d7c6.svg",
     "static/media/Glmr.svg": "/logos/static/media/Glmr.10a8946841b7e0ec7f4f35291a04c1c2.svg",
+    "static/media/Chain80069.svg": "/logos/static/media/Chain80069.3e6985ae490c39397a176612f3626365.svg",
     "static/media/Msteth.svg": "/logos/static/media/Msteth.04695669ce8d4d5baf6c9ed0010918d3.svg",
     "static/media/Bera.svg": "/logos/static/media/Bera.d558ae551e4ed5d5c8b8d9b09a9643e1.svg",
     "static/media/Chain13473.svg": "/logos/static/media/Chain13473.bebdffdf74a592673cac0ec4f792e5c1.svg",
@@ -356,11 +357,11 @@
     "static/media/Chain2221.svg": "/logos/static/media/Chain2221.6eeefc923180fe9140fc1dafafecdc90.svg",
     "static/media/Celo.svg": "/logos/static/media/Celo.f5086b90b66ad4b68b0ec200e9a6043d.svg",
     "main.d0bd4ad3.css.map": "/logos/static/css/main.d0bd4ad3.css.map",
-    "main.323b0ea3.js.map": "/logos/static/js/main.323b0ea3.js.map",
+    "main.fe131467.js.map": "/logos/static/js/main.fe131467.js.map",
     "35.75e36e13.chunk.js.map": "/logos/static/js/35.75e36e13.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d0bd4ad3.css",
-    "static/js/main.323b0ea3.js"
+    "static/js/main.fe131467.js"
   ]
 }
