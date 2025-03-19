@@ -59,15 +59,19 @@ jobs:
           ref: production
 
       - name: Setup pnpm
+        if: steps.check_files.outputs.files_exists == 'true'
         uses: pnpm/action-setup@v4
-        
+
       - name: Install dependencies
+        if: steps.check_files.outputs.files_exists == 'true'
         run: pnpm install
 
       - name: Lint
+        if: steps.check_files.outputs.files_exists == 'true'
         run: pnpm run lint
 
       - name: Build package
+        if: steps.check_files.outputs.files_exists == 'true'
         run: pnpm run build
 
       - name: Changeset version
