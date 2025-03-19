@@ -20,10 +20,8 @@ jobs:
       packages: write
       pull-requests: write
     steps:
-      - uses: actions/checkout@v4
-        with:
-          # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
-          fetch-depth: 0
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -36,11 +34,14 @@ jobs:
       - name: Build package
         run: pnpm run build
 
-      - name: Check file existence
+      - name: Check changeset files
         id: check_files
-        uses: andstor/file-existence-action@v3
-        with:
-          files: "./.changeset/changeset.md"
+        run: |
+          if find ./.changeset -maxdepth 1 -type f -name "*.md" ! -name "README.md" | grep -q .; then
+            echo "files_exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "files_exists=false" >> $GITHUB_OUTPUT
+          fi
 
       - name: Changeset version
         if: steps.check_files.outputs.files_exists == 'true'
@@ -65,11 +66,17 @@ jobs:
           title: "ci: release logos package"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Merge main to production
+
+      - name: Create synchronization PR
         if: steps.changesets.outputs.published == 'true'
-        uses: devmasx/merge-branch@master
-        with:
-          type: now
-          from_branch: main
-          target_branch: production
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          pr_url=$(gh pr create -B main -H production --title 'Merge production into main' --body 'Merges production into main')
+          pr_number=$(echo $pr_url | awk -F'/' '{print $NF}')
+          echo "SYNC_PR_NUMBER=$pr_number" >> $GITHUB_ENV
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Merge synchronization PR
+        if: steps.changesets.outputs.published == 'true'
+        run: gh pr merge ${{env.SYNC_PR_NUMBER}} --merge --body 'Merges production into main'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
