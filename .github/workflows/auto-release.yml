@@ -20,19 +20,13 @@ jobs:
       packages: write
       pull-requests: write
     steps:
+      - name: Set branch name
+        run: |
+          BRANCH_NAME=$(echo $GITHUB_REF | awk -F'/' '{print $3}')
+          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
+
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Lint
-        run: pnpm run lint
-
-      - name: Build package
-        run: pnpm run build
 
       - name: Check changeset files
         id: check_files
@@ -42,6 +36,39 @@ jobs:
           else
             echo "files_exists=false" >> $GITHUB_OUTPUT
           fi
+
+      - name: Create release PR
+        if: steps.check_files.outputs.files_exists == 'true'
+        run: |
+          pr_url=$(gh pr create -B production -H ${{env.BRANCH_NAME}} --title 'Merge ${{env.BRANCH_NAME}} into production' --body 'Merges ${{env.BRANCH_NAME}} into production')
+          pr_number=$(echo $pr_url | awk -F'/' '{print $NF}')
+          echo "PR_NUMBER=$pr_number" >> $GITHUB_ENV
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Merge release PR
+        if: steps.check_files.outputs.files_exists == 'true'
+        run: gh pr merge ${{env.PR_NUMBER}} --merge --body 'Merges ${{env.BRANCH_NAME}} into production'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout production
+        if: steps.check_files.outputs.files_exists == 'true'
+        uses: actions/checkout@v4
+        with:
+          ref: production
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Lint
+        run: pnpm run lint
+
+      - name: Build package
+        run: pnpm run build
 
       - name: Changeset version
         if: steps.check_files.outputs.files_exists == 'true'
@@ -68,15 +95,16 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create synchronization PR
-        if: steps.changesets.outputs.published == 'true'
+        if: steps.check_files.outputs.files_exists == 'true'
         run: |
-          pr_url=$(gh pr create -B main -H production --title 'Merge production into main' --body 'Merges production into main')
+          pr_url=$(gh pr create -B ${{env.BRANCH_NAME}} -H production --title 'Merge production into ${{env.BRANCH_NAME}}' --body 'Merges production into ${{env.BRANCH_NAME}}')
           pr_number=$(echo $pr_url | awk -F'/' '{print $NF}')
           echo "SYNC_PR_NUMBER=$pr_number" >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Merge synchronization PR
-        if: steps.changesets.outputs.published == 'true'
-        run: gh pr merge ${{env.SYNC_PR_NUMBER}} --merge --body 'Merges production into main'
+        if: steps.check_files.outputs.files_exists == 'true'
+        run: gh pr merge ${{env.SYNC_PR_NUMBER}} --merge --body 'Merges production into ${{env.BRANCH_NAME}}'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
