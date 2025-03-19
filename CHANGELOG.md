@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 1.0.3
+
+### Patch Changes
+
+- 108b474: Following logos has been updated:
+
+    | Logo                                                | Name | Category |
+    | --------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/vet.svg" width="36" alt=""> | vet  | symbol   |
+
 ## 1.0.2
 
 ### Patch Changes
