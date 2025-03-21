@@ -16,6 +16,7 @@ on:
       - 'package.json'
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   pack-and-deploy-to-gh-pages:
