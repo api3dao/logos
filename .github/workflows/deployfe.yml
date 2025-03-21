@@ -31,13 +31,17 @@ jobs:
           echo APP_KEY=${{ secrets.APP_KEY }} >> .env
           echo APP_SECRET=${{ secrets.APP_SECRET }} >> .env
           echo DROPBOX=${{ secrets.DROPBOX }} >> .env
+      
       - name: Install Packages
         run: pnpm install 
+      
       - name: Lint
         run: pnpm run lint
+      
       - name: Fetch Logos
         if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'fetch')
         run: pnpm run fetch
+      
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
         id: auto-commit-action
@@ -45,27 +49,40 @@ jobs:
         with:
           commit_message: Fetch Logos from Dropbox
           commit_options: '--no-verify --signoff'
+    
       - name: Build Package
         run: pnpm run package
+
       - name: "Run if changes have been detected"
         id: add-changeset
         if: steps.auto-commit-action.outputs.changes_detected == 'true'
         run: pnpm run auto-release
+  
       - name: Add changeset
         uses: stefanzweifel/git-auto-commit-action@v5
         if : steps.auto-commit-action.outputs.changes_detected == 'true'
         with:
           commit_message: Added changeset
           commit_options: '--no-verify --signoff'
+    
       - name: Install Frontend Packages
         if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
         run: pnpm install
+      
       - name: Build Frontend
         if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
         run: pnpm --filter "viewer" build
-      - name: Deploy to Github Pages
+      
+      - name: Setup Pages
         if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
+        uses: actions/upload-pages-artifact@v3
         with:
-          branch: gh-pages
-          folder: ./viewer/build
+          path: './viewer/build'
+
+      - name: Deploy to GitHub Pages
+        if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
+        uses: actions/deploy-pages@v4
