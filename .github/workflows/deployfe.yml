@@ -18,6 +18,11 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   pack-and-deploy-to-gh-pages:
     runs-on: ubuntu-latest
