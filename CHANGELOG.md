@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 1.0.4
+
+### Patch Changes
+
+- 598c846: Some changes have been made to the `logos`.
+
+    | Logo                                                 | Name | Category |
+    | ---------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/vtho.svg" width="36" alt=""> | vtho | symbol   |
+
 ## 1.0.3
 
 ### Patch Changes
