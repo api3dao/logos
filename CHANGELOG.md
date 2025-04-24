@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 1.0.6
+
+### Patch Changes
+
+- 2313aa5: Some changes have been made to the `logos`.
+
+    | Logo                                                | Name | Category |
+    | --------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/mvl.svg" width="36" alt=""> | mvl  | symbol   |
+
 ## 1.0.5
 
 ### Patch Changes
