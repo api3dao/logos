@@ -48,13 +48,13 @@ jobs:
         run: pnpm install 
       
       - name: Check dapi-management
-        if: ${{ inputs.update-dapi-management == 'true' }}
+        if: ${{ inputs.update-dapi-management == true }}
         run: pnpm up @api3/dapi-management --latest
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
         id: auto-commit-action-dapi-management
-        if: ${{ inputs.update-dapi-management == 'true' }}
+        if: ${{ inputs.update-dapi-management == true }}
         with:
           commit_message: Updated dapi-management to latest version
           commit_options: '--no-verify --signoff'
