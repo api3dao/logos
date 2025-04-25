@@ -17,6 +17,12 @@ on:
   pull_request:
     branches: [ main ]
   workflow_dispatch:
+    inputs:
+      update-dapi-management:
+        description: 'Update dapi-management'
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -40,6 +46,18 @@ jobs:
       
       - name: Install Packages
         run: pnpm install 
+      
+      - name: Check dapi-management
+        if: ${{ inputs.update-dapi-management }} == 'true'
+        run: pnpm up @api3/dapi-management --latest
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        id: auto-commit-action-dapi-management
+        if: ${{ inputs.update-dapi-management }} == 'true'
+        with:
+          commit_message: Updated dapi-management to latest version
+          commit_options: '--no-verify --signoff'
       
       - name: Lint
         run: pnpm run lint
