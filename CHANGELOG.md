@@ -1,5 +1,16 @@
 # @api3/logos
 
+## 1.0.7
+
+### Patch Changes
+
+- 8aacb3c: Following logos has been updated:
+
+    | Logo                                                 | Name | Category |
+    | ---------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/frax.svg" width="36" alt=""> | frax | symbol   |
+    | <img src="./raw/symbols/fxs.svg" width="36" alt="">  | fxs  | symbol   |
+
 ## 1.0.6
 
 ### Patch Changes
