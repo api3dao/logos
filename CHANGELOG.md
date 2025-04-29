@@ -1,5 +1,11 @@
 # @api3/logos
 
+## 1.0.8
+
+### Patch Changes
+
+- 7f95cff: Restore FXS and FRAX logos
+
 ## 1.0.7
 
 ### Patch Changes
