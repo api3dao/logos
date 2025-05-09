@@ -18,7 +18,7 @@
         "react-router-dom": "^7.5.3",
         "react-scripts": "5.0.1",
         "react-syntax-highlighter": "^15.6.1",
-        "web-vitals": "^4.2.4",
+        "web-vitals": "^5.0.0",
         "@api3/dapi-management": "3.20.1"
     },
     "scripts": {
