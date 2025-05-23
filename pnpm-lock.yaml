@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 3.22.0
-        version: 3.22.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
+        specifier: 3.23.0
+        version: 3.23.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@babel/core':
         specifier: ^7.27.1
         version: 7.27.1
@@ -57,8 +57,8 @@ importers:
   viewer:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 3.22.0
-        version: 3.22.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
+        specifier: 3.23.0
+        version: 3.23.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@api3/logos':
         specifier: workspace:*
         version: link:..
@@ -171,8 +171,8 @@ packages:
     engines: {node: '>=20.17.9'}
     hasBin: true
 
-  '@api3/dapi-management@3.22.0':
-    resolution: {integrity: sha512-yv7UoVJCgwjdZ/aSTs6wygy1FDbTbX2qtKB6qVxK4SbltT+A+vZiGigS3w73hKxaH1KUwm3Jo2UpBZsMkl+6Uw==}
+  '@api3/dapi-management@3.23.0':
+    resolution: {integrity: sha512-nr0TwGehbVBVREXSZV9GbTxsbFnw6amnTC0tlYHsETCOQxtGpc7QgBP4hxM7TB0g+mfp9YVMsZxD031KTkAS8A==}
 
   '@api3/ois@2.3.2':
     resolution: {integrity: sha512-hYQCbCAtWMGKV+pECRY5tbfCSOcheeo9s6wtrhn1dOWw151VeG0sKG3VbBEsyA6cvSaldewBWY3t/JGaupdThg==}
@@ -2237,9 +2237,6 @@ packages:
 
   '@types/node@22.15.19':
     resolution: {integrity: sha512-3vMNr4TzNQyjHcRZadojpRaD9Ofr6LsonZAoQ+HMUa/9ORTPoxVIw0e0mpqWpdjj8xybyCM+oKOUH2vwFu/oEw==}
-
-  '@types/node@22.15.2':
-    resolution: {integrity: sha512-uKXqKN9beGoMdBfcaTY1ecwz6ctxuJAcUlwE55938g0ZJ8lRxwAZqRz2AJ4pzpt5dHdTPMB863UZ0ESiFUcP7A==}
 
   '@types/node@22.7.5':
     resolution: {integrity: sha512-jML7s2NAzMWc//QSJ1a3prpk78cOPchGvXJsC3C6R6PSMoooztvRVQEz89gmBTBY1SPMaqo5teB4uNHPdetShQ==}
@@ -8794,7 +8791,7 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@api3/dapi-management@3.22.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
+  '@api3/dapi-management@3.23.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
     dependencies:
       '@api3/api-integrations': 2.50.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@api3/commons': 0.13.4
@@ -11283,7 +11280,7 @@ snapshots:
       '@jest/test-result': 27.5.1
       '@jest/transform': 27.5.1
       '@jest/types': 27.5.1
-      '@types/node': 22.15.2
+      '@types/node': 22.15.19
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       emittery: 0.8.1
@@ -11422,7 +11419,7 @@ snapshots:
     dependencies:
       '@types/istanbul-lib-coverage': 2.0.6
       '@types/istanbul-reports': 3.0.4
-      '@types/node': 22.15.2
+      '@types/node': 22.15.19
       '@types/yargs': 16.0.9
       chalk: 4.1.2
 
@@ -12245,10 +12242,6 @@ snapshots:
   '@types/node@12.20.55': {}
 
   '@types/node@22.15.19':
-    dependencies:
-      undici-types: 6.21.0
-
-  '@types/node@22.15.2':
     dependencies:
       undici-types: 6.21.0
 
