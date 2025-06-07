@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 3.26.0
-        version: 3.26.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
+        specifier: 3.27.0
+        version: 3.27.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@babel/core':
         specifier: ^7.27.4
         version: 7.27.4
@@ -57,8 +57,8 @@ importers:
   viewer:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 3.26.0
-        version: 3.26.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
+        specifier: 3.27.0
+        version: 3.27.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@api3/logos':
         specifier: workspace:*
         version: link:..
@@ -171,8 +171,13 @@ packages:
     engines: {node: '>=20.17.9'}
     hasBin: true
 
-  '@api3/dapi-management@3.26.0':
-    resolution: {integrity: sha512-BKu5SaMHSnazmeqPazjbaJNEQaZ0lLjOmu/J0Aj68fOlyF2ZBQtzzBXIbtmFXFrBSFrEigqN1n00Ki+2bdkCzA==}
+  '@api3/contracts@23.0.0':
+    resolution: {integrity: sha512-4LMKaSFQ7vpnM5KaE2YVAZQ2yco2DmMxXwMtwAGyjAx4JXdEMig+h45snE0Gm9SNtkdf4dqR7flpczM2nMpCIQ==}
+    engines: {node: '>=20.17.9'}
+    hasBin: true
+
+  '@api3/dapi-management@3.27.0':
+    resolution: {integrity: sha512-yRcqkxCVHg7zsfzUZ0DnCht7khMwXkfb/N9mnVl/pFtskBf4zfcBfrVqV4nw2TciUxik2YiE9bBSRTjeZFa5yg==}
 
   '@api3/ois@2.3.2':
     resolution: {integrity: sha512-hYQCbCAtWMGKV+pECRY5tbfCSOcheeo9s6wtrhn1dOWw151VeG0sKG3VbBEsyA6cvSaldewBWY3t/JGaupdThg==}
@@ -8778,11 +8783,22 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@api3/dapi-management@3.26.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
+  '@api3/contracts@23.0.0(typescript@5.6.2)':
+    dependencies:
+      ethers: 6.14.1
+      viem: 2.30.0(typescript@5.6.2)(zod@3.25.7)
+      yargs: 17.7.2
+      zod: 3.25.7
+    transitivePeerDependencies:
+      - bufferutil
+      - typescript
+      - utf-8-validate
+
+  '@api3/dapi-management@3.27.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
     dependencies:
       '@api3/api-integrations': 3.1.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@api3/commons': 0.13.4
-      '@api3/contracts': 22.0.0(typescript@5.6.2)
+      '@api3/contracts': 23.0.0(typescript@5.6.2)
       ethers: 6.14.1
       zod: 3.25.7
     transitivePeerDependencies:
