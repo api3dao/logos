@@ -52,7 +52,7 @@ jobs:
         run: pnpm up @api3/dapi-management --latest
 
       - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v6
         id: auto-commit-action-dapi-management
         if: ${{ inputs.update-dapi-management == true }}
         with:
@@ -67,7 +67,7 @@ jobs:
         run: pnpm run fetch
       
       - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v6
         id: auto-commit-action
         if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'fetch')
         with:
@@ -83,7 +83,7 @@ jobs:
         run: pnpm run auto-release
   
       - name: Add changeset
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v6
         if : steps.auto-commit-action.outputs.changes_detected == 'true'
         with:
           commit_message: Added changeset
