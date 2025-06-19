@@ -57,8 +57,8 @@ importers:
   viewer:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 3.32.0
-        version: 3.32.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
+        specifier: 3.32.1
+        version: 3.32.1(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@api3/logos':
         specifier: workspace:*
         version: link:..
@@ -150,9 +150,6 @@ packages:
     resolution: {integrity: sha512-VS/ZX0q6g8/kfjpKuqblXN8pAjdWG5uRpTSZ8dvgjoTi//+9DVlBan06FCvPkxMBBJjo8/Mf4xG78tRFNr0GDQ==}
     hasBin: true
 
-  '@api3/api-integrations@5.0.0':
-    resolution: {integrity: sha512-qs4NRekmdAdmAvlu/CctgE812J57TUwFvM6qazsiM6xZRPu3TZMLLmaglTldcpiw4nW3BuUJIfD22PuxgDsm8w==}
-
   '@api3/api-integrations@5.1.0':
     resolution: {integrity: sha512-Mn3dQeulkm3Ep1GbT2NUHoVyXF8hhbVETajFElg4v9up3pgj2QowpB7EFAcmGLGWc9XA3s7HX2YMGIMwufiXwg==}
 
@@ -174,8 +171,8 @@ packages:
     engines: {node: '>=20.17.9'}
     hasBin: true
 
-  '@api3/dapi-management@3.32.0':
-    resolution: {integrity: sha512-IW5Kr5m3As9J27ntitujlaQNGbw2QKAs61f6jzeOYkEVFgMrWyScTTIdSfDwtdL/LFrCzNTfdshrQQlobhbzVA==}
+  '@api3/dapi-management@3.32.1':
+    resolution: {integrity: sha512-CUjtHO0+mYcryvn8cHaKZyo8c23FpnxwDP4nhrMo/3G1dghCteftyZv0JPQhFTvQ1JvQ0m2mItUTRDuWZzD1XQ==}
 
   '@api3/dapi-management@3.33.0':
     resolution: {integrity: sha512-BhXRNgwPj//RUT+suooOok5AyzC3jnmXRwMm6/byMFXAT/tNrV+eUfWGcv+d1E4ets6N7cLbTGHTWmk8m8eSyA==}
@@ -8723,28 +8720,6 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@api3/api-integrations@5.0.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
-    dependencies:
-      '@api3/airnode-abi': 0.15.0
-      '@api3/contracts': 23.1.0(typescript@5.6.2)
-      '@api3/ois': 2.3.2
-      '@api3/signed-api': 3.3.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
-      ethers: 5.8.0
-      zod: 3.25.67
-    transitivePeerDependencies:
-      - aws-crt
-      - bufferutil
-      - debug
-      - encoding
-      - eslint
-      - eslint-import-resolver-typescript
-      - eslint-import-resolver-webpack
-      - eslint-plugin-import-x
-      - jest
-      - supports-color
-      - typescript
-      - utf-8-validate
-
   '@api3/api-integrations@5.1.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
     dependencies:
       '@api3/airnode-abi': 0.15.0
@@ -8844,9 +8819,9 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@api3/dapi-management@3.32.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
+  '@api3/dapi-management@3.32.1(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
     dependencies:
-      '@api3/api-integrations': 5.0.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
+      '@api3/api-integrations': 5.1.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@api3/commons': 0.13.4
       '@api3/contracts': 23.1.0(typescript@5.6.2)
       ethers: 6.14.4
