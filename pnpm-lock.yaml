@@ -57,8 +57,8 @@ importers:
   viewer:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 3.34.0
-        version: 3.34.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
+        specifier: 3.35.0
+        version: 3.35.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@api3/logos':
         specifier: workspace:*
         version: link:..
@@ -171,18 +171,10 @@ packages:
     engines: {node: '>=20.17.9'}
     hasBin: true
 
-  '@api3/contracts@24.0.0':
-    resolution: {integrity: sha512-3Ii5HBLSCH+uOBGMToy69L9O/yT36fN60nxuEm9Z8nECM6D28/elnWQQb5R6B0FGHgtpMUPpZOrqNM6AD/JdvA==}
-    engines: {node: '>=20.17.9'}
-    hasBin: true
-
   '@api3/contracts@24.1.0':
     resolution: {integrity: sha512-k3N418WMW6zioZI1ERGM9fvWqFEM+f/La5Rrzh4VXVWsfZ0tDio+Bi+PRAPFfTfBQve+D1eYzt4JcZOKXTk1Yw==}
     engines: {node: '>=20.17.9'}
     hasBin: true
-
-  '@api3/dapi-management@3.34.0':
-    resolution: {integrity: sha512-NAz3s4MEVb9vCwuC+fxq76FZFdHQYj4YlMvseI/h8NBprT4jj1qpJZgTQagaHxlqF+Pki9KxsVyrgl1gLy/L9w==}
 
   '@api3/dapi-management@3.35.0':
     resolution: {integrity: sha512-yLgDAuAP84mpLnI7a1R2PdpkryMIfStmB0zJSAEBDvyIcwQBdn9iiG0MPITl2k9UuQ5V+XBtLXBqcfFVKzZBXw==}
@@ -8226,14 +8218,6 @@ packages:
   vfile@6.0.3:
     resolution: {integrity: sha512-KzIbH/9tXat2u30jf+smMwFCsno4wHVdNmzFyL+T/L3UGqqk6JKfVqOFOZEpZSHADH1k40ab6NUIXZq422ov3Q==}
 
-  viem@2.31.3:
-    resolution: {integrity: sha512-q3JGI5QFB4LEiLfg9f2ZwjUygAn2W0wMLtj++7E/L2i8Y7zKAkR4TEEOhwBn7gyYXpuc7f1vfd26PJbkEKuj5w==}
-    peerDependencies:
-      typescript: '>=5.0.4'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-
   viem@2.31.4:
     resolution: {integrity: sha512-0UZ/asvzl6p44CIBRDbwEcn3HXIQQurBZcMo5qmLhQ8s27Ockk+RYohgTLlpLvkYs8/t4UUEREAbHLuek1kXcw==}
     peerDependencies:
@@ -8831,17 +8815,6 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@api3/contracts@24.0.0(typescript@5.6.2)':
-    dependencies:
-      ethers: 6.14.4
-      viem: 2.31.3(typescript@5.6.2)(zod@3.25.67)
-      yargs: 17.7.2
-      zod: 3.25.67
-    transitivePeerDependencies:
-      - bufferutil
-      - typescript
-      - utf-8-validate
-
   '@api3/contracts@24.1.0(typescript@5.6.2)':
     dependencies:
       ethers: 6.14.4
@@ -8850,27 +8823,6 @@ snapshots:
       zod: 3.25.67
     transitivePeerDependencies:
       - bufferutil
-      - typescript
-      - utf-8-validate
-
-  '@api3/dapi-management@3.34.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
-    dependencies:
-      '@api3/api-integrations': 5.1.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
-      '@api3/commons': 0.13.4
-      '@api3/contracts': 24.0.0(typescript@5.6.2)
-      ethers: 6.14.4
-      zod: 3.25.67
-    transitivePeerDependencies:
-      - aws-crt
-      - bufferutil
-      - debug
-      - encoding
-      - eslint
-      - eslint-import-resolver-typescript
-      - eslint-import-resolver-webpack
-      - eslint-plugin-import-x
-      - jest
-      - supports-color
       - typescript
       - utf-8-validate
 
@@ -20052,23 +20004,6 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
       vfile-message: 4.0.2
-
-  viem@2.31.3(typescript@5.6.2)(zod@3.25.67):
-    dependencies:
-      '@noble/curves': 1.9.2
-      '@noble/hashes': 1.8.0
-      '@scure/bip32': 1.7.0
-      '@scure/bip39': 1.6.0
-      abitype: 1.0.8(typescript@5.6.2)(zod@3.25.67)
-      isows: 1.0.7(ws@8.18.2)
-      ox: 0.8.1(typescript@5.6.2)(zod@3.25.67)
-      ws: 8.18.2
-    optionalDependencies:
-      typescript: 5.6.2
-    transitivePeerDependencies:
-      - bufferutil
-      - utf-8-validate
-      - zod
 
   viem@2.31.4(typescript@5.6.2)(zod@3.25.67):
     dependencies:
