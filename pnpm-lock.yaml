@@ -57,8 +57,8 @@ importers:
   viewer:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 3.36.0
-        version: 3.36.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
+        specifier: 3.37.0
+        version: 3.37.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@api3/logos':
         specifier: workspace:*
         version: link:..
@@ -171,18 +171,10 @@ packages:
     engines: {node: '>=20.17.9'}
     hasBin: true
 
-  '@api3/contracts@24.2.1':
-    resolution: {integrity: sha512-g6I/ZyRDOZes4grtJHuiPyzJJxbh519CxsWD+p0eMKxbQUzDQOor44jpHVPxEDNGJBueM7n/S+ZRH6mhnTgElQ==}
-    engines: {node: '>=20.17.9'}
-    hasBin: true
-
   '@api3/contracts@25.0.0':
     resolution: {integrity: sha512-R32r4LGbcKFCUxYe+S7H8WBAbmFbDaBJhZHa8DRGU/U3D7X6x/tL3i7OBDrlcVaUN3dXPYr/UMlvuObmIwIP7g==}
     engines: {node: '>=20.17.9'}
     hasBin: true
-
-  '@api3/dapi-management@3.36.0':
-    resolution: {integrity: sha512-qyw92DsAAZeP6fLsQd1AjeMYaoeFofOBAJQWuHiyNHw8Wrz/NRtL2K0U0MIKYvh2jTql0iUfj2yz8PymGrQNbw==}
 
   '@api3/dapi-management@3.37.0':
     resolution: {integrity: sha512-sFrIGLyzIRnVAu0ZkqO9QYl8KuIbdPYu8vwawcmOJ2kyfzUbgQB+Gd3Y8ugvtBgXZJKMUO7mk81Du3z5CxDIKQ==}
@@ -8826,17 +8818,6 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@api3/contracts@24.2.1(typescript@5.6.2)':
-    dependencies:
-      ethers: 6.14.4
-      viem: 2.31.4(typescript@5.6.2)(zod@3.25.67)
-      yargs: 17.7.2
-      zod: 3.25.67
-    transitivePeerDependencies:
-      - bufferutil
-      - typescript
-      - utf-8-validate
-
   '@api3/contracts@25.0.0(typescript@5.6.2)':
     dependencies:
       ethers: 6.14.4
@@ -8845,27 +8826,6 @@ snapshots:
       zod: 3.25.67
     transitivePeerDependencies:
       - bufferutil
-      - typescript
-      - utf-8-validate
-
-  '@api3/dapi-management@3.36.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
-    dependencies:
-      '@api3/api-integrations': 5.1.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
-      '@api3/commons': 0.13.4
-      '@api3/contracts': 24.2.1(typescript@5.6.2)
-      ethers: 6.14.4
-      zod: 3.25.67
-    transitivePeerDependencies:
-      - aws-crt
-      - bufferutil
-      - debug
-      - encoding
-      - eslint
-      - eslint-import-resolver-typescript
-      - eslint-import-resolver-webpack
-      - eslint-plugin-import-x
-      - jest
-      - supports-color
       - typescript
       - utf-8-validate
 
