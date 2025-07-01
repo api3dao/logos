@@ -36,7 +36,7 @@ jobs:
             - name: Version Check
               run: pnpm run version-check
             - name: Commit changes
-              uses: stefanzweifel/git-auto-commit-action@v5
+              uses: stefanzweifel/git-auto-commit-action@v6
               id: auto-commit-action
               with:
                   branch: control-branch
