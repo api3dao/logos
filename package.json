@@ -3,6 +3,7 @@
     "version": "1.0.15",
     "license": "MIT",
     "sideEffects": false,
+    "homepage": "https://api3dao.github.io/logos/",
     "repository": {
         "type": "git",
         "url": "https://github.com/api3dao/logos"
@@ -27,7 +28,7 @@
         "version-check": "node scripts/version-check.js",
         "package": "pnpm run build",
         "lint": "pnpm run format:check && pnpm run lint:eslint",
-        "lint:eslint": "eslint . --ext .js,.ts,.tsx",
+        "lint:eslint": "eslint . --ext .jsx,.ts,.tsx",
         "type-check": "tsc && yarn frontend:type-check && yarn package:compile --noEmit",
         "format:check": "prettier --check \"./**/*.{js,ts,tsx,css,md,json,sol}\"",
         "format": "prettier --write \"./**/*.{js,ts,tsx,css,md,json,sol}\"",

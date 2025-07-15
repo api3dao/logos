@@ -4,35 +4,40 @@
     "homepage": "https://api3dao.github.io/logos/",
     "private": true,
     "devDependencies": {
-        "react-icons": "^5.5.0",
+        "@api3/dapi-management": "3.41.1",
+        "@api3/logos": "workspace:*",
         "@chakra-ui/react": "^3.21.1",
         "@emotion/react": "^11.14.0",
         "@testing-library/jest-dom": "^6.6.3",
         "@testing-library/react": "^16.3.0",
         "@testing-library/user-event": "^14.6.1",
-        "@api3/logos": "workspace:*",
+        "@vitejs/plugin-react": "^4.6.0",
+        "@vitejs/plugin-react-swc": "^3.10.2",
         "gh-pages": "^6.3.0",
         "react": "^19.1.0",
         "react-dom": "^19.1.0",
+        "react-icons": "^5.5.0",
         "react-markdown": "^10.1.0",
         "react-router-dom": "^7.6.3",
-        "react-scripts": "5.0.1",
         "react-syntax-highlighter": "^15.6.1",
-        "web-vitals": "^5.0.3",
-        "@api3/dapi-management": "3.41.1"
+        "vite": "^7.0.4",
+        "vite-plugin-commonjs": "^0.10.4",
+        "vite-plugin-svgr": "^4.3.0",
+        "vite-tsconfig-paths": "^5.1.4",
+        "web-vitals": "^5.0.3"
     },
     "scripts": {
-        "start": "GENERATE_SOURCEMAP=false react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
+        "start": "vite",
+        "build": "vite build",
+        "serve": "vite preview",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d build",
         "eject": "react-scripts eject"
     },
     "eslintConfig": {
         "extends": [
-            "react-app",
-            "react-app/jest"
+            "eslint:recommended",
+            "plugin:react/recommended"
         ]
     },
     "browserslist": {

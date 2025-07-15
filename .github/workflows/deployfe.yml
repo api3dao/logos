@@ -105,7 +105,7 @@ jobs:
         if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './viewer/build'
+          path: './viewer/dist'
 
       - name: Deploy to GitHub Pages
         if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')

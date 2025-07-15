@@ -1,3 +1,4 @@
+import React from 'react';
 import { Flex, Text, Spacer, Image } from '@chakra-ui/react';
 import { SymbolLogo } from '@api3/logos';
 

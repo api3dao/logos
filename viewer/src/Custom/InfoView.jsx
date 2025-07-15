@@ -1,3 +1,5 @@
+/* eslint-disable react/no-children-prop */
+/* eslint-disable react/prop-types */
 import * as React from 'react';
 import { Flex, Spacer, Text } from '@chakra-ui/react';
 import { ApiProviderLogo, SymbolLogo, ChainLogo } from '@api3/logos';

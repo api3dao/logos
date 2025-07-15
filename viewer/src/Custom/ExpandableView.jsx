@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+import React from 'react';
 import { Text, Flex, Spacer, VStack, Box } from '@chakra-ui/react';
 import { TbTriangleFilled, TbTriangleInvertedFilled } from 'react-icons/tb';
 import { useState } from 'react';

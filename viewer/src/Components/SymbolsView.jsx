@@ -1,3 +1,4 @@
+import React from 'react';
 import { Flex, Text, Image } from '@chakra-ui/react';
 import { SymbolLogo } from '@api3/logos';
 import SearchRow from '../Custom/SearchRow';
