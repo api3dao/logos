@@ -1,3 +1,4 @@
+import React from 'react';
 import { VStack, Flex } from '@chakra-ui/react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import Header from './Components/Header';
