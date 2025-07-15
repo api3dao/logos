@@ -1,5 +1,17 @@
 # @api3/logos
 
+## 1.0.15
+
+### Patch Changes
+
+- 725f79a: Some changes have been made to the `logos`.
+
+    | Logo                                                 | Name | Category |
+    | ---------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/wos.svg" width="36" alt="">  | wos  | symbol   |
+    | <img src="./raw/symbols/well.svg" width="36" alt=""> | well | symbol   |
+    | <img src="./raw/symbols/os.svg" width="36" alt="">   | os   | symbol   |
+
 ## 1.0.14
 
 ### Patch Changes
@@ -1177,7 +1189,6 @@
 ### Patch Changes
 
 - 49a72dd: Add missing logos
-
     - inEVM
     - inEVM testnet
     - Merlin
@@ -1510,7 +1521,6 @@
 ### Minor Changes
 
 - 1af67c6: New chain logos added;
-
     1. Lightlink (chain ID: 1890)
     2. LightLink Goerli Testnet (chain ID: 1891)
 
@@ -1525,7 +1535,6 @@
 ### Minor Changes
 
 - e7ef4c3: New symbols are added.
-
     - `uniETH`
     - `osETH`
     - `weETH`
@@ -1609,7 +1618,6 @@
 ### Patch Changes
 
 - a47a5a0:
-
     - React support removed.
 
     - `ChainLogo`, `SymbolLogo` and `ApiProviderLogo` now return a string instead of a React component.
@@ -1679,13 +1687,11 @@
 ### Patch Changes
 
 - a835657: - JSDoc annotations added to `logos` package.
-
     - `logos` package now exports `Logo` as svg string.
     - `logos` package now exports `Logo` as React component.
     - Package size reduced.
 
     - Method names changed.
-
         - SVG component
 
             ```javascript
