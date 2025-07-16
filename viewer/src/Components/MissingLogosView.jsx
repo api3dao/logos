@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+import React from 'react';
 import { Flex, Text, Image, VStack } from '@chakra-ui/react';
 import { getChains } from '@api3/dapi-management';
 import {

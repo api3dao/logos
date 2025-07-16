@@ -1,3 +1,4 @@
+import React from 'react';
 import SymbolsView from './SymbolsView';
 import ChainsView from './ChainsView';
 import ApiProviderView from './ApiProviderView';

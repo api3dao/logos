@@ -1,3 +1,4 @@
+import React from 'react';
 import { Flex, Text, Spacer, Image } from '@chakra-ui/react';
 import { ChainLogo } from '@api3/logos';
 import { getChains, api3Contracts } from '@api3/dapi-management';

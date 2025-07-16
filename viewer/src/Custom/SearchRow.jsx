@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { Flex, Input } from '@chakra-ui/react';
 import { TbSearch } from 'react-icons/tb';
