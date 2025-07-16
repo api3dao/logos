@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 1.0.16
+
+### Patch Changes
+
+- 8e1560c: Following logos has been updated:
+
+    | Logo                                                | Name | Category |
+    | --------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/eur.svg" width="36" alt=""> | eur  | symbol   |
+
 ## 1.0.15
 
 ### Patch Changes
