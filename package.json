@@ -1,6 +1,6 @@
 {
     "name": "@api3/logos",
-    "version": "1.0.16",
+    "version": "1.0.17",
     "license": "MIT",
     "sideEffects": false,
     "homepage": "https://api3dao.github.io/logos/",
