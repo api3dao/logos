@@ -43,14 +43,14 @@
         "@changesets/cli": "^2.29.5",
         "@typescript-eslint/eslint-plugin": "^8.37.0",
         "@typescript-eslint/parser": "^8.37.0",
-        "dotenv": "^16.6.1",
+        "dotenv": "^17.2.0",
         "dropbox": "^10.34.0",
         "eslint": "^8.57.1",
         "eslint-config-prettier": "^10.1.5",
         "node-fetch": "^2.7.0",
         "prettier": "^3.6.2",
         "rimraf": "^6.0.1",
-        "svgo": "^3.3.0"
+        "svgo": "^4.0.0"
     },
     "main": "./dist/cjs/index.js",
     "module": "./dist/esm/index.js",
