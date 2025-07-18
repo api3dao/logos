@@ -1,11 +1,8 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-
 name: Deploy to Github Pages
 
 on:
   schedule:
-      - cron: '0 8,12,16,20 * * *'
+    - cron: '0 8,12,16,20 * * *'
   push:
     branches: [ main ]
     paths:
@@ -34,79 +31,97 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Git user
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
+
       - name: Set Env
-        if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'fetch')
+        if: github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'fetch')
         run: |
           touch .env
           echo APP_KEY=${{ secrets.APP_KEY }} >> .env
           echo APP_SECRET=${{ secrets.APP_SECRET }} >> .env
           echo DROPBOX=${{ secrets.DROPBOX }} >> .env
-      
+
       - name: Install Packages
-        run: pnpm install 
-      
+        run: pnpm install
+
       - name: Check dapi-management
         if: ${{ inputs.update-dapi-management == true }}
         run: pnpm up @api3/dapi-management --recursive --latest
 
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5
-        id: auto-commit-action-dapi-management
+      - name: Commit dapi-management update
         if: ${{ inputs.update-dapi-management == true }}
-        with:
-          commit_message: Updated dapi-management to latest version
-          commit_options: '--no-verify --signoff'
-      
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git add .
+            git commit -m "Updated dapi-management to latest version" --no-verify --signoff
+            git push
+            echo "changes_detected=true" >> $GITHUB_ENV
+          else
+            echo "changes_detected=false" >> $GITHUB_ENV
+          fi
+
       - name: Lint
         run: pnpm run lint
-      
+
       - name: Fetch Logos
-        if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'fetch')
+        if: github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'fetch')
         run: pnpm run fetch
-      
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5
-        id: auto-commit-action
-        if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'fetch')
-        with:
-          commit_message: Fetch Logos from Dropbox
-          commit_options: '--no-verify --signoff'
-    
+
+      - name: Commit fetch changes
+        if: github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'fetch')
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git add .
+            git commit -m "Fetch Logos from Dropbox" --no-verify --signoff
+            git push
+            echo "changes_detected=true" >> $GITHUB_ENV
+          else
+            echo "changes_detected=false" >> $GITHUB_ENV
+          fi
+
       - name: Build Package
         run: pnpm run package
 
-      - name: "Run if changes have been detected"
-        id: add-changeset
-        if: steps.auto-commit-action.outputs.changes_detected == 'true'
+      - name: Run auto-release if changes detected
+        if: env.changes_detected == 'true'
         run: pnpm run auto-release
-  
-      - name: Add changeset
-        uses: stefanzweifel/git-auto-commit-action@v5
-        if : steps.auto-commit-action.outputs.changes_detected == 'true'
-        with:
-          commit_message: Added changeset
-          commit_options: '--no-verify --signoff'
-    
+
+      - name: Commit changeset
+        if: env.changes_detected == 'true'
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git add .
+            git commit -m "Added changeset" --no-verify --signoff
+            git push
+          fi
+
       - name: Install Frontend Packages
-        if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
+        if: github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
         run: pnpm install
-      
+
       - name: Build Frontend
-        if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
+        if: github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
         run: pnpm --filter "viewer" build
-      
+
       - name: Setup Pages
-        if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
+        if: github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
-        if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
+        if: github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
         uses: actions/upload-pages-artifact@v3
         with:
           path: './viewer/dist'
 
       - name: Deploy to GitHub Pages
-        if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
+        if: github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
         uses: actions/deploy-pages@v4
