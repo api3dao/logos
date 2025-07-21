@@ -46,7 +46,7 @@
         "dotenv": "^17.2.0",
         "dropbox": "^10.34.0",
         "eslint": "^8.57.1",
-        "eslint-config-prettier": "^10.1.5",
+        "eslint-config-prettier": "^10.1.8",
         "node-fetch": "^2.7.0",
         "prettier": "^3.6.2",
         "rimraf": "^6.0.1",
