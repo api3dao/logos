@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 1.0.19
+
+### Patch Changes
+
+- 03f96f7: Some changes have been made to the `logos`.
+
+    | Logo                                                 | Name | Category |
+    | ---------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/usd1.svg" width="36" alt=""> | usd1 | symbol   |
+
 ## 1.0.18
 
 ### Patch Changes
