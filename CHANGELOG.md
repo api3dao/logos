@@ -1,5 +1,16 @@
 # @api3/logos
 
+## 1.0.18
+
+### Patch Changes
+
+- 37bcabd: Following logos has been updated:
+
+    | Logo                                                 | Name | Category |
+    | ---------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/eur.svg" width="36" alt="">  | eur  | symbol   |
+    | <img src="./raw/symbols/xaut.svg" width="36" alt=""> | xaut | symbol   |
+
 ## 1.0.17
 
 ### Patch Changes
