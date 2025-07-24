@@ -14,7 +14,7 @@ module.exports = {
         'prefixIds',
         'removeUnusedNS',
         'sortAttrs',
-        'removeScriptElement',
+        'removeScripts',
         'removeDimensions'
     ]
 };
