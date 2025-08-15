@@ -14,7 +14,9 @@ import Title from '../Custom/Title';
 
 const MissingBatchView = ({ header, batch, method }) => {
     const getChain = (chainId) => {
-        return getChains().find((chainObject) => chainObject.id === chainId).name + ' (' + chainId + ')';
+        const chains = getChains();
+        const targetChain = chains.find((chainObject) => chainObject.id === chainId);
+        return targetChain ? targetChain.alias + ' (' + chainId + ')' : 'Unknown Chain';
     };
 
     return batch.length === 0 ? null : (
