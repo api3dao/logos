@@ -1,5 +1,16 @@
 # @api3/logos
 
+## 1.0.21
+
+### Patch Changes
+
+- 1253a0c: Following logos has been updated:
+
+    | Logo                                                       | Name   | Category |
+    | ---------------------------------------------------------- | ------ | -------- |
+    | <img src="./raw/chains/Chain1439.svg" width="36" alt="">   | 1439   | chain    |
+    | <img src="./raw/chains/Chain737373.svg" width="36" alt=""> | 737373 | chain    |
+
 ## 1.0.20
 
 ### Patch Changes
