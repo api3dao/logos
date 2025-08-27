@@ -36,7 +36,7 @@
         "auto-release": "node scripts/release.js"
     },
     "devDependencies": {
-        "@api3/dapi-management": "3.47.0",
+        "@api3/dapi-management": "3.48.0",
         "@babel/core": "^7.28.3",
         "@babel/preset-react": "^7.27.1",
         "@changesets/changelog-github": "^0.5.1",
