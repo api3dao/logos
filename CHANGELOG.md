@@ -1,5 +1,16 @@
 # @api3/logos
 
+## 1.0.22
+
+### Patch Changes
+
+- a5d1133: Some changes have been made to the `logos`.
+
+    | Logo                                                | Name | Category |
+    | --------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/slp.svg" width="36" alt=""> | slp  | symbol   |
+    | <img src="./raw/symbols/ath.svg" width="36" alt=""> | ath  | symbol   |
+
 ## 1.0.21
 
 ### Patch Changes
