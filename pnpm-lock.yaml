@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 3.48.0
-        version: 3.48.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
+        specifier: 3.49.0
+        version: 3.49.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@babel/core':
         specifier: ^7.28.3
         version: 7.28.3
@@ -57,8 +57,8 @@ importers:
   viewer:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 3.48.0
-        version: 3.48.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
+        specifier: 3.49.0
+        version: 3.49.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@api3/logos':
         specifier: workspace:*
         version: link:..
@@ -161,8 +161,8 @@ packages:
     resolution: {integrity: sha512-VS/ZX0q6g8/kfjpKuqblXN8pAjdWG5uRpTSZ8dvgjoTi//+9DVlBan06FCvPkxMBBJjo8/Mf4xG78tRFNr0GDQ==}
     hasBin: true
 
-  '@api3/api-integrations@5.9.0':
-    resolution: {integrity: sha512-IvgLb97O0tp8xdUJKRFWP4l45mbxVTA+1LcVkNOb5BWMrseyyMNSih5qv4P+dnEbkz8O/64X8SW2BsJt9h4uTw==}
+  '@api3/api-integrations@5.10.0':
+    resolution: {integrity: sha512-Dmga4ec5B/sG6XQvyxG14cxP2CezBYZsS8be4wr7n4q8kEgScGVSfjk77zlEQR12wL42Y0+n+PH3p91zR1rwiw==}
 
   '@api3/chains@8.1.1':
     resolution: {integrity: sha512-2woMgPksMEzH2tU7ZH5tHNHr9qbZDG+bEWcAGcs+A3/GJKNBaTmxVerIyTo4IZA9f6vN91i7fH3UPAq/S8KQDw==}
@@ -182,8 +182,8 @@ packages:
     engines: {node: '>=20.17.9'}
     hasBin: true
 
-  '@api3/dapi-management@3.48.0':
-    resolution: {integrity: sha512-QV+Ic0DlfNHbHer3C9E0EyOdG/oIsSxz3Lb2Ic3SAkE+nnVJ4dG7OFPcw9knSmC1soS8BSJWMEKCXPU7aKVHcQ==}
+  '@api3/dapi-management@3.49.0':
+    resolution: {integrity: sha512-CEa+wlGVHw5bhtD4fXOLr7KdFiYxzWWAgxXHpyzfvt32Sgj2n4HbdFfeWY4EC5yadsSLYJoDyCiDj63UdRRpfQ==}
 
   '@api3/ois@2.3.2':
     resolution: {integrity: sha512-hYQCbCAtWMGKV+pECRY5tbfCSOcheeo9s6wtrhn1dOWw151VeG0sKG3VbBEsyA6cvSaldewBWY3t/JGaupdThg==}
@@ -5882,8 +5882,8 @@ packages:
   zod@3.25.76:
     resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
-  zod@4.1.3:
-    resolution: {integrity: sha512-1neef4bMce1hNTrxvHVKxWjKfGDn0oAli3Wy1Uwb7TRO1+wEwoZUZNP1NXIEESybOBiFnBOhI6a4m6tCLE8dog==}
+  zod@4.1.4:
+    resolution: {integrity: sha512-2YqJuWkU6IIK9qcE4k1lLLhyZ6zFw7XVRdQGpV97jEIZwTrscUw+DY31Xczd8nwaoksyJUIxCojZXwckJovWxA==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -6040,7 +6040,7 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@api3/api-integrations@5.9.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
+  '@api3/api-integrations@5.10.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
     dependencies:
       '@api3/airnode-abi': 0.15.0
       '@api3/contracts': 27.0.0(typescript@5.6.2)
@@ -6131,17 +6131,17 @@ snapshots:
   '@api3/contracts@27.0.0(typescript@5.6.2)':
     dependencies:
       ethers: 6.15.0
-      viem: 2.36.0(typescript@5.6.2)(zod@4.1.3)
+      viem: 2.36.0(typescript@5.6.2)(zod@4.1.4)
       yargs: 17.7.2
-      zod: 4.1.3
+      zod: 4.1.4
     transitivePeerDependencies:
       - bufferutil
       - typescript
       - utf-8-validate
 
-  '@api3/dapi-management@3.48.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
+  '@api3/dapi-management@3.49.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
     dependencies:
-      '@api3/api-integrations': 5.9.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
+      '@api3/api-integrations': 5.10.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@api3/commons': 0.13.4
       '@api3/contracts': 27.0.0(typescript@5.6.2)
       ethers: 6.15.0
@@ -9623,10 +9623,10 @@ snapshots:
       typescript: 5.6.2
       zod: 3.25.76
 
-  abitype@1.0.8(typescript@5.6.2)(zod@4.1.3):
+  abitype@1.0.8(typescript@5.6.2)(zod@4.1.4):
     optionalDependencies:
       typescript: 5.6.2
-      zod: 4.1.3
+      zod: 4.1.4
 
   accepts@1.3.8:
     dependencies:
@@ -12821,7 +12821,7 @@ snapshots:
     transitivePeerDependencies:
       - zod
 
-  ox@0.9.1(typescript@5.6.2)(zod@4.1.3):
+  ox@0.9.1(typescript@5.6.2)(zod@4.1.4):
     dependencies:
       '@adraffy/ens-normalize': 1.11.0
       '@noble/ciphers': 1.3.0
@@ -12829,7 +12829,7 @@ snapshots:
       '@noble/hashes': 1.8.0
       '@scure/bip32': 1.7.0
       '@scure/bip39': 1.6.0
-      abitype: 1.0.8(typescript@5.6.2)(zod@4.1.3)
+      abitype: 1.0.8(typescript@5.6.2)(zod@4.1.4)
       eventemitter3: 5.0.1
     optionalDependencies:
       typescript: 5.6.2
@@ -13951,15 +13951,15 @@ snapshots:
       - utf-8-validate
       - zod
 
-  viem@2.36.0(typescript@5.6.2)(zod@4.1.3):
+  viem@2.36.0(typescript@5.6.2)(zod@4.1.4):
     dependencies:
       '@noble/curves': 1.9.6
       '@noble/hashes': 1.8.0
       '@scure/bip32': 1.7.0
       '@scure/bip39': 1.6.0
-      abitype: 1.0.8(typescript@5.6.2)(zod@4.1.3)
+      abitype: 1.0.8(typescript@5.6.2)(zod@4.1.4)
       isows: 1.0.7(ws@8.18.3)
-      ox: 0.9.1(typescript@5.6.2)(zod@4.1.3)
+      ox: 0.9.1(typescript@5.6.2)(zod@4.1.4)
       ws: 8.18.3
     optionalDependencies:
       typescript: 5.6.2
@@ -14214,6 +14214,6 @@ snapshots:
 
   zod@3.25.76: {}
 
-  zod@4.1.3: {}
+  zod@4.1.4: {}
 
   zwitch@2.0.4: {}
