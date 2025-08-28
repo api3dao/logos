@@ -1,5 +1,16 @@
 # @api3/logos
 
+## 1.0.23
+
+### Patch Changes
+
+- 36ba562: Some changes have been made to the `logos`.
+
+    | Logo                                                      | Name      | Category |
+    | --------------------------------------------------------- | --------- | -------- |
+    | <img src="./raw/symbols/rlp.svg" width="36" alt="">       | rlp       | symbol   |
+    | <img src="./raw/symbols/syrupusdc.svg" width="36" alt=""> | syrupusdc | symbol   |
+
 ## 1.0.22
 
 ### Patch Changes
