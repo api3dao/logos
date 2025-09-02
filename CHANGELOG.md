@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 1.0.25
+
+### Patch Changes
+
+- fb2c50b: Some changes have been made to the `logos`.
+
+    | Logo                                                          | Name      | Category |
+    | ------------------------------------------------------------- | --------- | -------- |
+    | <img src="./raw/chains/Chain999-light.svg" width="36" alt=""> | 999-light | chain    |
+
 ## 1.0.24
 
 ### Patch Changes
