@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 1.0.24
+
+### Patch Changes
+
+- 4327ada: Some changes have been made to the `logos`.
+
+    | Logo                                                      | Name  | Category |
+    | --------------------------------------------------------- | ----- | -------- |
+    | <img src="./raw/chains/Chain50312.svg" width="36" alt=""> | 50312 | chain    |
+
 ## 1.0.23
 
 ### Patch Changes
