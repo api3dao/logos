@@ -1,5 +1,23 @@
 # @api3/logos
 
+## 1.0.26
+
+### Patch Changes
+
+- 3b5c5d0: Following logos has been added:
+
+    | Logo                                                     | Name | Category |
+    | -------------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/chains/Chain5031.svg" width="36" alt=""> | 5031 | chain    |
+
+    Following logos has been updated:
+
+    | Logo                                                      | Name  | Category |
+    | --------------------------------------------------------- | ----- | -------- |
+    | <img src="./raw/chains/Chain999.svg" width="36" alt="">   | 999   | chain    |
+    | <img src="./raw/chains/Chain998.svg" width="36" alt="">   | 998   | chain    |
+    | <img src="./raw/chains/Chain50312.svg" width="36" alt=""> | 50312 | chain    |
+
 ## 1.0.25
 
 ### Patch Changes
