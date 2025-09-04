@@ -2,6 +2,12 @@
 "@api3/logos": patch
 ---
 
+Following logos has been added:
+
+|Logo|Name|Category|
+|---|---|---|
+|<img src="./raw/chains/Chain5031.svg" width="36" alt="">|5031|chain|
+
 Following logos has been updated:
 
 |Logo|Name|Category|
