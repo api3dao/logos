@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 1.0.27
+
+### Patch Changes
+
+- c218e38: Some changes have been made to the `logos`.
+
+    | Logo                                                 | Name | Category |
+    | ---------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/somi.svg" width="36" alt=""> | somi | symbol   |
+
 ## 1.0.26
 
 ### Patch Changes
