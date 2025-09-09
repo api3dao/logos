@@ -1,5 +1,16 @@
 # @api3/logos
 
+## 1.0.28
+
+### Patch Changes
+
+- 135b5b8: Some changes have been made to the `logos`.
+
+    | Logo                                                   | Name   | Category |
+    | ------------------------------------------------------ | ------ | -------- |
+    | <img src="./raw/symbols/rusd.svg" width="36" alt="">   | rusd   | symbol   |
+    | <img src="./raw/symbols/wsrusd.svg" width="36" alt=""> | wsrusd | symbol   |
+
 ## 1.0.27
 
 ### Patch Changes
