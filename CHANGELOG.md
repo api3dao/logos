@@ -1,5 +1,17 @@
 # @api3/logos
 
+## 1.0.29
+
+### Patch Changes
+
+- bc9a6ab: Following logos has been updated:
+
+    | Logo                                                      | Name      | Category |
+    | --------------------------------------------------------- | --------- | -------- |
+    | <img src="./raw/symbols/rlp.svg" width="36" alt="">       | rlp       | symbol   |
+    | <img src="./raw/symbols/syrupusdc.svg" width="36" alt=""> | syrupusdc | symbol   |
+    | <img src="./raw/symbols/yusd.svg" width="36" alt="">      | yusd      | symbol   |
+
 ## 1.0.28
 
 ### Patch Changes
