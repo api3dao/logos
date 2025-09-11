@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 1.0.30
+
+### Patch Changes
+
+- 66c055c: Some changes have been made to the `logos`.
+
+    | Logo                                                | Name | Category |
+    | --------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/sky.svg" width="36" alt=""> | sky  | symbol   |
+
 ## 1.0.29
 
 ### Patch Changes
