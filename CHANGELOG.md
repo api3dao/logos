@@ -1,5 +1,16 @@
 # @api3/logos
 
+## 1.0.31
+
+### Patch Changes
+
+- 0240264: Some changes have been made to the `logos`.
+
+    | Logo                                                  | Name  | Category |
+    | ----------------------------------------------------- | ----- | -------- |
+    | <img src="./raw/symbols/zkc.svg" width="36" alt="">   | zkc   | symbol   |
+    | <img src="./raw/symbols/linea.svg" width="36" alt=""> | linea | symbol   |
+
 ## 1.0.30
 
 ### Patch Changes
