@@ -8,7 +8,7 @@
         "type": "git",
         "url": "https://github.com/api3dao/logos"
     },
-    "packageManager": "pnpm@10.17.1",
+    "packageManager": "pnpm@10.18.0",
     "keywords": [
         "api3",
         "logos",
@@ -41,9 +41,9 @@
         "@babel/preset-react": "^7.27.1",
         "@changesets/changelog-github": "^0.5.1",
         "@changesets/cli": "^2.29.7",
-        "@typescript-eslint/eslint-plugin": "^8.44.1",
-        "@typescript-eslint/parser": "^8.44.1",
-        "dotenv": "^17.2.2",
+        "@typescript-eslint/eslint-plugin": "^8.45.0",
+        "@typescript-eslint/parser": "^8.45.0",
+        "dotenv": "^17.2.3",
         "dropbox": "^10.34.0",
         "eslint": "^8.57.1",
         "eslint-config-prettier": "^10.1.8",
