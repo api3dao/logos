@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 3.65.0
-        version: 3.65.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
+        specifier: 3.66.0
+        version: 3.66.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@babel/core':
         specifier: ^7.28.4
         version: 7.28.4
@@ -57,8 +57,8 @@ importers:
   viewer:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 3.65.0
-        version: 3.65.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
+        specifier: 3.66.0
+        version: 3.66.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@api3/logos':
         specifier: workspace:*
         version: link:..
@@ -183,8 +183,8 @@ packages:
     engines: {node: '>=22.18.0'}
     hasBin: true
 
-  '@api3/dapi-management@3.65.0':
-    resolution: {integrity: sha512-SoW1UZTp5lfse3eYD4RYuTjt7JB24FoVUySfJEMzEG1AAdgw+b0aHjicthzFwCDywaLRt6ttQtFzhz4PgSFrhA==}
+  '@api3/dapi-management@3.66.0':
+    resolution: {integrity: sha512-HfthcJ2tKh5g1Q0VxnO4ndK+LcWgwPoMB8zE3r4Gye18GARLSBEAWgJW6D6yB31PhbDmS29FFMrPhbdTRta0eQ==}
 
   '@api3/ois@2.3.2':
     resolution: {integrity: sha512-hYQCbCAtWMGKV+pECRY5tbfCSOcheeo9s6wtrhn1dOWw151VeG0sKG3VbBEsyA6cvSaldewBWY3t/JGaupdThg==}
@@ -6176,7 +6176,7 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@api3/dapi-management@3.65.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
+  '@api3/dapi-management@3.66.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
     dependencies:
       '@api3/api-integrations': 8.1.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@api3/commons': 0.13.4
