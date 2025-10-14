@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 1.0.34
+
+### Patch Changes
+
+- 3308e2a: Some changes have been made to the `logos`.
+
+    | Logo                                                | Name | Category |
+    | --------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/clo.svg" width="36" alt=""> | clo  | symbol   |
+
 ## 1.0.33
 
 ### Patch Changes
