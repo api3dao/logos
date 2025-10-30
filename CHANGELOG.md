@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 1.0.35
+
+### Patch Changes
+
+- fa20717: Following logos has been updated:
+
+    | Logo                                                | Name | Category |
+    | --------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/ksm.svg" width="36" alt=""> | ksm  | symbol   |
+
 ## 1.0.34
 
 ### Patch Changes
