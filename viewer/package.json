@@ -4,7 +4,7 @@
     "homepage": "https://api3dao.github.io/logos/",
     "private": true,
     "devDependencies": {
-        "@api3/dapi-management": "3.69.0",
+        "@api3/dapi-management": "3.71.0",
         "@api3/logos": "workspace:*",
         "@chakra-ui/react": "^3.27.1",
         "@emotion/react": "^11.14.0",
