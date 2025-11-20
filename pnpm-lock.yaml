@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 3.72.0
-        version: 3.72.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
+        specifier: 3.73.0
+        version: 3.73.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@babel/core':
         specifier: ^7.28.4
         version: 7.28.4
@@ -57,8 +57,8 @@ importers:
   viewer:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 3.72.0
-        version: 3.72.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
+        specifier: 3.73.0
+        version: 3.73.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@api3/logos':
         specifier: workspace:*
         version: link:..
@@ -183,8 +183,8 @@ packages:
     engines: {node: '>=22.18.0'}
     hasBin: true
 
-  '@api3/dapi-management@3.72.0':
-    resolution: {integrity: sha512-uiQDb8j/svXAtXpxS1RF8okwihwrMoXoTDv/IDdduocOfL0MyhtmLmN9+ymi4j1YDRJZiS7rvxKjNIjv+gbInA==}
+  '@api3/dapi-management@3.73.0':
+    resolution: {integrity: sha512-T6h9a2QsofONQot4wb8KyPc4kSHF61hYeGiK93Mcp4M5VtQGbL7BZR/6sjTRobqTMa6bA94VtvoKDcn2T0rWKA==}
 
   '@api3/ois@2.3.2':
     resolution: {integrity: sha512-hYQCbCAtWMGKV+pECRY5tbfCSOcheeo9s6wtrhn1dOWw151VeG0sKG3VbBEsyA6cvSaldewBWY3t/JGaupdThg==}
@@ -1414,6 +1414,7 @@ packages:
   '@smithy/core@3.18.3':
     resolution: {integrity: sha512-qqpNskkbHOSfrbFbjhYj5o8VMXO26fvN1K/+HbCzUNlTuxgNcPRouUDNm+7D6CkN244WG7aK533Ne18UtJEgAA==}
     engines: {node: '>=18.0.0'}
+    deprecated: Please upgrade your lockfile to use the latest 3.x version of @smithy/core for various fixes, see https://github.com/smithy-lang/smithy-typescript/blob/main/packages/core/CHANGELOG.md
 
   '@smithy/credential-provider-imds@4.2.5':
     resolution: {integrity: sha512-BZwotjoZWn9+36nimwm/OLIcVe+KYRwzMjfhd4QT7QxPm9WY0HiOV8t/Wlh+HVUif0SBVV7ksq8//hPaBC/okQ==}
@@ -6215,7 +6216,7 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@api3/dapi-management@3.72.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
+  '@api3/dapi-management@3.73.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
     dependencies:
       '@api3/api-integrations': 8.4.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@api3/commons': 0.13.4
