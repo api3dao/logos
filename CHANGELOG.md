@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 1.0.37
+
+### Patch Changes
+
+- 962a9a5: Some changes have been made to the `logos`.
+
+    | Logo                                                 | Name | Category |
+    | ---------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/teth.svg" width="36" alt=""> | teth | symbol   |
+
 ## 1.0.36
 
 ### Patch Changes
