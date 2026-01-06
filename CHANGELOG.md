@@ -1,5 +1,11 @@
 # @api3/logos
 
+## 1.0.38
+
+### Patch Changes
+
+- 5759220: Updates release workflows
+
 ## 1.0.37
 
 ### Patch Changes
