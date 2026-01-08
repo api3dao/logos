@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 1.0.40
+
+### Patch Changes
+
+- edb310f: Following logos has been updated:
+
+    | Logo                                                | Name | Category |
+    | --------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/axs.svg" width="36" alt=""> | axs  | symbol   |
+
 ## 1.0.39
 
 ### Patch Changes
