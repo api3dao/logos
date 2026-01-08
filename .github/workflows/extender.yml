@@ -32,7 +32,7 @@ jobs:
 
       - name: Extend extension.json
         run: |
-          node scripts/extender.js "${{ inputs.type }}" "${{ inputs.value }}"
+          node scripts/extend-json.js "${{ inputs.type }}" "${{ inputs.value }}"
 
       - name: Commit changes
         run: |
