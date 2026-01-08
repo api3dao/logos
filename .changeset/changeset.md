@@ -6,4 +6,4 @@ Following logos has been updated:
 
 |Logo|Name|Category|
 |---|---|---|
-|<img src="./raw/symbols/pepe.svg" width="36" alt="">|pepe|symbol|
+|<img src="./raw/symbols/axs.svg" width="36" alt="">|axs|symbol|
