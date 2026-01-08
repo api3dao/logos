@@ -1,0 +1,43 @@
+name: Extend supported logos
+
+on:
+  workflow_dispatch:
+    inputs:
+        type:
+            description: 'chains | symbols | api-providers'
+            required: true
+        value:
+            description: 'Comma separated values OR --clear'
+            required: true
+
+permissions:
+  contents: write
+
+jobs:
+  extend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: 'pnpm'
+
+      - name: Extend extension.json
+        run: |
+          node scripts/extender.js "${{ inputs.type }}" "${{ inputs.value }}"
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add extension.json
+          git commit -m "chore: extend ${inputs.type}"
+          git push
