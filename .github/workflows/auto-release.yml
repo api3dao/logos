@@ -22,7 +22,7 @@ jobs:
           echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
 
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Check changeset files
         id: check_files
@@ -50,7 +50,7 @@ jobs:
 
       - name: Checkout production
         if: steps.check_files.outputs.files_exists == 'true'
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           ref: production
 
