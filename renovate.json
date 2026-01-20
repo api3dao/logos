@@ -1,6 +1,6 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": ["config:recommended"],
+    "extends": ["local>api3dao/renovate-config", "docker:disable"],
     "major": {
         "dependencyDashboardApproval": true
     },
