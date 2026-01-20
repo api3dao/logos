@@ -15,18 +15,6 @@
             "enabled": false
         },
         {
-            "matchUpdateTypes": ["patch", "minor"],
-            "schedule": ["after 3pm on Friday"],
-            "groupName": "other minor updates",
-            "labels": ["deploy"]
-        },
-        {
-            "matchUpdateTypes": ["major"],
-            "schedule": ["after 1pm on Friday"],
-            "groupName": "other major updates",
-            "labels": ["deploy"]
-        },
-        {
             "matchPackageNames": ["@api3/*"],
             "matchUpdateTypes": ["major"],
             "schedule": ["before 4pm"],
@@ -43,11 +31,5 @@
             "automerge": true
         }
     ],
-    "rebaseWhen": "behind-base-branch",
-    "rangeStrategy": "bump",
-    "lockFileMaintenance": {
-        "enabled": false
-    },
-    "reviewers": ["hiletmis"],
-    "dependencyDashboard": false
+    "reviewers": ["hiletmis"]
 }
