@@ -1,9 +1,6 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": ["local>api3dao/renovate-config", "docker:disable"],
-    "major": {
-        "dependencyDashboardApproval": true
-    },
+    "extends": ["local>api3dao/renovate-config"],
     "packageRules": [
         {
             "matchPackageNames": ["node-fetch"],
@@ -20,6 +17,7 @@
             "schedule": ["before 4pm"],
             "groupName": "api3 major updates",
             "labels": ["deploy"],
+            "minimumReleaseAge": null,
             "dependencyDashboardApproval": false
         },
         {
@@ -28,6 +26,7 @@
             "schedule": ["before 6pm"],
             "groupName": "api3",
             "labels": ["deploy"],
+            "minimumReleaseAge": null,
             "automerge": true
         }
     ],
