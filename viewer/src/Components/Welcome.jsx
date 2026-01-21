@@ -3,6 +3,7 @@ import SymbolsView from './SymbolsView';
 import ChainsView from './ChainsView';
 import ApiProviderView from './ApiProviderView';
 import MissingLogosView from './MissingLogosView';
+import ExtensionsView from './ExtensionsView';
 import Docs from './Docs';
 import { VStack } from '@chakra-ui/react';
 import ExpandableView from '../Custom/ExpandableView';
@@ -23,6 +24,7 @@ const Welcome = () => {
             <ExpandableView header={'Chains'} view={<ChainsView />} />
             <ExpandableView header={'ApiProviders'} view={<ApiProviderView />} />
             <ExpandableView header={'Missing Logos'} view={<MissingLogosView />} />
+            <ExpandableView header={'Extensions'} view={<ExtensionsView />} />
             <ExpandableView header={'How to use'} view={<Docs />} />
         </VStack>
     );

@@ -39,6 +39,7 @@ async function buildLogos(format = 'esm', dir, mode, batchName) {
     await fs.appendFile(`${outDir}/index.js`, utils.indexFileContent(format, batchName), 'utf-8');
     await fs.appendFile(`${outDir}/index.d.ts`, utils.indexFileContent('esm', batchName), 'utf-8');
     await fs.appendFile(`${outDir}/${batchName}Missing.json`, JSON.stringify(getMissingLogos(files, mode)), 'utf-8');
+    await fs.appendFile(`${outDir}/${batchName}Extended.json`, JSON.stringify(utils.getManualLogos(mode)), 'utf-8');
 }
 
 function buildSwitchCase(files, mode) {

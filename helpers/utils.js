@@ -1,6 +1,7 @@
 const fs = require('fs/promises');
 const { rename } = require('fs');
 const { getChains, dapis } = require('@api3/dapi-management');
+const extensionData = require('../extension.json');
 
 module.exports = {
     sanitizeName,
@@ -39,11 +40,11 @@ function getSupportedChains() {
 function getSupportList(mode) {
     switch (mode) {
         case 'chain':
-            return getSupportedChains();
+            return [...getSupportedChains(), ...getManualLogos(mode)];
         case 'symbol':
-            return getSupportedFeeds();
+            return [...getSupportedFeeds(), ...getManualLogos(mode)];
         case 'api-provider':
-            return getApiProviders();
+            return [...getApiProviders(), ...getManualLogos(mode)];
         default:
             return [];
     }
@@ -52,11 +53,11 @@ function getSupportList(mode) {
 function getManualLogos(mode) {
     switch (mode) {
         case 'chain':
-            return [];
+            return extensionData.chains;
         case 'symbol':
-            return [];
+            return extensionData.symbols;
         case 'api-provider':
-            return [];
+            return extensionData['api-providers'];
         default:
             return [];
     }
@@ -220,7 +221,18 @@ function checkFile(files, item, prefix = '') {
 }
 
 function indexFileContent(format, batchName) {
-    return format === 'esm'
-        ? `export { default as ${batchName} } from './${batchName}.js';\nexport { default as ${batchName}Missing } from './${batchName}Missing.json';\n`
-        : `module.exports.${batchName} = require('./${batchName}.js');\nmodule.exports.${batchName}Missing = require('./${batchName}Missing.json');\n`;
+    const lines =
+        format === 'esm'
+            ? [
+                  `export { default as ${batchName} } from './${batchName}.js';`,
+                  `export { default as ${batchName}Missing } from './${batchName}Missing.json';`,
+                  `export { default as ${batchName}Extended } from './${batchName}Extended.json';`
+              ]
+            : [
+                  `module.exports.${batchName} = require('./${batchName}.js');`,
+                  `module.exports.${batchName}Missing = require('./${batchName}Missing.json');`,
+                  `module.exports.${batchName}Extended = require('./${batchName}Extended.json');`
+              ];
+
+    return lines.join('\n') + '\n';
 }
