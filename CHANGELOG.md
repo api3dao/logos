@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 1.0.41
+
+### Patch Changes
+
+- 98ce5e1: Some changes have been made to the `logos`.
+
+    | Logo                                                  | Name  | Category |
+    | ----------------------------------------------------- | ----- | -------- |
+    | <img src="./raw/symbols/eigen.svg" width="36" alt=""> | eigen | symbol   |
+
 ## 1.0.40
 
 ### Patch Changes
