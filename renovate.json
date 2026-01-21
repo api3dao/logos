@@ -17,8 +17,7 @@
             "schedule": ["before 4pm"],
             "groupName": "api3 major updates",
             "labels": ["deploy"],
-            "minimumReleaseAge": null,
-            "dependencyDashboardApproval": false
+            "minimumReleaseAge": null
         },
         {
             "matchPackageNames": ["@api3/*"],
