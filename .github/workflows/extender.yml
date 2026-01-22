@@ -3,12 +3,20 @@ name: Extend supported logos
 on:
   workflow_dispatch:
     inputs:
-        type:
-            description: 'chains | symbols | api-providers'
-            required: true
-        value:
-            description: 'Comma separated values OR --clear'
-            required: true
+      type:
+        description: "chains | symbols | api-providers | auto-clear"
+        required: true
+        type: choice
+        options:
+          - auto-clear
+          - chains
+          - symbols
+          - api-providers
+      value:
+        description: "Comma separated values OR --clear (ignored when type=auto-clear)"
+        required: false
+        default: ""
+
 
 permissions:
   contents: write
@@ -37,10 +45,19 @@ jobs:
 
       - name: Extend extension.json
         run: |
-          node scripts/extend-json.js "${{ inputs.type }}" "${{ inputs.value }}"
-
-      - name: Commit changes
+          if [ "${{ inputs.type }}" = "auto-clear" ]; then
+            node extend-json.js auto-clear
+          else
+            node extend-json.js "${{ inputs.type }}" "${{ inputs.value }}"
+          fi
+          
+      - name: Commit changes (if any)
         run: |
-          git add extension.json
-          git commit -m "chore: extend ${{ inputs.type }}"
-          git push
+          if [ -n "$(git status --porcelain)" ]; then
+            git add extension.json
+            git commit -m "chore: extend ${{ inputs.type }}" --no-verify --signoff
+            git push
+          else
+            echo "No changes to commit"
+          fi
+
