@@ -53,6 +53,9 @@ jobs:
       - name: Install Packages
         run: pnpm install
 
+      - name: Init changes flag
+        run: echo "changes_detected=false" >> $GITHUB_ENV
+
       - name: Check dapi-management
         if: ${{ inputs.update-dapi-management == true }}
         run: pnpm up @api3/dapi-management --recursive --latest
@@ -65,8 +68,6 @@ jobs:
             git commit -m "Updated dapi-management to latest version" --no-verify --signoff
             git push
             echo "changes_detected=true" >> $GITHUB_ENV
-          else
-            echo "changes_detected=false" >> $GITHUB_ENV
           fi
 
       - name: Lint
@@ -84,8 +85,6 @@ jobs:
             git commit -m "Fetch Logos from Dropbox" --no-verify --signoff
             git push
             echo "changes_detected=true" >> $GITHUB_ENV
-          else
-            echo "changes_detected=false" >> $GITHUB_ENV
           fi
 
       - name: Build Package
@@ -102,6 +101,22 @@ jobs:
             git add .
             git commit -m "Added changeset" --no-verify --signoff
             git push
+          fi
+
+      - name: Clear extension.json
+        if: github.ref == 'refs/heads/main'
+        run: |
+          node extend-json.js auto-clear
+
+      - name: Commit extension.json changes (if any)
+        if: github.ref == 'refs/heads/main'
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git add extension.json
+            git commit -m "chore: update extension.json" --no-verify --signoff
+            git push
+          else
+            echo "No changes to commit"
           fi
 
       - name: Install Frontend Packages
