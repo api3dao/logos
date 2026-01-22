@@ -43,6 +43,9 @@ jobs:
           node-version: 24.12.0
           cache: 'pnpm'
 
+      - name: Install Packages  
+        run: pnpm install
+
       - name: Extend extension.json
         run: |
           if [ "${{ inputs.type }}" = "auto-clear" ]; then

@@ -86,6 +86,22 @@ jobs:
             git push
             echo "changes_detected=true" >> $GITHUB_ENV
           fi
+          
+      - name: Clear extension.json
+        if: github.ref == 'refs/heads/main'
+        run: |
+          node scripts/extend-json.js auto-clear
+
+      - name: Commit extension.json changes (if any)
+        if: github.ref == 'refs/heads/main'
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git add extension.json
+            git commit -m "chore: update extension.json" --no-verify --signoff
+            git push
+          else
+            echo "No changes to commit"
+          fi
 
       - name: Build Package
         run: pnpm run package
@@ -101,22 +117,6 @@ jobs:
             git add .
             git commit -m "Added changeset" --no-verify --signoff
             git push
-          fi
-
-      - name: Clear extension.json
-        if: github.ref == 'refs/heads/main'
-        run: |
-          node scripts/extend-json.js auto-clear
-
-      - name: Commit extension.json changes (if any)
-        if: github.ref == 'refs/heads/main'
-        run: |
-          if [ -n "$(git status --porcelain)" ]; then
-            git add extension.json
-            git commit -m "chore: update extension.json" --no-verify --signoff
-            git push
-          else
-            echo "No changes to commit"
           fi
 
       - name: Install Frontend Packages
