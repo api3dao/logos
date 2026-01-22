@@ -106,7 +106,7 @@ jobs:
       - name: Clear extension.json
         if: github.ref == 'refs/heads/main'
         run: |
-          node extend-json.js auto-clear
+          node scripts/extend-json.js auto-clear
 
       - name: Commit extension.json changes (if any)
         if: github.ref == 'refs/heads/main'
