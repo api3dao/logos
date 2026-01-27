@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 1.0.42
+
+### Patch Changes
+
+- 62d9e6f: Following logos has been updated:
+
+    | Logo                                                 | Name | Category |
+    | ---------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/ondo.svg" width="36" alt=""> | ondo | symbol   |
+
 ## 1.0.41
 
 ### Patch Changes
