@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 4.5.0
-        version: 4.5.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
+        specifier: 4.6.0
+        version: 4.6.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@babel/core':
         specifier: ^7.28.5
         version: 7.28.5
@@ -57,8 +57,8 @@ importers:
   viewer:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 4.5.0
-        version: 4.5.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
+        specifier: 4.6.0
+        version: 4.6.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@api3/logos':
         specifier: workspace:*
         version: link:..
@@ -157,8 +157,8 @@ packages:
     resolution: {integrity: sha512-VS/ZX0q6g8/kfjpKuqblXN8pAjdWG5uRpTSZ8dvgjoTi//+9DVlBan06FCvPkxMBBJjo8/Mf4xG78tRFNr0GDQ==}
     hasBin: true
 
-  '@api3/api-integrations@11.4.0':
-    resolution: {integrity: sha512-X5Tl4J5XG1zs5t7jmYGPdd37HRYwlvv12KuN+8SMJ4x+2UPyxva1jVGYX+bOaHTnrH5IgIgWJ0+aGyNnCwDRYA==}
+  '@api3/api-integrations@11.5.0':
+    resolution: {integrity: sha512-q4e6Cr9sV0VZAp5R+DkmkA1K+xdwQsnFAN7gvUh+7Z1r0peenuT2PVLv20hUpb/cB1pWsfOD3qVH4CuN+A5Yyw==}
 
   '@api3/chains@8.1.1':
     resolution: {integrity: sha512-2woMgPksMEzH2tU7ZH5tHNHr9qbZDG+bEWcAGcs+A3/GJKNBaTmxVerIyTo4IZA9f6vN91i7fH3UPAq/S8KQDw==}
@@ -173,13 +173,13 @@ packages:
     resolution: {integrity: sha512-oyVkgv5zyY7jgJu83maJC6FWPiWkaBXcrqf8a275YyyP4+IdfgLurXHjqK1IbYXf0SxD4MgeQERZLYG2oyIWJA==}
     engines: {node: '>=18.14.0'}
 
-  '@api3/contracts@33.1.0':
-    resolution: {integrity: sha512-/X3vvMGaf6FyRM+ZHsicIdyH471/wfDAWBVQbFs0HACNDQ2Kl6oPxBxFChOpFCSpvhsGGXf9efeeZWKNxtsxsA==}
+  '@api3/contracts@34.0.0':
+    resolution: {integrity: sha512-jA/gBNb33zoEp1oDVDFl7xnLvTFkrVr+B3SICoiEXjdzMRPm0rsBIWKV2+r69MhDR+ZIjsd20cWuT53EZLbbZw==}
     engines: {node: '>=22.18.0'}
     hasBin: true
 
-  '@api3/dapi-management@4.5.0':
-    resolution: {integrity: sha512-TsgN8LpO55KeIZew3HWFc3YH6tVzkYErZKIDMl+rYb+nowmo29uPHvopSMJLsecb0C9lNwaaR1ibT7pQUO5Ljw==}
+  '@api3/dapi-management@4.6.0':
+    resolution: {integrity: sha512-U76hEBBfFpn2srzkM4PKdbmeQUlZ1rVToamPzOTvgccW+qVQKLplvNQEVo5Dp3a6u/aY0FEvhH8inQ8/plLAig==}
 
   '@api3/ois@2.3.2':
     resolution: {integrity: sha512-hYQCbCAtWMGKV+pECRY5tbfCSOcheeo9s6wtrhn1dOWw151VeG0sKG3VbBEsyA6cvSaldewBWY3t/JGaupdThg==}
@@ -6061,10 +6061,10 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@api3/api-integrations@11.4.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
+  '@api3/api-integrations@11.5.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
     dependencies:
       '@api3/airnode-abi': 0.15.0
-      '@api3/contracts': 33.1.0(typescript@5.6.2)
+      '@api3/contracts': 34.0.0(typescript@5.6.2)
       '@api3/ois': 3.0.0
       '@api3/signed-api': 4.1.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       ethers: 5.8.0
@@ -6148,7 +6148,7 @@ snapshots:
       - debug
       - utf-8-validate
 
-  '@api3/contracts@33.1.0(typescript@5.6.2)':
+  '@api3/contracts@34.0.0(typescript@5.6.2)':
     dependencies:
       ethers: 6.16.0
       viem: 2.43.5(typescript@5.6.2)(zod@4.3.5)
@@ -6159,11 +6159,11 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@api3/dapi-management@4.5.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
+  '@api3/dapi-management@4.6.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)':
     dependencies:
-      '@api3/api-integrations': 11.4.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
+      '@api3/api-integrations': 11.5.0(eslint@8.57.1)(jest@27.5.1)(typescript@5.6.2)
       '@api3/commons': 1.1.2
-      '@api3/contracts': 33.1.0(typescript@5.6.2)
+      '@api3/contracts': 34.0.0(typescript@5.6.2)
       ethers: 6.16.0
       zod: 4.3.5
     transitivePeerDependencies:
