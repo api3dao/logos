@@ -1,5 +1,7 @@
 {
-  "chains": [],
+  "chains": [
+    "202601"
+  ],
   "symbols": [],
   "api-providers": []
 }

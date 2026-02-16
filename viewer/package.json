@@ -4,9 +4,9 @@
     "homepage": "https://api3dao.github.io/logos/",
     "private": true,
     "devDependencies": {
-        "@api3/dapi-management": "4.5.0",
+        "@api3/dapi-management": "4.7.0",
         "@api3/logos": "workspace:*",
-        "@chakra-ui/react": "^3.30.0",
+        "@chakra-ui/react": "^3.31.0",
         "@emotion/react": "^11.14.0",
         "@testing-library/jest-dom": "^6.9.1",
         "@testing-library/react": "^16.3.1",
@@ -18,12 +18,12 @@
         "react-dom": "^19.2.3",
         "react-icons": "^5.5.0",
         "react-markdown": "^10.1.0",
-        "react-router-dom": "^7.11.0",
+        "react-router-dom": "^7.12.0",
         "react-syntax-highlighter": "^16.1.0",
-        "vite": "^7.3.0",
+        "vite": "^7.3.1",
         "vite-plugin-commonjs": "^0.10.4",
         "vite-plugin-svgr": "^4.5.0",
-        "vite-tsconfig-paths": "^6.0.3",
+        "vite-tsconfig-paths": "^6.0.4",
         "web-vitals": "^5.1.0"
     },
     "scripts": {
