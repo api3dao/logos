@@ -8,3 +8,5 @@ minimumReleaseAge: 20160 # 14 days
 
 minimumReleaseAgeExclude:
   - '@api3/*'
+  # Renovate security update: svgo@4.0.1
+  - svgo@4.0.1
