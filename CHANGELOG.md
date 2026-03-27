@@ -1,5 +1,16 @@
 # @api3/logos
 
+## 1.0.44
+
+### Patch Changes
+
+- 151b74f: Some changes have been made to the `logos`.
+
+    | Logo                                                  | Name  | Category |
+    | ----------------------------------------------------- | ----- | -------- |
+    | <img src="./raw/symbols/iusd.svg" width="36" alt="">  | iusd  | symbol   |
+    | <img src="./raw/symbols/siusd.svg" width="36" alt=""> | siusd | symbol   |
+
 ## 1.0.43
 
 ### Patch Changes
