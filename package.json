@@ -39,10 +39,10 @@
         "@api3/dapi-management": "4.9.0",
         "@babel/core": "^7.29.0",
         "@babel/preset-react": "^7.28.5",
-        "@changesets/changelog-github": "^0.5.2",
-        "@changesets/cli": "^2.29.8",
-        "@typescript-eslint/eslint-plugin": "^8.55.0",
-        "@typescript-eslint/parser": "^8.55.0",
+        "@changesets/changelog-github": "^0.6.0",
+        "@changesets/cli": "^2.30.0",
+        "@typescript-eslint/eslint-plugin": "^8.57.1",
+        "@typescript-eslint/parser": "^8.57.1",
         "dotenv": "^17.3.1",
         "dropbox": "^10.34.0",
         "eslint": "^8.57.1",
@@ -50,7 +50,7 @@
         "node-fetch": "^2.7.0",
         "prettier": "^3.8.1",
         "rimraf": "^6.1.3",
-        "svgo": "^4.0.0"
+        "svgo": "^4.0.1"
     },
     "main": "./dist/cjs/index.js",
     "module": "./dist/esm/index.js",
