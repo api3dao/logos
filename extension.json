@@ -1,8 +1,5 @@
 {
   "chains": [],
-  "symbols": [
-    "siusd",
-    "iusd"
-  ],
+  "symbols": [],
   "api-providers": []
 }
