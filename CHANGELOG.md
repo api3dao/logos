@@ -1,5 +1,11 @@
 # @api3/logos
 
+## 1.0.45
+
+### Patch Changes
+
+- 087226a: Update Somnia branding
+
 ## 1.0.44
 
 ### Patch Changes
