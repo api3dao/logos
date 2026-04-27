@@ -27,8 +27,8 @@ importers:
         specifier: ^8.58.1
         version: 8.58.1(eslint@8.57.1)(typescript@5.9.3)
       dotenv:
-        specifier: ^17.4.1
-        version: 17.4.1
+        specifier: ^17.4.2
+        version: 17.4.2
       dropbox:
         specifier: ^10.34.0
         version: 10.34.0(@types/node-fetch@2.6.13)
@@ -2416,8 +2416,8 @@ packages:
     resolution: {integrity: sha512-uBq4egWHTcTt33a72vpSG0z3HnPuIl6NqYcTrKEg2azoEyl2hpW0zqlxysq2pK9HlDIHyHyakeYaYnSAwd8bow==}
     engines: {node: '>=12'}
 
-  dotenv@17.4.1:
-    resolution: {integrity: sha512-k8DaKGP6r1G30Lx8V4+pCsLzKr8vLmV2paqEj1Y55GdAgJuIqpRp5FfajGF8KtwMxCz9qJc6wUIJnm053d/WCw==}
+  dotenv@17.4.2:
+    resolution: {integrity: sha512-nI4U3TottKAcAD9LLud4Cb7b2QztQMUEfHbvhTH09bqXTxnSie8WnjPALV/WMCrJZ6UV/qHJ6L03OqO3LcdYZw==}
     engines: {node: '>=12'}
 
   dropbox@10.34.0:
@@ -4610,7 +4610,7 @@ snapshots:
       '@api3/ois': 3.0.0
       '@api3/promise-utils': 0.4.0
       axios: 1.15.0
-      dotenv: 17.4.1
+      dotenv: 17.4.2
       ethers: 5.8.0
       express: 5.2.1
       lodash: 4.18.1
@@ -4794,7 +4794,7 @@ snapshots:
       '@api3/promise-utils': 0.4.0
       '@octokit/rest': 20.1.2
       axios: 1.15.0
-      dotenv: 17.4.1
+      dotenv: 17.4.2
       ethers: 5.8.0
       lodash: 4.18.1
       winston: 3.19.0
@@ -4855,7 +4855,7 @@ snapshots:
       '@api3/commons': 1.2.0
       '@api3/promise-utils': 0.4.0
       '@aws-sdk/client-s3': 3.1028.0
-      dotenv: 17.4.1
+      dotenv: 17.4.2
       ethers: 5.8.0
       express: 5.2.1
       lodash: 4.18.1
@@ -8292,7 +8292,7 @@ snapshots:
 
   dotenv@16.6.1: {}
 
-  dotenv@17.4.1: {}
+  dotenv@17.4.2: {}
 
   dropbox@10.34.0(@types/node-fetch@2.6.13):
     dependencies:
