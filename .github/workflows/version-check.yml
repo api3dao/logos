@@ -28,7 +28,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v5
+        uses: pnpm/action-setup@v6
 
       - name: Set Env
         run: |
@@ -46,8 +46,8 @@ jobs:
       - name: Commit changes if any
         id: commit
         run: |
-          if [[ -n "$(git status --porcelain)" ]]; then
-            git add .
+          if [[ -n "$(git status --porcelain raw/)" ]]; then
+            git add raw/
             git commit -m "Fetch updated logos from Dropbox" --no-verify --signoff
             git push -f origin control-branch
             echo "changes_detected=true" >> $GITHUB_ENV
