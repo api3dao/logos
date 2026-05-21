@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 1.0.46
+
+### Patch Changes
+
+- a8460f2: Some changes have been made to the `logos`.
+
+    | Logo                                                | Name | Category |
+    | --------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/trx.svg" width="36" alt=""> | trx  | symbol   |
+
 ## 1.0.45
 
 ### Patch Changes
