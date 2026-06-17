@@ -12,5 +12,7 @@ minimumReleaseAge: 20160 # 14 days
 
 minimumReleaseAgeExclude:
   - '@api3/*'
+  # Renovate security update: vite@8.0.16
+  - vite@8.0.16
 
 resolution-mode: highest
