@@ -12,5 +12,7 @@ minimumReleaseAge: 20160 # 14 days
 
 minimumReleaseAgeExclude:
   - '@api3/*'
+  # Renovate security update: @babel/core@7.29.6
+  - "@babel/core@7.29.6"
 
 resolution-mode: highest
