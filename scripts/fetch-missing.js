@@ -19,7 +19,7 @@ async function initDropbox() {
             'Content-Type': 'application/x-www-form-urlencoded'
         }
     };
-    const url = `https://api.dropbox.com/oauth2/token?refresh_token=${process.env.DROPBOX}&grant_type=refresh_token&client_id=${process.env.APP_KEY}&client_secret=${process.env.APP_SECRET}`;
+    const url = `https://api.dropbox.com/oauth2/token?&grant_type=client_credentials&client_id=${process.env.APP_KEY}&client_secret=${process.env.APP_SECRET}`;
     const response = await fetch(url, options);
 
     const data = await response.json();
@@ -92,6 +92,7 @@ async function fetchLogos() {
     const dbx = await getDropbox();
     try {
         const response = await dbx.filesListFolder({ path: '', recursive: true, limit: 1000 });
+        console.log('Found logos:', response.result.entries);
         return response.result.entries;
     } catch (error) {
         console.error(error);
