@@ -38,9 +38,6 @@ importers:
       eslint-config-prettier:
         specifier: ^10.1.8
         version: 10.1.8(eslint@8.57.1)
-      node-fetch:
-        specifier: ^2.7.0
-        version: 2.7.0
       prettier:
         specifier: ^3.8.3
         version: 3.8.3
