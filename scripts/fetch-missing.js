@@ -3,7 +3,6 @@ const fs = require('fs/promises');
 const { existsSync } = require('node:fs');
 const utils = require('../helpers/utils');
 const dropbox = require('dropbox');
-const fetch = require('node-fetch');
 
 let missingLogos = [];
 
@@ -13,17 +12,7 @@ let dbx = null;
 
 async function initDropbox() {
     console.log('🏗 Initializing Dropbox...');
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        }
-    };
-    const url = `https://api.dropbox.com/oauth2/token?&grant_type=client_credentials&client_id=${process.env.APP_KEY}&client_secret=${process.env.APP_SECRET}`;
-    const response = await fetch(url, options);
-
-    const data = await response.json();
-    dbx = new dropbox.Dropbox({ accessToken: data.access_token });
+    dbx = new dropbox.Dropbox({ accessToken: process.env.DROPBOX });
 
     console.log('✅ Finished initializing Dropbox.');
     return dbx;
@@ -92,7 +81,6 @@ async function fetchLogos() {
     const dbx = await getDropbox();
     try {
         const response = await dbx.filesListFolder({ path: '', recursive: true, limit: 1000 });
-        console.log('Found logos:', response.result.entries);
         return response.result.entries;
     } catch (error) {
         console.error(error);

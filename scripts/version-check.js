@@ -2,7 +2,6 @@ require('dotenv').config();
 const fs = require('fs/promises');
 const utils = require('../helpers/utils');
 const dropbox = require('dropbox');
-const fetch = require('node-fetch');
 const crypto = require('crypto');
 
 const categories = ['chain', 'symbol', 'api-provider'];
@@ -11,17 +10,7 @@ let dbx = null;
 
 async function initDropbox() {
     console.log('🏗 Initializing Dropbox...');
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        }
-    };
-    const url = `https://api.dropbox.com/oauth2/token?&grant_type=client_credentials&client_id=${process.env.APP_KEY}&client_secret=${process.env.APP_SECRET}`;
-    const response = await fetch(url, options);
-
-    const data = await response.json();
-    dbx = new dropbox.Dropbox({ accessToken: data.access_token });
+    dbx = new dropbox.Dropbox({ accessToken: process.env.DROPBOX });
 
     console.log('✅ Finished initializing Dropbox.');
     return dbx;
