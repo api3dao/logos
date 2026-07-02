@@ -1,21 +1,13 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { Flex, Input } from '@chakra-ui/react';
 import { TbSearch } from 'react-icons/tb';
 
 const SearchRow = ({ text, setText, placeholder }) => {
     return (
-        <Flex direction="row" align="left" alignItems={'center'} gap={3} width={'100%'}>
-            <TbSearch size={'32px'} m={2} />
-
-            <Input
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-                color={'black'}
-                fontSize={'md'}
-                placeholder={placeholder}
-            />
-        </Flex>
+        <div className="search-bar">
+            <TbSearch size={18} color="var(--color-text-muted)" />
+            <input value={text} onChange={(e) => setText(e.target.value)} placeholder={placeholder} />
+        </div>
     );
 };
 

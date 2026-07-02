@@ -1,11 +1,10 @@
 import React from 'react';
-import { Flex, Text, Spacer, Image } from '@chakra-ui/react';
 import { ChainLogo } from '@api3/logos';
 import { getChains, api3Contracts } from '@api3/dapi-management';
 import SearchRow from '../Custom/SearchRow';
 import { useState } from 'react';
-import Title from '../Custom/Title';
 import InfoView from '../Custom/InfoView';
+import LogoCard from '../Custom/LogoCard';
 
 const getSupportedChains = (isTestnet, searchArg) => {
     const supportedChainIds = getChains()
@@ -17,60 +16,50 @@ const getSupportedChains = (isTestnet, searchArg) => {
     return api3Contracts.CHAINS.filter((chain) => supportedChainIds.includes(chain.id) && chain.testnet === isTestnet);
 };
 
-const ChainList = ({ isTestnet, searchArg }) => {
-    const [selectedChain, setSelectedChain] = useState('');
-
-    return getSupportedChains(isTestnet, searchArg).map((chain, index) => {
-        return (
-            <Flex
-                p={3}
-                boxShadow={'md'}
-                width={'310px'}
-                height={'100px'}
-                bgColor={'gray.100'}
-                key={index}
-                alignItems="center"
-                justifyContent="left"
-                onMouseDown={() => setSelectedChain(chain)}
-                cursor={'pointer'}
-            >
-                {selectedChain !== chain ? (
-                    <>
-                        <Image src={ChainLogo(chain.id, true)} width={50} height={50} bgColor={'white'} p={2} />
-                        <Image src={ChainLogo(chain.id)} width={50} height={50} bgColor={'black'} p={2} />
-                        <Text fontSize="md" fontWeight="bold" ml={2}>
-                            {chain.name}
-                        </Text>
-                        <Spacer />
-                        <Text fontSize="sm" ml={2}>
-                            {chain.id}
-                        </Text>
-                    </>
-                ) : (
-                    <InfoView method={'Chain'} feed={chain.id} onExit={() => setSelectedChain(null)} />
-                )}
-            </Flex>
-        );
-    });
+// eslint-disable-next-line react/prop-types
+const ChainList = ({ isTestnet, searchArg, onSelect }) => {
+    return (
+        <div className="logo-grid">
+            {getSupportedChains(isTestnet, searchArg).map((chain, index) => (
+                <LogoCard
+                    key={index}
+                    label={chain.name}
+                    meta={chain.id}
+                    lightSrc={ChainLogo(chain.id, true)}
+                    darkSrc={ChainLogo(chain.id)}
+                    onClick={() => onSelect(chain)}
+                />
+            ))}
+        </div>
+    );
 };
 
 const ChainsView = () => {
     const [searchArg, setSearchArg] = useState('');
+    const [selectedChain, setSelectedChain] = useState(null);
 
     return (
-        <Flex p={3} gap={3} bgColor={'white'} wrap={'wrap'} alignItems="center" justifyContent="center">
-            <Flex width={'100%'}>
-                <Text fontSize="md" fontWeight="bold" ml={2}>
-                    There is a total of {getSupportedChains(false).length} mainnet chains and{' '}
-                    {getSupportedChains(true).length} testnet chains
-                </Text>
-            </Flex>
+        <div>
+            <div className="page-header">
+                <h1 className="page-title">Chains</h1>
+                <p className="page-subtitle">Logos for the mainnet and testnet chains supported by Api3.</p>
+                <span className="stat-pill">
+                    {getSupportedChains(false).length} mainnets · {getSupportedChains(true).length} testnets
+                </span>
+            </div>
+
             <SearchRow text={searchArg} setText={setSearchArg} placeholder={'Enter a chain id or chain name'} />
-            <Title header={'Mainnets'} />
-            <ChainList isTestnet={false} searchArg={searchArg} />
-            <Title header={'Testnets'} />
-            <ChainList isTestnet={true} searchArg={searchArg} />
-        </Flex>
+
+            <h2 className="section-heading">Mainnets</h2>
+            <ChainList isTestnet={false} searchArg={searchArg} onSelect={setSelectedChain} />
+
+            <h2 className="section-heading">Testnets</h2>
+            <ChainList isTestnet={true} searchArg={searchArg} onSelect={setSelectedChain} />
+
+            {selectedChain ? (
+                <InfoView method={'Chain'} feed={selectedChain.id} onExit={() => setSelectedChain(null)} />
+            ) : null}
+        </div>
     );
 };
 

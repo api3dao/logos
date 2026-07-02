@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { Flex, Text, Image, VStack } from '@chakra-ui/react';
 import { getChains } from '@api3/dapi-management';
 import {
     SymbolLogoMissing,
@@ -10,7 +9,6 @@ import {
     ChainLogoMissing,
     ChainLogo
 } from '@api3/logos';
-import Title from '../Custom/Title';
 
 const MissingBatchView = ({ header, batch, method }) => {
     const getChain = (chainId) => {
@@ -20,54 +18,44 @@ const MissingBatchView = ({ header, batch, method }) => {
     };
 
     return batch.length === 0 ? null : (
-        <Flex gap={3} bgColor={'white'} wrap={'wrap'} alignItems="center" justifyContent="center">
-            <VStack width={'100%'} alignItems={'left'}>
-                <Title header={header} />
-                <Text fontSize="md" fontWeight="bold" ml={2}>
-                    There is a total of {batch.length} missing {header} logos
-                </Text>
-            </VStack>
-
-            {batch.map((item, index) => {
-                return (
-                    <Flex
-                        p={3}
-                        boxShadow={'md'}
-                        width={'300px'}
-                        height={'70px'}
-                        bgColor={'gray.100'}
-                        key={index}
-                        alignItems="center"
-                        justifyContent="left"
-                        cursor={'pointer'}
-                    >
-                        <Image src={method(item)} width={'32px'} height={'32px'} />
-                        <Text fontSize="sm" fontWeight="bold" ml={2}>
-                            {header === 'Chains' ? getChain(item) : item}
-                        </Text>
-                    </Flex>
-                );
-            })}
-        </Flex>
+        <>
+            <h2 className="section-heading">
+                {header} <span className="logo-card-meta">({batch.length})</span>
+            </h2>
+            <div className="logo-grid">
+                {batch.map((item, index) => (
+                    <div className="logo-card" key={index} style={{ cursor: 'default' }}>
+                        <div className="logo-card-thumbs">
+                            <div className="logo-card-thumb" style={{ backgroundColor: 'white' }}>
+                                <img src={method(item)} width={28} height={28} alt={item} />
+                            </div>
+                        </div>
+                        <span className="logo-card-label">{header === 'Chains' ? getChain(item) : item}</span>
+                    </div>
+                ))}
+            </div>
+        </>
     );
 };
 
 const MissingLogosView = () => {
-    const checkIfMissingLogos = () => {
-        return SymbolLogoMissing.length + ApiProviderLogoMissing.length + ChainLogoMissing.length;
-    };
+    const totalMissing = SymbolLogoMissing.length + ApiProviderLogoMissing.length + ChainLogoMissing.length;
 
     return (
-        <Flex p={3} gap={3} bgColor={'white'} wrap={'wrap'} alignItems="center" justifyContent="left">
-            {checkIfMissingLogos() === 0 ? (
-                <Text fontSize="md" fontWeight="bold" ml={2}>
-                    There is no missing logos
-                </Text>
-            ) : null}
+        <div>
+            <div className="page-header">
+                <h1 className="page-title">Missing Logos</h1>
+                <p className="page-subtitle">
+                    Symbols, chains and API providers referenced in @api3/dapi-management without a matching logo.
+                </p>
+                <span className="stat-pill">{totalMissing} missing</span>
+            </div>
+
+            {totalMissing === 0 ? <p className="page-subtitle">There are no missing logos.</p> : null}
             <MissingBatchView header={'Symbols'} batch={SymbolLogoMissing} method={SymbolLogo} />
             <MissingBatchView header={'ApiProviders'} batch={ApiProviderLogoMissing} method={ApiProviderLogo} />
             <MissingBatchView header={'Chains'} batch={ChainLogoMissing} method={ChainLogo} />
-        </Flex>
+        </div>
     );
 };
 
