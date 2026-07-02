@@ -49,7 +49,9 @@ jobs:
           cache: 'pnpm'
           
       - name: Set Env
-        if: github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'fetch')
+        if: |
+          github.ref == 'refs/heads/main' ||
+          (contains(github.event.pull_request.labels.*.name, 'fetch') && github.event.pull_request.head.repo.full_name == github.repository)
         run: |
           touch .env
           echo APP_KEY=${{ secrets.APP_KEY }} >> .env
