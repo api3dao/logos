@@ -9,7 +9,6 @@ import {
     ChainLogoMissing,
     ChainLogo
 } from '@api3/logos';
-import Title from '../Custom/Title';
 
 const MissingBatchView = ({ header, batch, method }) => {
     const getChain = (chainId) => {
@@ -19,45 +18,40 @@ const MissingBatchView = ({ header, batch, method }) => {
     };
 
     return batch.length === 0 ? null : (
-        <div className="flex flex-wrap items-center justify-center" style={{ gap: 12, backgroundColor: 'white' }}>
-            <div className="flex-col text-left" style={{ width: '100%' }}>
-                <Title header={header} />
-                <span style={{ fontSize: 16, fontWeight: 'bold', marginLeft: 8 }}>
-                    There is a total of {batch.length} missing {header} logos
-                </span>
-            </div>
-
-            {batch.map((item, index) => {
-                return (
-                    <div
-                        className="flex items-center justify-start cursor-pointer shadow-md"
-                        key={index}
-                        style={{ padding: 12, width: 300, height: 70, backgroundColor: 'var(--color-gray-100)' }}
-                    >
-                        <img src={method(item)} width={32} height={32} alt={item} />
-                        <span style={{ fontSize: 14, fontWeight: 'bold', marginLeft: 8 }}>
-                            {header === 'Chains' ? getChain(item) : item}
-                        </span>
+        <>
+            <h2 className="section-heading">
+                {header} <span className="logo-card-meta">({batch.length})</span>
+            </h2>
+            <div className="logo-grid">
+                {batch.map((item, index) => (
+                    <div className="logo-card" key={index} style={{ cursor: 'default' }}>
+                        <div className="logo-card-thumbs">
+                            <div className="logo-card-thumb" style={{ backgroundColor: 'white' }}>
+                                <img src={method(item)} width={28} height={28} alt={item} />
+                            </div>
+                        </div>
+                        <span className="logo-card-label">{header === 'Chains' ? getChain(item) : item}</span>
                     </div>
-                );
-            })}
-        </div>
+                ))}
+            </div>
+        </>
     );
 };
 
 const MissingLogosView = () => {
-    const checkIfMissingLogos = () => {
-        return SymbolLogoMissing.length + ApiProviderLogoMissing.length + ChainLogoMissing.length;
-    };
+    const totalMissing = SymbolLogoMissing.length + ApiProviderLogoMissing.length + ChainLogoMissing.length;
 
     return (
-        <div
-            className="flex flex-wrap items-center justify-start"
-            style={{ padding: 12, gap: 12, backgroundColor: 'white' }}
-        >
-            {checkIfMissingLogos() === 0 ? (
-                <span style={{ fontSize: 16, fontWeight: 'bold', marginLeft: 8 }}>There is no missing logos</span>
-            ) : null}
+        <div>
+            <div className="page-header">
+                <h1 className="page-title">Missing Logos</h1>
+                <p className="page-subtitle">
+                    Symbols, chains and API providers referenced in @api3/dapi-management without a matching logo.
+                </p>
+                <span className="stat-pill">{totalMissing} missing</span>
+            </div>
+
+            {totalMissing === 0 ? <p className="page-subtitle">There are no missing logos.</p> : null}
             <MissingBatchView header={'Symbols'} batch={SymbolLogoMissing} method={SymbolLogo} />
             <MissingBatchView header={'ApiProviders'} batch={ApiProviderLogoMissing} method={ApiProviderLogo} />
             <MissingBatchView header={'Chains'} batch={ChainLogoMissing} method={ChainLogo} />

@@ -1,18 +1,30 @@
 import React from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
-import Header from './Components/Header';
-import Welcome from './Components/Welcome';
+import Sidebar from './Layout/Sidebar';
+import Home from './Components/Home';
+import SymbolsView from './Components/SymbolsView';
+import ChainsView from './Components/ChainsView';
+import ApiProviderView from './Components/ApiProviderView';
+import MissingLogosView from './Components/MissingLogosView';
+import ExtensionsView from './Components/ExtensionsView';
+import Docs from './Components/Docs';
 
 const App = () => {
     return (
         <HashRouter>
-            <Header />
-            <div className="flex items-stretch" style={{ height: 'calc(100vh - 70px)', padding: 20 }}>
-                <div className="flex-col items-center" style={{ width: '100%' }}>
+            <div className="app-shell">
+                <Sidebar />
+                <main className="main-content">
                     <Routes>
-                        <Route path="/" element={<Welcome />} />
+                        <Route path="/" element={<Home />} />
+                        <Route path="/symbols" element={<SymbolsView />} />
+                        <Route path="/chains" element={<ChainsView />} />
+                        <Route path="/api-providers" element={<ApiProviderView />} />
+                        <Route path="/missing-logos" element={<MissingLogosView />} />
+                        <Route path="/extensions" element={<ExtensionsView />} />
+                        <Route path="/docs" element={<Docs />} />
                     </Routes>
-                </div>
+                </main>
             </div>
         </HashRouter>
     );

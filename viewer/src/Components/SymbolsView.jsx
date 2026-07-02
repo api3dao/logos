@@ -3,11 +3,12 @@ import { SymbolLogo } from '@api3/logos';
 import SearchRow from '../Custom/SearchRow';
 import { useState } from 'react';
 import InfoView from '../Custom/InfoView';
+import LogoCard from '../Custom/LogoCard';
 import { dapis } from '@api3/dapi-management';
 
 const SymbolsView = () => {
     const [symbol, setSymbol] = useState('');
-    const [selectedSymbol, setSelectedSymbol] = useState('');
+    const [selectedSymbol, setSelectedSymbol] = useState(null);
 
     const getSymbols = () => {
         const supportedFeeds = dapis.filter((dapi) => dapi.stage !== 'retired').map((dapi) => dapi.name);
@@ -16,49 +17,30 @@ const SymbolsView = () => {
     };
 
     return (
-        <div
-            className="flex flex-wrap items-center justify-center"
-            style={{ padding: 12, gap: 12, backgroundColor: 'white' }}
-        >
-            <div className="flex" style={{ width: '100%' }}>
-                <span style={{ fontSize: 16, fontWeight: 'bold', marginLeft: 8 }}>
-                    There is a total of {getSymbols().length} symbols
-                </span>
+        <div>
+            <div className="page-header">
+                <h1 className="page-title">Symbols</h1>
+                <p className="page-subtitle">Logos for the price feed symbols supported by Api3.</p>
+                <span className="stat-pill">{getSymbols().length} symbols</span>
             </div>
+
             <SearchRow text={symbol} setText={setSymbol} placeholder={'Enter a symbol'} />
 
-            {getSymbols().map((feed, index) => {
-                return (
-                    <div
-                        className="card"
+            <div className="logo-grid">
+                {getSymbols().map((feed, index) => (
+                    <LogoCard
                         key={index}
-                        style={{ padding: 12, width: 310, height: 80 }}
-                        onMouseDown={() => setSelectedSymbol(feed)}
-                    >
-                        {selectedSymbol !== feed ? (
-                            <>
-                                <img
-                                    src={SymbolLogo(feed, true)}
-                                    width={50}
-                                    height={50}
-                                    style={{ backgroundColor: 'white', padding: 8 }}
-                                    alt={feed}
-                                />
-                                <img
-                                    src={SymbolLogo(feed)}
-                                    width={50}
-                                    height={50}
-                                    style={{ backgroundColor: 'black', padding: 8 }}
-                                    alt={feed}
-                                />
-                                <span style={{ fontSize: 14, fontWeight: 'bold', marginLeft: 8 }}>{feed}</span>
-                            </>
-                        ) : (
-                            <InfoView method={'Symbol'} feed={feed} onExit={() => setSelectedSymbol(null)} />
-                        )}
-                    </div>
-                );
-            })}
+                        label={feed}
+                        lightSrc={SymbolLogo(feed, true)}
+                        darkSrc={SymbolLogo(feed)}
+                        onClick={() => setSelectedSymbol(feed)}
+                    />
+                ))}
+            </div>
+
+            {selectedSymbol ? (
+                <InfoView method={'Symbol'} feed={selectedSymbol} onExit={() => setSelectedSymbol(null)} />
+            ) : null}
         </div>
     );
 };

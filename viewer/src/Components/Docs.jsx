@@ -4,72 +4,75 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { ChainLogo, SymbolLogo, ApiProviderLogo } from '@api3/logos';
 
-const ChainsView = () => {
+const Docs = () => {
     return (
-        <div
-            className="flex-col text-left"
-            style={{ padding: 12, gap: 12, backgroundColor: 'white', width: '100%', overflow: 'scroll' }}
-        >
-            <span style={{ fontSize: 16, fontWeight: 'bold', marginLeft: 8 }}>
-                Usage of ChainLogo and SymbolLogo components
-            </span>
-            <span style={{ fontSize: 16, marginLeft: 8 }}>
-                You can use ChainLogo and SymbolLogo by importing them from @api3/logos package
-            </span>
+        <div>
+            <div className="page-header">
+                <h1 className="page-title">How to use</h1>
+                <p className="page-subtitle">
+                    Usage of the ChainLogo, SymbolLogo and ApiProviderLogo helpers exported from @api3/logos.
+                </p>
+            </div>
 
-            <span style={{ fontSize: 20, fontWeight: 'bold', marginLeft: 8 }}>Installation</span>
-            <SyntaxHighlighter
-                PreTag="div"
-                children={String('npm install @api3/logos')}
-                language={'bash'}
-                style={dracula}
-            />
-            <span style={{ fontSize: 20, fontWeight: 'bold', marginLeft: 8 }}>Usage React</span>
-            <SyntaxHighlighter
-                PreTag="div"
-                children={String(`import { ChainLogo, SymbolLogo, ApiProviderLogo } from '@api3/logos';
+            <h2 className="section-heading">Installation</h2>
+            <div className="doc-codeblock">
+                <SyntaxHighlighter
+                    PreTag="div"
+                    customStyle={{ margin: 0 }}
+                    children={String('npm install @api3/logos')}
+                    language={'bash'}
+                    style={dracula}
+                />
+            </div>
+
+            <h2 className="section-heading">Usage React</h2>
+            <div className="doc-codeblock">
+                <SyntaxHighlighter
+                    PreTag="div"
+                    customStyle={{ margin: 0 }}
+                    children={String(`import { ChainLogo, SymbolLogo, ApiProviderLogo } from '@api3/logos';
 
 <div>
     <img src={ ChainLogo('43114') } width={50} height={50} alt='43114' />
     <img src={ SymbolLogo('BTC') } width={50} height={50} alt='BTC' />
     <img src={ ApiProviderLogo('nodary') } width={50} height={50} alt='nodary' />
 </div>`)}
-                language={'jsx'}
-                style={dracula}
-            />
-
-            <div className="flex flex-wrap items-center justify-start" style={{ padding: 12, gap: 12, backgroundColor: 'var(--color-gray-100)' }}>
+                    language={'jsx'}
+                    style={dracula}
+                />
+            </div>
+            <div className="doc-preview">
                 <img src={ChainLogo('43114')} width={50} height={50} alt="43114" />
                 <img src={SymbolLogo('BTC')} width={50} height={50} alt="BTC" />
                 <img src={ApiProviderLogo('nodary')} width={50} height={50} alt="nodary" />
             </div>
 
-            <span style={{ fontSize: 20, fontWeight: 'bold', marginLeft: 8 }}>
-                Light/Dark mode
-            </span>
-
-            <SyntaxHighlighter
-                PreTag="div"
-                children={String(`import { ChainLogo, SymbolLogo, ApiProviderLogo } from '@api3/logos';
+            <h2 className="section-heading">Light/Dark mode</h2>
+            <div className="doc-codeblock">
+                <SyntaxHighlighter
+                    PreTag="div"
+                    customStyle={{ margin: 0 }}
+                    children={String(`import { ChainLogo, SymbolLogo, ApiProviderLogo } from '@api3/logos';
 
 <div>
     <img src={ ChainLogo('59144', true) } width={50} height={50} />
     <img src={ ChainLogo('59144') } width={50} height={50} />
 </div>`)}
-                language={'jsx'}
-                style={dracula}
-            />
-
-            <div className="flex flex-wrap items-center justify-start" style={{ padding: 12, gap: 12, backgroundColor: 'var(--color-gray-100)' }}>
+                    language={'jsx'}
+                    style={dracula}
+                />
+            </div>
+            <div className="doc-preview">
                 <img src={ChainLogo('59144', true)} width={50} height={50} />
                 <img src={ChainLogo('59144')} width={50} height={50} />
             </div>
-            <span style={{ fontSize: 20, fontWeight: 'bold', marginLeft: 8 }}>
-                Usage Vue.js
-            </span>
-            <SyntaxHighlighter
-                PreTag="div"
-                children={String(`<template>
+
+            <h2 className="section-heading">Usage Vue.js</h2>
+            <div className="doc-codeblock">
+                <SyntaxHighlighter
+                    PreTag="div"
+                    customStyle={{ margin: 0 }}
+                    children={String(`<template>
     <div>
         <img v-bind:src="getSymbolLogo('eth')" alt="eth" />
         <img v-bind:src="getChainLogo('1')" alt="1" />
@@ -96,24 +99,24 @@ methods: {
 ...
 }
 </script>`)}
-                language={'html'}
-                style={dracula}
-            />
-            <div className="flex flex-wrap items-center justify-start" style={{ padding: 12, gap: 12, backgroundColor: 'var(--color-gray-100)' }}>
+                    language={'html'}
+                    style={dracula}
+                />
+            </div>
+            <div className="doc-preview">
                 <img src={SymbolLogo('eth')} width={50} height={50} />
                 <img src={ChainLogo('1')} width={50} height={50} />
                 <img src={ApiProviderLogo('nodary')} width={50} height={50} />
             </div>
-            <span style={{ fontSize: 20, fontWeight: 'bold', marginLeft: 8 }}>
-                Usage Nuxt/Vue.js
-            </span>
 
-            <span style={{ fontSize: 18, fontWeight: 'bold', marginLeft: 8 }}>
-                Create a logos.ts in plugins folder;
-            </span>
-            <SyntaxHighlighter
-                PreTag="div"
-                children={String(`import { ChainLogo, SymbolLogo, ApiProviderLogo } from "@api3/logos"
+            <h2 className="section-heading">Usage Nuxt/Vue.js</h2>
+
+            <p className="doc-subheading">Create a logos.ts in plugins folder;</p>
+            <div className="doc-codeblock">
+                <SyntaxHighlighter
+                    PreTag="div"
+                    customStyle={{ margin: 0 }}
+                    children={String(`import { ChainLogo, SymbolLogo, ApiProviderLogo } from "@api3/logos"
 
 export default defineNuxtPlugin(() => {
     return {
@@ -124,15 +127,17 @@ export default defineNuxtPlugin(() => {
         }
     }
 })`)}
-                language={'typescript'}
-                style={dracula}
-            />
-            <span style={{ fontSize: 18, fontWeight: 'bold', marginLeft: 8 }}>
-                Define the plugin in nuxt.config file;
-            </span>
-            <SyntaxHighlighter
-                PreTag="div"
-                children={String(`// https://nuxt.com/docs/api/configuration/nuxt-config
+                    language={'typescript'}
+                    style={dracula}
+                />
+            </div>
+
+            <p className="doc-subheading">Define the plugin in nuxt.config file;</p>
+            <div className="doc-codeblock">
+                <SyntaxHighlighter
+                    PreTag="div"
+                    customStyle={{ margin: 0 }}
+                    children={String(`// https://nuxt.com/docs/api/configuration/nuxt-config
 import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
@@ -144,15 +149,17 @@ export default defineNuxtConfig({
     '~/plugins/logos',
   ],
 })`)}
-                language={'typescript'}
-                style={dracula}
-            />
-            <span style={{ fontSize: 18, fontWeight: 'bold', marginLeft: 8 }}>
-                Call it from your .vue file;
-            </span>
-            <SyntaxHighlighter
-                PreTag="div"
-                children={String(`<script setup lang="ts">
+                    language={'typescript'}
+                    style={dracula}
+                />
+            </div>
+
+            <p className="doc-subheading">Call it from your .vue file;</p>
+            <div className="doc-codeblock">
+                <SyntaxHighlighter
+                    PreTag="div"
+                    customStyle={{ margin: 0 }}
+                    children={String(`<script setup lang="ts">
 const { $chainLogo, $symbolLogo, $apiProviderLogo } = useNuxtApp()
 </script>
 
@@ -164,11 +171,11 @@ const { $chainLogo, $symbolLogo, $apiProviderLogo } = useNuxtApp()
 
   </div>
 </template>`)}
-                language={'html'}
-                style={dracula}
-            />
-
-            <div className="flex flex-wrap items-center justify-start" style={{ padding: 12, gap: 12, backgroundColor: 'var(--color-gray-100)' }}>
+                    language={'html'}
+                    style={dracula}
+                />
+            </div>
+            <div className="doc-preview">
                 <img src={ChainLogo('1')} width={50} height={50} />
                 <img src={SymbolLogo('btc')} width={50} height={50} />
                 <img src={ApiProviderLogo('nodary')} width={50} height={50} />
@@ -177,4 +184,4 @@ const { $chainLogo, $symbolLogo, $apiProviderLogo } = useNuxtApp()
     );
 };
 
-export default ChainsView;
+export default Docs;
