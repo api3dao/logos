@@ -1,41 +1,30 @@
 /* eslint-disable react/no-children-prop */
 import React from 'react';
-import { Flex, Text, VStack, Image } from '@chakra-ui/react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { ChainLogo, SymbolLogo, ApiProviderLogo } from '@api3/logos';
 
 const ChainsView = () => {
     return (
-        <VStack
-            p={3}
-            gap={3}
-            bgColor={'white'}
-            wrap={'wrap'}
-            width={'100%'}
-            alignItems={'left'}
-            overflow={'scroll'}
-            justifyContent="left"
+        <div
+            className="flex-col text-left"
+            style={{ padding: 12, gap: 12, backgroundColor: 'white', width: '100%', overflow: 'scroll' }}
         >
-            <Text fontSize="md" fontWeight="bold" ml={2}>
+            <span style={{ fontSize: 16, fontWeight: 'bold', marginLeft: 8 }}>
                 Usage of ChainLogo and SymbolLogo components
-            </Text>
-            <Text fontSize="md" ml={2}>
+            </span>
+            <span style={{ fontSize: 16, marginLeft: 8 }}>
                 You can use ChainLogo and SymbolLogo by importing them from @api3/logos package
-            </Text>
+            </span>
 
-            <Text fontSize="xl" fontWeight="bold" ml={2}>
-                Installation
-            </Text>
+            <span style={{ fontSize: 20, fontWeight: 'bold', marginLeft: 8 }}>Installation</span>
             <SyntaxHighlighter
                 PreTag="div"
                 children={String('npm install @api3/logos')}
                 language={'bash'}
                 style={dracula}
             />
-            <Text fontSize="xl" fontWeight="bold" ml={2}>
-                Usage React
-            </Text>
+            <span style={{ fontSize: 20, fontWeight: 'bold', marginLeft: 8 }}>Usage React</span>
             <SyntaxHighlighter
                 PreTag="div"
                 children={String(`import { ChainLogo, SymbolLogo, ApiProviderLogo } from '@api3/logos';
@@ -49,15 +38,15 @@ const ChainsView = () => {
                 style={dracula}
             />
 
-            <Flex p={3} gap={3} wrap={'wrap'} bgColor={'gray.100'} alignItems="center" justifyContent="left">
-                <Image src={ChainLogo('43114')} width={50} height={50} alt="43114" />
-                <Image src={SymbolLogo('BTC')} width={50} height={50} alt="BTC" />
-                <Image src={ApiProviderLogo('nodary')} width={50} height={50} alt="nodary" />
-            </Flex>
+            <div className="flex flex-wrap items-center justify-start" style={{ padding: 12, gap: 12, backgroundColor: 'var(--color-gray-100)' }}>
+                <img src={ChainLogo('43114')} width={50} height={50} alt="43114" />
+                <img src={SymbolLogo('BTC')} width={50} height={50} alt="BTC" />
+                <img src={ApiProviderLogo('nodary')} width={50} height={50} alt="nodary" />
+            </div>
 
-            <Text fontSize="xl" fontWeight="bold" ml={2}>
+            <span style={{ fontSize: 20, fontWeight: 'bold', marginLeft: 8 }}>
                 Light/Dark mode
-            </Text>
+            </span>
 
             <SyntaxHighlighter
                 PreTag="div"
@@ -71,13 +60,13 @@ const ChainsView = () => {
                 style={dracula}
             />
 
-            <Flex p={3} gap={3} wrap={'wrap'} bgColor={'gray.100'} alignItems="center" justifyContent="left">
-                <Image src={ChainLogo('59144', true)} width={50} height={50} />
-                <Image src={ChainLogo('59144')} width={50} height={50} />
-            </Flex>
-            <Text fontSize="xl" fontWeight="bold" ml={2}>
+            <div className="flex flex-wrap items-center justify-start" style={{ padding: 12, gap: 12, backgroundColor: 'var(--color-gray-100)' }}>
+                <img src={ChainLogo('59144', true)} width={50} height={50} />
+                <img src={ChainLogo('59144')} width={50} height={50} />
+            </div>
+            <span style={{ fontSize: 20, fontWeight: 'bold', marginLeft: 8 }}>
                 Usage Vue.js
-            </Text>
+            </span>
             <SyntaxHighlighter
                 PreTag="div"
                 children={String(`<template>
@@ -110,18 +99,18 @@ methods: {
                 language={'html'}
                 style={dracula}
             />
-            <Flex p={3} gap={3} wrap={'wrap'} bgColor={'gray.100'} alignItems="center" justifyContent="left">
-                <Image src={SymbolLogo('eth')} width={50} height={50} />
-                <Image src={ChainLogo('1')} width={50} height={50} />
-                <Image src={ApiProviderLogo('nodary')} width={50} height={50} />
-            </Flex>
-            <Text fontSize="xl" fontWeight="bold" ml={2}>
+            <div className="flex flex-wrap items-center justify-start" style={{ padding: 12, gap: 12, backgroundColor: 'var(--color-gray-100)' }}>
+                <img src={SymbolLogo('eth')} width={50} height={50} />
+                <img src={ChainLogo('1')} width={50} height={50} />
+                <img src={ApiProviderLogo('nodary')} width={50} height={50} />
+            </div>
+            <span style={{ fontSize: 20, fontWeight: 'bold', marginLeft: 8 }}>
                 Usage Nuxt/Vue.js
-            </Text>
+            </span>
 
-            <Text fontSize="lg" fontWeight="bold" ml={2}>
+            <span style={{ fontSize: 18, fontWeight: 'bold', marginLeft: 8 }}>
                 Create a logos.ts in plugins folder;
-            </Text>
+            </span>
             <SyntaxHighlighter
                 PreTag="div"
                 children={String(`import { ChainLogo, SymbolLogo, ApiProviderLogo } from "@api3/logos"
@@ -138,9 +127,9 @@ export default defineNuxtPlugin(() => {
                 language={'typescript'}
                 style={dracula}
             />
-            <Text fontSize="lg" fontWeight="bold" ml={2}>
+            <span style={{ fontSize: 18, fontWeight: 'bold', marginLeft: 8 }}>
                 Define the plugin in nuxt.config file;
-            </Text>
+            </span>
             <SyntaxHighlighter
                 PreTag="div"
                 children={String(`// https://nuxt.com/docs/api/configuration/nuxt-config
@@ -158,9 +147,9 @@ export default defineNuxtConfig({
                 language={'typescript'}
                 style={dracula}
             />
-            <Text fontSize="lg" fontWeight="bold" ml={2}>
+            <span style={{ fontSize: 18, fontWeight: 'bold', marginLeft: 8 }}>
                 Call it from your .vue file;
-            </Text>
+            </span>
             <SyntaxHighlighter
                 PreTag="div"
                 children={String(`<script setup lang="ts">
@@ -179,12 +168,12 @@ const { $chainLogo, $symbolLogo, $apiProviderLogo } = useNuxtApp()
                 style={dracula}
             />
 
-            <Flex p={3} gap={3} wrap={'wrap'} bgColor={'gray.100'} alignItems="center" justifyContent="left">
-                <Image src={ChainLogo('1')} width={50} height={50} />
-                <Image src={SymbolLogo('btc')} width={50} height={50} />
-                <Image src={ApiProviderLogo('nodary')} width={50} height={50} />
-            </Flex>
-        </VStack>
+            <div className="flex flex-wrap items-center justify-start" style={{ padding: 12, gap: 12, backgroundColor: 'var(--color-gray-100)' }}>
+                <img src={ChainLogo('1')} width={50} height={50} />
+                <img src={SymbolLogo('btc')} width={50} height={50} />
+                <img src={ApiProviderLogo('nodary')} width={50} height={50} />
+            </div>
+        </div>
     );
 };
 

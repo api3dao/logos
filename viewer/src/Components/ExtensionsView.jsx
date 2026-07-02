@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { Flex, Text, Image, VStack } from '@chakra-ui/react';
 import { getChains } from '@api3/dapi-management';
 import {
     SymbolLogoExtended,
@@ -20,35 +19,29 @@ const ExtensionsBatchView = ({ header, batch, method }) => {
     };
 
     return batch.length === 0 ? null : (
-        <Flex gap={3} bgColor={'white'} wrap={'wrap'} alignItems="center" justifyContent="center">
-            <VStack width={'100%'} alignItems={'left'}>
+        <div className="flex flex-wrap items-center justify-center" style={{ gap: 12, backgroundColor: 'white' }}>
+            <div className="flex-col text-left" style={{ width: '100%' }}>
                 <Title header={header} />
-                <Text fontSize="md" fontWeight="bold" ml={2}>
+                <span style={{ fontSize: 16, fontWeight: 'bold', marginLeft: 8 }}>
                     There is a total of {batch.length} extended {header} logos
-                </Text>
-            </VStack>
+                </span>
+            </div>
 
             {batch.map((item, index) => {
                 return (
-                    <Flex
-                        p={3}
-                        boxShadow={'md'}
-                        width={'300px'}
-                        height={'70px'}
-                        bgColor={'gray.100'}
+                    <div
+                        className="flex items-center justify-start cursor-pointer shadow-md"
                         key={index}
-                        alignItems="center"
-                        justifyContent="left"
-                        cursor={'pointer'}
+                        style={{ padding: 12, width: 300, height: 70, backgroundColor: 'var(--color-gray-100)' }}
                     >
-                        <Image src={method(item)} width={'32px'} height={'32px'} />
-                        <Text fontSize="sm" fontWeight="bold" ml={2}>
+                        <img src={method(item)} width={32} height={32} alt={item} />
+                        <span style={{ fontSize: 14, fontWeight: 'bold', marginLeft: 8 }}>
                             {header === 'Chains' ? getChain(item) : item}
-                        </Text>
-                    </Flex>
+                        </span>
+                    </div>
                 );
             })}
-        </Flex>
+        </div>
     );
 };
 
@@ -58,16 +51,17 @@ const ExtensionsView = () => {
     };
 
     return (
-        <Flex p={3} gap={3} bgColor={'white'} wrap={'wrap'} alignItems="center" justifyContent="left">
+        <div
+            className="flex flex-wrap items-center justify-start"
+            style={{ padding: 12, gap: 12, backgroundColor: 'white' }}
+        >
             {checkIfExtendedLogos() === 0 ? (
-                <Text fontSize="md" fontWeight="bold" ml={2}>
-                    There is no extended logos
-                </Text>
+                <span style={{ fontSize: 16, fontWeight: 'bold', marginLeft: 8 }}>There is no extended logos</span>
             ) : null}
             <ExtensionsBatchView header={'Symbols'} batch={SymbolLogoExtended} method={SymbolLogo} />
             <ExtensionsBatchView header={'ApiProviders'} batch={ApiProviderLogoExtended} method={ApiProviderLogo} />
             <ExtensionsBatchView header={'Chains'} batch={ChainLogoExtended} method={ChainLogo} />
-        </Flex>
+        </div>
     );
 };
 

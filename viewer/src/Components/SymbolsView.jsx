@@ -1,5 +1,4 @@
 import React from 'react';
-import { Flex, Text, Image } from '@chakra-ui/react';
 import { SymbolLogo } from '@api3/logos';
 import SearchRow from '../Custom/SearchRow';
 import { useState } from 'react';
@@ -17,43 +16,50 @@ const SymbolsView = () => {
     };
 
     return (
-        <Flex p={3} gap={3} bgColor={'white'} wrap={'wrap'} alignItems="center" justifyContent="center">
-            <Flex width={'100%'}>
-                <Text fontSize="md" fontWeight="bold" ml={2}>
+        <div
+            className="flex flex-wrap items-center justify-center"
+            style={{ padding: 12, gap: 12, backgroundColor: 'white' }}
+        >
+            <div className="flex" style={{ width: '100%' }}>
+                <span style={{ fontSize: 16, fontWeight: 'bold', marginLeft: 8 }}>
                     There is a total of {getSymbols().length} symbols
-                </Text>
-            </Flex>
+                </span>
+            </div>
             <SearchRow text={symbol} setText={setSymbol} placeholder={'Enter a symbol'} />
 
             {getSymbols().map((feed, index) => {
                 return (
-                    <Flex
-                        p={3}
-                        boxShadow={'md'}
-                        width={'310px'}
-                        height={'80px'}
-                        bgColor={'gray.100'}
+                    <div
+                        className="card"
                         key={index}
-                        alignItems="center"
-                        justifyContent="left"
+                        style={{ padding: 12, width: 310, height: 80 }}
                         onMouseDown={() => setSelectedSymbol(feed)}
-                        cursor={'pointer'}
                     >
                         {selectedSymbol !== feed ? (
                             <>
-                                <Image src={SymbolLogo(feed, true)} width={50} height={50} bgColor={'white'} p={2} />
-                                <Image src={SymbolLogo(feed)} width={50} height={50} bgColor={'black'} p={2} />
-                                <Text fontSize="sm" fontWeight="bold" ml={2}>
-                                    {feed}
-                                </Text>
+                                <img
+                                    src={SymbolLogo(feed, true)}
+                                    width={50}
+                                    height={50}
+                                    style={{ backgroundColor: 'white', padding: 8 }}
+                                    alt={feed}
+                                />
+                                <img
+                                    src={SymbolLogo(feed)}
+                                    width={50}
+                                    height={50}
+                                    style={{ backgroundColor: 'black', padding: 8 }}
+                                    alt={feed}
+                                />
+                                <span style={{ fontSize: 14, fontWeight: 'bold', marginLeft: 8 }}>{feed}</span>
                             </>
                         ) : (
                             <InfoView method={'Symbol'} feed={feed} onExit={() => setSelectedSymbol(null)} />
                         )}
-                    </Flex>
+                    </div>
                 );
             })}
-        </Flex>
+        </div>
     );
 };
 

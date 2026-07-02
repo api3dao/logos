@@ -1,7 +1,6 @@
 /* eslint-disable react/no-children-prop */
 /* eslint-disable react/prop-types */
 import * as React from 'react';
-import { Flex, Spacer, Text } from '@chakra-ui/react';
 import { ApiProviderLogo, SymbolLogo, ChainLogo } from '@api3/logos';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { xonokai } from 'react-syntax-highlighter/dist/esm/styles/prism';
@@ -19,24 +18,20 @@ const LogoView = (method, feed, isLight = false) => {
 
 const InfoView = ({ method, feed, onExit }) => {
     return (
-        <Flex bgColor={'gray.300'} p={5} boxShadow={'md'} gap={5} zIndex={0} alignItems={'center'} wrap={'wrap'}>
-            <Flex
-                p={2}
-                bgColor={'white'}
-                flexDirection={'row'}
-                width={'100%'}
-                justifyContent={'left'}
-                alignItems={'center'}
+        <div
+            className="flex items-center flex-wrap shadow-md"
+            style={{ backgroundColor: 'var(--color-gray-300)', padding: 20, gap: 20, zIndex: 0 }}
+        >
+            <div
+                className="flex items-center justify-start"
+                style={{ padding: 8, backgroundColor: 'white', width: '100%' }}
             >
                 {LogoView(method, feed, true)}
-                <Text fontSize="md" fontWeight="bold" ml={2}>
-                    {' '}
-                    {feed}{' '}
-                </Text>
-                <Spacer />
-                <VscChromeClose onClick={() => onExit(null)} cursor={'pointer'} />
-            </Flex>
-            <Flex flexDirection={'column'} justifyContent={'left'} alignItems={'left'}>
+                <span style={{ fontSize: 16, fontWeight: 'bold', marginLeft: 8 }}> {feed} </span>
+                <div className="spacer" />
+                <VscChromeClose onClick={() => onExit(null)} cursor={'pointer'} style={{ cursor: 'pointer' }} />
+            </div>
+            <div className="flex-col justify-start text-left">
                 <SyntaxHighlighter
                     PreTag="div"
                     children={String(
@@ -45,23 +40,16 @@ const InfoView = ({ method, feed, onExit }) => {
                     language={'javascript'}
                     style={xonokai}
                 />
-            </Flex>
-            <Flex
-                p={2}
-                bgColor={'black'}
-                flexDirection={'row'}
-                width={'100%'}
-                justifyContent={'left'}
-                alignItems={'center'}
+            </div>
+            <div
+                className="flex items-center justify-start"
+                style={{ padding: 8, backgroundColor: 'black', width: '100%' }}
             >
                 {LogoView(method, feed, false)}
-                <Text color={'white'} fontSize="md" fontWeight="bold" ml={2}>
-                    {' '}
-                    {feed}{' '}
-                </Text>
-                <Spacer />
-            </Flex>
-            <Flex flexDirection={'column'} justifyContent={'left'} alignItems={'left'}>
+                <span style={{ color: 'white', fontSize: 16, fontWeight: 'bold', marginLeft: 8 }}> {feed} </span>
+                <div className="spacer" />
+            </div>
+            <div className="flex-col justify-start text-left">
                 <SyntaxHighlighter
                     PreTag="div"
                     children={String(
@@ -70,8 +58,8 @@ const InfoView = ({ method, feed, onExit }) => {
                     language={'javascript'}
                     style={xonokai}
                 />
-            </Flex>
-        </Flex>
+            </div>
+        </div>
     );
 };
 

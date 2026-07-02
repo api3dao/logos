@@ -1,5 +1,4 @@
 import React from 'react';
-import { Flex, Text, Image } from '@chakra-ui/react';
 import { ApiProviderLogo } from '@api3/logos';
 import SearchRow from '../Custom/SearchRow';
 import { useState } from 'react';
@@ -17,55 +16,54 @@ const ApiProvidersView = () => {
     };
 
     return (
-        <Flex p={3} gap={3} bgColor={'white'} wrap={'wrap'} alignItems="center" justifyContent="center">
-            <Flex width={'100%'}>
-                <Text fontSize="md" fontWeight="bold" ml={2}>
+        <div
+            className="flex flex-wrap items-center justify-center"
+            style={{ padding: 12, gap: 12, backgroundColor: 'white' }}
+        >
+            <div className="flex" style={{ width: '100%' }}>
+                <span style={{ fontSize: 16, fontWeight: 'bold', marginLeft: 8 }}>
                     There is a total of {getApiProviders().length} api providers
-                </Text>
-            </Flex>
+                </span>
+            </div>
             <SearchRow text={apiProvider} setText={setApiProvider} placeholder={'Enter a symbol'} />
 
             {getApiProviders().map((provider, index) => {
                 return (
-                    <Flex
-                        p={3}
-                        boxShadow={'md'}
-                        width={'310px'}
-                        height={'80px'}
-                        bgColor={'gray.100'}
+                    <div
+                        className="card"
                         key={index}
-                        alignItems="center"
-                        justifyContent="left"
+                        style={{ padding: 12, width: 310, height: 80 }}
                         onMouseDown={() => setSelectedApiProvider(provider)}
-                        cursor={'pointer'}
                     >
                         {selectedApiProvider !== provider ? (
                             <>
-                                <Image src={ApiProviderLogo(provider)} width={50} height={50} bgColor={'white'} p={2} />
-                                <Image
+                                <img
+                                    src={ApiProviderLogo(provider)}
+                                    width={50}
+                                    height={50}
+                                    style={{ backgroundColor: 'white', padding: 8 }}
+                                    alt={provider}
+                                />
+                                <img
                                     src={ApiProviderLogo(provider, true)}
                                     width={50}
                                     height={50}
-                                    bgColor={'black'}
-                                    p={2}
+                                    style={{ backgroundColor: 'black', padding: 8 }}
+                                    alt={provider}
                                 />
-                                <Text fontSize="md" fontWeight="bold" ml={2}>
-                                    {provider}
-                                </Text>
+                                <span style={{ fontSize: 16, fontWeight: 'bold', marginLeft: 8 }}>{provider}</span>
                             </>
                         ) : (
-                            <>
-                                <InfoView
-                                    method={'ApiProvider'}
-                                    feed={provider}
-                                    onExit={() => setSelectedApiProvider(null)}
-                                />
-                            </>
+                            <InfoView
+                                method={'ApiProvider'}
+                                feed={provider}
+                                onExit={() => setSelectedApiProvider(null)}
+                            />
                         )}
-                    </Flex>
+                    </div>
                 );
             })}
-        </Flex>
+        </div>
     );
 };
 
