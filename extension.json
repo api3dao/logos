@@ -1,5 +1,5 @@
 {
-  "chains": [],
-  "symbols": [],
+  "chains": ["4663", "46630"],
+  "symbols": ["CASHCAT"],
   "api-providers": []
 }
