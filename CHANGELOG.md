@@ -1,5 +1,18 @@
 # @api3/logos
 
+## 1.0.47
+
+### Patch Changes
+
+- 9657afa: Extend symbol logos library for following asset:
+
+    - CASHCAT
+
+- 9657afa: Extend chain logos library for following chains:
+
+    - robinhood
+    - robinhood-sepolia-testnet
+
 ## 1.0.46
 
 ### Patch Changes
