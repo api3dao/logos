@@ -40,25 +40,30 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
-          node-version: 24.15.0
+          node-version: 24.16.0
           cache: 'pnpm'
 
       - name: Install Packages  
         run: pnpm install
 
       - name: Extend extension.json
+        env:
+          INPUT_TYPE: ${{ inputs.type }}
+          INPUT_VALUE: ${{ inputs.value }}
         run: |
-          if [ "${{ inputs.type }}" = "auto-clear" ]; then
+          if [ "$INPUT_TYPE" = "auto-clear" ]; then
             node scripts/extend-json.js auto-clear
           else
-            node scripts/extend-json.js "${{ inputs.type }}" "${{ inputs.value }}"
+            node scripts/extend-json.js "$INPUT_TYPE" "$INPUT_VALUE"
           fi
-          
+
       - name: Commit changes (if any)
+        env:
+          INPUT_TYPE: ${{ inputs.type }}
         run: |
           if [ -n "$(git status --porcelain)" ]; then
             git add extension.json
-            git commit -m "chore: extend ${{ inputs.type }}" --no-verify --signoff
+            git commit -m "chore: extend $INPUT_TYPE" --no-verify --signoff
             git push
           else
             echo "No changes to commit"

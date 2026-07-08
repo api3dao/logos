@@ -1,16 +1,13 @@
 import React from 'react';
-import { Text, Flex, VStack } from '@chakra-ui/react';
 
 // eslint-disable-next-line react/prop-types
-const Title = ({ header, fontWeight = 'light', p = 3 }) => {
+const Title = ({ header, fontWeight = 300, p = 12 }) => {
     return (
-        <VStack p={p} alignItems={'left'} width={'100%'}>
-            <Flex alignItems={'center'} borderBottomWidth={1}>
-                <Text fontWeight={fontWeight} fontSize={'2xl'} textUnderlineOffset={1}>
-                    {header}
-                </Text>
-            </Flex>
-        </VStack>
+        <div className="flex-col text-left" style={{ padding: p, width: '100%' }}>
+            <div className="flex items-center" style={{ borderBottom: '1px solid #000' }}>
+                <span style={{ fontWeight, fontSize: 24 }}>{header}</span>
+            </div>
+        </div>
     );
 };
 
