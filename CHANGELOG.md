@@ -1,5 +1,11 @@
 # @api3/logos
 
+## 1.0.48
+
+### Patch Changes
+
+- fef2ac5: Update robinhood logo
+
 ## 1.0.47
 
 ### Patch Changes
