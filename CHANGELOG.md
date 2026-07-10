@@ -1,5 +1,11 @@
 # @api3/logos
 
+## 1.0.49
+
+### Patch Changes
+
+- b48c51a: CASHCAT logo updated
+
 ## 1.0.48
 
 ### Patch Changes
