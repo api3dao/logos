@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 1.0.50
+
+### Patch Changes
+
+- 7611bb3: Some changes have been made to the `logos`.
+
+    | Logo                                                 | Name | Category |
+    | ---------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/usdg.svg" width="36" alt=""> | usdg | symbol   |
+
 ## 1.0.49
 
 ### Patch Changes
