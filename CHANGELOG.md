@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 1.0.51
+
+### Patch Changes
+
+- 545e801: Some changes have been made to the `logos`.
+
+    | Logo                                                | Name | Category |
+    | --------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/vvv.svg" width="36" alt=""> | vvv  | symbol   |
+
 ## 1.0.50
 
 ### Patch Changes
