@@ -1,8 +1,5 @@
 {
   "chains": [],
-  "symbols": [
-    "USDG",
-    "VVV"
-  ],
+  "symbols": [],
   "api-providers": []
 }
