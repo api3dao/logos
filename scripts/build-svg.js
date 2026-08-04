@@ -85,7 +85,7 @@ async function babelTransform(files, format, imports, batchName, mode) {
         ${imports}
         ${utils.generateFunction(batchName, buildSwitchCase(files, mode), mode)}`,
         {
-            presets: [['@babel/preset-react', { useBuiltIns: true }]]
+            presets: ['@babel/preset-react']
         }
     );
 
