@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 1.0.52
+
+### Patch Changes
+
+- 0345b34: Some changes have been made to the `logos`.
+
+    | Logo                                                | Name | Category |
+    | --------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/npc.svg" width="36" alt=""> | npc  | symbol   |
+
 ## 1.0.51
 
 ### Patch Changes
