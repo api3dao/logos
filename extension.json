@@ -1,10 +1,5 @@
 {
   "chains": [],
-  "symbols": [
-    "DOGE/USD",
-    "ADA/USD",
-    "LTC/USD",
-    "ZEC/USD"
-  ],
+  "symbols": [],
   "api-providers": []
 }
