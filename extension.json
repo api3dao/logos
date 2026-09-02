@@ -1,8 +1,11 @@
 {
   "chains": [],
   "symbols": [
-    "USDG",
-    "VVV"
+    "ZEC",
+    "DOGE",
+    "ADA",
+    "LTC",
+    "NPC"
   ],
   "api-providers": []
 }
