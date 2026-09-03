@@ -1,5 +1,17 @@
 # @api3/logos
 
+## 1.0.54
+
+### Patch Changes
+
+- 536e3d3: Following logos has been updated:
+
+    | Logo                                                 | Name | Category |
+    | ---------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/doge.svg" width="36" alt=""> | doge | symbol   |
+    | <img src="./raw/symbols/ada.svg" width="36" alt="">  | ada  | symbol   |
+    | <img src="./raw/symbols/ltc.svg" width="36" alt="">  | ltc  | symbol   |
+
 ## 1.0.53
 
 ### Patch Changes
