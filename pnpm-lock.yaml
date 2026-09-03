@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 4.36.0
-        version: 4.36.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
+        specifier: 4.37.0
+        version: 4.37.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
       '@babel/core':
         specifier: ^8.0.1
         version: 8.0.1
@@ -51,8 +51,8 @@ importers:
   viewer:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 4.36.0
-        version: 4.36.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
+        specifier: 4.37.0
+        version: 4.37.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
       '@api3/logos':
         specifier: workspace:*
         version: link:..
@@ -92,8 +92,8 @@ packages:
   '@api3/airnode-adapter@0.15.0':
     resolution: {integrity: sha512-F+guPjNtXpYcTzsLMalVAOEWQTyr33jdFlWp/HCZ8kMUzZzGc1QpH65eJbs+gw9dMY7SlA/CGQjgLRad+2VIGA==}
 
-  '@api3/airnode-feed@4.6.0':
-    resolution: {integrity: sha512-9ihrAwYejKZJdyR6vROTJaqiC/dW694XqV0atm1wr5ctZ8N6CikmbGUPoyOD9ssEJzTgfSTAMQM2359opdemJg==}
+  '@api3/airnode-feed@4.7.0':
+    resolution: {integrity: sha512-PuRbr3OZbuDvPU6XPCbC3D8qT0Q2Ok+/kLZ7oKQXOvScWV4Xb67cyMwFehMrTAEMQKlU2XD4AP2EbKofG8ozbw==}
     engines: {node: '>=18.20.8'}
 
   '@api3/airnode-node@0.15.0':
@@ -112,8 +112,8 @@ packages:
     resolution: {integrity: sha512-VS/ZX0q6g8/kfjpKuqblXN8pAjdWG5uRpTSZ8dvgjoTi//+9DVlBan06FCvPkxMBBJjo8/Mf4xG78tRFNr0GDQ==}
     hasBin: true
 
-  '@api3/api-integrations@22.1.0':
-    resolution: {integrity: sha512-bRBlf+QocVlh/3c1qpIgju8tCPqSEmPCOTfy0cuKmLf/wk9JWAdT9sqZglruf7QbmlYS4LnoNowYhKgZVuverQ==}
+  '@api3/api-integrations@22.2.0':
+    resolution: {integrity: sha512-A580n56zos37sdZ395KFMgbDZmzE/xPbh9DXx9FV8EVEmIfQqyWI0f7lZWp6a0Epw1IW4X+ice8jSKwT5MQ8dQ==}
 
   '@api3/chains@8.1.1':
     resolution: {integrity: sha512-2woMgPksMEzH2tU7ZH5tHNHr9qbZDG+bEWcAGcs+A3/GJKNBaTmxVerIyTo4IZA9f6vN91i7fH3UPAq/S8KQDw==}
@@ -128,18 +128,17 @@ packages:
     resolution: {integrity: sha512-2LqiFSa4l+1LwyfJSTpHRrRWBfDCL9xYlcRGO+RlAoRQz9/2Ym55iwuLpsvO2jQt4npNvsEUaOfFIpAohXjJIg==}
     engines: {node: '>=18.20.8'}
 
-  '@api3/contracts@38.3.0':
-    resolution: {integrity: sha512-vscJip1KOh39nSBAPUiyZRKzfknINBkelF+giFhfAxpjZrWS/kgXYQaMMQAG6ZDnI3LXtKfQ2aQdu8mFHlNg+Q==}
+  '@api3/commons@2.0.0':
+    resolution: {integrity: sha512-GsotpgLO6ZKOHdC+8/BPjTqtd+iH8xIcnTJ71/3Y9O4VhSF1ThLuWfomXzCJk9arnEtTOHWZD7zZOk+4UNC0yw==}
+    engines: {node: '>=18.20.8'}
+
+  '@api3/contracts@40.0.0':
+    resolution: {integrity: sha512-biBYyuV0OmofoewApFu+ZPS7ezk49Z7q4rF3NfOq52WgF+H+pBb+P0isJpqss2W01z13BXL8Iz8YoIm4eXan5g==}
     engines: {node: '>=22.18.0'}
     hasBin: true
 
-  '@api3/contracts@39.1.0':
-    resolution: {integrity: sha512-Qod2s5ByCevKY9DeDbQPeQWYknHTBkM+LJ7H7gnvRdl8B/Q9VgaMMeoYSCYD//aJHwuUqc26fJyDA7wgRRXSSQ==}
-    engines: {node: '>=22.18.0'}
-    hasBin: true
-
-  '@api3/dapi-management@4.36.0':
-    resolution: {integrity: sha512-ctX8K6WGNz9iJ2fQppX8RhQu08bLskBszU4Z3harKUaFDpOmY6dcmWP2O2UFNyqbDvkE5LCWQFI8C/70uGqRfQ==}
+  '@api3/dapi-management@4.37.0':
+    resolution: {integrity: sha512-fxlv2Qj7opU/GT3lKxEBXR5+nVJkkUDd6Hl+LHic78lbrVN7zsDfiH7PpAkWd+GsJJ5wgoq3BEoFiDvHFmmnjw==}
 
   '@api3/ois@2.3.2':
     resolution: {integrity: sha512-hYQCbCAtWMGKV+pECRY5tbfCSOcheeo9s6wtrhn1dOWw151VeG0sKG3VbBEsyA6cvSaldewBWY3t/JGaupdThg==}
@@ -150,8 +149,8 @@ packages:
   '@api3/promise-utils@0.4.0':
     resolution: {integrity: sha512-+8fcNjjQeQAuuSXFwu8PMZcYzjwjDiGYcMUfAQ0lpREb1zHonwWZ2N0B9h/g1cvWzg9YhElbeb/SyhCrNm+b/A==}
 
-  '@api3/signed-api@4.6.0':
-    resolution: {integrity: sha512-D25clH7TiN4M+KfqX3+4iOtiDRR2mDgvlAV08MvKQ233R73onPTq4GLqNzdyslLR6xqIMpuRU9fgd/CQUCJgug==}
+  '@api3/signed-api@4.7.0':
+    resolution: {integrity: sha512-UqJ5C4w2UFdmzQFgvE55JEUVqx2g0T6Wh5pHcdZBFp0bx+8kG6D2IwS0CYTbnaolfl1qyMm14Y34bWeqTNgNTw==}
     engines: {node: '>=18.20.8'}
 
   '@aws-sdk/checksums@3.1000.28':
@@ -3894,7 +3893,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@api3/airnode-feed@4.6.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)':
+  '@api3/airnode-feed@4.7.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)':
     dependencies:
       '@api3/airnode-abi': 0.15.0
       '@api3/airnode-adapter': 0.15.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0)
@@ -3902,7 +3901,6 @@ snapshots:
       '@api3/airnode-validator': 0.15.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
       '@api3/commons': 1.3.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0)
       '@api3/ois': 3.0.0
-      '@api3/promise-utils': 0.4.0
       axios: 1.19.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0)
       dotenv: 17.4.2
       ethers: 5.8.0
@@ -4010,12 +4008,12 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@api3/api-integrations@22.1.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)':
+  '@api3/api-integrations@22.2.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)':
     dependencies:
       '@api3/airnode-abi': 0.15.0
-      '@api3/contracts': 38.3.0(typescript@5.9.3)
+      '@api3/contracts': 40.0.0(typescript@5.9.3)
       '@api3/ois': 3.0.0
-      '@api3/signed-api': 4.6.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
+      '@api3/signed-api': 4.7.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
       ethers: 5.8.0
       zod: 4.4.3
     transitivePeerDependencies:
@@ -4096,7 +4094,24 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@api3/contracts@38.3.0(typescript@5.9.3)':
+  '@api3/commons@2.0.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0)':
+    dependencies:
+      '@api3/ois': 3.0.0
+      '@octokit/rest': 20.1.2
+      axios: 1.19.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0)
+      dotenv: 17.4.2
+      ethers: 5.8.0
+      lodash: 4.18.1
+      winston: 3.19.0
+      winston-console-format: 1.0.8
+      zod: 4.4.3
+    transitivePeerDependencies:
+      - bufferutil
+      - debug
+      - supports-color
+      - utf-8-validate
+
+  '@api3/contracts@40.0.0(typescript@5.9.3)':
     dependencies:
       ethers: 6.17.0
       viem: 2.55.18(typescript@5.9.3)(zod@4.4.3)
@@ -4107,22 +4122,11 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@api3/contracts@39.1.0(typescript@5.9.3)':
+  '@api3/dapi-management@4.37.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)':
     dependencies:
-      ethers: 6.17.0
-      viem: 2.55.18(typescript@5.9.3)(zod@4.4.3)
-      yargs: 17.7.3
-      zod: 4.4.3
-    transitivePeerDependencies:
-      - bufferutil
-      - typescript
-      - utf-8-validate
-
-  '@api3/dapi-management@4.36.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)':
-    dependencies:
-      '@api3/api-integrations': 22.1.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
-      '@api3/commons': 1.3.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0)
-      '@api3/contracts': 39.1.0(typescript@5.9.3)
+      '@api3/api-integrations': 22.2.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
+      '@api3/commons': 2.0.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0)
+      '@api3/contracts': 40.0.0(typescript@5.9.3)
       ethers: 6.17.0
       zod: 4.4.3
     transitivePeerDependencies:
@@ -4150,11 +4154,10 @@ snapshots:
 
   '@api3/promise-utils@0.4.0': {}
 
-  '@api3/signed-api@4.6.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)':
+  '@api3/signed-api@4.7.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)':
     dependencies:
-      '@api3/airnode-feed': 4.6.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
+      '@api3/airnode-feed': 4.7.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
       '@api3/commons': 1.3.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0)
-      '@api3/promise-utils': 0.4.0
       '@aws-sdk/client-s3': 3.1113.0
       dotenv: 17.4.2
       ethers: 5.8.0
