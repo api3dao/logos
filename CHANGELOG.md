@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 1.0.53
+
+### Patch Changes
+
+- f392c2d: Some changes have been made to the `logos`.
+
+    | Logo                                                | Name | Category |
+    | --------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/zec.svg" width="36" alt=""> | zec  | symbol   |
+
 ## 1.0.52
 
 ### Patch Changes
