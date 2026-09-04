@@ -1,11 +1,5 @@
 {
   "chains": [],
-  "symbols": [
-    "ZEC",
-    "DOGE",
-    "ADA",
-    "LTC",
-    "NPC"
-  ],
+  "symbols": [],
   "api-providers": []
 }
