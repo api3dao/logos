@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 4.37.0
-        version: 4.37.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
+        specifier: 4.38.0
+        version: 4.38.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
       '@babel/core':
         specifier: ^8.0.1
         version: 8.0.1
@@ -51,8 +51,8 @@ importers:
   viewer:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 4.37.0
-        version: 4.37.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
+        specifier: 4.38.0
+        version: 4.38.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
       '@api3/logos':
         specifier: workspace:*
         version: link:..
@@ -137,8 +137,8 @@ packages:
     engines: {node: '>=22.18.0'}
     hasBin: true
 
-  '@api3/dapi-management@4.37.0':
-    resolution: {integrity: sha512-fxlv2Qj7opU/GT3lKxEBXR5+nVJkkUDd6Hl+LHic78lbrVN7zsDfiH7PpAkWd+GsJJ5wgoq3BEoFiDvHFmmnjw==}
+  '@api3/dapi-management@4.38.0':
+    resolution: {integrity: sha512-hMwj1gLitcRO+nickyipqcE74cEwP/a7ZeLz864an6yLZVvSQjk/Epry1kWp3eph3EUa9IdXV7pSqETC/8u9Pw==}
 
   '@api3/ois@2.3.2':
     resolution: {integrity: sha512-hYQCbCAtWMGKV+pECRY5tbfCSOcheeo9s6wtrhn1dOWw151VeG0sKG3VbBEsyA6cvSaldewBWY3t/JGaupdThg==}
@@ -4122,7 +4122,7 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@api3/dapi-management@4.37.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)':
+  '@api3/dapi-management@4.38.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)':
     dependencies:
       '@api3/api-integrations': 22.2.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
       '@api3/commons': 2.0.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0)
