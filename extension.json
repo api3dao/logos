@@ -1,7 +1,8 @@
 {
   "chains": [],
   "symbols": [
-    "PONS"
+    "PONS",
+    "AI"
   ],
   "api-providers": []
 }
