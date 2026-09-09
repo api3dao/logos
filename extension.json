@@ -1,11 +1,8 @@
 {
   "chains": [],
   "symbols": [
-    "ZEC",
-    "DOGE",
-    "ADA",
-    "LTC",
-    "NPC"
+    "PONS",
+    "AI"
   ],
   "api-providers": []
 }

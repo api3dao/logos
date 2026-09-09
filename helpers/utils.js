@@ -14,6 +14,7 @@ module.exports = {
     renameFiles,
     getManualLogos,
     getSupportedChains,
+    getLogoLabel,
     getApiProviders,
     getSupportedFeeds,
     toPascalCase,
@@ -35,6 +36,28 @@ function getSupportedChains() {
     return getChains()
         .filter((chain) => chain.stage !== 'retired')
         .map((chain) => chain.id);
+}
+
+let chainAliases = null;
+
+function getChainAliases() {
+    if (!chainAliases) {
+        chainAliases = new Map(getChains().map((chain) => [String(chain.id), chain.alias]));
+    }
+    return chainAliases;
+}
+
+// Chain logos are stored by chain id (e.g. 42161.svg, 42161-light.svg), which is unreadable
+// in a changelog. Resolve the id to its alias where we know one, keeping any -light suffix.
+function getLogoLabel(name, mode) {
+    const base = name.replace(/\.svg$/, '');
+    if (mode !== 'chain') return base;
+
+    const parts = base.match(/^(\d+)(-light)?$/);
+    if (!parts) return base;
+
+    const alias = getChainAliases().get(parts[1]);
+    return alias ? `${alias}${parts[2] ?? ''}` : base;
 }
 
 function getSupportList(mode) {
