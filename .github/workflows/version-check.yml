@@ -54,6 +54,9 @@ jobs:
         run: |
           if [[ -n "$(git status --porcelain raw/)" ]]; then
             git add raw/
+            if [[ -f .changeset/changeset.md ]]; then
+              git add .changeset/changeset.md
+            fi
             git commit -m "Fetch updated logos from Dropbox" --no-verify --signoff
             git push -f origin control-branch
             echo "changes_detected=true" >> $GITHUB_ENV
