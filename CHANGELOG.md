@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 1.0.55
+
+### Patch Changes
+
+- 2f1c3f7: Added the following logos:
+
+    | Logo                                                 | Name | Category |
+    | ---------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/pons.svg" width="36" alt=""> | pons | symbol   |
+
 ## 1.0.54
 
 ### Patch Changes
