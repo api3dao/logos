@@ -120,7 +120,7 @@ async function createChangeset() {
 "@api3/logos": patch
 ---
 
-Following logos has been updated:
+Updated the following logos:
 
 |Logo|Name|Category|
 |---|---|---|
@@ -160,7 +160,7 @@ async function downloadLogos(category, file) {
         const path = `./raw/${category}s/${prefix}${file.name}`;
         await fs.appendFile(
             './.changeset/details-update.txt',
-            `|<img src="${path}" width="36" alt="">|${file.name.replace('.svg', '')}|${category}|\n`,
+            `|<img src="${path}" width="36" alt="">|${utils.getLogoLabel(file.name, category)}|${category}|\n`,
             'utf-8'
         );
         console.log(`Downloaded ${file.name}`);
