@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 1.0.56
+
+### Patch Changes
+
+- d6da70d: Added the following logos:
+
+    | Logo                                               | Name | Category |
+    | -------------------------------------------------- | ---- | -------- |
+    | <img src="./raw/symbols/ai.svg" width="36" alt=""> | ai   | symbol   |
+
 ## 1.0.55
 
 ### Patch Changes
