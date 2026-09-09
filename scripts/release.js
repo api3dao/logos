@@ -15,13 +15,17 @@ async function getDetails() {
 
 async function createChangeset() {
     const details = await getDetails();
+    if (!details.trim()) {
+        console.log('❌ No logos to release.');
+        return;
+    }
 
     const changeset =
         `---
 "@api3/logos": patch
 ---
 
-Some changes have been made to the \`logos\`.
+Added the following logos:
 
 |Logo|Name|Category|
 |---|---|---|
@@ -33,7 +37,7 @@ Some changes have been made to the \`logos\`.
 
 async function checkChangeset() {
     const changeset = await getChangeset();
-    if (changeset.some((file) => file.match(/changeset.md$/))) {
+    if (changeset.some((file) => file.endsWith('.md') && file !== 'README.md')) {
         console.log('There is already a .md file in the .changeset directory.');
     } else {
         await createChangeset();
