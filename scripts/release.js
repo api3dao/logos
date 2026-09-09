@@ -15,6 +15,10 @@ async function getDetails() {
 
 async function createChangeset() {
     const details = await getDetails();
+    if (!details.trim()) {
+        console.log('❌ No logos to release.');
+        return;
+    }
 
     const changeset =
         `---
