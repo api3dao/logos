@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 4.39.0
-        version: 4.39.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
+        specifier: 4.40.0
+        version: 4.40.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
       '@babel/core':
         specifier: ^8.0.1
         version: 8.0.1
@@ -51,8 +51,8 @@ importers:
   viewer:
     devDependencies:
       '@api3/dapi-management':
-        specifier: 4.39.0
-        version: 4.39.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
+        specifier: 4.40.0
+        version: 4.40.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
       '@api3/logos':
         specifier: workspace:*
         version: link:..
@@ -137,8 +137,13 @@ packages:
     engines: {node: '>=22.18.0'}
     hasBin: true
 
-  '@api3/dapi-management@4.39.0':
-    resolution: {integrity: sha512-/q5FMnjD76rOZiYKLCanirBl1f8NtV99AD5bhpGN/AwmISG7y2jIuSuz7IXLc4i4+i3NipH7pJ0nWIwsRzvS8Q==}
+  '@api3/contracts@41.0.1':
+    resolution: {integrity: sha512-e1vxVFkU6hzqwk0lavzMKjwWo3WgMoHsSfqToCvZGNrnPenQNorhZsfBAhWTSOWRqoEyD/Dm+RnTr8g2TcCnSg==}
+    engines: {node: '>=22.18.0'}
+    hasBin: true
+
+  '@api3/dapi-management@4.40.0':
+    resolution: {integrity: sha512-KZ5ZxDGWko+lSew/+NJ933tVkMmfs0YogbrdKOKbLHwqJ4MyZl7jF+uY160hxotoIl+NbJsFB5MeN8ZOtDzb7w==}
 
   '@api3/ois@2.3.2':
     resolution: {integrity: sha512-hYQCbCAtWMGKV+pECRY5tbfCSOcheeo9s6wtrhn1dOWw151VeG0sKG3VbBEsyA6cvSaldewBWY3t/JGaupdThg==}
@@ -4122,11 +4127,22 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@api3/dapi-management@4.39.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)':
+  '@api3/contracts@41.0.1(typescript@5.9.3)':
+    dependencies:
+      ethers: 6.17.0
+      viem: 2.55.18(typescript@5.9.3)(zod@4.4.3)
+      yargs: 17.7.3
+      zod: 4.4.3
+    transitivePeerDependencies:
+      - bufferutil
+      - typescript
+      - utf-8-validate
+
+  '@api3/dapi-management@4.40.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)':
     dependencies:
       '@api3/api-integrations': 22.4.0(debug@4.4.3(supports-color@7.2.0))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
       '@api3/commons': 2.0.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0)
-      '@api3/contracts': 40.0.0(typescript@5.9.3)
+      '@api3/contracts': 41.0.1(typescript@5.9.3)
       ethers: 6.17.0
       zod: 4.4.3
     transitivePeerDependencies:
