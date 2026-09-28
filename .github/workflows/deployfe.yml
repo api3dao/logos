@@ -23,6 +23,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
   pages: write
   id-token: write
 
@@ -74,7 +75,6 @@ jobs:
           if [[ -n "$(git status --porcelain)" ]]; then
             git add .
             git commit -m "Updated dapi-management to latest version" --no-verify --signoff
-            git push
             echo "changes_detected=true" >> $GITHUB_ENV
           fi
 
@@ -91,7 +91,6 @@ jobs:
           if [[ -n "$(git status --porcelain)" ]]; then
             git add .
             git commit -m "Fetch Logos from Dropbox" --no-verify --signoff
-            git push
             echo "changes_detected=true" >> $GITHUB_ENV
           fi
           
@@ -106,7 +105,6 @@ jobs:
           if [ -n "$(git status --porcelain)" ]; then
             git add extension.json
             git commit -m "chore: update extension.json" --no-verify --signoff
-            git push
           else
             echo "No changes to commit"
           fi
@@ -124,8 +122,24 @@ jobs:
           if [[ -n "$(git status --porcelain)" ]]; then
             git add .
             git commit -m "Added changeset" --no-verify --signoff
-            git push
           fi
+
+      - name: Open and merge PR with new commits
+        if: github.event_name != 'pull_request'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BASE: ${{ github.ref_name }}
+        run: |
+          if [ "$(git rev-list --count "origin/$BASE..HEAD")" -eq 0 ]; then
+            echo "No new commits"
+            exit 0
+          fi
+          branch="bot/deployfe-${{ github.run_id }}-${{ github.run_attempt }}"
+          git push origin "HEAD:refs/heads/$branch"
+          pr_url=$(gh pr create -B "$BASE" -H "$branch" \
+            --title 'Automated logo and package updates' \
+            --body "Opened by [workflow run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}).")
+          gh pr merge "$pr_url" --merge --delete-branch
 
       - name: Install Frontend Packages
         if: github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
