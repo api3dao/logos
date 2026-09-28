@@ -20,6 +20,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   extend:
@@ -57,14 +58,21 @@ jobs:
             node scripts/extend-json.js "$INPUT_TYPE" "$INPUT_VALUE"
           fi
 
-      - name: Commit changes (if any)
+      - name: Commit changes and open PR (if any)
         env:
           INPUT_TYPE: ${{ inputs.type }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BASE: ${{ github.ref_name }}
         run: |
           if [ -n "$(git status --porcelain)" ]; then
             git add extension.json
             git commit -m "chore: extend $INPUT_TYPE" --no-verify --signoff
-            git push
+            branch="bot/extender-${{ github.run_id }}-${{ github.run_attempt }}"
+            git push origin "HEAD:refs/heads/$branch"
+            pr_url=$(gh pr create -B "$BASE" -H "$branch" \
+              --title "chore: extend $INPUT_TYPE" \
+              --body "Opened by [workflow run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}).")
+            gh pr merge "$pr_url" --merge --delete-branch
           else
             echo "No changes to commit"
           fi
