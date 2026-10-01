@@ -46,7 +46,7 @@ jobs:
 
       - name: Create Release
         id: changesets
-        uses: changesets/action@v1
+        uses: changesets/action@v2.1.1
         with:
           publish: pnpm run release
           commit: 'ci: release logos v${{ env.NEW_VERSION }}'
