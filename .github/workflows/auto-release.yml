@@ -96,11 +96,9 @@ jobs:
         id: changesets
         uses: changesets/action@v2.1.2
         with:
-          publish: pnpm run release
-          commit: "ci: release logos package"
-          title: "ci: release logos package"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          publish-script: pnpm run release
+          commit-message: "ci: release logos package"
+          pr-title: "ci: release logos package"
 
       - name: Create synchronization PR
         if: steps.check_files.outputs.files_exists == 'true'
