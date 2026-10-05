@@ -94,7 +94,7 @@ jobs:
       - name: Create Release
         if: steps.check_files.outputs.files_exists == 'true'
         id: changesets
-        uses: changesets/action@v2.1.1
+        uses: changesets/action@v2.1.2
         with:
           publish: pnpm run release
           commit: "ci: release logos package"
