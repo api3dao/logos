@@ -42,7 +42,7 @@ const ChainsView = () => {
         <div>
             <div className="page-header">
                 <h1 className="page-title">Chains</h1>
-                <p className="page-subtitle">Logos for the mainnet and testnet chains supported by Api3.</p>
+                <p className="page-subtitle">Logos for the mainnet and testnet chains supported by API3.</p>
                 <span className="stat-pill">
                     {getSupportedChains(false).length} mainnets · {getSupportedChains(true).length} testnets
                 </span>

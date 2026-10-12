@@ -20,7 +20,7 @@ const ApiProvidersView = () => {
         <div>
             <div className="page-header">
                 <h1 className="page-title">API Providers</h1>
-                <p className="page-subtitle">Logos for the API providers that power Api3 data feeds.</p>
+                <p className="page-subtitle">Logos for the API providers that power API3 data feeds.</p>
                 <span className="stat-pill">{getApiProviders().length} api providers</span>
             </div>
 
