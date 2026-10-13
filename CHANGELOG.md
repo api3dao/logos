@@ -1,5 +1,11 @@
 # @api3/logos
 
+## 1.0.57
+
+### Patch Changes
+
+- c22f75e: Use "API3" naming in LICENSE
+
 ## 1.0.56
 
 ### Patch Changes
