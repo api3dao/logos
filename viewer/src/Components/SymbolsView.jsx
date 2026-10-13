@@ -20,7 +20,7 @@ const SymbolsView = () => {
         <div>
             <div className="page-header">
                 <h1 className="page-title">Symbols</h1>
-                <p className="page-subtitle">Logos for the price feed symbols supported by Api3.</p>
+                <p className="page-subtitle">Logos for the price feed symbols supported by API3.</p>
                 <span className="stat-pill">{getSymbols().length} symbols</span>
             </div>
 

@@ -43,7 +43,7 @@ const Home = () => {
     return (
         <div>
             <div className="page-header">
-                <h1 className="page-title">Api3 Logos Viewer</h1>
+                <h1 className="page-title">API3 Logos Viewer</h1>
                 <p className="page-subtitle">
                     Browse the symbol, chain and API provider logos available in the @api3/logos package.
                 </p>
