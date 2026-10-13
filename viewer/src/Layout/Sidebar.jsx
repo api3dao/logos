@@ -39,8 +39,8 @@ const Sidebar = () => {
                 <div className="mobile-menu-button" onClick={() => setIsOpen(true)}>
                     <TbMenu2 size={20} />
                 </div>
-                <img src={SymbolLogo('API3')} width={24} height={24} alt="Api3" />
-                <span className="sidebar-brand-title">Api3 Logos</span>
+                <img src={SymbolLogo('API3')} width={24} height={24} alt="API3" />
+                <span className="sidebar-brand-title">API3 Logos</span>
             </div>
 
             <div className={`sidebar-backdrop${isOpen ? ' open' : ''}`} onClick={() => setIsOpen(false)} />
@@ -48,9 +48,9 @@ const Sidebar = () => {
             <div className={`sidebar${isOpen ? ' open' : ''}`}>
                 <div className="flex items-center justify-between">
                     <NavLink to="/" className="sidebar-brand" onClick={() => setIsOpen(false)}>
-                        <img src={SymbolLogo('API3')} width={30} height={30} alt="Api3" />
+                        <img src={SymbolLogo('API3')} width={30} height={30} alt="API3" />
                         <div className="flex-col">
-                            <span className="sidebar-brand-title">Api3 Logos</span>
+                            <span className="sidebar-brand-title">API3 Logos</span>
                             <span className="sidebar-brand-subtitle">Viewer</span>
                         </div>
                     </NavLink>
