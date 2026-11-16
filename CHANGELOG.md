@@ -1,5 +1,15 @@
 # @api3/logos
 
+## 1.0.58
+
+### Patch Changes
+
+- 3497db4: Added the following logos:
+  
+  |Logo|Name|Category|
+  |---|---|---|
+  |<img src="./raw/symbols/ttwo.svg" width="36" alt="">|ttwo|symbol|
+
 ## 1.0.57
 
 ### Patch Changes
