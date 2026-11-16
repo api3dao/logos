@@ -14,3 +14,5 @@ minimumReleaseAgeExclude:
   - '@api3/*'
   # Renovate security update: svgo@4.0.2 || 4.1.0
   - svgo@4.0.2 || 4.1.0
+  # Renovate security update: vite@8.3.3
+  - vite@8.3.3
